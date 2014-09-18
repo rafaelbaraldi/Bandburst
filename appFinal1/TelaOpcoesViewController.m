@@ -29,8 +29,13 @@
     
     [[self navigationItem] setTitle:@"Opções"];
     
+    _fbpv = [[FBProfilePictureView alloc] initWithFrame:CGRectMake(150, 200, 100, 100)];
+    [self.view addSubview:self.fbpv];
+    
     FBLoginView* loginView = [[FBLoginView alloc] initWithReadPermissions:@[@"public_profile", @"email", @"user_friends"]];
     CGRect frame = loginView.frame;
+    
+    loginView.delegate = self;
     frame.origin.y = 400;
     loginView.frame = frame;
     //    loginView.frame = CGRectOffset(loginView.frame, (self.view.center.x - (loginView.frame.size.width / 2)), 150);
@@ -43,6 +48,10 @@
 
 - (IBAction)btnAlterarFoto:(id)sender {
     [[self navigationController] pushViewController:[[LocalStore sharedStore] TelaCadastroFoto] animated:YES];
+}
+
+-(void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user{
+    [self.fbpv setProfileID:[user id]];
 }
 
 - (IBAction)btnEcontrarAmigos:(id)sender {
