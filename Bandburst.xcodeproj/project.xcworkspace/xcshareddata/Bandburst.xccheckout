@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>F176A4EB-7577-45E6-B2F8-02D19C62F256</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Bandburst</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>04B637FC-1554-48DE-8D6D-0BD94F49A49B</key>
+		<string>https://github.com/rafaelcardososilva/Bandburst.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Bandburst.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>04B637FC-1554-48DE-8D6D-0BD94F49A49B</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/rafaelcardososilva/Bandburst.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>04B637FC-1554-48DE-8D6D-0BD94F49A49B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>04B637FC-1554-48DE-8D6D-0BD94F49A49B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Bandburst</string>
+		</dict>
+	</array>
+</dict>
+</plist>
