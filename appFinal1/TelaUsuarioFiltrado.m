@@ -14,6 +14,8 @@
 //#import "ImgStore.h"
 #import "LocalStore.h"
 
+#import "TelaChatViewController.h"
+
 #import "UIImageView+WebCache.h"
 
 @interface TelaUsuarioFiltrado ()
@@ -268,6 +270,13 @@
         [BuscaConexao seguirAmigo:_pessoa.identificador acao:@"inserir"];
         [self carregaBotaoSeguirAmigo];
     }
+}
+
+- (IBAction)btnChatClick:(id)sender {
+    TelaChatViewController *telaVC = [[TelaChatViewController alloc] initWithUsuario:_pessoa];
+    
+    
+    [[self navigationController] pushViewController:telaVC animated:YES];
 }
 
 -(void)botaoSeguirAmigo{

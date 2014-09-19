@@ -78,7 +78,19 @@
 		316AAA10199EA49B001CE96B /* bgNavigation.png in Resources */ = {isa = PBXBuildFile; fileRef = 316AAA0F199EA49B001CE96B /* bgNavigation.png */; };
 		31A0043F1993F0CA00121EF6 /* TelaBandaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A0043D1993F0CA00121EF6 /* TelaBandaViewController.m */; };
 		31A004401993F0CA00121EF6 /* TelaBandaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31A0043E1993F0CA00121EF6 /* TelaBandaViewController.xib */; };
+		31A98F3019CCB4DD00A9B41C /* MessageEntryBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 31A98F2819CCB4DD00A9B41C /* MessageEntryBackground.png */; };
+		31A98F3119CCB4DD00A9B41C /* MessageEntryBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 31A98F2919CCB4DD00A9B41C /* MessageEntryBackground@2x.png */; };
+		31A98F3219CCB4DD00A9B41C /* MessageEntryInputField.png in Resources */ = {isa = PBXBuildFile; fileRef = 31A98F2A19CCB4DD00A9B41C /* MessageEntryInputField.png */; };
+		31A98F3319CCB4DD00A9B41C /* MessageEntryInputField@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 31A98F2B19CCB4DD00A9B41C /* MessageEntryInputField@2x.png */; };
+		31A98F3419CCB4DD00A9B41C /* MessageEntrySendButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 31A98F2C19CCB4DD00A9B41C /* MessageEntrySendButton.png */; };
+		31A98F3519CCB4DD00A9B41C /* MessageEntrySendButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 31A98F2D19CCB4DD00A9B41C /* MessageEntrySendButton@2x.png */; };
+		31A98F3619CCB4DD00A9B41C /* MessageEntrySendButtonPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 31A98F2E19CCB4DD00A9B41C /* MessageEntrySendButtonPressed.png */; };
+		31A98F3719CCB4DD00A9B41C /* MessageEntrySendButtonPressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 31A98F2F19CCB4DD00A9B41C /* MessageEntrySendButtonPressed@2x.png */; };
 		31C31744194783B700C99512 /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 31C31743194783B700C99512 /* delete.png */; };
+		31CEC40619CCA66C006349C3 /* TelaChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31CEC40419CCA66C006349C3 /* TelaChatViewController.m */; };
+		31CEC40719CCA66C006349C3 /* TelaChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31CEC40519CCA66C006349C3 /* TelaChatViewController.xib */; };
+		31CEC40D19CCAB7F006349C3 /* HPTextViewInternal.m in Sources */ = {isa = PBXBuildFile; fileRef = 31CEC40A19CCAB7F006349C3 /* HPTextViewInternal.m */; };
+		31CEC40E19CCAB7F006349C3 /* HPGrowingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31CEC40C19CCAB7F006349C3 /* HPGrowingTextView.m */; };
 		31F1F8AF199E82380000B61F /* som.png in Resources */ = {isa = PBXBuildFile; fileRef = 31F1F8AE199E82380000B61F /* som.png */; };
 		31F67C75193515CC00113DA8 /* escrever.png in Resources */ = {isa = PBXBuildFile; fileRef = 31F67C74193515CC00113DA8 /* escrever.png */; };
 		31F67C79193523D400113DA8 /* TelaUsuarioFiltrado.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F67C77193523D400113DA8 /* TelaUsuarioFiltrado.m */; };
@@ -252,7 +264,22 @@
 		31A0043C1993F0CA00121EF6 /* TelaBandaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TelaBandaViewController.h; sourceTree = "<group>"; };
 		31A0043D1993F0CA00121EF6 /* TelaBandaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TelaBandaViewController.m; sourceTree = "<group>"; };
 		31A0043E1993F0CA00121EF6 /* TelaBandaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TelaBandaViewController.xib; sourceTree = "<group>"; };
+		31A98F2819CCB4DD00A9B41C /* MessageEntryBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MessageEntryBackground.png; sourceTree = "<group>"; };
+		31A98F2919CCB4DD00A9B41C /* MessageEntryBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MessageEntryBackground@2x.png"; sourceTree = "<group>"; };
+		31A98F2A19CCB4DD00A9B41C /* MessageEntryInputField.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MessageEntryInputField.png; sourceTree = "<group>"; };
+		31A98F2B19CCB4DD00A9B41C /* MessageEntryInputField@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MessageEntryInputField@2x.png"; sourceTree = "<group>"; };
+		31A98F2C19CCB4DD00A9B41C /* MessageEntrySendButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MessageEntrySendButton.png; sourceTree = "<group>"; };
+		31A98F2D19CCB4DD00A9B41C /* MessageEntrySendButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MessageEntrySendButton@2x.png"; sourceTree = "<group>"; };
+		31A98F2E19CCB4DD00A9B41C /* MessageEntrySendButtonPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MessageEntrySendButtonPressed.png; sourceTree = "<group>"; };
+		31A98F2F19CCB4DD00A9B41C /* MessageEntrySendButtonPressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MessageEntrySendButtonPressed@2x.png"; sourceTree = "<group>"; };
 		31C31743194783B700C99512 /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
+		31CEC40319CCA66C006349C3 /* TelaChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TelaChatViewController.h; sourceTree = "<group>"; };
+		31CEC40419CCA66C006349C3 /* TelaChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TelaChatViewController.m; sourceTree = "<group>"; };
+		31CEC40519CCA66C006349C3 /* TelaChatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TelaChatViewController.xib; sourceTree = "<group>"; };
+		31CEC40A19CCAB7F006349C3 /* HPTextViewInternal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPTextViewInternal.m; sourceTree = "<group>"; };
+		31CEC40B19CCAB7F006349C3 /* HPTextViewInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPTextViewInternal.h; sourceTree = "<group>"; };
+		31CEC40C19CCAB7F006349C3 /* HPGrowingTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPGrowingTextView.m; sourceTree = "<group>"; };
+		31CEC40F19CCAB86006349C3 /* HPGrowingTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPGrowingTextView.h; sourceTree = "<group>"; };
 		31F1F8AE199E82380000B61F /* som.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = som.png; sourceTree = "<group>"; };
 		31F67C74193515CC00113DA8 /* escrever.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = escrever.png; sourceTree = "<group>"; };
 		31F67C76193523D400113DA8 /* TelaUsuarioFiltrado.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TelaUsuarioFiltrado.h; sourceTree = "<group>"; };
@@ -596,6 +623,7 @@
 				737D09E41975C5B1000975F6 /* Inicio */,
 				1BE8E3F4192539B900D108C0 /* Cadastro */,
 				73EC6E8D196B11C40034CB9B /* Login */,
+				31CEC40819CCA688006349C3 /* Chat */,
 				1B82766A192BDA0100E461AD /* Busca */,
 				2FB3B33E197459E70054B7F7 /* Gravacao */,
 				73EC6E9C196B3B710034CB9B /* Perfil */,
@@ -745,6 +773,44 @@
 				316AAA0F199EA49B001CE96B /* bgNavigation.png */,
 			);
 			name = "Imagens Layout";
+			sourceTree = "<group>";
+		};
+		31A98F3819CCB60900A9B41C /* imagens */ = {
+			isa = PBXGroup;
+			children = (
+				31A98F2819CCB4DD00A9B41C /* MessageEntryBackground.png */,
+				31A98F2919CCB4DD00A9B41C /* MessageEntryBackground@2x.png */,
+				31A98F2A19CCB4DD00A9B41C /* MessageEntryInputField.png */,
+				31A98F2B19CCB4DD00A9B41C /* MessageEntryInputField@2x.png */,
+				31A98F2C19CCB4DD00A9B41C /* MessageEntrySendButton.png */,
+				31A98F2D19CCB4DD00A9B41C /* MessageEntrySendButton@2x.png */,
+				31A98F2E19CCB4DD00A9B41C /* MessageEntrySendButtonPressed.png */,
+				31A98F2F19CCB4DD00A9B41C /* MessageEntrySendButtonPressed@2x.png */,
+			);
+			name = imagens;
+			sourceTree = "<group>";
+		};
+		31CEC40819CCA688006349C3 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				31CEC40919CCAB6A006349C3 /* HPGrowingTextView */,
+				31CEC40319CCA66C006349C3 /* TelaChatViewController.h */,
+				31CEC40419CCA66C006349C3 /* TelaChatViewController.m */,
+				31CEC40519CCA66C006349C3 /* TelaChatViewController.xib */,
+			);
+			name = Chat;
+			sourceTree = "<group>";
+		};
+		31CEC40919CCAB6A006349C3 /* HPGrowingTextView */ = {
+			isa = PBXGroup;
+			children = (
+				31CEC40B19CCAB7F006349C3 /* HPTextViewInternal.h */,
+				31CEC40A19CCAB7F006349C3 /* HPTextViewInternal.m */,
+				31CEC40F19CCAB86006349C3 /* HPGrowingTextView.h */,
+				31CEC40C19CCAB7F006349C3 /* HPGrowingTextView.m */,
+				31A98F3819CCB60900A9B41C /* imagens */,
+			);
+			name = HPGrowingTextView;
 			sourceTree = "<group>";
 		};
 		31E1ED0719CA0A6900552DBE /* fontes */ = {
@@ -1060,6 +1126,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31A98F3319CCB4DD00A9B41C /* MessageEntryInputField@2x.png in Resources */,
 				73EC6EA1196B3BB90034CB9B /* TelaPerfilViewController.xib in Resources */,
 				731B555D198817040092D608 /* perfil.png in Resources */,
 				1B06F7A7199414C700A6338C /* TelaInfosBandaViewController.xib in Resources */,
@@ -1068,6 +1135,7 @@
 				73EC6E93196B121B0034CB9B /* TelaLoginViewController.xib in Resources */,
 				1BEA459E1992C7A100876D75 /* 14.png in Resources */,
 				1B5239601995537800D2A640 /* TelaMusicasViewController.xib in Resources */,
+				31A98F3519CCB4DD00A9B41C /* MessageEntrySendButton@2x.png in Resources */,
 				1BEA45A11992C7A100876D75 /* 16.png in Resources */,
 				1BEA45A51992C7A100876D75 /* 7.png in Resources */,
 				1BEA45961992C7A100876D75 /* 9.png in Resources */,
@@ -1086,7 +1154,9 @@
 				1BF141F119A536B800E5C9CE /* logo.jpg in Resources */,
 				1BEA45951992C7A100876D75 /* 8.png in Resources */,
 				31FB8CDB19CA25BF00ECEBDF /* WalkwayBold.otf in Resources */,
+				31A98F3719CCB4DD00A9B41C /* MessageEntrySendButtonPressed@2x.png in Resources */,
 				31A004401993F0CA00121EF6 /* TelaBandaViewController.xib in Resources */,
+				31A98F3119CCB4DD00A9B41C /* MessageEntryBackground@2x.png in Resources */,
 				1BEA45971992C7A100876D75 /* 10.png in Resources */,
 				316AAA0A199E9D89001CE96B /* bg.png in Resources */,
 				1BEA45981992C7A100876D75 /* 11.png in Resources */,
@@ -1100,10 +1170,12 @@
 				73F6F70E19A633960003B408 /* selecionado.png in Resources */,
 				1BEA45A31992C7A100876D75 /* 15.png in Resources */,
 				73029BA719819A4200BFB4B3 /* TBFiltroHorario.xib in Resources */,
+				31A98F3419CCB4DD00A9B41C /* MessageEntrySendButton.png in Resources */,
 				737F34A619785C3F00AAF796 /* TelaCadastroFotoViewController.xib in Resources */,
 				1BEA459B1992C7A100876D75 /* 1.png in Resources */,
 				1BE8E3D1192533AD00D108C0 /* Images.xcassets in Resources */,
 				1BEA459F1992C7A100876D75 /* 3.png in Resources */,
+				31A98F3019CCB4DD00A9B41C /* MessageEntryBackground.png in Resources */,
 				316AAA10199EA49B001CE96B /* bgNavigation.png in Resources */,
 				31F1F8AF199E82380000B61F /* som.png in Resources */,
 				1B1613081992A2A1009D5513 /* TelaNovaBandaViewController.xib in Resources */,
@@ -1112,11 +1184,14 @@
 				1BF141F319A5389800E5C9CE /* logo.png in Resources */,
 				1B1613111992A6E2009D5513 /* TelaAmigosViewController.xib in Resources */,
 				31C31744194783B700C99512 /* delete.png in Resources */,
+				31A98F3619CCB4DD00A9B41C /* MessageEntrySendButtonPressed.png in Resources */,
+				31A98F3219CCB4DD00A9B41C /* MessageEntryInputField.png in Resources */,
 				73DF446D197053EB000EE360 /* TelaEsqueciSenhaViewController.xib in Resources */,
 				1BEA459A1992C7A100876D75 /* 0.png in Resources */,
 				1BEA459C1992C7A100876D75 /* 13.png in Resources */,
 				739DA1E5198C0E7D005053DB /* TelaOpcoesViewController.xib in Resources */,
 				2FB3B34419745A0B0054B7F7 /* CoreAudioViewController.xib in Resources */,
+				31CEC40719CCA66C006349C3 /* TelaChatViewController.xib in Resources */,
 				1B827670192BDB3500E461AD /* TelaBuscaViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1142,6 +1217,7 @@
 				736BF95419A8C24B0010C356 /* SDWebImagePrefetcher.m in Sources */,
 				1BD384561926A5CB0044A2E4 /* CadastroStore.m in Sources */,
 				736BF95819A8C24B0010C356 /* UIImage+WebP.m in Sources */,
+				31CEC40D19CCAB7F006349C3 /* HPTextViewInternal.m in Sources */,
 				1B1613101992A6E2009D5513 /* TelaAmigosViewController.m in Sources */,
 				736BF94C19A8C24B0010C356 /* MKAnnotationView+WebCache.m in Sources */,
 				1BE8E3FC192544E900D108C0 /* LocalStore.m in Sources */,
@@ -1162,6 +1238,7 @@
 				31F83E1C192E85050070D597 /* TBFiltroInstrumento.m in Sources */,
 				73EC6E9B196B32FE0034CB9B /* LoginStore.m in Sources */,
 				73C16CE119A76F3C00B30E50 /* LayoutCustom.m in Sources */,
+				31CEC40E19CCAB7F006349C3 /* HPGrowingTextView.m in Sources */,
 				736BF94D19A8C24B0010C356 /* NSData+ImageContentType.m in Sources */,
 				736BF95919A8C24B0010C356 /* UIImageView+HighlightedWebCache.m in Sources */,
 				737D09E81975C5D1000975F6 /* TelaInicioViewController.m in Sources */,
@@ -1169,6 +1246,7 @@
 				31F83E14192E84C70070D597 /* TBFiltroEstilo.m in Sources */,
 				736BF95A19A8C24B0010C356 /* UIImageView+WebCache.m in Sources */,
 				73E0B14219893EFC00107711 /* TPHorario.m in Sources */,
+				31CEC40619CCA66C006349C3 /* TelaChatViewController.m in Sources */,
 				31A0043F1993F0CA00121EF6 /* TelaBandaViewController.m in Sources */,
 				73A3073319746B60005551D3 /* TBInstrumentosQueTocaViewController.m in Sources */,
 				1B1666291935084000E2FB47 /* TPUsuario.m in Sources */,

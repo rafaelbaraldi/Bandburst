@@ -115,6 +115,16 @@
                             <color key="textColor" red="0.97254908080000002" green="0.058823533359999999" blue="0.23921570180000001" alpha="1" colorSpace="deviceRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="AlJ-JU-9lY">
+                            <rect key="frame" x="261" y="115" width="33" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Chat">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="btnChatClick:" destination="-1" eventType="touchUpInside" id="YBL-0o-EFO"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" red="0.1411764771" green="0.66666668650000005" blue="0.96862751250000001" alpha="1" colorSpace="deviceRGB"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

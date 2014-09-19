@@ -29,6 +29,7 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 - (IBAction)btnSeguirClick:(id)sender;
+- (IBAction)btnChatClick:(id)sender;
 
 
 -(id)initWithIdentificador:(NSString*)idUsuario;
