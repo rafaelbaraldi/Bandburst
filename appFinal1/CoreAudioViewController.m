@@ -31,7 +31,7 @@
     
     //Imagem do tab bar selecionada
     [_tabBar setSelectedItem:_gravarItem];
-    [_tabBar setTintColor:[[LocalStore sharedStore] CORFONTE]];
+    [_tabBar setTintColor:[[LocalStore sharedStore] FONTECOR]];
 }
 
 - (void)didReceiveMemoryWarning{

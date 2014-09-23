@@ -35,7 +35,7 @@
     
     //bg
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.png"]]];
-    [[[self navigationController] navigationBar] setTintColor:[[LocalStore sharedStore] CORFONTE]];
+    [[[self navigationController] navigationBar] setTintColor:[[LocalStore sharedStore] FONTECOR]];
     [self arredondaBordaBotoes];
     [_txtSenha setSecureTextEntry:YES];
 

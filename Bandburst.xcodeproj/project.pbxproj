@@ -131,6 +131,7 @@
 		73A307381974844A005551D3 /* CadastroConexao.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A307371974844A005551D3 /* CadastroConexao.m */; };
 		73C16CE119A76F3C00B30E50 /* LayoutCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C16CE019A76F3C00B30E50 /* LayoutCustom.m */; };
 		73C8496A196F11BD003D9371 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73C84969196F11BD003D9371 /* Security.framework */; };
+		73CFD61C19D2081800D9392E /* Quicksand_Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = 73CFD61B19D2081800D9392E /* Quicksand_Book.otf */; };
 		73DF446C197053EB000EE360 /* TelaEsqueciSenhaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DF446A197053EB000EE360 /* TelaEsqueciSenhaViewController.m */; };
 		73DF446D197053EB000EE360 /* TelaEsqueciSenhaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73DF446B197053EB000EE360 /* TelaEsqueciSenhaViewController.xib */; };
 		73E0B14219893EFC00107711 /* TPHorario.m in Sources */ = {isa = PBXBuildFile; fileRef = 73E0B14119893EFC00107711 /* TPHorario.m */; };
@@ -338,6 +339,7 @@
 		73C16CDF19A76F3C00B30E50 /* LayoutCustom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayoutCustom.h; sourceTree = "<group>"; };
 		73C16CE019A76F3C00B30E50 /* LayoutCustom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LayoutCustom.m; sourceTree = "<group>"; };
 		73C84969196F11BD003D9371 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		73CFD61B19D2081800D9392E /* Quicksand_Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Quicksand_Book.otf; sourceTree = "<group>"; };
 		73DF4469197053EB000EE360 /* TelaEsqueciSenhaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TelaEsqueciSenhaViewController.h; sourceTree = "<group>"; };
 		73DF446A197053EB000EE360 /* TelaEsqueciSenhaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TelaEsqueciSenhaViewController.m; sourceTree = "<group>"; };
 		73DF446B197053EB000EE360 /* TelaEsqueciSenhaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TelaEsqueciSenhaViewController.xib; sourceTree = "<group>"; };
@@ -750,6 +752,7 @@
 		31E1ED0719CA0A6900552DBE /* fontes */ = {
 			isa = PBXGroup;
 			children = (
+				73CFD61B19D2081800D9392E /* Quicksand_Book.otf */,
 				31FB8CDA19CA25BF00ECEBDF /* WalkwayBold.otf */,
 			);
 			name = fontes;
@@ -1104,6 +1107,7 @@
 				1BEA459B1992C7A100876D75 /* 1.png in Resources */,
 				1BE8E3D1192533AD00D108C0 /* Images.xcassets in Resources */,
 				1BEA459F1992C7A100876D75 /* 3.png in Resources */,
+				73CFD61C19D2081800D9392E /* Quicksand_Book.otf in Resources */,
 				316AAA10199EA49B001CE96B /* bgNavigation.png in Resources */,
 				31F1F8AF199E82380000B61F /* som.png in Resources */,
 				1B1613081992A2A1009D5513 /* TelaNovaBandaViewController.xib in Resources */,

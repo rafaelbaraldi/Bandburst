@@ -45,7 +45,7 @@
     [self carregaUsuarioFiltrado];
     
     //Back red
-    [[[self navigationController] navigationBar] setTintColor:[[LocalStore sharedStore] CORFONTE]];
+    [[[self navigationController] navigationBar] setTintColor:[[LocalStore sharedStore] FONTECOR]];
     
     //Carrega opcoes Scrool View
     [self carregaOpcoesScrool];
@@ -160,7 +160,7 @@
     UILabel *lblHorarios = [[UILabel alloc] initWithFrame:CGRectMake(20, lblTituloHorario.frame.origin.y + lblTituloHorario.frame.size.height, 300, 20)];
     
     lblTituloHorario.text = @"Horarios para ensaio";
-    lblTituloHorario.textColor = [[LocalStore sharedStore] CORFONTE];
+    lblTituloHorario.textColor = [[LocalStore sharedStore] FONTECOR];
     lblTituloHorario.font = [UIFont boldSystemFontOfSize:18];
     
     lblHorarios.text = [TPHorario horariosEmTexto:_pessoa.horarios];
@@ -274,17 +274,17 @@
     
     [_btnSeguir setTitle:@"Seguir" forState:UIControlStateNormal];
     [_btnSeguir setBackgroundColor:[UIColor whiteColor]];
-    [_btnSeguir setTitleColor:[[LocalStore sharedStore] CORFONTE] forState:UIControlStateNormal];
+    [_btnSeguir setTitleColor:[[LocalStore sharedStore] FONTECOR] forState:UIControlStateNormal];
     [[_btnSeguir layer] setBorderWidth:2];
     [[_btnSeguir layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
-    [[_btnSeguir layer] setBorderColor:([[LocalStore sharedStore] CORFONTE].CGColor)];
+    [[_btnSeguir layer] setBorderColor:([[LocalStore sharedStore] FONTECOR].CGColor)];
 }
 
 -(void)botaoSguindoAmigo{
     
     [_btnSeguir setTitle:@"Seguindo" forState:UIControlStateNormal];
     [_btnSeguir setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [_btnSeguir setBackgroundColor:[[LocalStore sharedStore] CORFONTE]];
+    [_btnSeguir setBackgroundColor:[[LocalStore sharedStore] FONTECOR]];
     [[_btnSeguir layer] setBorderWidth:2];
     [[_btnSeguir layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
     [[_btnSeguir layer] setBorderColor:[UIColor whiteColor].CGColor];

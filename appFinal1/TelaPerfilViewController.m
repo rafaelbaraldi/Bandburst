@@ -65,7 +65,7 @@
     
     //Botao do NAvigationItem
     [_tabBar setSelectedItem:_perfilItem];
-    [_tabBar setTintColor:[[LocalStore sharedStore] CORFONTE]];
+    [_tabBar setTintColor:[[LocalStore sharedStore] FONTECOR]];
 }
 
 -(void)escondeBotaoDeVoltarSeUsuarioLogado{
@@ -129,10 +129,10 @@
     _btnPerfilEditar.enabled = NO;
 
     [_btnPerfilEditar setBackgroundColor:[UIColor whiteColor]];
-    [_btnPerfilEditar setTitleColor:[[LocalStore sharedStore] CORFONTE] forState:UIControlStateNormal];
+    [_btnPerfilEditar setTitleColor:[[LocalStore sharedStore] FONTECOR] forState:UIControlStateNormal];
     [[_btnPerfilEditar layer] setBorderWidth:2];
     [[_btnPerfilEditar layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
-    [[_btnPerfilEditar layer] setBorderColor:([[LocalStore sharedStore] CORFONTE].CGColor)];
+    [[_btnPerfilEditar layer] setBorderColor:([[LocalStore sharedStore] FONTECOR].CGColor)];
 }
 
 -(void)carregaBotaoOpcoes{

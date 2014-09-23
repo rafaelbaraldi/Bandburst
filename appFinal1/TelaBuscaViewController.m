@@ -50,7 +50,7 @@
     
     //Seleciona a imagem da tab bar
     [_tabBar setSelectedItem:_buscarItem];
-    [_tabBar setTintColor:[[LocalStore sharedStore] CORFONTE]];
+    [_tabBar setTintColor:[[LocalStore sharedStore] FONTECOR]];
     
     [self escondeBotaoDeBoltarSeUsuarioLogado];
     
@@ -81,7 +81,7 @@
     //BG
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.png"]]];
     [_viewFiltros setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.png"]]];
-    [[[self navigationController] navigationBar] setTintColor:[[LocalStore sharedStore] CORFONTE]];
+    [[[self navigationController] navigationBar] setTintColor:[[LocalStore sharedStore] FONTECOR]];
     
     //Metodo de Busca por cidade
     [_txtCidade addTarget:self action:@selector(textFieldDidChange) forControlEvents:UIControlEventEditingChanged];
@@ -314,7 +314,7 @@
     
     //Layout Celula
     UIView *bgColorCell = [[UIView alloc] init];
-    [bgColorCell setBackgroundColor:[[LocalStore sharedStore] CORFONTE]];
+    [bgColorCell setBackgroundColor:[[LocalStore sharedStore] FONTECOR]];
     [celula setSelectedBackgroundView:bgColorCell];
     [celula setBackgroundColor:[UIColor clearColor]];
     

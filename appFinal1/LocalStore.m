@@ -34,8 +34,9 @@
         
         _URL = @"http://54.187.203.61/appMusica/";
         
-        _CORFONTE = [UIColor colorWithRed:0.937 green:0.114 blue:0.278 alpha:1];
-        
+        //Configs da fonte
+        _FONTECOR = [UIColor colorWithRed:0.761 green:0.424 blue:0.137 alpha:1]; /* Hexadecmial #c26c23 */
+        _FONTEFAMILIA = @"QuicksandBook-Regular";
         
         [self carregaTelas];
         [self carregaContexto];

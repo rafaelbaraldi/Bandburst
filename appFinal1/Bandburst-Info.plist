@@ -40,6 +40,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>WalkwayBold.otf</string>
+		<string>Quicksand_book.otf</string>
 	</array>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>

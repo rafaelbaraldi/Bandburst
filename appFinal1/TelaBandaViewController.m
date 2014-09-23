@@ -57,7 +57,7 @@
     
     UIButton* button = [[UIButton alloc] initWithFrame:CGRectZero];
     [button setTitle:_banda.nome forState:UIControlStateNormal];
-    [button setTitleColor:[[LocalStore sharedStore] CORFONTE] forState:UIControlStateNormal];
+    [button setTitleColor:[[LocalStore sharedStore] FONTECOR] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(dadosBanda) forControlEvents:UIControlEventTouchUpInside];
     [button sizeToFit];
     

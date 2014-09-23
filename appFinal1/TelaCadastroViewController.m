@@ -41,7 +41,7 @@ const int OBSERVACOES = 2;
     
     //bg
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.png"]]];
-    [[[self navigationController] navigationBar] setTintColor:[[LocalStore sharedStore] CORFONTE]];
+    [[[self navigationController] navigationBar] setTintColor:[[LocalStore sharedStore] FONTECOR]];
     
     //Usa Cadastro no singleton
     [[CadastroStore sharedStore]setViewTela:self];
@@ -51,10 +51,6 @@ const int OBSERVACOES = 2;
     
     //Senha
     [_txtSenha setSecureTextEntry:YES];
-    
-    
-    //Teste font
-    [_lblCabecalho setFont:[UIFont fontWithName:@"WalkwayBold" size:14]];
 }
 
 -(void) viewWillAppear:(BOOL)animated{
