@@ -12,6 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *btnAdicionarFoto;
 @property (weak, nonatomic) IBOutlet UIButton *btnContinuar;
+@property (strong, nonatomic) IBOutlet UILabel *lblMensagem;
 
 @property UIActionSheet *menu;
 @property UIImageView *fotoSelecionada;

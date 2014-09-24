@@ -27,6 +27,10 @@
 		1B82766F192BDB3500E461AD /* TelaBuscaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B82766D192BDB3500E461AD /* TelaBuscaViewController.m */; };
 		1B827670192BDB3500E461AD /* TelaBuscaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B82766E192BDB3500E461AD /* TelaBuscaViewController.xib */; };
 		1B970D8719D33D7700D0FD01 /* bandburst.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B970D8619D33D7700D0FD01 /* bandburst.png */; };
+		1B970D8919D34CF500D0FD01 /* placeholderFoto.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B970D8819D34CF500D0FD01 /* placeholderFoto.png */; };
+		1B970D8B19D35E8200D0FD01 /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B970D8A19D35E8200D0FD01 /* check.png */; };
+		1B970D8D19D35E8800D0FD01 /* uncheck.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B970D8C19D35E8800D0FD01 /* uncheck.png */; };
+		1B970D8E19D365A900D0FD01 /* TBInstrumentosQueTocaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B970D9019D365A900D0FD01 /* TBInstrumentosQueTocaViewController.xib */; };
 		1B9A0F4A19CB5964009AA3EB /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B9A0F4919CB5964009AA3EB /* FacebookSDK.framework */; };
 		1BD384561926A5CB0044A2E4 /* CadastroStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD384551926A5CB0044A2E4 /* CadastroStore.m */; };
 		1BDA118A199BEEB9005F7262 /* CellMusica.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BDA1189199BEEB9005F7262 /* CellMusica.xib */; };
@@ -127,7 +131,6 @@
 		73A3072E19746B4C005551D3 /* TBInstrumentosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A3072C19746B4C005551D3 /* TBInstrumentosViewController.m */; };
 		73A3072F19746B4C005551D3 /* TBInstrumentosViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73A3072D19746B4C005551D3 /* TBInstrumentosViewController.xib */; };
 		73A3073319746B60005551D3 /* TBInstrumentosQueTocaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A3073119746B60005551D3 /* TBInstrumentosQueTocaViewController.m */; };
-		73A3073419746B60005551D3 /* TBInstrumentosQueTocaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73A3073219746B60005551D3 /* TBInstrumentosQueTocaViewController.xib */; };
 		73A307381974844A005551D3 /* CadastroConexao.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A307371974844A005551D3 /* CadastroConexao.m */; };
 		73C16CE119A76F3C00B30E50 /* LayoutCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C16CE019A76F3C00B30E50 /* LayoutCustom.m */; };
 		73C8496A196F11BD003D9371 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73C84969196F11BD003D9371 /* Security.framework */; };
@@ -188,6 +191,10 @@
 		1B82766D192BDB3500E461AD /* TelaBuscaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TelaBuscaViewController.m; sourceTree = "<group>"; };
 		1B82766E192BDB3500E461AD /* TelaBuscaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TelaBuscaViewController.xib; sourceTree = "<group>"; };
 		1B970D8619D33D7700D0FD01 /* bandburst.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bandburst.png; sourceTree = "<group>"; };
+		1B970D8819D34CF500D0FD01 /* placeholderFoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholderFoto.png; sourceTree = "<group>"; };
+		1B970D8A19D35E8200D0FD01 /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
+		1B970D8C19D35E8800D0FD01 /* uncheck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uncheck.png; sourceTree = "<group>"; };
+		1B970D8F19D365A900D0FD01 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TBInstrumentosQueTocaViewController.xib; sourceTree = "<group>"; };
 		1B9A0F4919CB5964009AA3EB /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		1BD384541926A5CB0044A2E4 /* CadastroStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CadastroStore.h; sourceTree = "<group>"; };
 		1BD384551926A5CB0044A2E4 /* CadastroStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CadastroStore.m; sourceTree = "<group>"; };
@@ -333,7 +340,6 @@
 		73A3072D19746B4C005551D3 /* TBInstrumentosViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TBInstrumentosViewController.xib; sourceTree = "<group>"; };
 		73A3073019746B60005551D3 /* TBInstrumentosQueTocaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBInstrumentosQueTocaViewController.h; sourceTree = "<group>"; };
 		73A3073119746B60005551D3 /* TBInstrumentosQueTocaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBInstrumentosQueTocaViewController.m; sourceTree = "<group>"; };
-		73A3073219746B60005551D3 /* TBInstrumentosQueTocaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TBInstrumentosQueTocaViewController.xib; sourceTree = "<group>"; };
 		73A307361974844A005551D3 /* CadastroConexao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CadastroConexao.h; sourceTree = "<group>"; };
 		73A307371974844A005551D3 /* CadastroConexao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CadastroConexao.m; sourceTree = "<group>"; };
 		73C16CDF19A76F3C00B30E50 /* LayoutCustom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayoutCustom.h; sourceTree = "<group>"; };
@@ -862,7 +868,7 @@
 				73A3072D19746B4C005551D3 /* TBInstrumentosViewController.xib */,
 				73A3073019746B60005551D3 /* TBInstrumentosQueTocaViewController.h */,
 				73A3073119746B60005551D3 /* TBInstrumentosQueTocaViewController.m */,
-				73A3073219746B60005551D3 /* TBInstrumentosQueTocaViewController.xib */,
+				1B970D9019D365A900D0FD01 /* TBInstrumentosQueTocaViewController.xib */,
 			);
 			name = "Tela Instrumentos";
 			sourceTree = "<group>";
@@ -983,6 +989,9 @@
 		73F6F70F19A6339E0003B408 /* Imagens */ = {
 			isa = PBXGroup;
 			children = (
+				1B970D8C19D35E8800D0FD01 /* uncheck.png */,
+				1B970D8A19D35E8200D0FD01 /* check.png */,
+				1B970D8819D34CF500D0FD01 /* placeholderFoto.png */,
 				73F6F70D19A633960003B408 /* selecionado.png */,
 			);
 			name = Imagens;
@@ -1088,6 +1097,7 @@
 				31F83E1D192E85050070D597 /* TBFiltroInstrumento.xib in Resources */,
 				1BEA45951992C7A100876D75 /* 8.png in Resources */,
 				31FB8CDB19CA25BF00ECEBDF /* WalkwayBold.otf in Resources */,
+				1B970D8D19D35E8800D0FD01 /* uncheck.png in Resources */,
 				31A004401993F0CA00121EF6 /* TelaBandaViewController.xib in Resources */,
 				1BEA45971992C7A100876D75 /* 10.png in Resources */,
 				1B970D8719D33D7700D0FD01 /* bandburst.png in Resources */,
@@ -1095,9 +1105,10 @@
 				1BEA45981992C7A100876D75 /* 11.png in Resources */,
 				1BE8E3C6192533AD00D108C0 /* InfoPlist.strings in Resources */,
 				1BEA459D1992C7A100876D75 /* 2.png in Resources */,
-				73A3073419746B60005551D3 /* TBInstrumentosQueTocaViewController.xib in Resources */,
+				1B970D8E19D365A900D0FD01 /* TBInstrumentosQueTocaViewController.xib in Resources */,
 				737F34A11976F9CC00AAF796 /* cellHorario.xib in Resources */,
 				316AAA07199E8C81001CE96B /* CellTituloMusica.xib in Resources */,
+				1B970D8B19D35E8200D0FD01 /* check.png in Resources */,
 				1B7301E419A525C200F8B717 /* gravarIcon.png in Resources */,
 				1BEA45991992C7A100876D75 /* 12.png in Resources */,
 				73F6F70E19A633960003B408 /* selecionado.png in Resources */,
@@ -1116,6 +1127,7 @@
 				1BEA45A41992C7A100876D75 /* 5.png in Resources */,
 				1B1613111992A6E2009D5513 /* TelaAmigosViewController.xib in Resources */,
 				31C31744194783B700C99512 /* delete.png in Resources */,
+				1B970D8919D34CF500D0FD01 /* placeholderFoto.png in Resources */,
 				73DF446D197053EB000EE360 /* TelaEsqueciSenhaViewController.xib in Resources */,
 				1BEA459A1992C7A100876D75 /* 0.png in Resources */,
 				1BEA459C1992C7A100876D75 /* 13.png in Resources */,
@@ -1226,6 +1238,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		1B970D9019D365A900D0FD01 /* TBInstrumentosQueTocaViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1B970D8F19D365A900D0FD01 /* en */,
+			);
+			name = TBInstrumentosQueTocaViewController.xib;
+			sourceTree = "<group>";
+		};
 		1BE8E3C4192533AD00D108C0 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

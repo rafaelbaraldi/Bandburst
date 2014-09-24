@@ -12,6 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *txtEmail;
 @property (weak, nonatomic) IBOutlet UITextField *txtSenha;
+@property (strong, nonatomic) IBOutlet UIButton *lblEsqueceuSenha;
 
 - (IBAction)btnSenhaClick:(id)sender;
 - (IBAction)btnContinuarClick:(id)sender;

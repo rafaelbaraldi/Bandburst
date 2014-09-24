@@ -30,6 +30,8 @@
     
     //Adiconar Estilos
     [self addInstrumentos];
+    
+//    [self setEdgesForExtendedLayout:UIRectEdgeTop];
 }
 
 - (void)didReceiveMemoryWarning{
@@ -43,6 +45,10 @@
     if([[[CadastroStore sharedStore] instrumentosQueToca] count] > 0){
         [_lblInstrumentos setHidden:NO];
     }
+}
+
+-(BOOL)automaticallyAdjustsScrollViewInsets{
+    return NO;
 }
 
 -(void)retorna{

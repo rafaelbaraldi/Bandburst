@@ -39,8 +39,6 @@ const int OBSERVACOES = 2;
 - (void)viewDidLoad{
     [super viewDidLoad];
     
-    //bg
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.png"]]];
     [[[self navigationController] navigationBar] setTintColor:[[LocalStore sharedStore] FONTECOR]];
     
     //Usa Cadastro no singleton
@@ -51,8 +49,6 @@ const int OBSERVACOES = 2;
     
     //Senha
     [_txtSenha setSecureTextEntry:YES];
-    
-    [[self lblCabecalho]setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:12]];
 }
 
 -(void) viewWillAppear:(BOOL)animated{
@@ -67,6 +63,42 @@ const int OBSERVACOES = 2;
     [[_btnHorarios layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
     [[_btnConfirmar layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
     [[_segGenero layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
+    [[_txtNome layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
+    [[_txtEmail layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
+    [[_txtSenha layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
+    [[_txtCidade layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
+    [[_txtBairro layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
+    [[_txtObservacoes layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
+    
+    [_txtNome setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    [_txtEmail setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    [_txtSenha setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    [_txtCidade setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    [_txtBairro setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    [[_btnInstrumentos titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    [[_btnEstilos titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    [[_btnHorarios titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    [_txtObservacoes setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    [[_btnConfirmar titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    [_lblCabecalho setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    
+    NSDictionary* atributos = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16], NSFontAttributeName, nil];
+    [_segGenero setTitleTextAttributes:atributos forState:UIControlStateNormal];
+    
+    [[_txtNome layer]setBorderWidth:2.0f];
+    [[_txtEmail layer]setBorderWidth:2.0f];
+    [[_txtSenha layer]setBorderWidth:2.0f];
+    [[_txtCidade layer]setBorderWidth:2.0f];
+    [[_txtBairro layer]setBorderWidth:2.0f];
+    [[_txtObservacoes layer]setBorderWidth:2.0f];
+    
+    
+    [[_txtNome layer] setBorderColor:[[LocalStore sharedStore] FONTECOR].CGColor];
+    [[_txtEmail layer] setBorderColor:[[LocalStore sharedStore] FONTECOR].CGColor];
+    [[_txtSenha layer] setBorderColor:[[LocalStore sharedStore] FONTECOR].CGColor];
+    [[_txtCidade layer] setBorderColor:[[LocalStore sharedStore] FONTECOR].CGColor];
+    [[_txtBairro layer] setBorderColor:[[LocalStore sharedStore] FONTECOR].CGColor];
+    [[_txtObservacoes layer] setBorderColor:[[LocalStore sharedStore] FONTECOR].CGColor];
 }
 
 -(IBAction)btnEstilosClik:(id)sender {

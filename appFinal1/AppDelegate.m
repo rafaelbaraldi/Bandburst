@@ -51,7 +51,7 @@
     //Navigation Controller - Alterar Cores
     UINavigationController *navegacaoC = [[UINavigationController alloc] initWithRootViewController:telaVc];
     [navegacaoC.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [[LocalStore sharedStore] FONTECOR]}];
-    [navegacaoC.navigationBar setBarStyle:UIBarStyleBlackOpaque];
+//    [navegacaoC.navigationBar setBarStyle:UIBarStyleBlackOpaque];
 
     [self.window setRootViewController:navegacaoC];
     self.window.backgroundColor = [UIColor whiteColor];

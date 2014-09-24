@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TBInstrumentosQueTocaViewController : UIViewController
+@interface TBInstrumentosQueTocaViewController : UIViewController <UITableViewDataSource ,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tbInstrumentosQueToca;
 @property (weak, nonatomic) IBOutlet UITextView *lblInstrumentos;
 

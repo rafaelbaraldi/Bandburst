@@ -24,7 +24,7 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-
+        
         [[self navigationItem] setTitle:@"Login"];
     }
     return self;
@@ -33,8 +33,6 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     
-    //bg
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.png"]]];
     [[[self navigationController] navigationBar] setTintColor:[[LocalStore sharedStore] FONTECOR]];
     [self arredondaBordaBotoes];
     [_txtSenha setSecureTextEntry:YES];
@@ -53,6 +51,20 @@
 -(void)arredondaBordaBotoes{
     
     [[_btnContinuar layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
+    [[_txtEmail layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
+    [[_txtSenha layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
+    
+    
+    [[_btnContinuar titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    [_txtEmail setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    [_txtSenha setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    [[_lblEsqueceuSenha titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    
+    [[_txtEmail layer]setBorderWidth:2.0f];
+    [[_txtSenha layer]setBorderWidth:2.0f];
+    
+    [[_txtEmail layer] setBorderColor:[[LocalStore sharedStore] FONTECOR].CGColor];
+    [[_txtSenha layer] setBorderColor:[[LocalStore sharedStore] FONTECOR].CGColor];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
