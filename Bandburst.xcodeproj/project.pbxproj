@@ -18,6 +18,7 @@
 		1B1613111992A6E2009D5513 /* TelaAmigosViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B16130F1992A6E2009D5513 /* TelaAmigosViewController.xib */; };
 		1B1613151992A993009D5513 /* BandaConexao.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1613141992A993009D5513 /* BandaConexao.m */; };
 		1B1666291935084000E2FB47 /* TPUsuario.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1666281935084000E2FB47 /* TPUsuario.m */; };
+		1B3CB01A19D218F00081B8CF /* logo BB.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B3CB01919D218F00081B8CF /* logo BB.png */; };
 		1B52395F1995537800D2A640 /* TelaMusicasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B52395D1995537800D2A640 /* TelaMusicasViewController.m */; };
 		1B5239601995537800D2A640 /* TelaMusicasViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B52395E1995537800D2A640 /* TelaMusicasViewController.xib */; };
 		1B5FE140192FC23B00E35BCC /* BuscaStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B5FE13F192FC23B00E35BCC /* BuscaStore.m */; };
@@ -25,6 +26,7 @@
 		1B7301E419A525C200F8B717 /* gravarIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B7301E319A525C200F8B717 /* gravarIcon.png */; };
 		1B82766F192BDB3500E461AD /* TelaBuscaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B82766D192BDB3500E461AD /* TelaBuscaViewController.m */; };
 		1B827670192BDB3500E461AD /* TelaBuscaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B82766E192BDB3500E461AD /* TelaBuscaViewController.xib */; };
+		1B970D8719D33D7700D0FD01 /* bandburst.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B970D8619D33D7700D0FD01 /* bandburst.png */; };
 		1B9A0F4A19CB5964009AA3EB /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B9A0F4919CB5964009AA3EB /* FacebookSDK.framework */; };
 		1BD384561926A5CB0044A2E4 /* CadastroStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD384551926A5CB0044A2E4 /* CadastroStore.m */; };
 		1BDA118A199BEEB9005F7262 /* CellMusica.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BDA1189199BEEB9005F7262 /* CellMusica.xib */; };
@@ -66,8 +68,6 @@
 		1BEA45A51992C7A100876D75 /* 7.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BEA45941992C7A100876D75 /* 7.png */; };
 		1BEA45A91992C96200876D75 /* PerfilConexao.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BEA45A81992C96200876D75 /* PerfilConexao.m */; };
 		1BEA45AC1992C98D00876D75 /* PerfilStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BEA45AB1992C98D00876D75 /* PerfilStore.m */; };
-		1BF141F119A536B800E5C9CE /* logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1BF141F019A536B800E5C9CE /* logo.jpg */; };
-		1BF141F319A5389800E5C9CE /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BF141F219A5389800E5C9CE /* logo.png */; };
 		2F270FCB1981936C00EFBEB4 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F270FCA1981936C00EFBEB4 /* Reachability.m */; };
 		2F79ACC519802CF000C3DD0E /* Musica.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F79ACC419802CF000C3DD0E /* Musica.m */; };
 		2F79ACCB19802D2900C3DD0E /* Usuario.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F79ACCA19802D2900C3DD0E /* Usuario.m */; };
@@ -175,6 +175,7 @@
 		1B1613141992A993009D5513 /* BandaConexao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BandaConexao.m; sourceTree = "<group>"; };
 		1B1666271935084000E2FB47 /* TPUsuario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPUsuario.h; sourceTree = "<group>"; };
 		1B1666281935084000E2FB47 /* TPUsuario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPUsuario.m; sourceTree = "<group>"; };
+		1B3CB01919D218F00081B8CF /* logo BB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo BB.png"; sourceTree = "<group>"; };
 		1B52395C1995537800D2A640 /* TelaMusicasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TelaMusicasViewController.h; sourceTree = "<group>"; };
 		1B52395D1995537800D2A640 /* TelaMusicasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TelaMusicasViewController.m; sourceTree = "<group>"; };
 		1B52395E1995537800D2A640 /* TelaMusicasViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TelaMusicasViewController.xib; sourceTree = "<group>"; };
@@ -186,6 +187,7 @@
 		1B82766C192BDB3500E461AD /* TelaBuscaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TelaBuscaViewController.h; sourceTree = "<group>"; };
 		1B82766D192BDB3500E461AD /* TelaBuscaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TelaBuscaViewController.m; sourceTree = "<group>"; };
 		1B82766E192BDB3500E461AD /* TelaBuscaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TelaBuscaViewController.xib; sourceTree = "<group>"; };
+		1B970D8619D33D7700D0FD01 /* bandburst.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bandburst.png; sourceTree = "<group>"; };
 		1B9A0F4919CB5964009AA3EB /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		1BD384541926A5CB0044A2E4 /* CadastroStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CadastroStore.h; sourceTree = "<group>"; };
 		1BD384551926A5CB0044A2E4 /* CadastroStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CadastroStore.m; sourceTree = "<group>"; };
@@ -236,8 +238,6 @@
 		1BEA45A81992C96200876D75 /* PerfilConexao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PerfilConexao.m; sourceTree = "<group>"; };
 		1BEA45AA1992C98D00876D75 /* PerfilStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PerfilStore.h; sourceTree = "<group>"; };
 		1BEA45AB1992C98D00876D75 /* PerfilStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PerfilStore.m; sourceTree = "<group>"; };
-		1BF141F019A536B800E5C9CE /* logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = logo.jpg; sourceTree = "<group>"; };
-		1BF141F219A5389800E5C9CE /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		2F270FC91981936C00EFBEB4 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		2F270FCA1981936C00EFBEB4 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		2F79ACC319802CF000C3DD0E /* Musica.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Musica.h; sourceTree = "<group>"; };
@@ -715,8 +715,8 @@
 		1BF141EF19A536B000E5C9CE /* imagens */ = {
 			isa = PBXGroup;
 			children = (
-				1BF141F219A5389800E5C9CE /* logo.png */,
-				1BF141F019A536B800E5C9CE /* logo.jpg */,
+				1B970D8619D33D7700D0FD01 /* bandburst.png */,
+				1B3CB01919D218F00081B8CF /* logo BB.png */,
 			);
 			name = imagens;
 			sourceTree = "<group>";
@@ -1086,11 +1086,11 @@
 				739DA1DF198C0DF8005053DB /* opcoes.png in Resources */,
 				73F6F71119A63F980003B408 /* deselecionado.png in Resources */,
 				31F83E1D192E85050070D597 /* TBFiltroInstrumento.xib in Resources */,
-				1BF141F119A536B800E5C9CE /* logo.jpg in Resources */,
 				1BEA45951992C7A100876D75 /* 8.png in Resources */,
 				31FB8CDB19CA25BF00ECEBDF /* WalkwayBold.otf in Resources */,
 				31A004401993F0CA00121EF6 /* TelaBandaViewController.xib in Resources */,
 				1BEA45971992C7A100876D75 /* 10.png in Resources */,
+				1B970D8719D33D7700D0FD01 /* bandburst.png in Resources */,
 				316AAA0A199E9D89001CE96B /* bg.png in Resources */,
 				1BEA45981992C7A100876D75 /* 11.png in Resources */,
 				1BE8E3C6192533AD00D108C0 /* InfoPlist.strings in Resources */,
@@ -1111,9 +1111,9 @@
 				316AAA10199EA49B001CE96B /* bgNavigation.png in Resources */,
 				31F1F8AF199E82380000B61F /* som.png in Resources */,
 				1B1613081992A2A1009D5513 /* TelaNovaBandaViewController.xib in Resources */,
+				1B3CB01A19D218F00081B8CF /* logo BB.png in Resources */,
 				31F67C75193515CC00113DA8 /* escrever.png in Resources */,
 				1BEA45A41992C7A100876D75 /* 5.png in Resources */,
-				1BF141F319A5389800E5C9CE /* logo.png in Resources */,
 				1B1613111992A6E2009D5513 /* TelaAmigosViewController.xib in Resources */,
 				31C31744194783B700C99512 /* delete.png in Resources */,
 				73DF446D197053EB000EE360 /* TelaEsqueciSenhaViewController.xib in Resources */,

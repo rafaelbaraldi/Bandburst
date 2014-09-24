@@ -51,6 +51,8 @@ const int OBSERVACOES = 2;
     
     //Senha
     [_txtSenha setSecureTextEntry:YES];
+    
+    [[self lblCabecalho]setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:12]];
 }
 
 -(void) viewWillAppear:(BOOL)animated{

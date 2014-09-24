@@ -28,14 +28,14 @@
 -(id)init{
     self = [super init];
     if(self){
-        _RAIOBORDA = 5;
+        _RAIOBORDA = 10;
         
         _USUARIOZERO = @"0";
         
         _URL = @"http://54.187.203.61/appMusica/";
         
         //Configs da fonte
-        _FONTECOR = [UIColor colorWithRed:0.761 green:0.424 blue:0.137 alpha:1]; /* Hexadecmial #c26c23 */
+        _FONTECOR = [UIColor colorWithRed:0.898 green:0.49 blue:0.333 alpha:1]; /* Hexadecmial #c26c23 */
         _FONTEFAMILIA = @"QuicksandBook-Regular";
         
         [self carregaTelas];

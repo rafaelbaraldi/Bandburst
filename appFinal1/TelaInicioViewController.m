@@ -27,6 +27,15 @@
     return self;
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [[self navigationController] setNavigationBarHidden:YES];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [[self navigationController] setNavigationBarHidden:NO];
+}
+
 - (void)viewDidLoad{
     [super viewDidLoad];
     
@@ -48,8 +57,9 @@
     [[_btnEntrar layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
     [[_btnLogin layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
     
-//    _imgLogo.layer.masksToBounds = YES;
-//    [[_imgLogo layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];;
+    [[_btnCadastrar titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    [[_btnEntrar titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    [[_btnLogin titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
 }
 
 - (void)didReceiveMemoryWarning{
