@@ -28,10 +28,10 @@
 		1B827670192BDB3500E461AD /* TelaBuscaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B82766E192BDB3500E461AD /* TelaBuscaViewController.xib */; };
 		1B970D8719D33D7700D0FD01 /* bandburst.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B970D8619D33D7700D0FD01 /* bandburst.png */; };
 		1B970D8919D34CF500D0FD01 /* placeholderFoto.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B970D8819D34CF500D0FD01 /* placeholderFoto.png */; };
-		1B970D8B19D35E8200D0FD01 /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B970D8A19D35E8200D0FD01 /* check.png */; };
-		1B970D8D19D35E8800D0FD01 /* uncheck.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B970D8C19D35E8800D0FD01 /* uncheck.png */; };
 		1B970D8E19D365A900D0FD01 /* TBInstrumentosQueTocaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B970D9019D365A900D0FD01 /* TBInstrumentosQueTocaViewController.xib */; };
 		1B9A0F4A19CB5964009AA3EB /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B9A0F4919CB5964009AA3EB /* FacebookSDK.framework */; };
+		1BCC9A4119D4970C00E41B17 /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BCC9A4019D4970C00E41B17 /* check.png */; };
+		1BCC9A4319D4978800E41B17 /* uncheck.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BCC9A4219D4978800E41B17 /* uncheck.png */; };
 		1BD384561926A5CB0044A2E4 /* CadastroStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD384551926A5CB0044A2E4 /* CadastroStore.m */; };
 		1BDA118A199BEEB9005F7262 /* CellMusica.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BDA1189199BEEB9005F7262 /* CellMusica.xib */; };
 		1BE8E3BA192533AD00D108C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BE8E3B9192533AD00D108C0 /* Foundation.framework */; };
@@ -192,10 +192,10 @@
 		1B82766E192BDB3500E461AD /* TelaBuscaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TelaBuscaViewController.xib; sourceTree = "<group>"; };
 		1B970D8619D33D7700D0FD01 /* bandburst.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bandburst.png; sourceTree = "<group>"; };
 		1B970D8819D34CF500D0FD01 /* placeholderFoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholderFoto.png; sourceTree = "<group>"; };
-		1B970D8A19D35E8200D0FD01 /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
-		1B970D8C19D35E8800D0FD01 /* uncheck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uncheck.png; sourceTree = "<group>"; };
 		1B970D8F19D365A900D0FD01 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TBInstrumentosQueTocaViewController.xib; sourceTree = "<group>"; };
 		1B9A0F4919CB5964009AA3EB /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		1BCC9A4019D4970C00E41B17 /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
+		1BCC9A4219D4978800E41B17 /* uncheck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uncheck.png; sourceTree = "<group>"; };
 		1BD384541926A5CB0044A2E4 /* CadastroStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CadastroStore.h; sourceTree = "<group>"; };
 		1BD384551926A5CB0044A2E4 /* CadastroStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CadastroStore.m; sourceTree = "<group>"; };
 		1BDA1189199BEEB9005F7262 /* CellMusica.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellMusica.xib; sourceTree = "<group>"; };
@@ -989,8 +989,8 @@
 		73F6F70F19A6339E0003B408 /* Imagens */ = {
 			isa = PBXGroup;
 			children = (
-				1B970D8C19D35E8800D0FD01 /* uncheck.png */,
-				1B970D8A19D35E8200D0FD01 /* check.png */,
+				1BCC9A4019D4970C00E41B17 /* check.png */,
+				1BCC9A4219D4978800E41B17 /* uncheck.png */,
 				1B970D8819D34CF500D0FD01 /* placeholderFoto.png */,
 				73F6F70D19A633960003B408 /* selecionado.png */,
 			);
@@ -1097,7 +1097,7 @@
 				31F83E1D192E85050070D597 /* TBFiltroInstrumento.xib in Resources */,
 				1BEA45951992C7A100876D75 /* 8.png in Resources */,
 				31FB8CDB19CA25BF00ECEBDF /* WalkwayBold.otf in Resources */,
-				1B970D8D19D35E8800D0FD01 /* uncheck.png in Resources */,
+				1BCC9A4319D4978800E41B17 /* uncheck.png in Resources */,
 				31A004401993F0CA00121EF6 /* TelaBandaViewController.xib in Resources */,
 				1BEA45971992C7A100876D75 /* 10.png in Resources */,
 				1B970D8719D33D7700D0FD01 /* bandburst.png in Resources */,
@@ -1108,7 +1108,7 @@
 				1B970D8E19D365A900D0FD01 /* TBInstrumentosQueTocaViewController.xib in Resources */,
 				737F34A11976F9CC00AAF796 /* cellHorario.xib in Resources */,
 				316AAA07199E8C81001CE96B /* CellTituloMusica.xib in Resources */,
-				1B970D8B19D35E8200D0FD01 /* check.png in Resources */,
+				1BCC9A4119D4970C00E41B17 /* check.png in Resources */,
 				1B7301E419A525C200F8B717 /* gravarIcon.png in Resources */,
 				1BEA45991992C7A100876D75 /* 12.png in Resources */,
 				73F6F70E19A633960003B408 /* selecionado.png in Resources */,

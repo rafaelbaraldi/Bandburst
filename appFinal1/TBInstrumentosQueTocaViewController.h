@@ -9,7 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface TBInstrumentosQueTocaViewController : UIViewController <UITableViewDataSource ,UITableViewDelegate>
+
 @property (weak, nonatomic) IBOutlet UITableView *tbInstrumentosQueToca;
-@property (weak, nonatomic) IBOutlet UITextView *lblInstrumentos;
+
+@property (strong, nonatomic) IBOutlet UILabel *lblInstrumentos;
+@property (strong, nonatomic) IBOutlet UILabel *lblToco;
+@property (strong, nonatomic) IBOutlet UILabel *lblTenho;
 
 @end
