@@ -92,7 +92,6 @@ const int OBSERVACOES = 2;
     [[_txtBairro layer]setBorderWidth:2.0f];
     [[_txtObservacoes layer]setBorderWidth:2.0f];
     
-    
     [[_txtNome layer] setBorderColor:[[LocalStore sharedStore] FONTECOR].CGColor];
     [[_txtEmail layer] setBorderColor:[[LocalStore sharedStore] FONTECOR].CGColor];
     [[_txtSenha layer] setBorderColor:[[LocalStore sharedStore] FONTECOR].CGColor];

@@ -92,6 +92,9 @@
 
 -(void)carregaValoresHorarios{
     
+    //LBL Selecione horario
+    [_lblHorarios setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    
     //Carrega Cell
     UINib *nib = [UINib nibWithNibName:@"cellHorario" bundle:nil];
     [_collectionHorario registerNib:nib forCellWithReuseIdentifier:@"cvCell"];

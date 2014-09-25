@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1BE8E3B5192533AD00D108C0"
-            BuildableName = "appFinal1.app"
-            BlueprintName = "appFinal1"
-            ReferencedContainer = "container:appFinal1.xcodeproj">
+            BuildableName = "Bandburst.app"
+            BlueprintName = "Bandburst"
+            ReferencedContainer = "container:Bandburst.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1BE8E3B5192533AD00D108C0"
-            BuildableName = "appFinal1.app"
-            BlueprintName = "appFinal1"
-            ReferencedContainer = "container:appFinal1.xcodeproj">
+            BuildableName = "Bandburst.app"
+            BlueprintName = "Bandburst"
+            ReferencedContainer = "container:Bandburst.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>

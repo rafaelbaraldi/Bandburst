@@ -10,6 +10,7 @@
 
 @interface TelaHorariosViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
+@property (strong, nonatomic) IBOutlet UILabel *lblHorarios;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionHorario;
 
 @property NSArray *horarios;
