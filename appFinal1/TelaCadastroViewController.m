@@ -39,6 +39,8 @@ const int OBSERVACOES = 2;
 - (void)viewDidLoad{
     [super viewDidLoad];
     
+    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
+    
     [[[self navigationController] navigationBar] setTintColor:[[LocalStore sharedStore] FONTECOR]];
     
     //Usa Cadastro no singleton

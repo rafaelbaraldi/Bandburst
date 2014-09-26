@@ -49,7 +49,9 @@
     UITableViewCell* celula = [tableView dequeueReusableCellWithIdentifier:@"EstilosPesquisaCell"];
     
     if(celula == nil){
-        celula = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"EstilosPesquisaCell"];
+        celula = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"EstilosPesquisaCell"];        
+        celula.textLabel.textColor = [[LocalStore sharedStore] FONTECOR];
+        celula.textLabel.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16];
     }
     celula.textLabel.text = [[[CadastroStore sharedStore] estilosFiltrados] objectAtIndex:indexPath.row];
     

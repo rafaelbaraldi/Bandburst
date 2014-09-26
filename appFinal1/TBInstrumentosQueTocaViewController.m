@@ -28,16 +28,15 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     
-    //Adiconar Estilos
-    [self addInstrumentos];
-    
-//    [self setEdgesForExtendedLayout:UIRectEdgeTop];
-    
     [_tbInstrumentosQueToca setAlpha:1];
+    
+    [self carregaFonte];
+    
+    _tbInstrumentosQueToca.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 20)];
 }
 
 -(void)carregaFonte{
-    [self.lblInstrumentos setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    [_lblInstrumento setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
     [_lblToco setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
     [_lblTenho setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
 }
@@ -48,8 +47,6 @@
 
 -(void) viewWillAppear:(BOOL)animated{
     [_tbInstrumentosQueToca reloadData];
-    
-    [self carregaFonte];
 }
 
 -(BOOL)automaticallyAdjustsScrollViewInsets{
@@ -60,11 +57,11 @@
     [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaCadastro] animated:YES];
 }
 
--(void) addInstrumentos{
-    
-    UIBarButtonItem *addInstrumento = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(adicionarNovoInstrumento)];
-    [[self navigationItem] setRightBarButtonItem:addInstrumento];
-}
+//-(void) addInstrumentos{
+//    
+//    UIBarButtonItem *addInstrumento = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(adicionarNovoInstrumento)];
+//    [[self navigationItem] setRightBarButtonItem:addInstrumento];
+//}
 
 -(void)adicionarNovoInstrumento{
     [[self navigationController] pushViewController:[[LocalStore sharedStore] TelaTBInstrumentos] animated:YES];
@@ -76,7 +73,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return [[[CadastroStore sharedStore] instrumentosQueToca] count];
+    return [[[CadastroStore sharedStore] instrumentosQueToca] count] + 1;
 }
 
 //Conteudo das Celulas
@@ -85,50 +82,99 @@
     UITableViewCell* celula = [tableView dequeueReusableCellWithIdentifier:@"InstrumentosQueTocaCell"];
     
     
-    NSString *instrumento = [[[CadastroStore sharedStore] instrumentosQueToca] objectAtIndex:indexPath.row];
-    instrumento = [instrumento stringByReplacingOccurrencesOfString:@"1" withString:@""];
-    
-    if(celula == nil){
-        celula = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"InstrumentosQueTocaCell"];
-        CGRect frame = CGRectMake(15, 2, 140, 40);
+    if (indexPath.row == [[[CadastroStore sharedStore] instrumentosQueToca] count]){
         
-        UILabel* nome = [[UILabel alloc] initWithFrame:frame];
-        [nome setText:instrumento];
-        [nome setTextColor:[[LocalStore sharedStore] FONTECOR]];
-        celula.selectionStyle = UITableViewCellSelectionStyleNone;
-        [nome setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
-        [nome setAdjustsFontSizeToFitWidth:YES];
-        [nome setTag:1];
-        [celula addSubview:nome];
-        
-        UIImageView* imgToco = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"check.png"]];
-        [imgToco setFrame:CGRectMake(180, 8, 23, 23)];
-        [imgToco setTag:2];
-        [celula addSubview:imgToco];
-        
-        UIImageView* imgTenho = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"uncheck.png"]];
-        [imgTenho setFrame:CGRectMake(250, 8, 23, 23)];
-        [imgTenho setTag:3];
-        [celula addSubview:imgTenho];
-    }
-    else{
-        UILabel* nome = (UILabel*)[celula viewWithTag:1];
-        [nome setText:instrumento];
-        
-        NSString *condicao = [[[CadastroStore sharedStore] instrumentosQueToca] objectAtIndex:indexPath.row];
-        
-        UIImageView* imgTenho = (UIImageView*)[celula viewWithTag:3];
-        
-        if ([condicao rangeOfString:@"1"].location != NSNotFound) {
-            //nao tem 1
-            [imgTenho setImage:[UIImage imageNamed:@"check.png"]];
+        if(celula == nil){
+            celula = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"InstrumentosQueTocaCell"];
+            
+            CGRect frame = CGRectMake(15, 2, 250, 40);
+            
+            UILabel* nome = [[UILabel alloc] initWithFrame:frame];
+            [nome setText:@"  Adicionar Instrumento..."];
+            [nome setTextColor:[[LocalStore sharedStore] FONTECOR]];
+            celula.selectionStyle = UITableViewCellSelectionStyleNone;
+            [nome setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+            [nome setAdjustsFontSizeToFitWidth:YES];
+            [nome setTag:1];
+            [celula addSubview:nome];
+            
+            UIImageView* imgToco = [[UIImageView alloc] init];
+            [imgToco setFrame:CGRectMake(180, 8, 23, 23)];
+            [imgToco setTag:2];
+            [celula addSubview:imgToco];
+            
+            UIImageView* imgTenho = [[UIImageView alloc] init];
+            [imgTenho setFrame:CGRectMake(250, 8, 23, 23)];
+            [imgTenho setTag:3];
+            [celula addSubview:imgTenho];
         }
         else{
-            //tem 1
-            [imgTenho setImage:[UIImage imageNamed:@"uncheck.png"]];
+            UILabel* nome = (UILabel*)[celula viewWithTag:1];
+            [nome setText:@"  Adicionar Instrumento..."];
+            
+            CGRect frame = CGRectMake(15, 2, 250, 40);
+            [nome setFrame:frame];
+            
+            UIImageView* imgToco = (UIImageView*)[celula viewWithTag:2];
+            [imgToco setImage:nil];
+            
+            UIImageView* imgTenho = (UIImageView*)[celula viewWithTag:3];
+            [imgTenho setImage:nil];
         }
     }
-    
+    else{
+        
+        NSString *instrumento = [[[CadastroStore sharedStore] instrumentosQueToca] objectAtIndex:indexPath.row];
+        instrumento = [instrumento stringByReplacingOccurrencesOfString:@"1" withString:@""];
+        
+        if(celula == nil){
+            celula = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"InstrumentosQueTocaCell"];
+            
+            CGRect frame = CGRectMake(15, 2, 140, 40);
+            
+            UILabel* nome = [[UILabel alloc] initWithFrame:frame];
+            [nome setText:instrumento];
+            [nome setTextColor:[[LocalStore sharedStore] FONTECOR]];
+            celula.selectionStyle = UITableViewCellSelectionStyleNone;
+            [nome setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+            [nome setAdjustsFontSizeToFitWidth:YES];
+            [nome setTag:1];
+            [celula addSubview:nome];
+            
+            UIImageView* imgToco = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"check.png"]];
+            [imgToco setFrame:CGRectMake(180, 8, 23, 23)];
+            [imgToco setTag:2];
+            [celula addSubview:imgToco];
+            
+            UIImageView* imgTenho = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"uncheck.png"]];
+            [imgTenho setFrame:CGRectMake(250, 8, 23, 23)];
+            [imgTenho setTag:3];
+            [celula addSubview:imgTenho];
+        }
+        else{
+            UILabel* nome = (UILabel*)[celula viewWithTag:1];
+            [nome setText:instrumento];
+            
+            CGRect frame = CGRectMake(15, 2, 140, 40);
+            [nome setFrame:frame];
+            
+            NSString *condicao = [[[CadastroStore sharedStore] instrumentosQueToca] objectAtIndex:indexPath.row];
+            
+            UIImageView* imgToco = (UIImageView*)[celula viewWithTag:2];
+            [imgToco setImage:[UIImage imageNamed:@"check.png"]];
+            
+            UIImageView* imgTenho = (UIImageView*)[celula viewWithTag:3];
+            
+            if ([condicao rangeOfString:@"1"].location != NSNotFound) {
+                //nao tem 1
+                [imgTenho setImage:[UIImage imageNamed:@"check.png"]];
+            }
+            else{
+                //tem 1
+                [imgTenho setImage:[UIImage imageNamed:@"uncheck.png"]];
+            }
+        }
+    }
     
     return celula;
 }
@@ -137,26 +183,31 @@
 //Selecionar Celula
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    UIImageView* imgTenho = (UIImageView*)[[tableView cellForRowAtIndexPath:indexPath] viewWithTag:3];
-
-    NSMutableArray *instrumentos = [[CadastroStore sharedStore] instrumentosQueToca];
-    
-    NSString *instrumento = [instrumentos objectAtIndex:indexPath.row];
-    
-    if([instrumento rangeOfString:@"1"].location != NSNotFound){
-        instrumento = [instrumento stringByReplacingOccurrencesOfString:@"1" withString:@""];
-        [instrumentos replaceObjectAtIndex:indexPath.row withObject:instrumento];
-        
-        
-        [imgTenho setImage:[UIImage imageNamed:@"uncheck.png"]];
+    if ((indexPath.row == [[[CadastroStore sharedStore] instrumentosQueToca] count])) {
+        [self adicionarNovoInstrumento];
     }
     else{
+        UIImageView* imgTenho = (UIImageView*)[[tableView cellForRowAtIndexPath:indexPath] viewWithTag:3];
+
+        NSMutableArray *instrumentos = [[CadastroStore sharedStore] instrumentosQueToca];
         
-        instrumento = [NSString stringWithFormat:@"%@1", instrumento];
-        [instrumentos replaceObjectAtIndex:indexPath.row withObject:instrumento];
+        NSString *instrumento = [instrumentos objectAtIndex:indexPath.row];
         
-        
-        [imgTenho setImage:[UIImage imageNamed:@"check.png"]];
+        if([instrumento rangeOfString:@"1"].location != NSNotFound){
+            instrumento = [instrumento stringByReplacingOccurrencesOfString:@"1" withString:@""];
+            [instrumentos replaceObjectAtIndex:indexPath.row withObject:instrumento];
+            
+            
+            [imgTenho setImage:[UIImage imageNamed:@"uncheck.png"]];
+        }
+        else{
+            
+            instrumento = [NSString stringWithFormat:@"%@1", instrumento];
+            [instrumentos replaceObjectAtIndex:indexPath.row withObject:instrumento];
+            
+            
+            [imgTenho setImage:[UIImage imageNamed:@"check.png"]];
+        }
     }
 }
 
@@ -170,7 +221,12 @@
 }
 
 -(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
-    return YES;
+    if (indexPath.row == [[[CadastroStore sharedStore] instrumentosQueToca] count]) {
+        return NO;
+    }
+    else{
+        return YES;
+    }
 }
 
 @end

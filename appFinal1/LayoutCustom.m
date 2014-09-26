@@ -14,21 +14,18 @@
     
     [(UIImageView*)[cell viewWithTag:1] removeFromSuperview];
     
-    UIImageView *botao = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
-    [[botao layer] setCornerRadius:5];
-    [[botao layer] setBorderColor:[UIColor blackColor].CGColor];
-    [[botao layer] setBorderWidth:2.5f];
+    UIImageView *botao = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
+    botao.image = [UIImage imageNamed:@"uncheck.png"];
+    [botao setBackgroundColor:[UIColor clearColor]];
     
     return botao;
 }
 
 +(UIImageView*)botaoCollectionViewCellSelecionado{
     
-    UIImageView *botaoSelecionado = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
-    botaoSelecionado.image = [UIImage imageNamed:@"selecionado.png"];
-    [[botaoSelecionado layer] setCornerRadius:5];
-    [[botaoSelecionado layer] setBorderColor:[UIColor blackColor].CGColor];
-    [[botaoSelecionado layer] setBorderWidth:2.5f];
+    UIImageView *botaoSelecionado = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
+    botaoSelecionado.image = [UIImage imageNamed:@"check.png"];
+    [botaoSelecionado setBackgroundColor:[UIColor clearColor]];
     botaoSelecionado.tag = 1;
     
     return botaoSelecionado;

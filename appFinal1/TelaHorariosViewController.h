@@ -14,5 +14,6 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionHorario;
 
 @property NSArray *horarios;
+- (IBAction)exibeLog:(id)sender;
 
 @end

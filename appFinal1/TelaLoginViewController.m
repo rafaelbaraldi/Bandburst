@@ -36,6 +36,8 @@
     [[[self navigationController] navigationBar] setTintColor:[[LocalStore sharedStore] FONTECOR]];
     [self arredondaBordaBotoes];
     [_txtSenha setSecureTextEntry:YES];
+    
+    [_lblEsqueceuSenha setBackgroundColor:[UIColor clearColor]];
 
 //    Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
 //    NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];

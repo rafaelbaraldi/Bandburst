@@ -69,6 +69,8 @@
         celula = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"InstrumentosPesquisaCell"];
     }
     celula.textLabel.text = [[[CadastroStore sharedStore] instrumentosFiltrados] objectAtIndex:indexPath.row];
+    celula.textLabel.textColor = [[LocalStore sharedStore] FONTECOR];
+    celula.textLabel.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16];
     
     return celula;
 }

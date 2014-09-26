@@ -30,18 +30,15 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     
-    //Adiconar Estilos
-    [self addEstilos];
+    _tbEstilosQueToca.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 20)];
+}
+
+-(BOOL)automaticallyAdjustsScrollViewInsets{
+    return NO;
 }
 
 -(void) viewWillAppear:(BOOL)animated{
     [_tbEstilosQueToca reloadData];
-}
-
--(void) addEstilos{
-    
-    UIBarButtonItem *addEstilo = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(adicionarNovoEstilo)];
-    [[self navigationItem] setRightBarButtonItem:addEstilo];
 }
 
 - (void)didReceiveMemoryWarning{
@@ -58,7 +55,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return [[[CadastroStore sharedStore] estilosQueToca] count];
+    return [[[CadastroStore sharedStore] estilosQueToca] count] + 1;
 }
 
 //Conteudo das Celulas
@@ -68,10 +65,23 @@
     
     if(celula == nil){
         celula = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"EstilosQueTocaCell"];
+        celula.textLabel.textColor = [[LocalStore sharedStore] FONTECOR];
+        celula.textLabel.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16];
     }
-    celula.textLabel.text = [[[CadastroStore sharedStore] estilosQueToca] objectAtIndex:indexPath.row];
+    if (indexPath.row == [[[CadastroStore sharedStore] estilosQueToca] count]) {
+        celula.textLabel.text = @"  Adicionar Estilo Musical...";
+    }
+    else{
+        celula.textLabel.text = [[[CadastroStore sharedStore] estilosQueToca] objectAtIndex:indexPath.row];
+    }
     
     return celula;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == [[[CadastroStore sharedStore] estilosQueToca] count]) {
+        [self adicionarNovoEstilo];
+    }
 }
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -84,7 +94,12 @@
 }
 
 -(BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
-    return YES;
+    if (indexPath.row == [[[CadastroStore sharedStore] estilosQueToca] count]) {
+        return  NO;
+    }
+    else{
+        return YES;
+    }
 }
 
 @end

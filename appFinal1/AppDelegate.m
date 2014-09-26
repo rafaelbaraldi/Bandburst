@@ -50,8 +50,12 @@
     
     //Navigation Controller - Alterar Cores
     UINavigationController *navegacaoC = [[UINavigationController alloc] initWithRootViewController:telaVc];
-    [navegacaoC.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [[LocalStore sharedStore] FONTECOR]}];
+    [navegacaoC.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [[LocalStore sharedStore] FONTECOR], NSFontAttributeName: [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]}];
 //    [navegacaoC.navigationBar setBarStyle:UIBarStyleBlackOpaque];
+    
+    [[UITextField appearance] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    [[UILabel appearance] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    [[UIButton appearance] setBackgroundColor:[[LocalStore sharedStore] FONTECOR]];
 
     [self.window setRootViewController:navegacaoC];
     self.window.backgroundColor = [UIColor whiteColor];

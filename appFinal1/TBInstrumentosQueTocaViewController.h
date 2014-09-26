@@ -12,7 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tbInstrumentosQueToca;
 
-@property (strong, nonatomic) IBOutlet UILabel *lblInstrumentos;
+@property (strong, nonatomic) IBOutlet UILabel *lblInstrumento;
 @property (strong, nonatomic) IBOutlet UILabel *lblToco;
 @property (strong, nonatomic) IBOutlet UILabel *lblTenho;
 
