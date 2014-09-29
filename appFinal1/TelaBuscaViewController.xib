@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5053" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5053" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TelaBuscaViewController">
             <connections>
-                <outlet property="btnEsconderFiltro" destination="8i9-TD-Lyn" id="Cgz-4Y-VRC"/>
                 <outlet property="btnEstilo" destination="9Pe-oG-gi2" id="R6V-Wf-zkN"/>
                 <outlet property="btnHorarios" destination="jH1-oh-0US" id="vfM-AX-S0D"/>
                 <outlet property="btnInstumento" destination="ZcF-60-fJs" id="dsA-TR-zJX"/>
@@ -34,18 +33,18 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <tabBar contentMode="scaleToFill" fixedFrame="YES" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="nJ8-aO-iVP">
+                <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nJ8-aO-iVP">
                     <rect key="frame" x="0.0" y="525" width="320" height="49"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <items>
-                        <tabBarItem tag="1" title="Gravar" image="gravarIcon.png" id="p7Z-6i-Aqn">
+                        <tabBarItem tag="1" title="Gravar" id="p7Z-6i-Aqn">
                             <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="10"/>
                         </tabBarItem>
-                        <tabBarItem tag="2" systemItem="search" id="jib-XL-ILu">
+                        <tabBarItem tag="2" id="jib-XL-ILu">
                             <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="10"/>
                         </tabBarItem>
-                        <tabBarItem tag="3" systemItem="contacts" id="vQ6-Ug-yzt">
+                        <tabBarItem tag="3" id="vQ6-Ug-yzt">
                             <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="10"/>
                         </tabBarItem>
                     </items>
@@ -135,18 +134,6 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8i9-TD-Lyn">
-                    <rect key="frame" x="229" y="60" width="85" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <state key="normal" title="Esconder filtro">
-                        <color key="titleColor" red="1" green="0.97945190544465832" blue="0.9410339939708553" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="btnEsconderFiltroClick:" destination="-1" eventType="touchUpInside" id="7fh-tc-Hnz"/>
-                    </connections>
-                </button>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="yzY-OJ-snY">
                     <rect key="frame" x="20" y="229" width="280" height="276"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -171,6 +158,5 @@
     </objects>
     <resources>
         <image name="delete.png" width="512" height="512"/>
-        <image name="gravarIcon.png" width="32" height="32"/>
     </resources>
 </document>

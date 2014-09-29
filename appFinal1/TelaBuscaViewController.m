@@ -36,7 +36,7 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        [[self navigationItem] setTitle:@"Buscar Músico"];
+        [[self navigationItem] setTitle:@"Encontrar Músico"];
         _usuarios = [[NSMutableArray alloc] init];
     }
     return self;
@@ -53,9 +53,6 @@
     [_tabBar setTintColor:[[LocalStore sharedStore] FONTECOR]];
     
     [self escondeBotaoDeBoltarSeUsuarioLogado];
-    
-    //Habilitar Botao de esonder Filtro
-    [self habilitaBotaoEsconder];
     
     //Verifica se há filtro de horarios preenchidos
     [self carregaFiltroDeHorario];
@@ -78,9 +75,7 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     
-    //BG
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.png"]]];
-    [_viewFiltros setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.png"]]];
+    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
     [[[self navigationController] navigationBar] setTintColor:[[LocalStore sharedStore] FONTECOR]];
     
     //Metodo de Busca por cidade
@@ -124,8 +119,6 @@
         [_usuarios removeAllObjects];
     }
     
-    //Exibi botao de esconder os filtros de busca
-    [self habilitaBotaoEsconder];
     
     [_tbUsuarios reloadData];
 }
@@ -135,15 +128,11 @@
     [[_btnEstilo layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
     [[_btnInstumento layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
     [[_btnHorarios layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
-}
-
--(void)habilitaBotaoEsconder{
-    if(![_usuarios count] > 0){
-        [_btnEsconderFiltro setHidden:YES];
-    }
-    else{
-        [_btnEsconderFiltro setHidden:NO];
-    }
+    
+    
+    [[_btnEstilo titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    [[_btnInstumento titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    [[_btnHorarios titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
 }
 
 -(void)atualizaTela{
@@ -214,32 +203,6 @@
     _usuarios = [BuscaStore atualizaBusca:_usuarios cidade:_txtCidade.text];
     [self atualizaTela];
     [self carregaUsuarioBuscado];
-}
-
-- (IBAction)btnEsconderFiltroClick:(id)sender {
-    
-    if(_viewFiltros.hidden){
-        [UIView animateWithDuration:0.5 animations:^{
-            [_tbUsuarios setFrame:_frameTbUsuarios];
-            
-             _btnEsconderFiltro.titleLabel.text = @"Esconder filtro";
-            _viewFiltros.hidden = NO;
-        }];
-    }
-    else{
-        [UIView animateWithDuration:0.5 animations:^{
-            CGRect frameView = _viewFiltros.frame;
-            CGRect frameUsuario = _tbUsuarios.frame;
-            frameUsuario.origin.y = frameView.origin.y;
-            frameUsuario.size.height += frameView.size.height;
-            
-            [_tbUsuarios setFrame:frameUsuario];
-        }completion:^(BOOL finished) {
-            
-            _btnEsconderFiltro.titleLabel.text = @"Mostrar filtro";
-            _viewFiltros.hidden = YES;
-        }];
-    }
 }
 
 //Delegate TextField

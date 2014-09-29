@@ -23,10 +23,6 @@
 - (IBAction)btnRemoverEstiloClick:(id)sender;
 - (IBAction)btnRemoverInstrumentoClick:(id)sender;
 
-- (IBAction)btnEsconderFiltroClick:(id)sender;
-
-@property (strong, nonatomic) IBOutlet UIButton *btnEsconderFiltro;
-
 @property (strong, nonatomic) IBOutlet UIButton *btnInstumento;
 @property (strong, nonatomic) IBOutlet UIButton *btnEstilo;
 @property (strong, nonatomic) IBOutlet UIButton *btnHorarios;
