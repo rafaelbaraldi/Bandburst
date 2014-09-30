@@ -43,8 +43,7 @@
     //Remove lista de busca de instrumentos filtrados
     [[[BuscaStore sharedStore] instrumentosFiltrados] removeAllObjects];
     
-    //BG
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.png"]]];
+    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -72,6 +71,9 @@
     else{
         celula.textLabel.text = [[[BuscaStore sharedStore] instrumentosFiltrados]  objectAtIndex:indexPath.row];
     }
+    
+    celula.textLabel.textColor = [[LocalStore sharedStore] FONTECOR];
+    celula.textLabel.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16];
     
     return celula;
 }

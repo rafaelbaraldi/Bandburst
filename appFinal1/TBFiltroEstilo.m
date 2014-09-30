@@ -40,8 +40,7 @@
     //Remove lista de estilos pelo filtro de Busca 
     [[[BuscaStore sharedStore] estilosFiltrados] removeAllObjects];
     
-    //BG
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.png"]]];
+    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -69,6 +68,9 @@
     else{
         celula.textLabel.text = [[[BuscaStore sharedStore] estilosFiltrados]  objectAtIndex:indexPath.row];
     }
+    
+    celula.textLabel.textColor = [[LocalStore sharedStore] FONTECOR];
+    celula.textLabel.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16];
     
     return celula;
 }

@@ -25,7 +25,6 @@
 		1B5239601995537800D2A640 /* TelaMusicasViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B52395E1995537800D2A640 /* TelaMusicasViewController.xib */; };
 		1B5FE140192FC23B00E35BCC /* BuscaStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B5FE13F192FC23B00E35BCC /* BuscaStore.m */; };
 		1B5FE144192FD00300E35BCC /* BuscaConexao.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B5FE143192FD00300E35BCC /* BuscaConexao.m */; };
-		1B67BD7B19D9E2FE00A663EC /* barra.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B67BD7A19D9E2FE00A663EC /* barra.png */; };
 		1B67BD8119D9E66000A663EC /* gravador.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B67BD8019D9E66000A663EC /* gravador.png */; };
 		1B67BD8519D9F00500A663EC /* audio.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B67BD8219D9F00500A663EC /* audio.png */; };
 		1B67BD8619D9F00500A663EC /* gravar.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B67BD8319D9F00500A663EC /* gravar.png */; };
@@ -84,8 +83,8 @@
 		2F79ACCB19802D2900C3DD0E /* Usuario.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F79ACCA19802D2900C3DD0E /* Usuario.m */; };
 		2FB3B34319745A0B0054B7F7 /* CoreAudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FB3B34119745A0B0054B7F7 /* CoreAudioViewController.m */; };
 		2FB3B34419745A0B0054B7F7 /* CoreAudioViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FB3B34219745A0B0054B7F7 /* CoreAudioViewController.xib */; };
-		3114938019DB32A40018391F /* tabbar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3114937F19DB32A40018391F /* tabbar.jpg */; };
 		3114938219DB32BC0018391F /* placeholderFoto.png in Resources */ = {isa = PBXBuildFile; fileRef = 3114938119DB32BC0018391F /* placeholderFoto.png */; };
+		3114938819DB4D4C0018391F /* barra3.png in Resources */ = {isa = PBXBuildFile; fileRef = 3114938719DB4D4C0018391F /* barra3.png */; };
 		316AAA07199E8C81001CE96B /* CellTituloMusica.xib in Resources */ = {isa = PBXBuildFile; fileRef = 316AAA06199E8C81001CE96B /* CellTituloMusica.xib */; };
 		316AAA0A199E9D89001CE96B /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 316AAA09199E9D89001CE96B /* bg.png */; };
 		316AAA10199EA49B001CE96B /* bgNavigation.png in Resources */ = {isa = PBXBuildFile; fileRef = 316AAA0F199EA49B001CE96B /* bgNavigation.png */; };
@@ -197,7 +196,6 @@
 		1B5FE13F192FC23B00E35BCC /* BuscaStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuscaStore.m; sourceTree = "<group>"; };
 		1B5FE142192FD00300E35BCC /* BuscaConexao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuscaConexao.h; sourceTree = "<group>"; };
 		1B5FE143192FD00300E35BCC /* BuscaConexao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuscaConexao.m; sourceTree = "<group>"; };
-		1B67BD7A19D9E2FE00A663EC /* barra.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barra.png; sourceTree = "<group>"; };
 		1B67BD8019D9E66000A663EC /* gravador.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gravador.png; sourceTree = "<group>"; };
 		1B67BD8219D9F00500A663EC /* audio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = audio.png; sourceTree = "<group>"; };
 		1B67BD8319D9F00500A663EC /* gravar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gravar.png; sourceTree = "<group>"; };
@@ -271,8 +269,8 @@
 		2FB3B34019745A0B0054B7F7 /* CoreAudioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreAudioViewController.h; sourceTree = "<group>"; };
 		2FB3B34119745A0B0054B7F7 /* CoreAudioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreAudioViewController.m; sourceTree = "<group>"; };
 		2FB3B34219745A0B0054B7F7 /* CoreAudioViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CoreAudioViewController.xib; sourceTree = "<group>"; };
-		3114937F19DB32A40018391F /* tabbar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tabbar.jpg; sourceTree = "<group>"; };
 		3114938119DB32BC0018391F /* placeholderFoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholderFoto.png; sourceTree = "<group>"; };
+		3114938719DB4D4C0018391F /* barra3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barra3.png; sourceTree = "<group>"; };
 		316AAA06199E8C81001CE96B /* CellTituloMusica.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellTituloMusica.xib; sourceTree = "<group>"; };
 		316AAA09199E9D89001CE96B /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 		316AAA0F199EA49B001CE96B /* bgNavigation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgNavigation.png; sourceTree = "<group>"; };
@@ -774,12 +772,11 @@
 		316AAA08199E9D75001CE96B /* Imagens Layout */ = {
 			isa = PBXGroup;
 			children = (
-				3114937F19DB32A40018391F /* tabbar.jpg */,
 				1B67BD8019D9E66000A663EC /* gravador.png */,
-				1B67BD7A19D9E2FE00A663EC /* barra.png */,
 				1B67BD8819D9F33500A663EC /* seta_tabbar.png */,
 				316AAA09199E9D89001CE96B /* bg.png */,
 				316AAA0F199EA49B001CE96B /* bgNavigation.png */,
+				3114938719DB4D4C0018391F /* barra3.png */,
 			);
 			name = "Imagens Layout";
 			sourceTree = "<group>";
@@ -1115,7 +1112,6 @@
 				1BE44A4119DB2846009CA9B0 /* TelaGravacoesViewController.xib in Resources */,
 				1BEA45961992C7A100876D75 /* 9.png in Resources */,
 				737D09E91975C5D1000975F6 /* TelaInicioViewController.xib in Resources */,
-				3114938019DB32A40018391F /* tabbar.jpg in Resources */,
 				3114938219DB32BC0018391F /* placeholderFoto.png in Resources */,
 				1BEA45A01992C7A100876D75 /* 4.png in Resources */,
 				1B67BD8919D9F33500A663EC /* seta_tabbar.png in Resources */,
@@ -1125,6 +1121,7 @@
 				73A3072419744C09005551D3 /* TBEstilosQueTocaViewController.xib in Resources */,
 				1BDA118A199BEEB9005F7262 /* CellMusica.xib in Resources */,
 				73A3072919744CBC005551D3 /* TBEstilosViewController.xib in Resources */,
+				3114938819DB4D4C0018391F /* barra3.png in Resources */,
 				1B67BD8119D9E66000A663EC /* gravador.png in Resources */,
 				31F67C7A193523D400113DA8 /* TelaUsuarioFiltrado.xib in Resources */,
 				739DA1DF198C0DF8005053DB /* opcoes.png in Resources */,
@@ -1163,7 +1160,6 @@
 				31F67C75193515CC00113DA8 /* escrever.png in Resources */,
 				1BEA45A41992C7A100876D75 /* 5.png in Resources */,
 				1B1613111992A6E2009D5513 /* TelaAmigosViewController.xib in Resources */,
-				1B67BD7B19D9E2FE00A663EC /* barra.png in Resources */,
 				31C31744194783B700C99512 /* delete.png in Resources */,
 				73DF446D197053EB000EE360 /* TelaEsqueciSenhaViewController.xib in Resources */,
 				1BEA459A1992C7A100876D75 /* 0.png in Resources */,

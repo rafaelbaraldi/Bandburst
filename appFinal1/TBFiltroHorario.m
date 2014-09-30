@@ -22,9 +22,6 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        
-        [[self navigationItem] setTitle:@"Filtro Horários"];
-        
     }
     return self;
 }
@@ -37,6 +34,14 @@
     [super viewDidLoad];
     
     [self carregaValoresHorarios];
+    
+    [_collectionHorario setBackgroundColor:[UIColor clearColor]];
+
+    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [[self navigationItem] setTitle:@"Filtro Horários"];
 }
 
 - (void)didReceiveMemoryWarning{
@@ -90,23 +95,21 @@
 
 -(void)carregaValoresHorarios{
     
+    //LBL Selecione horario
+    [_lblHorarios setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    
     //Carrega Cell
     UINib *nib = [UINib nibWithNibName:@"cellHorario" bundle:nil];
     [_collectionHorario registerNib:nib forCellWithReuseIdentifier:@"cvCell"];
     
     //Carrega Layout
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    [layout setItemSize:CGSizeMake(55, 55)];
-    [layout setSectionInset:UIEdgeInsetsMake(25, 10, 15, 10)];
-    [layout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
+    [layout setItemSize:CGSizeMake(45, 25)];
+    [layout setSectionInset:UIEdgeInsetsMake(10, 25, 10, 10)];
     [_collectionHorario setCollectionViewLayout:layout];
     
-    [_collectionHorario setBackgroundColor:[UIColor whiteColor]];
-    
-    //Carrega Header
-    UILabel *lblHeader = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 600, 20)];
-    lblHeader.text = @"Domingo  Segunda    Terça      Quarta    Quinta     Sexta     Sabado";
-    [_collectionHorario addSubview:lblHeader];
+    [_collectionHorario setBackgroundColor:[UIColor whiteColor]];;
+
     
     //Carrega Valores
     NSMutableArray *secao1 = [[NSMutableArray alloc] init];
@@ -118,13 +121,13 @@
     NSMutableArray *secao7 = [[NSMutableArray alloc] init];
     
     for (int i = 0; i < 3; i++) {
-        [secao1 addObject:[NSString stringWithFormat:@"domingo%i", i]];
-        [secao2 addObject:[NSString stringWithFormat:@"segunda%i", i]];
-        [secao3 addObject:[NSString stringWithFormat:@"terca%i", i]];
-        [secao4 addObject:[NSString stringWithFormat:@"quarta%i", i]];
-        [secao5 addObject:[NSString stringWithFormat:@"quinta%i", i]];
-        [secao6 addObject:[NSString stringWithFormat:@"sexta%i", i]];
-        [secao7 addObject:[NSString stringWithFormat:@"sabado%i", i]];
+        [secao1 addObject:[NSString stringWithFormat:@"segunda%i", i]];
+        [secao2 addObject:[NSString stringWithFormat:@"terca%i", i]];
+        [secao3 addObject:[NSString stringWithFormat:@"quarta%i", i]];
+        [secao4 addObject:[NSString stringWithFormat:@"quinta%i", i]];
+        [secao5 addObject:[NSString stringWithFormat:@"sexta%i", i]];
+        [secao6 addObject:[NSString stringWithFormat:@"sabado%i", i]];
+        [secao7 addObject:[NSString stringWithFormat:@"domingo%i", i]];
     }
     
     _horarios = [[NSArray alloc] initWithObjects:secao1, secao2, secao3, secao4, secao5, secao6, secao7, nil];

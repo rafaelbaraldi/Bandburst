@@ -10,6 +10,7 @@
 
 @interface TBFiltroHorario : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
+@property (strong, nonatomic) IBOutlet UILabel *lblHorarios;
 @property NSArray *horarios;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionHorario;
 
