@@ -9,6 +9,11 @@
 #import "BandaStore.h"
 #import "LocalStore.h"
 
+#import "TPUsuario.h"
+
+#import "UIImageView+WebCache.h"
+#import "celulaPerfilTableViewCell.h"
+
 @interface TelaNovaBandaViewController ()
 @end
 
@@ -17,7 +22,6 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
         [[self navigationItem] setTitle:@"Nova Banda"];
     }
     return self;
@@ -31,6 +35,9 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [_tbMembros reloadData];
+    
+    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
+    [[[self navigationController] navigationBar] setTintColor:[[LocalStore sharedStore] FONTECOR]];
 }
 
 - (void)didReceiveMemoryWarning{
@@ -38,13 +45,24 @@
 }
 
 -(void) carregaLayout{
-    //BG - Layout
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.png"]]];
     
+    //Criar banda
     [[_btnCriarBanda layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
+    [[_btnCriarBanda titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14]];
     
-    //Remove linhas em branco da TableView
+    //Nome da banda
+    [[_txtNomeDaBanda layer] setBorderWidth:2.0f];
+    [[_txtNomeDaBanda layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
+    [[_txtNomeDaBanda layer] setBorderColor:[[LocalStore sharedStore] FONTECOR].CGColor];
+
+    //Mais membro
+    [[_btnMaisMembro layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
+    [[_btnMaisMembro layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
+    [[_btnMaisMembro titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14]];
+    
+    //Esconde linhas em branco da TableView
     _tbMembros.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    _tbMembros.separatorColor = [UIColor clearColor];
 }
 
 - (IBAction)btnMaisMembroClick:(id)sender {
@@ -77,16 +95,79 @@
     return 1;
 }
 
+//-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    UITableViewCell* celula = [tableView dequeueReusableCellWithIdentifier:@"MembrosCell"];
+//    
+//    if(celula == nil){
+//        celula = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MembrosCell"];
+//    }
+//    celula.textLabel.text = ((TPUsuario*)[[[BandaStore sharedStore] membros] objectAtIndex:indexPath.row]).nome;
+//    
+//    return celula;
+//}
+
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell* celula = [tableView dequeueReusableCellWithIdentifier:@"MembrosCell"];
+    
+    celulaPerfilTableViewCell* celula = [tableView dequeueReusableCellWithIdentifier:@"UsuarioPesquisaCell"];
+    
+    //URL Foto do Usuario
+    NSString *urlFoto = [NSString stringWithFormat:@"http://54.187.203.61/appMusica/FotosDePerfil/%@.png", ((TPUsuario*)[[[BandaStore sharedStore] membros] objectAtIndex:indexPath.row]).identificador];
+    NSURL *imageURL = [NSURL URLWithString:urlFoto];
     
     if(celula == nil){
-        celula = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MembrosCell"];
+        celula = [[celulaPerfilTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UsuarioPesquisaCell"];
+        
+        //Remove cor de seleção
+        celula.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        UILabel *nome = [[UILabel alloc] initWithFrame:CGRectMake(120, 25, 170, 20)];
+        nome.text = ((TPUsuario*)[[[BandaStore sharedStore] membros] objectAtIndex:indexPath.row]).nome;
+        nome.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16];
+        nome.textColor = [[LocalStore sharedStore] FONTECOR];
+        nome.adjustsFontSizeToFitWidth = YES;
+        nome.tag = 1;
+        
+        UILabel *cidade = [[UILabel alloc] initWithFrame:CGRectMake(120, 55, 170, 15)];
+        cidade.text = ((TPUsuario*)[[[BandaStore sharedStore] membros] objectAtIndex:indexPath.row]).cidade;
+        cidade.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:12];
+        cidade.textColor = [[LocalStore sharedStore] FONTECOR];
+        cidade.adjustsFontSizeToFitWidth = YES;
+        cidade.tag = 2;
+        
+        [celula addSubview:nome];
+        [celula addSubview:cidade];
     }
-    celula.textLabel.text = ((TPUsuario*)[[[BandaStore sharedStore] membros] objectAtIndex:indexPath.row]).nome;
+    else{
+        ((UILabel*)[celula viewWithTag:1]).text = ((TPUsuario*)[[[BandaStore sharedStore] membros] objectAtIndex:indexPath.row]).nome;
+        ((UILabel*)[celula viewWithTag:2]).text = ((TPUsuario*)[[[BandaStore sharedStore] membros] objectAtIndex:indexPath.row]).cidade;
+    }
+    
+    // Here we use the new provided setImageWithURL: method to load the web image
+    [celula.imageView sd_setImageWithURL:imageURL placeholderImage:[self carregaImagemFake]
+                               completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                                   [[SDImageCache sharedImageCache] storeImage:image forKey:urlFoto];
+                               }];
+    
+    //Layout Celula
+    UIView *bgColorCell = [[UIView alloc] init];
+    [bgColorCell setBackgroundColor:[[LocalStore sharedStore] FONTECOR]];
+    [celula setSelectedBackgroundView:bgColorCell];
+    [celula setBackgroundColor:[UIColor clearColor]];
     
     return celula;
 }
+
+-(UIImage*)carregaImagemFake{
+    
+    UIImageView *fotoUsuario = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 80, 80)];
+    fotoUsuario.image = [UIImage imageNamed:@"placeholderFoto.png"];
+    fotoUsuario.layer.masksToBounds = YES;
+    fotoUsuario.layer.cornerRadius = fotoUsuario.frame.size.width / 2;
+    fotoUsuario.tag = 4;
+    
+    return fotoUsuario.image;
+}
+
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
     if(editingStyle == UITableViewCellEditingStyleDelete){

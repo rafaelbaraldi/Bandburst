@@ -12,6 +12,9 @@
 #import "TPUsuario.h"
 #import "LocalStore.h"
 
+#import "UIImageView+WebCache.h"
+#import "celulaPerfilTableViewCell.h"
+
 @interface TelaAmigosViewController ()
 
 @end
@@ -21,7 +24,6 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
         _amigos = [[NSMutableArray alloc] init];
         _amigosFiltrados = [[NSMutableArray alloc] init];
         
@@ -32,17 +34,30 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
     
-    _amigos = [BandaStore retornaListaDeAmigos] ;
+    [self carregaLayout];
     
+     _amigos = [BandaStore retornaListaDeAmigos];
     [_amigosFiltrados addObjectsFromArray:_amigos];
+}
 
+-(void)viewWillAppear:(BOOL)animated{
+    
+    _amigos = [BandaStore retornaListaDeAmigos];
+    
+    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
+    [[[self navigationController] navigationBar] setTintColor:[[LocalStore sharedStore] FONTECOR]];
 }
 
 - (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+}
+
+-(void)carregaLayout{
+    
+    //Esconde linhas em branco da TableView
+    _tbAmigos.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    _tbAmigos.separatorColor = [UIColor clearColor];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -53,15 +68,15 @@
     return 1;
 }
 
--(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell* celula = [tableView dequeueReusableCellWithIdentifier:@"MembrosCell"];
-    
-    if(celula == nil){
-        celula = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MembrosCell"];
-    }
-    celula.textLabel.text = ((TPUsuario*)[_amigosFiltrados objectAtIndex:indexPath.row]).nome;
-    return celula;
-}
+//-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    UITableViewCell* celula = [tableView dequeueReusableCellWithIdentifier:@"MembrosCell"];
+//    
+//    if(celula == nil){
+//        celula = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MembrosCell"];
+//    }
+//    celula.textLabel.text = ((TPUsuario*)[_amigosFiltrados objectAtIndex:indexPath.row]).nome;
+//    return celula;
+//}
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if(![[[BandaStore sharedStore] membros] containsObject:[_amigosFiltrados objectAtIndex:indexPath.row]]){
@@ -88,6 +103,68 @@
 
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     [searchBar resignFirstResponder];
+}
+
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    celulaPerfilTableViewCell* celula = [tableView dequeueReusableCellWithIdentifier:@"UsuarioPesquisaCell"];
+    
+    //URL Foto do Usuario
+    NSString *urlFoto = [NSString stringWithFormat:@"http://54.187.203.61/appMusica/FotosDePerfil/%@.png", ((TPUsuario*)[_amigosFiltrados objectAtIndex:indexPath.row]).identificador];
+    NSURL *imageURL = [NSURL URLWithString:urlFoto];
+    
+    if(celula == nil){
+        celula = [[celulaPerfilTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UsuarioPesquisaCell"];
+        
+        //Remove cor de seleção
+        celula.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        UILabel *nome = [[UILabel alloc] initWithFrame:CGRectMake(120, 25, 170, 20)];
+        nome.text = ((TPUsuario*)[_amigosFiltrados objectAtIndex:indexPath.row]).nome;
+        nome.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16];
+        nome.textColor = [[LocalStore sharedStore] FONTECOR];
+        nome.adjustsFontSizeToFitWidth = YES;
+        nome.tag = 1;
+        
+        UILabel *cidade = [[UILabel alloc] initWithFrame:CGRectMake(120, 55, 170, 15)];
+        cidade.text = ((TPUsuario*)[_amigosFiltrados objectAtIndex:indexPath.row]).cidade;
+        cidade.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:12];
+        cidade.textColor = [[LocalStore sharedStore] FONTECOR];
+        cidade.adjustsFontSizeToFitWidth = YES;
+        cidade.tag = 2;
+        
+        [celula addSubview:nome];
+        [celula addSubview:cidade];
+    }
+    else{
+        ((UILabel*)[celula viewWithTag:1]).text = ((TPUsuario*)[_amigosFiltrados objectAtIndex:indexPath.row]).nome;
+        ((UILabel*)[celula viewWithTag:2]).text = ((TPUsuario*)[_amigosFiltrados objectAtIndex:indexPath.row]).cidade;
+    }
+    
+    // Here we use the new provided setImageWithURL: method to load the web image
+    [celula.imageView sd_setImageWithURL:imageURL placeholderImage:[self carregaImagemFake]
+                               completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                                   [[SDImageCache sharedImageCache] storeImage:image forKey:urlFoto];
+                               }];
+    
+    //Layout Celula
+    UIView *bgColorCell = [[UIView alloc] init];
+    [bgColorCell setBackgroundColor:[[LocalStore sharedStore] FONTECOR]];
+    [celula setSelectedBackgroundView:bgColorCell];
+    [celula setBackgroundColor:[UIColor clearColor]];
+    
+    return celula;
+}
+
+-(UIImage*)carregaImagemFake{
+    
+    UIImageView *fotoUsuario = [[UIImageView alloc] initWithFrame:CGRectMake(30, 10, 80, 80)];
+    fotoUsuario.image = [UIImage imageNamed:@"placeholderFoto.png"];
+    fotoUsuario.layer.masksToBounds = YES;
+    fotoUsuario.layer.cornerRadius = fotoUsuario.frame.size.width / 2;
+    fotoUsuario.tag = 4;
+    
+    return fotoUsuario.image;
 }
 
 @end

@@ -33,7 +33,7 @@
 
 -(void)layoutSubviews{
     [super layoutSubviews];
-    self.imageView.frame = CGRectMake(5, 3, 65, 65);
+    self.imageView.frame = CGRectMake(30, 10, 80, 80);
     self.imageView.layer.masksToBounds = YES;
     self.imageView.layer.cornerRadius =  self.imageView.frame.size.width / 2;
 }

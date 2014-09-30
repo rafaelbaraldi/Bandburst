@@ -10,13 +10,13 @@
 
 @interface TelaNovaBandaViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
-@property (strong, nonatomic) IBOutlet UITextField *txtNomeDaBanda;
-@property (weak, nonatomic) IBOutlet UIButton *btnCriarBanda;
-
 - (IBAction)btnMaisMembroClick:(id)sender;
 - (IBAction)btnCriarBandaClick:(id)sender;
 - (IBAction)txtNomeDaBandaDone:(id)sender;
 
+@property (strong, nonatomic) IBOutlet UITextField *txtNomeDaBanda;
+@property (strong, nonatomic) IBOutlet UIButton *btnMaisMembro;
 @property (strong, nonatomic) IBOutlet UITableView *tbMembros;
+@property (weak, nonatomic) IBOutlet UIButton *btnCriarBanda;
 
 @end

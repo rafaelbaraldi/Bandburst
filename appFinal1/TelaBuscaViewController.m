@@ -88,6 +88,7 @@
     //Deixa a borda dos boteos arredondados
     [self arredondaBordaBotoes];
     
+    //Esconde linhas da tabela
     _tbUsuarios.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     _tbUsuarios.separatorColor = [UIColor clearColor];
 }
@@ -250,14 +251,14 @@
         UILabel *nome = [[UILabel alloc] initWithFrame:CGRectMake(90, 5, 200, 20)];
         nome.text = ((TPUsuario*)[_usuarios objectAtIndex:indexPath.row]).nome;
         nome.adjustsFontSizeToFitWidth = YES;
-        nome.textColor = [UIColor whiteColor];
+        nome.textColor = [[LocalStore sharedStore] FONTECOR];
         nome.font = [UIFont boldSystemFontOfSize:16];
         nome.tag = 1;
         
         UILabel *cidade = [[UILabel alloc] initWithFrame:CGRectMake(90, 25, 200, 15)];
         cidade.text = ((TPUsuario*)[_usuarios objectAtIndex:indexPath.row]).cidade;
         cidade.font = [UIFont fontWithName:@"arial" size:10];
-        cidade.textColor = [UIColor whiteColor];
+        cidade.textColor = [[LocalStore sharedStore] FONTECOR];
         cidade.adjustsFontSizeToFitWidth = YES;
         cidade.tag = 2;
         
