@@ -18,4 +18,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblGaleria;
 @property (strong, nonatomic) IBOutlet UITableView *tbMusicas;
 
+- (IBAction)btnNovaGravacaoClick:(id)sender;
+
 @end
