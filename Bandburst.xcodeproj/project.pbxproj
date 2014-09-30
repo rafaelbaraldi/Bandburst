@@ -39,6 +39,8 @@
 		1B9A0F4A19CB5964009AA3EB /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B9A0F4919CB5964009AA3EB /* FacebookSDK.framework */; };
 		1BD384561926A5CB0044A2E4 /* CadastroStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD384551926A5CB0044A2E4 /* CadastroStore.m */; };
 		1BDA118A199BEEB9005F7262 /* CellMusica.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BDA1189199BEEB9005F7262 /* CellMusica.xib */; };
+		1BE44A4019DB2846009CA9B0 /* TelaGravacoesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE44A3E19DB2846009CA9B0 /* TelaGravacoesViewController.m */; };
+		1BE44A4119DB2846009CA9B0 /* TelaGravacoesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BE44A3F19DB2846009CA9B0 /* TelaGravacoesViewController.xib */; };
 		1BE8E3BA192533AD00D108C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BE8E3B9192533AD00D108C0 /* Foundation.framework */; };
 		1BE8E3BC192533AD00D108C0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BE8E3BB192533AD00D108C0 /* CoreGraphics.framework */; };
 		1BE8E3BE192533AD00D108C0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BE8E3BD192533AD00D108C0 /* UIKit.framework */; };
@@ -211,6 +213,9 @@
 		1BD384541926A5CB0044A2E4 /* CadastroStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CadastroStore.h; sourceTree = "<group>"; };
 		1BD384551926A5CB0044A2E4 /* CadastroStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CadastroStore.m; sourceTree = "<group>"; };
 		1BDA1189199BEEB9005F7262 /* CellMusica.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellMusica.xib; sourceTree = "<group>"; };
+		1BE44A3D19DB2846009CA9B0 /* TelaGravacoesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TelaGravacoesViewController.h; sourceTree = "<group>"; };
+		1BE44A3E19DB2846009CA9B0 /* TelaGravacoesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TelaGravacoesViewController.m; sourceTree = "<group>"; };
+		1BE44A3F19DB2846009CA9B0 /* TelaGravacoesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TelaGravacoesViewController.xib; sourceTree = "<group>"; };
 		1BE8E3B6192533AD00D108C0 /* Bandburst.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bandburst.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BE8E3B9192533AD00D108C0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1BE8E3BB192533AD00D108C0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -759,6 +764,9 @@
 				2FB3B34019745A0B0054B7F7 /* CoreAudioViewController.h */,
 				2FB3B34119745A0B0054B7F7 /* CoreAudioViewController.m */,
 				2FB3B34219745A0B0054B7F7 /* CoreAudioViewController.xib */,
+				1BE44A3D19DB2846009CA9B0 /* TelaGravacoesViewController.h */,
+				1BE44A3E19DB2846009CA9B0 /* TelaGravacoesViewController.m */,
+				1BE44A3F19DB2846009CA9B0 /* TelaGravacoesViewController.xib */,
 			);
 			name = Tela;
 			sourceTree = "<group>";
@@ -1104,6 +1112,7 @@
 				1BEA45A11992C7A100876D75 /* 16.png in Resources */,
 				1B67BD8519D9F00500A663EC /* audio.png in Resources */,
 				1BEA45A51992C7A100876D75 /* 7.png in Resources */,
+				1BE44A4119DB2846009CA9B0 /* TelaGravacoesViewController.xib in Resources */,
 				1BEA45961992C7A100876D75 /* 9.png in Resources */,
 				737D09E91975C5D1000975F6 /* TelaInicioViewController.xib in Resources */,
 				3114938019DB32A40018391F /* tabbar.jpg in Resources */,
@@ -1236,6 +1245,7 @@
 				737F349E1976E71F00AAF796 /* TelaHorariosViewController.m in Sources */,
 				2F79ACCB19802D2900C3DD0E /* Usuario.m in Sources */,
 				736BF95719A8C24B0010C356 /* UIImage+MultiFormat.m in Sources */,
+				1BE44A4019DB2846009CA9B0 /* TelaGravacoesViewController.m in Sources */,
 				1BE8E3C8192533AD00D108C0 /* main.m in Sources */,
 				1B06F7A21993FC6400A6338C /* TPMusica.m in Sources */,
 				736BF94E19A8C24B0010C356 /* SDImageCache.m in Sources */,

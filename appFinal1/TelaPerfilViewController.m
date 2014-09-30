@@ -270,7 +270,7 @@
     
     switch (item.tag) {
         case 1:
-            vc = [[LocalStore sharedStore] TelaGravacao];
+            vc = [[LocalStore sharedStore] TelaGravacoes];
             break;
             
         case 2:

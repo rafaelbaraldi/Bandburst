@@ -35,7 +35,7 @@
         _URL = @"http://54.187.203.61/appMusica/";
         
         //Configs da fonte
-        _FONTECOR = [UIColor colorWithRed:0.898 green:0.49 blue:0.333 alpha:1]; /* Hexadecmial #c26c23 */
+        _FONTECOR = [UIColor colorWithRed:0.898 green:0.49 blue:0.333 alpha:1]; /* Hexadecmial #c26c23  - r:229 g:125 b:85  */
         _FONTEFAMILIA = @"QuicksandBook-Regular";
         
         [self carregaTelas];
@@ -65,6 +65,8 @@
     _TelaAmigos = [[TelaAmigosViewController alloc] initWithNibName:@"TelaAmigosViewController" bundle:nil];
     _TelaBanda = [[TelaBandaViewController alloc] initWithNibName:@"TelaBandaViewController" bundle:nil];
 //    _TelaInfosBanda = [[TelaInfosBandaViewController alloc] initWithNibName:@"TelaInfosBandaViewController" bundle:nil];
+    
+    _TelaGravacoes = [[TelaGravacoesViewController alloc] initWithNibName:@"TelaGravacoesViewController" bundle:nil];
 }
 
 -(void)carregaContexto{

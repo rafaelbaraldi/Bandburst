@@ -23,6 +23,7 @@
 #import "TelaAmigosViewController.h"
 #import "TelaBandaViewController.h"
 //#import "TelaInfosBandaViewController.h"
+#import "TelaGravacoesViewController.h"
 
 #import "TBInstrumentosViewController.h"
 #import "TBInstrumentosQueTocaViewController.h"
@@ -46,6 +47,8 @@
 
 
 @property TPUsuario *usuarioAtual;
+
+@property TelaGravacoesViewController *TelaGravacoes;
 
 @property TBInstrumentosViewController *TelaTBInstrumentos;
 @property TBInstrumentosQueTocaViewController *TelaTBInstruementosQueToco;
