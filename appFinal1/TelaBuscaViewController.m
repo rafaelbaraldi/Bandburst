@@ -49,8 +49,8 @@
     
     //Seleciona a imagem da tab bar
     [_tabBar setSelectedItem:_buscarItem];
-    [_tabBar setTintColor:[[LocalStore sharedStore] FONTECOR]];
-    
+    [_tabBar setTintColor:[UIColor whiteColor]];
+
     [self escondeBotaoDeBoltarSeUsuarioLogado];
     
     //Verifica se há filtro de horarios preenchidos
@@ -62,6 +62,13 @@
     [self atualizaTela];
     
     [[self navigationItem] setTitle:@"Encontrar Músico"];
+}
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
+    
+    [[UITabBar appearance] setBarTintColor:[UIColor redColor]];
+    
+    return YES;
 }
 
 -(void)escondeBotaoDeBoltarSeUsuarioLogado{

@@ -16,6 +16,7 @@
                 <outlet property="tabBar" destination="nJ8-aO-iVP" id="H8V-TF-p51"/>
                 <outlet property="tbUsuarios" destination="yzY-OJ-snY" id="eJZ-MP-7hM"/>
                 <outlet property="txtCidade" destination="Pn6-pB-ta9" id="OM5-mq-buj"/>
+                <outlet property="usuarioItem" destination="vQ6-Ug-yzt" id="02N-N6-yy0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewFiltros" destination="JTQ-ca-Sza" id="ooS-Z3-zyi"/>
             </connections>
@@ -33,23 +34,21 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <tabBar contentMode="scaleToFill" fixedFrame="YES" translucent="NO" backgroundImage="barra3.png" translatesAutoresizingMaskIntoConstraints="NO" id="nJ8-aO-iVP">
-                    <rect key="frame" x="0.0" y="519" width="320" height="49"/>
+                <tabBar contentMode="scaleToFill" fixedFrame="YES" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nJ8-aO-iVP">
+                    <rect key="frame" x="0.0" y="525" width="320" height="49"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <items>
-                        <tabBarItem tag="1" title="Gravar" id="p7Z-6i-Aqn">
-                            <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="10"/>
+                        <tabBarItem title="" image="grava.png" id="p7Z-6i-Aqn"/>
+                        <tabBarItem tag="2" title="" systemItem="search" id="jib-XL-ILu">
+                            <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="13"/>
                         </tabBarItem>
-                        <tabBarItem tag="2" id="jib-XL-ILu">
-                            <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="10"/>
-                        </tabBarItem>
-                        <tabBarItem tag="3" id="vQ6-Ug-yzt">
-                            <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="10"/>
+                        <tabBarItem tag="3" systemItem="contacts" id="vQ6-Ug-yzt">
+                            <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="12"/>
                         </tabBarItem>
                     </items>
-                    <color key="tintColor" red="0.98823535439999999" green="0.12549020350000001" blue="0.30196079609999998" alpha="1" colorSpace="deviceRGB"/>
-                    <color key="selectedImageTintColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="barTintColor" red="0.8980392814" green="0.49019610879999997" blue="0.33333334329999997" alpha="1" colorSpace="deviceRGB"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="VKX-Yp-bUU"/>
                     </connections>
@@ -149,15 +148,9 @@
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
-        <view contentMode="scaleToFill" id="rUn-eK-rhy">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-        </view>
     </objects>
     <resources>
-        <image name="barra3.png" width="320" height="49"/>
         <image name="delete.png" width="512" height="512"/>
+        <image name="grava.png" width="32" height="32"/>
     </resources>
 </document>

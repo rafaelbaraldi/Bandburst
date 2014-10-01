@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TelaBuscaViewController : UIViewController <UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate, UITabBarDelegate>
+@interface TelaBuscaViewController : UIViewController <UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate, UITabBarDelegate, UITabBarControllerDelegate>
 
 @property NSMutableArray *usuarios;
 
@@ -34,6 +34,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *btnRemoverEstilo;
 @property (strong, nonatomic) IBOutlet UILabel *lblMsgBusca;
 
+@property (strong, nonatomic) IBOutlet UITabBarItem *usuarioItem;
 @property (strong, nonatomic) IBOutlet UITabBarItem *buscarItem;
 @property (strong, nonatomic) IBOutlet UITabBar *tabBar;
 @end
