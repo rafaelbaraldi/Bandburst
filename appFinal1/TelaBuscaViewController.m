@@ -83,18 +83,23 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     
-    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
-    [[[self navigationController] navigationBar] setTintColor:[[LocalStore sharedStore] FONTECOR]];
-    
     //Metodo de Busca por cidade
     [_txtCidade addTarget:self action:@selector(textFieldDidChange) forControlEvents:UIControlEventEditingChanged];
+
+    //Deixa a borda dos boteos arredondados
+    [self arredondaBordaBotoes];
     
+    [self carregaLayout];
+}
+
+-(void)carregaLayout{
+    
+    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
+    [[[self navigationController] navigationBar] setTintColor:[[LocalStore sharedStore] FONTECOR]];
+
     //Bag esconder Filtro
     _tbUsuarios.layer.zPosition = 3;
     _frameTbUsuarios = _tbUsuarios.frame;
-    
-    //Deixa a borda dos boteos arredondados
-    [self arredondaBordaBotoes];
     
     //Esconde linhas da tabela
     _tbUsuarios.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
@@ -134,14 +139,22 @@
 
 -(void)arredondaBordaBotoes{
     
+    //Botao Estilo
     [[_btnEstilo layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
+    [[_btnEstilo titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14]];
+    
+    //Botao instrumento
     [[_btnInstumento layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
+    [[_btnInstumento titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14]];
+    
+    //Botao de Horarios
     [[_btnHorarios layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
+    [[_btnHorarios titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14]];
     
-    
-    [[_btnEstilo titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
-    [[_btnInstumento titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
-    [[_btnHorarios titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    //Text Cidade
+    [[_txtCidade layer] setBorderWidth:2.0f];
+    [[_txtCidade layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
+    [[_txtCidade layer] setBorderColor:[[LocalStore sharedStore] FONTECOR].CGColor];
 }
 
 -(void)atualizaTela{
@@ -285,17 +298,17 @@
     }];
     
     //Layout Celula
-    UIView *bgColorCell = [[UIView alloc] init];
-    [bgColorCell setBackgroundColor:[[LocalStore sharedStore] FONTECOR]];
-    [celula setSelectedBackgroundView:bgColorCell];
-    [celula setBackgroundColor:[UIColor clearColor]];
+//    UIView *bgColorCell = [[UIView alloc] init];
+//    [bgColorCell setBackgroundColor:[[LocalStore sharedStore] FONTECOR]];
+//    [celula setSelectedBackgroundView:bgColorCell];
+//    [celula setBackgroundColor:[UIColor clearColor]];
     
     return celula;
 }
 
 -(UIImage*)carregaImagemFake{
     
-    UIImageView *fotoUsuario = [[UIImageView alloc] initWithFrame:CGRectMake(5, 3, 65, 65)];
+    UIImageView *fotoUsuario = [[UIImageView alloc] initWithFrame:CGRectMake(30, 10, 80, 80)];
     fotoUsuario.image = [UIImage imageNamed:@"perfil.png"];
     fotoUsuario.layer.masksToBounds = YES;
     fotoUsuario.layer.cornerRadius = fotoUsuario.frame.size.width / 2;

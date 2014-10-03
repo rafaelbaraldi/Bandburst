@@ -35,9 +35,6 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     
-    //bg
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.png"]]];
-    
     //Carrega menu
     [self carregaMenu];
     
@@ -56,6 +53,18 @@
     [[_btnAdicionarFoto titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
     [[_btnContinuar titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
     [_lblMensagem setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    
+}
+
+-(void)willPresentActionSheet:(UIActionSheet *)actionSheet{
+    
+    for (UIView *subview in actionSheet.subviews) {
+        if ([subview isKindOfClass:[UIButton class]]) {
+            UIButton *button = (UIButton *)subview;
+            [button setBackgroundColor:[UIColor whiteColor]];
+            [button setTitleColor:[[LocalStore sharedStore] FONTECOR] forState:UIControlStateNormal];
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning{
