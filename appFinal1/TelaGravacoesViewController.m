@@ -11,30 +11,23 @@
 #import "PerfilStore.h"
 #import "Musica.h"
 
-#import <MediaPlayer/MediaPlayer.h>
-
 @interface TelaGravacoesViewController ()
 
 @end
 
 @implementation TelaGravacoesViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
-        
         [[self navigationItem] setTitle:@"Gravar"];
         [[self navigationItem] setHidesBackButton:YES];
     }
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad{
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
     
     //Arredonda views
     [self arredondaBordaBotoes];
@@ -60,6 +53,9 @@
     //Esconde linhas em branco da TableView
     _tbMusicas.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     _tbMusicas.separatorColor = [UIColor clearColor];
+    
+    //Cor botao
+    _btnNovaGravacao.backgroundColor = [[LocalStore sharedStore] FONTECOR];
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -120,19 +116,28 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
     Musica* musica = ((Musica*)[[_musicasPorCategoria objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]);
-    NSLog(@"%@", musica.url);
+//    NSLog(@"%@", musica.url);
     NSString *thePath = [NSString stringWithFormat:@"%@.mp3", musica.url];
-    NSURL *url=[NSURL URLWithString:thePath];
     
-    MPMoviePlayerController* musicPlayer = [[MPMoviePlayerController alloc] initWithContentURL:url];
-    musicPlayer.shouldAutoplay=NO;
-    musicPlayer.repeatMode = NO;
-    [self.view addSubview:musicPlayer.view];
+    NSURL *url = [NSURL URLWithString:thePath];
+
+    NSLog(@"%@", musica.url);
     
-    [musicPlayer setFullscreen:YES animated:YES];
-    [musicPlayer play];
-    musicPlayer.backgroundView.backgroundColor = [[LocalStore sharedStore] FONTECOR];
+//    NSURL *url = [NSURL URLWithString:@"https://dl.dropboxusercontent.com/u/66188885/pp.mp3"];
+    
+    _musicPlayer = [[MPMoviePlayerController alloc] initWithContentURL:url];
+    
+    _musicPlayer.shouldAutoplay = NO;
+    _musicPlayer.repeatMode = NO;
+
+    [self.view addSubview: _musicPlayer.view];
+
+    [_musicPlayer setFullscreen:YES animated:YES];
+    [_musicPlayer play];
+
+//    musicPlayer.backgroundView.backgroundColor = [[LocalStore sharedStore] FONTECOR];
 }
 
 -(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{

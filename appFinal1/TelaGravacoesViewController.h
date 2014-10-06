@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MediaPlayer/MediaPlayer.h>
 
 @interface TelaGravacoesViewController : UIViewController <UITabBarDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property NSMutableArray* categorias;
 @property NSMutableArray* musicas;
 @property NSMutableArray* musicasPorCategoria;
+
+@property MPMoviePlayerController *musicPlayer;
 
 @property (strong, nonatomic) IBOutlet UIButton *btnNovaGravacao;
 @property (strong, nonatomic) IBOutlet UILabel *lblGaleria;

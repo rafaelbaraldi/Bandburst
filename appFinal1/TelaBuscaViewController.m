@@ -104,6 +104,11 @@
     //Esconde linhas da tabela
     _tbUsuarios.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     _tbUsuarios.separatorColor = [UIColor clearColor];
+    
+    //Cores do botao
+    _btnInstumento.backgroundColor = [[LocalStore sharedStore] FONTECOR];
+    _btnHorarios.backgroundColor = [[LocalStore sharedStore] FONTECOR];
+    _btnEstilo.backgroundColor = [[LocalStore sharedStore] FONTECOR];
 }
 
 -(void)carregaUsuarioBuscado{
