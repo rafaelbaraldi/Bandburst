@@ -155,21 +155,22 @@
 -(void)carregaBandas{
     _bandas = [PerfilStore retornaListaDeBandas];
     
-    int x = 0;
+    int y = 15;
     
     for (TPBanda* b in _bandas) {
         
         //Imagem
-        UIButton* icone = [[UIButton alloc] initWithFrame:CGRectMake(x, 15, 45, 45)];
+        UIButton* icone = [[UIButton alloc] initWithFrame:CGRectMake(30, y, 50, 50)];
         [icone setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%lu.png", (unsigned long)[_bandas indexOfObject:b]]] forState:UIControlStateNormal];
         [icone setTitle:b.identificador forState:UIControlStateNormal];
         [icone addTarget:self action:@selector(banda:) forControlEvents:UIControlEventTouchUpInside];
         
         //Nome
-        UILabel* nome = [[UILabel alloc] initWithFrame:CGRectMake(x - 7, 45, 60, 45)];
+        UILabel* nome = [[UILabel alloc] initWithFrame:CGRectMake(110, y + 5, 60, 45)];
         nome.text =  b.nome;
         nome.textColor = [UIColor blackColor];
-        [nome setFont:[UIFont fontWithName:@"Verdana" size:8.0]];
+        nome.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14.0];
+        nome.textColor = [[LocalStore sharedStore] FONTECOR];
         [nome setTextAlignment:NSTextAlignmentCenter];
         
         if([b.nome length] > 11){
@@ -180,11 +181,11 @@
         [_scrollBanda addSubview:nome];
         
         //Posicao
-        x += 65;
+        y += 70;
     }
 
     //Scroll
-    [_scrollBanda setContentSize:CGSizeMake(x, 82)];
+    [_scrollBanda setContentSize:CGSizeMake(320, y)];
 }
 
 -(void)banda:(UIButton*)bt{
