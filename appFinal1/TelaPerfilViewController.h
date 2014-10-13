@@ -22,13 +22,16 @@
 - (IBAction)btnPerfilEditarClick:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIImageView *imagePerfil;
+@property (strong, nonatomic) IBOutlet UILabel *lblPerfilAtribuicoes;
 
 @property (weak, nonatomic) IBOutlet UILabel *lblPerfilNome;
 @property (weak, nonatomic) IBOutlet UILabel *lblPerfilCidade;
 @property (weak, nonatomic) IBOutlet UILabel *lblPerfilBairro;
-@property (weak, nonatomic) IBOutlet UILabel *lblPerfilAmigos;
 @property (weak, nonatomic) IBOutlet UIButton *btnPerfilEditar;
+@property (strong, nonatomic) IBOutlet UIButton *btnCriarBanda;
 
+
+@property (weak, nonatomic) IBOutlet UILabel *lblPerfilAmigos;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionV;
 
 @property (strong, nonatomic) IBOutlet UITabBarItem *perfilItem;
