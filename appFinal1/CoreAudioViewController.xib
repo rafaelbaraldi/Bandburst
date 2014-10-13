@@ -6,12 +6,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CoreAudioViewController">
             <connections>
+                <outlet property="audioPlot" destination="vXt-vD-QbV" id="2sj-jN-lGF"/>
                 <outlet property="btnGravar" destination="xq6-C9-MdR" id="l4L-0C-rBN"/>
                 <outlet property="btnTocar" destination="kR1-bE-xq0" id="ukv-7t-AUe"/>
                 <outlet property="gravarItem" destination="TEj-qM-8ki" id="odl-na-1c2"/>
                 <outlet property="tabBar" destination="Kee-EF-taZ" id="9yg-Ve-F2O"/>
-                <outlet property="txtCategoria" destination="8Yg-xD-65j" id="jhj-6b-eRV"/>
-                <outlet property="txtNome" destination="hgM-xv-VOb" id="uxL-x5-wFQ"/>
+                <outlet property="tempo" destination="pXW-eP-Ikv" id="mKc-cU-3Ar"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -20,11 +20,11 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xq6-C9-MdR">
-                    <rect key="frame" x="42" y="356" width="89" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xq6-C9-MdR">
+                    <rect key="frame" x="39" y="420" width="70" height="70"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.98823535439999999" green="0.12549020350000001" blue="0.30196079609999998" alpha="1" colorSpace="deviceRGB"/>
-                    <state key="normal" title="Gravar">
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <state key="normal" image="gravar.png">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -33,7 +33,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kR1-bE-xq0">
-                    <rect key="frame" x="171" y="356" width="118" height="30"/>
+                    <rect key="frame" x="169" y="440" width="118" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.98823535439999999" green="0.12549020350000001" blue="0.30196079609999998" alpha="1" colorSpace="deviceRGB"/>
                     <state key="normal" title="Tocar Gravacao">
@@ -44,24 +44,6 @@
                         <action selector="playGravacao:" destination="-1" eventType="touchUpInside" id="Ett-Sh-Kpm"/>
                     </connections>
                 </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hgM-xv-VOb">
-                    <rect key="frame" x="20" y="137" width="280" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                    <connections>
-                        <action selector="txtNomeSair:" destination="-1" eventType="editingDidEndOnExit" id="hCf-gl-U8C"/>
-                    </connections>
-                </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Categoria" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Yg-xD-65j">
-                    <rect key="frame" x="20" y="175" width="280" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                    <connections>
-                        <action selector="txtCategoriaSair:" destination="-1" eventType="editingDidEndOnExit" id="lBH-p2-Ycg"/>
-                    </connections>
-                </textField>
                 <tabBar contentMode="scaleToFill" fixedFrame="YES" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="Kee-EF-taZ">
                     <rect key="frame" x="0.0" y="525" width="320" height="49"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -81,6 +63,18 @@
                         <outlet property="delegate" destination="-1" id="mS0-fO-SD9"/>
                     </connections>
                 </tabBar>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vXt-vD-QbV" customClass="EZAudioPlotGL">
+                    <rect key="frame" x="0.0" y="56" width="320" height="155"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                </view>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pXW-eP-Ikv">
+                    <rect key="frame" x="20" y="375" width="280" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
@@ -88,6 +82,7 @@
         </view>
     </objects>
     <resources>
+        <image name="gravar.png" width="130" height="129"/>
         <image name="gravarIcon.png" width="32" height="32"/>
     </resources>
 </document>

@@ -38,11 +38,22 @@
     [super didReceiveMemoryWarning];
 }
 
+-(void)linhaGravacaEZAudio{
+    
+    self.microphone = [EZMicrophone microphoneWithDelegate:self];
+    self.audioPlot.backgroundColor = [UIColor blackColor];
+    self.audioPlot.color           = [[LocalStore sharedStore] FONTECOR];
+    self.audioPlot.plotType        = EZPlotTypeRolling;
+    self.audioPlot.shouldFill      = YES;
+    self.audioPlot.shouldMirror    = YES;
+
+}
+
 - (void)viewDidLoad{
     [super viewDidLoad];
     
-    //bg - Layout
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.png"]]];
+    [self linhaGravacaEZAudio];
+    
     [self arredondaBordaBotoes];
     
     //Carrega todas as músicas do CoreData
@@ -55,7 +66,7 @@
     [[_btnTocar layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
 }
 
--(void)carregaGravador{
+-(void)carregaGravador:(NSString*)nome categoria:(NSString*)categoria{
     
     //Set configuração da Gravação
     NSMutableDictionary *recordSetting = [[NSMutableDictionary alloc]init];
@@ -65,7 +76,7 @@
     [recordSetting setValue:[NSNumber numberWithInt:AVAudioQualityHigh] forKey:AVEncoderAudioQualityKey];
     
     //URL da música a gravar
-    NSURL *url = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"%d.%@.%@", 0, _txtCategoria.text, _txtNome.text]]];
+    NSURL *url = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"%d.%@.%@", 0, categoria, nome]]];
     
     urlPlay = url;
     recorder = [[AVAudioRecorder alloc] initWithURL:url settings:recordSetting error:nil];
@@ -74,44 +85,43 @@
 }
 
 //Registar gravação no CoreData
--(void)registrarGravacao{
+-(void)registrarGravacao:(NSString*)nome categoria:(NSString*)categoria{
     
     Musica *m = [NSEntityDescription insertNewObjectForEntityForName:@"Musica" inManagedObjectContext:[[LocalStore sharedStore] context]];
     
-    m.nome = _txtNome.text;
-    m.categoria = _txtCategoria.text;
+    m.nome = nome;
+    m.categoria = categoria;
     m.url = urlPlay.path;
     m.idUsuario = [NSNumber numberWithInt:[[[LocalStore sharedStore] usuarioAtual].identificador intValue]];
     [[[LocalStore sharedStore] context] save:nil];
 }
 
--(BOOL)musicaComEsseNomeJaExisteNessaCategoria{
+-(BOOL)musicaComEsseNomeJaExisteNessaCategoria:(NSString*)nome categoria:(NSString*)categoria{
+    //Carrega todas as músicas do CoreData
+    _musicas = [[NSMutableArray alloc]initWithArray:[[[LocalStore sharedStore] context] executeFetchRequest:[NSFetchRequest fetchRequestWithEntityName:@"Musica"] error:nil]];
     for (Musica* m in _musicas) {
-        if ([m.categoria isEqualToString:_txtCategoria.text] && [m.nome isEqualToString:_txtNome.text]) {
+        if ([m.categoria isEqualToString:categoria] && [m.nome isEqualToString:nome]) {
             return YES;
         }
     }
     return NO;
 }
 
-//Vamos gravar um som galera!
-- (IBAction)gravar:(id)sender {
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if(buttonIndex == 1){
     
-    UIAlertView *alertGravacao = [[UIAlertView alloc] initWithTitle:@"ERRO" message:@"" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-    
-    if([_txtCategoria.text length] > 0 && [_txtNome.text length] > 0){
-        if(![self musicaComEsseNomeJaExisteNessaCategoria]){
-            if(_gravando){
-                //Para gravação
-                [recorder stop];
+        NSString *txtCategoria = [alertView textFieldAtIndex:1].text;
+        NSString *txtNome = [alertView textFieldAtIndex:0].text;
+        
+        UIAlertView *alertGravacao = [[UIAlertView alloc] initWithTitle:@"ERRO" message:@"" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        
+        if([txtCategoria length] > 0 && [txtNome length] > 0){
+            if(![self musicaComEsseNomeJaExisteNessaCategoria:txtNome categoria:txtCategoria]){
                 
-                //Altera botao da gravação
-                [_btnGravar setTitle:@"Gravar" forState:UIControlStateNormal];
-                _gravando = false;
-            }
-            else{
+                [_audioPlot clear];
+                
                 //Preparava gravador
-                [self carregaGravador];
+                [self carregaGravador:txtNome categoria:txtCategoria];
                 [recorder prepareToRecord];
                 
                 //Alterar botao da gravação
@@ -119,21 +129,73 @@
                 _gravando = true;
                 
                 //Salva no CoreData a gravacao
-                [self registrarGravacao];
+                [self registrarGravacao:txtNome categoria:txtCategoria];
                 
                 //Inicia gravação
                 [recorder record];
+                
+                _timer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(atualizaTimer) userInfo:nil repeats:YES];
+                
+                [self.microphone startFetchingAudio];
+                
+                _tempoGravacao = [NSDate dateWithTimeIntervalSinceNow:0];
+                _tempoInicial = [NSDate dateWithTimeIntervalSinceNow:0];
+            }
+            else{
+                [alertGravacao setMessage:@"Música com esse nome já existe nessa categoria. Digite outro nome."];
+                [alertGravacao show];
             }
         }
         else{
-            [alertGravacao setMessage:@"Música com esse nome jé existe nessa categoria. Digite outro nome."];
+            [alertGravacao setMessage:@"Campos em branco. Preencha corretamente."];
             [alertGravacao show];
         }
     }
-    else{
-        [alertGravacao setMessage:@"Campos em branco. Preencha corretamente."];
-        [alertGravacao show];
+}
+
+//Vamos gravar um som galera!
+- (IBAction)gravar:(id)sender {
+    if(_gravando){
+        //Para gravação
+        [recorder stop];
+        
+        //Altera botao da gravação
+        [_btnGravar setTitle:@"Gravar" forState:UIControlStateNormal];
+        _gravando = false;
+        
+        
+        [self.microphone stopFetchingAudio];
+        
+        
+        [_timer invalidate];
+        
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Gravação" message:@"Som gravado com sucesso" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [av show];
     }
+    else{
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Your_Title" message:@"Your_message" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+        [av setAlertViewStyle:UIAlertViewStyleLoginAndPasswordInput];
+        
+        // Alert style customization
+        [[av textFieldAtIndex:1] setSecureTextEntry:NO];
+        [[av textFieldAtIndex:0] setPlaceholder:@"Nome"];
+        [[av textFieldAtIndex:1] setPlaceholder:@"Categoria"];
+        [av setDelegate:self];
+        [av show];
+    }
+}
+
+-(void)atualizaTimer{
+    _tempoGravacao = [NSDate dateWithTimeIntervalSinceNow:0];
+    
+    NSTimeInterval tempoAtual = [_tempoGravacao timeIntervalSinceDate:_tempoInicial];
+    
+    int minuto = tempoAtual/60;
+    int segundo = ((int) tempoAtual)%60;
+    int decimodesegundo = (int)((tempoAtual - segundo - minuto*60)*100);
+    
+    
+    [_tempo setText:[NSString stringWithFormat:@"%02d:%02d:%02d", minuto, segundo, decimodesegundo]];
 }
 
 //PLay Audio da gravação
@@ -141,16 +203,6 @@
     
     player = [[AVAudioPlayer alloc]initWithContentsOfURL:urlPlay error:nil];
     [player play];
-}
-
-//Delegate RETURN - UITextField Nome da categoria
-- (IBAction)txtCategoriaSair:(id)sender {
-    [sender resignFirstResponder];
-}
-
-//Delegate RETURN - UITextField Nome da musica
-- (IBAction)txtNomeSair:(id)sender {
-    [sender resignFirstResponder];
 }
 
 -(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
@@ -177,6 +229,12 @@
     else{
         [[self navigationController] pushViewController:vc animated:NO];
     }
+}
+
+-(void)microphone:(EZMicrophone *)microphone hasAudioReceived:(float **)buffer withBufferSize:(UInt32)bufferSize withNumberOfChannels:(UInt32)numberOfChannels {
+    dispatch_async(dispatch_get_main_queue(),^{
+        [self.audioPlot updateBuffer:buffer[0] withBufferSize:bufferSize];
+    });
 }
 
 @end
