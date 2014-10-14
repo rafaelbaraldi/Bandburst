@@ -155,7 +155,7 @@
             }
         }
     }
-    else{
+    else if(alertView.tag ==1){
         if(buttonIndex == 1){
             [self playGravacao:nil];
         }
