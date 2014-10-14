@@ -37,9 +37,6 @@
     
     //Collection view
     [self carregaConfiguracaoCollectionMusica];
-    
-    //Botao opções
-    [self carregaBotaoOpcoes];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -75,6 +72,7 @@
 }
 
 -(void)escondeBotaoDeVoltarSeUsuarioLogado{
+    
     if ([[[LocalStore sharedStore] usuarioAtual].identificador isEqualToString:@"0"]) {
         [[self navigationItem] setRightBarButtonItem:nil];
     }
@@ -138,7 +136,7 @@
 
 -(void)carregaBotaoOpcoes{
     
-    UIImage *imageOpcoes = [UIImage imageNamed:@"opcoes.png"];
+    UIImage *imageOpcoes = [UIImage imageNamed:@"config.png"];
     
     UIBarButtonItem *buttonItemOpcoes = [[UIBarButtonItem alloc] initWithImage:imageOpcoes style:UIBarButtonItemStylePlain target:self action:@selector(opcoes)];
     
@@ -232,12 +230,6 @@
     }
 }
 
-
-
-
-
-
-
 //Collection das musicas
 -(void)carregaConfiguracaoCollectionMusica{
     
@@ -290,6 +282,7 @@
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    
     return [_categorias count];
 }
 
