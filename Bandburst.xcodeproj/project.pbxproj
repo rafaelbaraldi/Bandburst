@@ -29,6 +29,7 @@
 		1B67BD8619D9F00500A663EC /* gravar.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B67BD8319D9F00500A663EC /* gravar.png */; };
 		1B67BD8719D9F00500A663EC /* playing.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B67BD8419D9F00500A663EC /* playing.png */; };
 		1B67BD8919D9F33500A663EC /* seta_tabbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B67BD8819D9F33500A663EC /* seta_tabbar.png */; };
+		1B6BFA8619EDAC67003465DA /* stop.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B6BFA8519EDAC67003465DA /* stop.png */; };
 		1B7301E419A525C200F8B717 /* gravarIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B7301E319A525C200F8B717 /* gravarIcon.png */; };
 		1B82766F192BDB3500E461AD /* TelaBuscaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B82766D192BDB3500E461AD /* TelaBuscaViewController.m */; };
 		1B827670192BDB3500E461AD /* TelaBuscaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B82766E192BDB3500E461AD /* TelaBuscaViewController.xib */; };
@@ -216,6 +217,7 @@
 		1B67BD8319D9F00500A663EC /* gravar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gravar.png; sourceTree = "<group>"; };
 		1B67BD8419D9F00500A663EC /* playing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playing.png; sourceTree = "<group>"; };
 		1B67BD8819D9F33500A663EC /* seta_tabbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = seta_tabbar.png; sourceTree = "<group>"; };
+		1B6BFA8519EDAC67003465DA /* stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stop.png; sourceTree = "<group>"; };
 		1B7301E319A525C200F8B717 /* gravarIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gravarIcon.png; sourceTree = "<group>"; };
 		1B82766C192BDB3500E461AD /* TelaBuscaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TelaBuscaViewController.h; sourceTree = "<group>"; };
 		1B82766D192BDB3500E461AD /* TelaBuscaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TelaBuscaViewController.m; sourceTree = "<group>"; };
@@ -529,6 +531,7 @@
 			isa = PBXGroup;
 			children = (
 				1B67BD8219D9F00500A663EC /* audio.png */,
+				1B6BFA8519EDAC67003465DA /* stop.png */,
 				1B67BD8319D9F00500A663EC /* gravar.png */,
 				1B67BD8419D9F00500A663EC /* playing.png */,
 				1B7301E319A525C200F8B717 /* gravarIcon.png */,
@@ -1237,6 +1240,7 @@
 				31CAECDE19DC8DCA00C5AF10 /* grava.png in Resources */,
 				1BC921F219EC622200D9B9C1 /* VERSION in Resources */,
 				1B337AA019D6021700BAC433 /* check.png in Resources */,
+				1B6BFA8619EDAC67003465DA /* stop.png in Resources */,
 				1B7301E419A525C200F8B717 /* gravarIcon.png in Resources */,
 				1BEA45991992C7A100876D75 /* 12.png in Resources */,
 				73F6F70E19A633960003B408 /* selecionado.png in Resources */,

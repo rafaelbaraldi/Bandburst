@@ -22,7 +22,7 @@
         _gravando = false;
         
         [[self navigationItem] setTitle:@"Gravar"];
-        [[self navigationItem] setHidesBackButton:YES];
+//        [[self navigationItem] setHidesBackButton:YES];
     }
     return self;
 }
@@ -50,7 +50,9 @@
 }
 
 - (void)viewDidLoad{
-    [super viewDidLoad];
+    [super viewDidLoad];    
+    
+    [[[[self navigationController] navigationBar] backItem] setTitle:@""];
     
     [self linhaGravacaEZAudio];
     
@@ -63,7 +65,6 @@
 -(void)arredondaBordaBotoes{
     
     [[_btnGravar layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
-    [[_btnTocar layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
 }
 
 -(void)carregaGravador:(NSString*)nome categoria:(NSString*)categoria{
@@ -108,47 +109,58 @@
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if(buttonIndex == 1){
-    
-        NSString *txtCategoria = [alertView textFieldAtIndex:1].text;
-        NSString *txtNome = [alertView textFieldAtIndex:0].text;
+    if(alertView.tag ==1){
+        if(buttonIndex == 1){
         
-        UIAlertView *alertGravacao = [[UIAlertView alloc] initWithTitle:@"ERRO" message:@"" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-        
-        if([txtCategoria length] > 0 && [txtNome length] > 0){
-            if(![self musicaComEsseNomeJaExisteNessaCategoria:txtNome categoria:txtCategoria]){
-                
-                [_audioPlot clear];
-                
-                //Preparava gravador
-                [self carregaGravador:txtNome categoria:txtCategoria];
-                [recorder prepareToRecord];
-                
-                //Alterar botao da gravação
-                [_btnGravar setTitle:@"Gravando" forState:UIControlStateNormal];
-                _gravando = true;
-                
-                //Salva no CoreData a gravacao
-                [self registrarGravacao:txtNome categoria:txtCategoria];
-                
-                //Inicia gravação
-                [recorder record];
-                
-                _timer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(atualizaTimer) userInfo:nil repeats:YES];
-                
-                [self.microphone startFetchingAudio];
-                
-                _tempoGravacao = [NSDate dateWithTimeIntervalSinceNow:0];
-                _tempoInicial = [NSDate dateWithTimeIntervalSinceNow:0];
+            NSString *txtCategoria = [alertView textFieldAtIndex:1].text;
+            NSString *txtNome = [alertView textFieldAtIndex:0].text;
+            
+            UIAlertView *alertGravacao = [[UIAlertView alloc] initWithTitle:@"ERRO" message:@"" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            
+            if([txtCategoria length] > 0 && [txtNome length] > 0){
+                if(![self musicaComEsseNomeJaExisteNessaCategoria:txtNome categoria:txtCategoria]){
+                    
+                    [_audioPlot clear];
+                    
+                    //Preparava gravador
+                    [self carregaGravador:txtNome categoria:txtCategoria];
+                    [recorder prepareToRecord];
+                    
+                    //Alterar botao da gravação
+                    [_btnGravar setTitle:@"Gravando" forState:UIControlStateNormal];
+                    [_btnGravar setImage:[UIImage imageNamed:@"stop.png"] forState:UIControlStateNormal];
+                    _gravando = true;
+                    
+                    //Salva no CoreData a gravacao
+                    [self registrarGravacao:txtNome categoria:txtCategoria];
+                    
+                    //Inicia gravação
+                    [recorder record];
+                    
+                    _timer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(atualizaTimer) userInfo:nil repeats:YES];
+                    
+                    [self.microphone startFetchingAudio];
+                    
+                    _tempoGravacao = [NSDate dateWithTimeIntervalSinceNow:0];
+                    _tempoInicial = [NSDate dateWithTimeIntervalSinceNow:0];
+                }
+                else{
+                    [alertGravacao setMessage:@"Música com esse nome já existe nessa categoria. Digite outro nome."];
+                    [alertGravacao show];
+                }
             }
             else{
-                [alertGravacao setMessage:@"Música com esse nome já existe nessa categoria. Digite outro nome."];
+                [alertGravacao setMessage:@"Campos em branco. Preencha corretamente."];
                 [alertGravacao show];
             }
         }
+    }
+    else{
+        if(buttonIndex == 1){
+            [self playGravacao:nil];
+        }
         else{
-            [alertGravacao setMessage:@"Campos em branco. Preencha corretamente."];
-            [alertGravacao show];
+            [[self navigationController] popViewControllerAnimated:YES];
         }
     }
 }
@@ -161,6 +173,7 @@
         
         //Altera botao da gravação
         [_btnGravar setTitle:@"Gravar" forState:UIControlStateNormal];
+        [_btnGravar setImage:[UIImage imageNamed:@"gravar.png"] forState:UIControlStateNormal];
         _gravando = false;
         
         
@@ -169,18 +182,20 @@
         
         [_timer invalidate];
         
-        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Gravação" message:@"Som gravado com sucesso" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Gravação" message:@"Som gravado com sucesso" delegate:self cancelButtonTitle:@"Voltar" otherButtonTitles:@"Tocar Gravação", nil];
+        [av setTag:2];
         [av show];
     }
     else{
-        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Your_Title" message:@"Your_message" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+        UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Gravação" message:@"Preencha os campos abaixo" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
         [av setAlertViewStyle:UIAlertViewStyleLoginAndPasswordInput];
         
         // Alert style customization
         [[av textFieldAtIndex:1] setSecureTextEntry:NO];
         [[av textFieldAtIndex:0] setPlaceholder:@"Nome"];
         [[av textFieldAtIndex:1] setPlaceholder:@"Categoria"];
-        [av setDelegate:self];
+        [av setTag:1];
+        
         [av show];
     }
 }

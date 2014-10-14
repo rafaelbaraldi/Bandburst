@@ -39,7 +39,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <items>
-                        <tabBarItem title="" id="p7Z-6i-Aqn"/>
+                        <tabBarItem tag="1" title="" id="p7Z-6i-Aqn"/>
                         <tabBarItem tag="2" title="" id="jib-XL-ILu">
                             <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="13"/>
                         </tabBarItem>
