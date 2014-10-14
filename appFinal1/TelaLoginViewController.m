@@ -80,9 +80,17 @@
     [[_lblEsqueceuSenha titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [[self navigationController] setNavigationBarHidden:YES];
+}
+
 -(void)viewWillDisappear:(BOOL)animated{
+    [[self navigationController] setNavigationBarHidden:NO];
+    
     _txtSenha.text = @"";
 }
+
 
 - (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];

@@ -96,19 +96,9 @@
 -(void)carregaDadosUsuario{
     
     //Imagem
-    NSString *urlFoto = [NSString stringWithFormat:@"http://54.187.203.61/appMusica/FotosDePerfil/%@.png", [[LocalStore sharedStore] usuarioAtual].identificador];
-    NSURL *imageURL = [NSURL URLWithString:urlFoto];
+    [self carregaImagemPerfil];
     
-    _imagePerfil.image = [[SDImageCache sharedImageCache] imageFromMemoryCacheForKey:urlFoto];
     
-    if (_imagePerfil.image == nil) {
-        [_imagePerfil sd_setImageWithURL:imageURL placeholderImage:nil
-                              completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-                                  [[SDImageCache sharedImageCache] storeImage:image forKey:urlFoto];
-                              }];
-    }
-    _imagePerfil.layer.masksToBounds = YES;
-    _imagePerfil.layer.cornerRadius = _imagePerfil.frame.size.width / 2;
     
     //Nome, cidade, Bairro e Atribuicoes
     _lblPerfilNome.text = [[LocalStore sharedStore] usuarioAtual].nome;
@@ -126,12 +116,40 @@
     _lblPerfilAmigos.text = [NSString stringWithFormat:@"%@", [PerfilStore qtdDeAmigos]];
 }
 
+-(UIImage*)carregaImagemFake{
+    
+    UIImageView *fotoUsuario = [[UIImageView alloc] initWithFrame:CGRectMake(30, 10, 80, 80)];
+    fotoUsuario.image = [UIImage imageNamed:@"placeholderFoto.png"];
+    fotoUsuario.layer.masksToBounds = YES;
+    fotoUsuario.layer.cornerRadius = fotoUsuario.frame.size.width / 2;
+    fotoUsuario.tag = 4;
+    
+    return fotoUsuario.image;
+}
+
+-(void)carregaImagemPerfil{
+    
+    NSString *urlFoto = [NSString stringWithFormat:@"http://54.187.203.61/appMusica/FotosDePerfil/%@.png", [[LocalStore sharedStore] usuarioAtual].identificador];
+    NSURL *imageURL = [NSURL URLWithString:urlFoto];
+    
+    _imagePerfil.image = [[SDImageCache sharedImageCache] imageFromMemoryCacheForKey:urlFoto];
+    
+    if (_imagePerfil.image == nil) {
+        [_imagePerfil sd_setImageWithURL:imageURL placeholderImage:[self carregaImagemFake]
+                               completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                                   [[SDImageCache sharedImageCache] storeImage:image forKey:urlFoto];
+                               }];
+    }
+    _imagePerfil.layer.masksToBounds = YES;
+    _imagePerfil.layer.cornerRadius = _imagePerfil.frame.size.width / 2;
+
+}
+
 -(void)botaoPerfilEditar{
     
     _btnPerfilEditar.enabled = NO;
 
     [[_btnPerfilEditar layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
-
 }
 
 -(void)carregaBotaoOpcoes{
@@ -153,37 +171,44 @@
 -(void)carregaBandas{
     _bandas = [PerfilStore retornaListaDeBandas];
     
-    int y = 15;
-    
-    for (TPBanda* b in _bandas) {
+    if([_bandas count] == 0){
         
-        //Imagem
-        UIButton* icone = [[UIButton alloc] initWithFrame:CGRectMake(30, y, 50, 50)];
-        [icone setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%lu.png", (unsigned long)[_bandas indexOfObject:b]]] forState:UIControlStateNormal];
-        [icone setTitle:b.identificador forState:UIControlStateNormal];
-        [icone addTarget:self action:@selector(banda:) forControlEvents:UIControlEventTouchUpInside];
-        
-        //Nome
-        UILabel* nome = [[UILabel alloc] initWithFrame:CGRectMake(110, y + 5, 60, 45)];
-        nome.text =  b.nome;
-        nome.textColor = [UIColor blackColor];
-        nome.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14.0];
-        nome.textColor = [[LocalStore sharedStore] FONTECOR];
-        [nome setTextAlignment:NSTextAlignmentCenter];
-        
-        if([b.nome length] > 11){
-            [nome setNumberOfLines:2];
-        }
-        
-        [_scrollBanda addSubview:icone];
-        [_scrollBanda addSubview:nome];
-        
-        //Posicao
-        y += 70;
+        _lblInfo.hidden = NO;
     }
+    else{
+    
+        int y = 15;
+        
+        for (TPBanda* b in _bandas) {
+            
+            //Imagem
+            UIButton* icone = [[UIButton alloc] initWithFrame:CGRectMake(30, y, 50, 50)];
+            [icone setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%lu.png", (unsigned long)[_bandas indexOfObject:b]]] forState:UIControlStateNormal];
+            [icone setTitle:b.identificador forState:UIControlStateNormal];
+            [icone addTarget:self action:@selector(banda:) forControlEvents:UIControlEventTouchUpInside];
+            
+            //Nome
+            UILabel* nome = [[UILabel alloc] initWithFrame:CGRectMake(110, y + 5, 60, 45)];
+            nome.text =  b.nome;
+            nome.textColor = [UIColor blackColor];
+            nome.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14.0];
+            nome.textColor = [[LocalStore sharedStore] FONTECOR];
+            [nome setTextAlignment:NSTextAlignmentCenter];
+            
+            if([b.nome length] > 11){
+                [nome setNumberOfLines:2];
+            }
+            
+            [_scrollBanda addSubview:icone];
+            [_scrollBanda addSubview:nome];
+            
+            //Posicao
+            y += 70;
+        }
 
-    //Scroll
-    [_scrollBanda setContentSize:CGSizeMake(320, y)];
+        //Scroll
+        [_scrollBanda setContentSize:CGSizeMake(320, y)];
+    }
 }
 
 -(void)banda:(UIButton*)bt{

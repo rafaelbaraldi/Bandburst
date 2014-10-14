@@ -302,12 +302,6 @@
                                    [[SDImageCache sharedImageCache] storeImage:image forKey:urlFoto];
     }];
     
-    //Layout Celula
-//    UIView *bgColorCell = [[UIView alloc] init];
-//    [bgColorCell setBackgroundColor:[[LocalStore sharedStore] FONTECOR]];
-//    [celula setSelectedBackgroundView:bgColorCell];
-//    [celula setBackgroundColor:[UIColor clearColor]];
-    
     return celula;
 }
 
