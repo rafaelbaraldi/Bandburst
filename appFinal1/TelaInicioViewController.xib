@@ -6,10 +6,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TelaInicioViewController">
             <connections>
-                <outlet property="btnCadastrar" destination="gie-G9-1bf" id="mGD-b1-iQL"/>
-                <outlet property="btnEntrar" destination="Ibq-7B-LN9" id="Yse-so-Pyx"/>
-                <outlet property="btnLogin" destination="RKB-xa-cEP" id="ygc-pz-u5s"/>
-                <outlet property="imgLogo" destination="ZYY-JV-225" id="zqh-9g-BV5"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,60 +13,9 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gie-G9-1bf">
-                    <rect key="frame" x="80" y="330" width="160" height="32"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.89803928136825562" green="0.4901961088180542" blue="0.3333333432674408" alpha="1" colorSpace="deviceRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <state key="normal" title="Cadastrar">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="btnCadastrarClick:" destination="-1" eventType="touchUpInside" id="0ls-yb-ASE"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RKB-xa-cEP">
-                    <rect key="frame" x="45" y="375" width="230" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.8980392814" green="0.49019610879999997" blue="0.33333334329999997" alpha="1" colorSpace="deviceRGB"/>
-                    <state key="normal" title="Entrar com login">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="btnLoginClick:" destination="-1" eventType="touchUpInside" id="mDF-D9-uOM"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ibq-7B-LN9">
-                    <rect key="frame" x="45" y="420" width="230" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.8980392814" green="0.49019610879999997" blue="0.33333334329999997" alpha="1" colorSpace="deviceRGB"/>
-                    <state key="normal" title="Entrar sem login">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="btnEntrarClick:" destination="-1" eventType="touchUpInside" id="alX-hb-vAo"/>
-                    </connections>
-                </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo BB.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZYY-JV-225">
-                    <rect key="frame" x="93" y="80" width="135" height="165"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bandburst.png" translatesAutoresizingMaskIntoConstraints="NO" id="9IT-2Q-p6F">
-                    <rect key="frame" x="0.0" y="260" width="320" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
-            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
-    <resources>
-        <image name="bandburst.png" width="839" height="76"/>
-        <image name="logo BB.png" width="205" height="247"/>
-    </resources>
 </document>

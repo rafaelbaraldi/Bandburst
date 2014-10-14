@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface TelaEsqueciSenhaViewController : UIViewController <UITextFieldDelegate>
+
 @property (weak, nonatomic) IBOutlet UITextField *txtEmail;
 @property (weak, nonatomic) IBOutlet UITextView *lblMsg;
 @property (weak, nonatomic) IBOutlet UIButton *btnProcurar;
+@property (strong, nonatomic) IBOutlet UITextView *txtInfo;
 
 - (IBAction)btnProcurarClick:(id)sender;
 

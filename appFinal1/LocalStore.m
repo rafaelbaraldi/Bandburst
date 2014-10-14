@@ -28,7 +28,9 @@
 -(id)init{
     self = [super init];
     if(self){
-        _RAIOBORDA = 10;
+        
+        _RAIOBORDA = 10.0f;
+        _RAIOTEXT = 14.0f;
         
         _USUARIOZERO = @"0";
         
@@ -64,8 +66,6 @@
     _TelaNovaBanda = [[TelaNovaBandaViewController alloc] initWithNibName:@"TelaNovaBandaViewController" bundle:nil];
     _TelaAmigos = [[TelaAmigosViewController alloc] initWithNibName:@"TelaAmigosViewController" bundle:nil];
     _TelaBanda = [[TelaBandaViewController alloc] initWithNibName:@"TelaBandaViewController" bundle:nil];
-//    _TelaInfosBanda = [[TelaInfosBandaViewController alloc] initWithNibName:@"TelaInfosBandaViewController" bundle:nil];
-    
     _TelaGravacoes = [[TelaGravacoesViewController alloc] initWithNibName:@"TelaGravacoesViewController" bundle:nil];
 }
 

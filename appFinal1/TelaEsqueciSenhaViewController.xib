@@ -9,6 +9,7 @@
                 <outlet property="btnProcurar" destination="9gQ-LQ-6PT" id="06q-Kx-pBg"/>
                 <outlet property="lblMsg" destination="ENG-7O-lMn" id="rdK-2z-GR1"/>
                 <outlet property="txtEmail" destination="Fp7-CE-mp9" id="J9T-2J-joW"/>
+                <outlet property="txtInfo" destination="PZ6-pi-R7n" id="RlE-w6-iGw"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,13 +22,13 @@
                     <rect key="frame" x="20" y="92" width="196" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.98823535439999999" green="0.12549020350000001" blue="0.30196079609999998" alpha="1" colorSpace="deviceRGB"/>
+                    <color key="textColor" red="0.8980392814" green="0.49019610879999997" blue="0.33333334329999997" alpha="1" colorSpace="deviceRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Insira o endereço de e-mail associado à sua conta." selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZ6-pi-R7n">
                     <rect key="frame" x="16" y="121" width="284" height="47"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
@@ -41,9 +42,9 @@
                     </connections>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9gQ-LQ-6PT">
-                    <rect key="frame" x="72" y="253" width="172" height="30"/>
+                    <rect key="frame" x="83" y="253" width="150" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.98823535439999999" green="0.12549020350000001" blue="0.30196079609999998" alpha="1" colorSpace="deviceRGB"/>
+                    <color key="backgroundColor" red="0.8980392814" green="0.49019610879999997" blue="0.33333334329999997" alpha="1" colorSpace="deviceRGB"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <state key="normal" title="Procurar">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -55,7 +56,7 @@
                 <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Um e-mail foi enviado ao endereço na sua conta. Verifique seu e-mail para continuar." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ENG-7O-lMn">
                     <rect key="frame" x="20" y="236" width="280" height="64"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="textColor" red="0.8980392814" green="0.49019610879999997" blue="0.33333334329999997" alpha="1" colorSpace="deviceRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>

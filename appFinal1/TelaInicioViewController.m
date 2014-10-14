@@ -38,62 +38,7 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-    
-    //bg
-//    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.png"]]];
-    [self arredondaBordaBotoes];
-    
-    //teste nome fontes
-//    for (NSString *familyName in [UIFont familyNames]) {
-//        for (NSString *fontName in [UIFont fontNamesForFamilyName:familyName]) {
-//            NSLog(@"%@", fontName);
-//        }
-//    }
 }
 
--(void)arredondaBordaBotoes{
-    
-    [[_btnCadastrar layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
-    [[_btnEntrar layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
-    [[_btnLogin layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
-    
-    [[_btnCadastrar titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
-    [[_btnEntrar titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
-    [[_btnLogin titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
-}
 
-- (void)didReceiveMemoryWarning{
-    [super didReceiveMemoryWarning];
-}
-
-- (IBAction)btnCadastrarClick:(id)sender {
-    
-    if ([LocalStore verificaSeViewJaEstaNaPilha:[[self navigationController] viewControllers] proximaTela:[[LocalStore sharedStore] TelaCadastro]]) {
-        [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaCadastro] animated:YES];
-    }
-    else{
-        [[self navigationController] pushViewController:[[LocalStore sharedStore] TelaCadastro] animated:YES];
-    }
-}
-
-- (IBAction)btnEntrarClick:(id)sender {
-    [LocalStore setParaUsuarioZero];
-    
-    if ([LocalStore verificaSeViewJaEstaNaPilha:[[self navigationController] viewControllers] proximaTela:[[LocalStore sharedStore] TelaBusca]]) {
-        [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaBusca] animated:YES];
-    }
-    else{
-        [[self navigationController] pushViewController:[[LocalStore sharedStore] TelaBusca] animated:YES];
-    }
-}
-
-- (IBAction)btnLoginClick:(id)sender {
-    
-    if ([LocalStore verificaSeViewJaEstaNaPilha:[[self navigationController] viewControllers] proximaTela:[[LocalStore sharedStore] TelaLogin]]) {
-        [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaLogin] animated:YES];
-    }
-    else{
-        [[self navigationController] pushViewController:[[LocalStore sharedStore] TelaLogin] animated:YES];
-    }
-}
 @end

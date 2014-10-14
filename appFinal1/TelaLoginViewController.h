@@ -16,7 +16,12 @@
 
 - (IBAction)btnSenhaClick:(id)sender;
 - (IBAction)btnContinuarClick:(id)sender;
+- (IBAction)btnCadastrarClick:(id)sender;
+- (IBAction)btnEntrarClick:(id)sender;
+
 
 @property (strong, nonatomic) IBOutlet UIButton *btnContinuar;
+@property (strong, nonatomic) IBOutlet UIButton *btnCadastrar;
+@property (strong, nonatomic) IBOutlet UIButton *btnEntrar;
 
 @end

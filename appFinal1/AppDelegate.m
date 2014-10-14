@@ -45,7 +45,7 @@
         telaVc = [[LocalStore sharedStore] TelaBusca];
     }
     else{
-        telaVc = [[LocalStore sharedStore] TelaInicio];
+        telaVc = [[LocalStore sharedStore] TelaLogin];
     }
     
     //Navigation Controller - Alterar Cores

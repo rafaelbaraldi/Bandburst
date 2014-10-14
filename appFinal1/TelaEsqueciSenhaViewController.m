@@ -33,14 +33,25 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     
-    //bg
-    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.png"]]];
-    [[[self navigationController] navigationBar] setTintColor:[[LocalStore sharedStore] FONTECOR]];
-    [self arredondaBordaBotoes];
+    [self carregaLayout];
 }
 
--(void)arredondaBordaBotoes{
+-(void)carregaLayout{
+    
+    //PROCURAR
     [[_btnProcurar layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
+    
+    //TXT EMAIL
+    [[_txtEmail layer]setBorderWidth:2.0f];
+    [[_txtEmail layer] setCornerRadius:[[LocalStore sharedStore] RAIOTEXT]];
+    [[_txtEmail layer] setBorderColor:[[LocalStore sharedStore] FONTECOR].CGColor];
+    [_txtEmail setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    
+    //Info
+    [_txtInfo setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    
+    //Msg
+    [_lblMsg setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -50,6 +61,7 @@
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
+    
     _btnProcurar.hidden = NO;
     _lblMsg.hidden = YES;
 }
@@ -70,16 +82,20 @@
     
     NSString *email = _txtEmail.text;
     
-    NSDictionary *retorno = [LoginConexao esqueciSenha:email];
-    NSString *resultado = [retorno valueForKeyPath:@"resultado"];
- 
-    if([resultado isEqualToString:@"sucesso"]){
-        [_lblMsg setHidden:NO];
-        [_btnProcurar setHidden:YES];
-    }
-    else{
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Nenhuma conta encontrada" message:@"Não foi possível encontrar nenhuma conta correspondente." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
+    if (![email isEqualToString:@""]) {
+    
+        NSDictionary *retorno = [LoginConexao esqueciSenha:email];
+        NSString *resultado = [retorno valueForKeyPath:@"resultado"];
+
+        if([resultado isEqualToString:@"sucesso"]){
+            [_lblMsg setHidden:NO];
+            [_btnProcurar setHidden:YES];
+        }
+        else{
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Nenhuma conta encontrada" message:@"Não foi possível encontrar nenhuma conta correspondente." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+        }
     }
 }
+    
 @end

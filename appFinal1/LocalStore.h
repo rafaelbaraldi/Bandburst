@@ -22,7 +22,6 @@
 #import "TelaNovaBandaViewController.h"
 #import "TelaAmigosViewController.h"
 #import "TelaBandaViewController.h"
-//#import "TelaInfosBandaViewController.h"
 #import "TelaGravacoesViewController.h"
 
 #import "TBInstrumentosViewController.h"
@@ -36,15 +35,13 @@
 
 @interface LocalStore : NSObject
 
-
 @property int RAIOBORDA;
-
-@property NSString *USUARIOZERO;
-@property NSString *URL;
-
+@property int RAIOTEXT;
 @property UIColor *FONTECOR;
 @property NSString *FONTEFAMILIA;
 
+@property NSString *USUARIOZERO;
+@property NSString *URL;
 
 @property TPUsuario *usuarioAtual;
 
@@ -54,7 +51,6 @@
 @property TBInstrumentosQueTocaViewController *TelaTBInstruementosQueToco;
 @property TBEstilosQueTocaViewController *TelaTBEstilosQueToco;
 @property TBEstilosViewController *TelaTBEstilos;
-
 @property TelaPerfilViewController *TelaPerfil;
 @property TelaCadastroViewController *TelaCadastro;
 @property TelaEsqueciSenhaViewController *TelaEsqueciSenha;
@@ -69,8 +65,6 @@
 @property TelaNovaBandaViewController* TelaNovaBanda;
 @property TelaAmigosViewController* TelaAmigos;
 @property TelaBandaViewController *TelaBanda;
-//@property TelaInfosBandaViewController *TelaInfosBanda;
-
 
 @property AppDelegate *appDelegate;
 @property NSManagedObjectContext *context;

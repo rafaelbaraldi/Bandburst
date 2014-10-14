@@ -25,7 +25,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         
-        [[self navigationItem] setTitle:@"Login"];
+        [[self navigationItem] setTitle:@"Bandburst"];
     }
     return self;
 }
@@ -34,7 +34,7 @@
     [super viewDidLoad];
     
     [[[self navigationController] navigationBar] setTintColor:[[LocalStore sharedStore] FONTECOR]];
-    [self arredondaBordaBotoes];
+    [self carregaLayout];
     [_txtSenha setSecureTextEntry:YES];
     
     [_lblEsqueceuSenha setBackgroundColor:[UIColor clearColor]];
@@ -50,23 +50,34 @@
 //    }
 }
 
--(void)arredondaBordaBotoes{
+-(void)carregaLayout{
     
+    //Entrar
+    [[_btnEntrar layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
+    [[_btnEntrar titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    
+    //Cadastrar
+    [[_btnCadastrar layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
+    [[_btnCadastrar titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    
+    //Login
     [[_btnContinuar layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
-    [[_txtEmail layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
-    [[_txtSenha layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
-    
-    
     [[_btnContinuar titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
-    [_txtEmail setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
-    [_txtSenha setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
-    [[_lblEsqueceuSenha titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
-    
+
+    //TXT Email
     [[_txtEmail layer]setBorderWidth:2.0f];
-    [[_txtSenha layer]setBorderWidth:2.0f];
-    
+    [[_txtEmail layer] setCornerRadius:[[LocalStore sharedStore] RAIOTEXT]];
     [[_txtEmail layer] setBorderColor:[[LocalStore sharedStore] FONTECOR].CGColor];
+    [_txtEmail setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    
+    //TXT Senha
+    [[_txtSenha layer]setBorderWidth:2.0f];
+    [[_txtSenha layer] setCornerRadius:[[LocalStore sharedStore] RAIOTEXT]];
     [[_txtSenha layer] setBorderColor:[[LocalStore sharedStore] FONTECOR].CGColor];
+    [_txtSenha setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    
+    //Esqueceu senha
+    [[_lblEsqueceuSenha titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -111,6 +122,28 @@
             UIAlertView *alertDadosIncorretos = [[UIAlertView alloc] initWithTitle:@"ERRO" message:@"E-mail ou senha inválidos" delegate:self cancelButtonTitle:@"Rejeitar" otherButtonTitles:nil];
             [alertDadosIncorretos show];
         }
+    }
+}
+
+- (IBAction)btnCadastrarClick:(id)sender {
+    
+    if ([LocalStore verificaSeViewJaEstaNaPilha:[[self navigationController] viewControllers] proximaTela:[[LocalStore sharedStore] TelaCadastro]]) {
+        [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaCadastro] animated:YES];
+    }
+    else{
+        [[self navigationController] pushViewController:[[LocalStore sharedStore] TelaCadastro] animated:YES];
+    }
+}
+
+- (IBAction)btnEntrarClick:(id)sender {
+    
+    [LocalStore setParaUsuarioZero];
+    
+    if ([LocalStore verificaSeViewJaEstaNaPilha:[[self navigationController] viewControllers] proximaTela:[[LocalStore sharedStore] TelaBusca]]) {
+        [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaBusca] animated:YES];
+    }
+    else{
+        [[self navigationController] pushViewController:[[LocalStore sharedStore] TelaBusca] animated:YES];
     }
 }
 @end
