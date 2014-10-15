@@ -14,6 +14,7 @@
 @property NSString *periodo;
 
 +(NSString*)horariosEmTexto:(NSMutableArray*)horarios;
-+(int)qtdHorario;
+
++(int)qtdHorario:(NSMutableArray*)horarios;
 
 @end

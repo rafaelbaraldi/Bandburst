@@ -203,7 +203,7 @@
             nRow = [_pessoa.instrumentos count];
             break;
         case 2:
-            nRow = [_pessoa.horarios count];
+            nRow = 0;
             break;
     }
 
@@ -329,6 +329,7 @@
 //}
 
 //-(void)carregaHorariosUsuario{
+//
 //    
 //    UILabel *lblTituloHorario = [[UILabel alloc] initWithFrame:CGRectMake(20, _lblAtribuicoes.frame.origin.y + _lblAtribuicoes.frame.size.height + 20, 300, 20)];
 //    UILabel *lblHorarios = [[UILabel alloc] initWithFrame:CGRectMake(20, lblTituloHorario.frame.origin.y + lblTituloHorario.frame.size.height, 300, 20)];
