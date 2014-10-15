@@ -264,7 +264,7 @@
             break;
             
         case 2:
-            celula.textLabel.text = ((TPHorario*)[_pessoa.horarios objectAtIndex:indexPath.row]).dia;
+            celula.textLabel.text = 0;
             break;
     }
     

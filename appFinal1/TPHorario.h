@@ -15,6 +15,4 @@
 
 +(NSString*)horariosEmTexto:(NSMutableArray*)horarios;
 
-+(int)qtdHorario:(NSMutableArray*)horarios;
-
 @end

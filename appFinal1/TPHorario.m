@@ -8,7 +8,6 @@
 
 #import "TPHorario.h"
 
-int qtdHorarios = 0;
 
 @implementation TPHorario
 
@@ -49,9 +48,8 @@ int qtdHorarios = 0;
             }
         }
         
-        txtHorario = [NSString stringWithFormat:@"%@ %@ \n", txtHorario, txtPeriodo];
         
-        qtdHorarios = j;
+        txtHorario = [NSString stringWithFormat:@"%@ %@ \n", txtHorario, txtPeriodo];
     }
     
     return txtHorario;
@@ -72,13 +70,6 @@ int qtdHorarios = 0;
     }
     
     return txtPeriodo;
-}
-
-+(int)qtdHorario:(NSMutableArray*)horarios{
-    
-    [self horariosEmTexto:horarios];
-    
-    return qtdHorarios;
 }
 
 @end
