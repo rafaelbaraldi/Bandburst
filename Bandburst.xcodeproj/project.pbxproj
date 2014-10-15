@@ -109,6 +109,8 @@
 		31C31744194783B700C99512 /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 31C31743194783B700C99512 /* delete.png */; };
 		31CAECDA19DC8C0300C5AF10 /* recorder.png in Resources */ = {isa = PBXBuildFile; fileRef = 31CAECD919DC8C0300C5AF10 /* recorder.png */; };
 		31CAECDE19DC8DCA00C5AF10 /* grava.png in Resources */ = {isa = PBXBuildFile; fileRef = 31CAECDD19DC8DCA00C5AF10 /* grava.png */; };
+		31CEDC9E19EEE93F00450C1D /* favoritado.png in Resources */ = {isa = PBXBuildFile; fileRef = 31CEDC9C19EEE93F00450C1D /* favoritado.png */; };
+		31CEDC9F19EEE93F00450C1D /* favoritar.png in Resources */ = {isa = PBXBuildFile; fileRef = 31CEDC9D19EEE93F00450C1D /* favoritar.png */; };
 		31F1F8AF199E82380000B61F /* som.png in Resources */ = {isa = PBXBuildFile; fileRef = 31F1F8AE199E82380000B61F /* som.png */; };
 		31F67C75193515CC00113DA8 /* escrever.png in Resources */ = {isa = PBXBuildFile; fileRef = 31F67C74193515CC00113DA8 /* escrever.png */; };
 		31F67C79193523D400113DA8 /* TelaUsuarioFiltrado.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F67C77193523D400113DA8 /* TelaUsuarioFiltrado.m */; };
@@ -325,6 +327,8 @@
 		31C31743194783B700C99512 /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
 		31CAECD919DC8C0300C5AF10 /* recorder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recorder.png; sourceTree = "<group>"; };
 		31CAECDD19DC8DCA00C5AF10 /* grava.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grava.png; sourceTree = "<group>"; };
+		31CEDC9C19EEE93F00450C1D /* favoritado.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favoritado.png; sourceTree = "<group>"; };
+		31CEDC9D19EEE93F00450C1D /* favoritar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favoritar.png; sourceTree = "<group>"; };
 		31F1F8AE199E82380000B61F /* som.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = som.png; sourceTree = "<group>"; };
 		31F67C74193515CC00113DA8 /* escrever.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = escrever.png; sourceTree = "<group>"; };
 		31F67C76193523D400113DA8 /* TelaUsuarioFiltrado.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TelaUsuarioFiltrado.h; sourceTree = "<group>"; };
@@ -884,6 +888,8 @@
 		31F67C6F1935130A00113DA8 /* Imagens */ = {
 			isa = PBXGroup;
 			children = (
+				31CEDC9C19EEE93F00450C1D /* favoritado.png */,
+				31CEDC9D19EEE93F00450C1D /* favoritar.png */,
 				31F67C74193515CC00113DA8 /* escrever.png */,
 				73F6F71019A63F980003B408 /* deselecionado.png */,
 				31C31743194783B700C99512 /* delete.png */,
@@ -1231,12 +1237,14 @@
 				316AAA0A199E9D89001CE96B /* bg.png in Resources */,
 				1BEA45981992C7A100876D75 /* 11.png in Resources */,
 				1BE8E3C6192533AD00D108C0 /* InfoPlist.strings in Resources */,
+				31CEDC9E19EEE93F00450C1D /* favoritado.png in Resources */,
 				1B67BD8619D9F00500A663EC /* gravar.png in Resources */,
 				1BEA459D1992C7A100876D75 /* 2.png in Resources */,
 				1B970D8E19D365A900D0FD01 /* TBInstrumentosQueTocaViewController.xib in Resources */,
 				1BC921F119EC622200D9B9C1 /* CHANGELOG in Resources */,
 				737F34A11976F9CC00AAF796 /* cellHorario.xib in Resources */,
 				316AAA07199E8C81001CE96B /* CellTituloMusica.xib in Resources */,
+				31CEDC9F19EEE93F00450C1D /* favoritar.png in Resources */,
 				31CAECDE19DC8DCA00C5AF10 /* grava.png in Resources */,
 				1BC921F219EC622200D9B9C1 /* VERSION in Resources */,
 				1B337AA019D6021700BAC433 /* check.png in Resources */,

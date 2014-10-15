@@ -49,7 +49,6 @@
         
         txtHorario = [NSString stringWithFormat:@"%@ %@ \n", txtHorario, txtPeriodo];
     }
-//    txtHorario = [txtHorario substringFromIndex:6];
     
     return txtHorario;
 }
@@ -69,6 +68,11 @@
     }
     
     return txtPeriodo;
+}
+
++(int)qtdHorario{
+    
+    
 }
 
 @end

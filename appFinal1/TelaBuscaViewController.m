@@ -308,7 +308,7 @@
 -(UIImage*)carregaImagemFake{
     
     UIImageView *fotoUsuario = [[UIImageView alloc] initWithFrame:CGRectMake(30, 10, 80, 80)];
-    fotoUsuario.image = [UIImage imageNamed:@"perfil.png"];
+    fotoUsuario.image = [UIImage imageNamed:@"placeholderFoto.png"];
     fotoUsuario.layer.masksToBounds = YES;
     fotoUsuario.layer.cornerRadius = fotoUsuario.frame.size.width / 2;
     fotoUsuario.tag = 4;

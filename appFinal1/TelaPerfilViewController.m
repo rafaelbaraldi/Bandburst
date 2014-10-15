@@ -98,16 +98,22 @@
     //Imagem
     [self carregaImagemPerfil];
     
-    
-    
     //Nome, cidade, Bairro e Atribuicoes
     _lblPerfilNome.text = [[LocalStore sharedStore] usuarioAtual].nome;
     _lblPerfilCidade.text = [[LocalStore sharedStore] usuarioAtual].cidade;
     _lblPerfilBairro.text = [[LocalStore sharedStore] usuarioAtual].bairro;
     
+    _lblPerfilAtribuicoes.layer.borderWidth = 1.0f;
+    _lblPerfilAtribuicoes.layer.borderColor = [UIColor grayColor].CGColor;
     _lblPerfilAtribuicoes.text = [[LocalStore sharedStore] usuarioAtual].atribuicoes;
     _lblPerfilAtribuicoes.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:12.0f];
-    [_lblPerfilAtribuicoes sizeToFit];
+    
+    if([_lblPerfilAtribuicoes.text length] == 0){
+        _lblPerfilAtribuicoes.text = @" - ";
+    }
+    else{
+        _lblPerfilAtribuicoes.textAlignment = NSTextAlignmentCenter;
+    }
     
     //Botao Editar Perfil (Função em programação)
     [self botaoPerfilEditar];

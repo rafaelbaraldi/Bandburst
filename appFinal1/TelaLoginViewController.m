@@ -24,8 +24,6 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        
-        [[self navigationItem] setTitle:@"Bandburst"];
     }
     return self;
 }
@@ -35,19 +33,6 @@
     
     [[[self navigationController] navigationBar] setTintColor:[[LocalStore sharedStore] FONTECOR]];
     [self carregaLayout];
-    [_txtSenha setSecureTextEntry:YES];
-    
-    [_lblEsqueceuSenha setBackgroundColor:[UIColor clearColor]];
-
-//    Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
-//    NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
-//    if (networkStatus == NotReachable) {
-//        NSLog(@"There IS NO internet connection");
-//    } else {
-//        NSLog(@"There IS internet connection");
-//        if (networkStatus == ReachableViaWiFi) { NSLog(@"wifi"); }
-//        else if (networkStatus == ReachableViaWWAN) { NSLog(@"carrier");}
-//    }
 }
 
 -(void)carregaLayout{
@@ -65,6 +50,7 @@
     [[_btnContinuar titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
 
     //TXT Email
+    [_txtSenha setSecureTextEntry:YES];
     [[_txtEmail layer]setBorderWidth:2.0f];
     [[_txtEmail layer] setCornerRadius:[[LocalStore sharedStore] RAIOTEXT]];
     [[_txtEmail layer] setBorderColor:[[LocalStore sharedStore] FONTECOR].CGColor];
@@ -81,12 +67,13 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    
-    [[self navigationController] setNavigationBarHidden:YES];
+ 
+
+    [[self navigationItem] setTitle:@"Bandburst"];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
-    [[self navigationController] setNavigationBarHidden:NO];
+    [self.navigationItem setHidesBackButton:YES];
     
     _txtSenha.text = @"";
 }
@@ -95,6 +82,17 @@
 - (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
 }
+
+//    Verifica internet
+//    Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
+//    NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
+//    if (networkStatus == NotReachable) {
+//        NSLog(@"There IS NO internet connection");
+//    } else {
+//        NSLog(@"There IS internet connection");
+//        if (networkStatus == ReachableViaWiFi) { NSLog(@"wifi"); }
+//        else if (networkStatus == ReachableViaWWAN) { NSLog(@"carrier");}
+//    }
 
 //Return Text Field
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
