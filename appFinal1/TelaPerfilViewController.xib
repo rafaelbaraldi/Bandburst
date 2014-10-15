@@ -8,6 +8,8 @@
             <connections>
                 <outlet property="btnCriarBanda" destination="Swf-6E-QAs" id="zGS-8v-rAd"/>
                 <outlet property="btnPerfilEditar" destination="zmM-mg-woS" id="DLq-kY-NYX"/>
+                <outlet property="buscarItem" destination="wg7-G1-VDR" id="mc3-v6-cXo"/>
+                <outlet property="gravarPerfil" destination="dKl-z4-QUr" id="8Mo-wK-Vgi"/>
                 <outlet property="imagePerfil" destination="7Tf-9H-xid" id="g5W-UN-vfY"/>
                 <outlet property="lblInfo" destination="uGM-Yp-MZG" id="De1-Yp-xED"/>
                 <outlet property="lblPerfilAtribuicoes" destination="ftg-ll-SMd" id="sBt-8t-3A2"/>
@@ -63,21 +65,22 @@
                     <color key="textColor" red="0.8980392814" green="0.49019610879999997" blue="0.33333334329999997" alpha="1" colorSpace="deviceRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <tabBar contentMode="scaleToFill" fixedFrame="YES" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="gif-oH-5tS">
-                    <rect key="frame" x="0.0" y="525" width="320" height="49"/>
+                <tabBar contentMode="scaleToFill" fixedFrame="YES" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gif-oH-5tS">
+                    <rect key="frame" x="0.0" y="530" width="320" height="49"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <items>
                         <tabBarItem tag="1" title="Gravar" image="gravarIcon.png" id="dKl-z4-QUr">
                             <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="10"/>
                         </tabBarItem>
-                        <tabBarItem tag="2" systemItem="search" id="wg7-G1-VDR">
+                        <tabBarItem tag="2" image="buscador.png" id="wg7-G1-VDR">
                             <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="10"/>
                         </tabBarItem>
-                        <tabBarItem tag="3" systemItem="contacts" id="adH-7g-cTX">
+                        <tabBarItem tag="3" image="perfilcone.png" id="adH-7g-cTX">
                             <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="10"/>
                         </tabBarItem>
                     </items>
+                    <color key="barTintColor" red="0.8980392814" green="0.49019610879999997" blue="0.33333334329999997" alpha="1" colorSpace="deviceRGB"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="Mb5-Ai-hzW"/>
                     </connections>
@@ -124,7 +127,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Swf-6E-QAs">
-                    <rect key="frame" x="169" y="485" width="143" height="30"/>
+                    <rect key="frame" x="169" y="481" width="143" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.8980392814" green="0.49019610879999997" blue="0.33333334329999997" alpha="1" colorSpace="deviceRGB"/>
                     <color key="tintColor" red="0.98823535439999999" green="0.12549020350000001" blue="0.30196079609999998" alpha="1" colorSpace="deviceRGB"/>
@@ -136,6 +139,7 @@
                         <action selector="btnCriarBandaClick:" destination="-1" eventType="touchUpInside" id="dyZ-38-elb"/>
                     </connections>
                 </button>
+<<<<<<< HEAD
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftg-ll-SMd">
                     <rect key="frame" x="15" y="199" width="247" height="40"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -144,6 +148,12 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
+=======
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="seta_tabbar.png" translatesAutoresizingMaskIntoConstraints="NO" id="pH3-An-B35">
+                    <rect key="frame" x="256" y="518" width="20" height="12"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+>>>>>>> e62b7b780fb05f1850dacfe1eec82d8d8facaf8b
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
@@ -151,7 +161,10 @@
         </view>
     </objects>
     <resources>
-        <image name="gravarIcon.png" width="32" height="32"/>
+        <image name="buscador.png" width="30" height="30"/>
+        <image name="gravarIcon.png" width="30" height="30"/>
         <image name="perfil.png" width="512" height="512"/>
+        <image name="perfilcone.png" width="30" height="30"/>
+        <image name="seta_tabbar.png" width="48" height="28"/>
     </resources>
 </document>

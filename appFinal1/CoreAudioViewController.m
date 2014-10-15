@@ -30,8 +30,8 @@
 -(void)viewWillAppear:(BOOL)animated{
     
     //Imagem do tab bar selecionada
-    [_tabBar setSelectedItem:_gravarItem];
-    [_tabBar setTintColor:[[LocalStore sharedStore] FONTECOR]];
+//    [_tabBar setSelectedItem:_gravarItem];
+//    [_tabBar setTintColor:[[LocalStore sharedStore] FONTECOR]];
 }
 
 - (void)didReceiveMemoryWarning{
@@ -50,7 +50,16 @@
 }
 
 - (void)viewDidLoad{
-    [super viewDidLoad];    
+    [super viewDidLoad];
+    
+    _gravarItem.image = [[UIImage imageNamed:@"gravarIcon.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    _gravarItem.selectedImage = [[UIImage imageNamed:@"gravarIcon.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    _buscarItem.image = [[UIImage imageNamed:@"buscador.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    _buscarItem.selectedImage = [[UIImage imageNamed:@"buscador.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    _perfilItem.image = [[UIImage imageNamed:@"perfilcone.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    _perfilItem.selectedImage = [[UIImage imageNamed:@"perfilcone.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    [_tabBar setTintColor: [UIColor whiteColor]];
     
     [[[[self navigationController] navigationBar] backItem] setTitle:@""];
     

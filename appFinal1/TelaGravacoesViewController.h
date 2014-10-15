@@ -23,4 +23,9 @@
 
 - (IBAction)btnNovaGravacaoClick:(id)sender;
 
+@property (strong, nonatomic) IBOutlet UITabBarItem *gravarIcone;
+@property (strong, nonatomic) IBOutlet UITabBarItem *buscarIcone;
+@property (strong, nonatomic) IBOutlet UITabBarItem *perfilIcone;
+@property (strong, nonatomic) IBOutlet UITabBar *barra;
+
 @end

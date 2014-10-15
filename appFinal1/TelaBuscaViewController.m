@@ -48,8 +48,8 @@
 -(void)viewWillAppear:(BOOL)animated{
     
     //Seleciona a imagem da tab bar
-    [_tabBar setSelectedItem:_buscarItem];
-    [_tabBar setTintColor:[UIColor whiteColor]];
+//    [_tabBar setSelectedItem:_buscarItem];
+//    [_tabBar setTintColor:[UIColor whiteColor]];
 
     [self escondeBotaoDeBoltarSeUsuarioLogado];
     
@@ -82,6 +82,15 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    
+    _gravarItem.image = [[UIImage imageNamed:@"gravarIcon.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    _gravarItem.selectedImage = [[UIImage imageNamed:@"gravarIcon.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    _buscarItem.image = [[UIImage imageNamed:@"buscador.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    _buscarItem.selectedImage = [[UIImage imageNamed:@"buscador.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    _usuarioItem.image = [[UIImage imageNamed:@"perfilcone.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    _usuarioItem.selectedImage = [[UIImage imageNamed:@"perfilcone.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    [_tabBar setTintColor: [UIColor whiteColor]];
     
     //Metodo de Busca por cidade
     [_txtCidade addTarget:self action:@selector(textFieldDidChange) forControlEvents:UIControlEventEditingChanged];

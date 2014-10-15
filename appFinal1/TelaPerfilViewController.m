@@ -35,6 +35,15 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     
+    _gravarPerfil.image = [[UIImage imageNamed:@"gravarIcon.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    _gravarPerfil.selectedImage = [[UIImage imageNamed:@"gravarIcon.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    _buscarItem.image = [[UIImage imageNamed:@"buscador.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    _buscarItem.selectedImage = [[UIImage imageNamed:@"buscador.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    _perfilItem.image = [[UIImage imageNamed:@"perfilcone.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    _perfilItem.selectedImage = [[UIImage imageNamed:@"perfilcone.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    [_tabBar setTintColor: [UIColor whiteColor]];
+    
     //Collection view
     [self carregaConfiguracaoCollectionMusica];
 }
@@ -67,8 +76,8 @@
     [[_btnCriarBanda layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
     
     //Botao do NAvigationItem
-    [_tabBar setSelectedItem:_perfilItem];
-    [_tabBar setTintColor:[[LocalStore sharedStore] FONTECOR]];
+//    [_tabBar setSelectedItem:_perfilItem];
+//    [_tabBar setTintColor:[[LocalStore sharedStore] FONTECOR]];
 }
 
 -(void)escondeBotaoDeVoltarSeUsuarioLogado{
