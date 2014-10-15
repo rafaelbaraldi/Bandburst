@@ -8,7 +8,9 @@
             <connections>
                 <outlet property="audioPlot" destination="vXt-vD-QbV" id="2sj-jN-lGF"/>
                 <outlet property="btnGravar" destination="xq6-C9-MdR" id="l4L-0C-rBN"/>
+                <outlet property="buscarItem" destination="c3r-MW-hxS" id="bsY-Iy-VAM"/>
                 <outlet property="gravarItem" destination="TEj-qM-8ki" id="odl-na-1c2"/>
+                <outlet property="perfilItem" destination="F2Q-c9-Ula" id="p1J-L4-NPR"/>
                 <outlet property="tabBar" destination="Kee-EF-taZ" id="9yg-Ve-F2O"/>
                 <outlet property="tempo" destination="pXW-eP-Ikv" id="mKc-cU-3Ar"/>
                 <outlet property="view" destination="1" id="3"/>
@@ -31,21 +33,22 @@
                         <action selector="gravar:" destination="-1" eventType="touchUpInside" id="F6Z-co-1OX"/>
                     </connections>
                 </button>
-                <tabBar contentMode="scaleToFill" fixedFrame="YES" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="Kee-EF-taZ">
-                    <rect key="frame" x="0.0" y="525" width="320" height="49"/>
+                <tabBar contentMode="scaleToFill" fixedFrame="YES" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kee-EF-taZ">
+                    <rect key="frame" x="0.0" y="530" width="320" height="49"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <items>
                         <tabBarItem tag="1" title="Gravar" image="gravarIcon.png" id="TEj-qM-8ki">
                             <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="10"/>
                         </tabBarItem>
-                        <tabBarItem tag="2" systemItem="search" id="c3r-MW-hxS">
+                        <tabBarItem tag="2" image="buscador.png" id="c3r-MW-hxS">
                             <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="10"/>
                         </tabBarItem>
-                        <tabBarItem tag="3" systemItem="contacts" id="F2Q-c9-Ula">
+                        <tabBarItem tag="3" image="perfilcone.png" id="F2Q-c9-Ula">
                             <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="10"/>
                         </tabBarItem>
                     </items>
+                    <color key="barTintColor" red="0.8980392814" green="0.49019610879999997" blue="0.33333334329999997" alpha="1" colorSpace="deviceRGB"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="mS0-fO-SD9"/>
                     </connections>
@@ -64,6 +67,10 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="seta_tabbar.png" translatesAutoresizingMaskIntoConstraints="NO" id="mi5-l1-LGA">
+                    <rect key="frame" x="43" y="518" width="20" height="12"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
@@ -71,7 +78,10 @@
         </view>
     </objects>
     <resources>
+        <image name="buscador.png" width="30" height="30"/>
         <image name="gravar.png" width="130" height="129"/>
-        <image name="gravarIcon.png" width="32" height="32"/>
+        <image name="gravarIcon.png" width="30" height="30"/>
+        <image name="perfilcone.png" width="30" height="30"/>
+        <image name="seta_tabbar.png" width="48" height="28"/>
     </resources>
 </document>

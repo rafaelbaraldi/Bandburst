@@ -25,6 +25,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *tempo;
 @property (weak, nonatomic) IBOutlet UIButton *btnGravar;
 @property (strong, nonatomic) IBOutlet UITabBarItem *gravarItem;
+@property (strong, nonatomic) IBOutlet UITabBarItem *buscarItem;
+@property (strong, nonatomic) IBOutlet UITabBarItem *perfilItem;
 @property (strong, nonatomic) IBOutlet UITabBar *tabBar;
 
 @property NSTimer *timer;

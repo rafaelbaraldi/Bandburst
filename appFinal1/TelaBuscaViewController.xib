@@ -12,6 +12,7 @@
                 <outlet property="btnRemoverEstilo" destination="bym-wc-cur" id="lwy-Rq-7St"/>
                 <outlet property="btnRemoverInstrumento" destination="h0P-7Z-idq" id="C3I-R3-P8k"/>
                 <outlet property="buscarItem" destination="jib-XL-ILu" id="6aw-0e-MJc"/>
+                <outlet property="gravarItem" destination="p7Z-6i-Aqn" id="w7c-EO-e4Q"/>
                 <outlet property="lblMsgBusca" destination="2R3-Zl-kHm" id="Wlc-a7-KLF"/>
                 <outlet property="tabBar" destination="nJ8-aO-iVP" id="H8V-TF-p51"/>
                 <outlet property="tbUsuarios" destination="yzY-OJ-snY" id="eJZ-MP-7hM"/>
@@ -34,16 +35,16 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <tabBar contentMode="scaleToFill" fixedFrame="YES" barStyle="black" translucent="NO" backgroundImage="tabbar.png" translatesAutoresizingMaskIntoConstraints="NO" id="nJ8-aO-iVP">
-                    <rect key="frame" x="0.0" y="519" width="320" height="49"/>
+                <tabBar contentMode="scaleToFill" fixedFrame="YES" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nJ8-aO-iVP">
+                    <rect key="frame" x="0.0" y="530" width="320" height="49"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <items>
-                        <tabBarItem tag="1" title="" id="p7Z-6i-Aqn"/>
-                        <tabBarItem tag="2" title="" id="jib-XL-ILu">
+                        <tabBarItem tag="1" title="" image="gravarIcon.png" id="p7Z-6i-Aqn"/>
+                        <tabBarItem tag="2" title="" image="buscador.png" id="jib-XL-ILu">
                             <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="13"/>
                         </tabBarItem>
-                        <tabBarItem tag="3" id="vQ6-Ug-yzt">
+                        <tabBarItem tag="3" image="perfilcone.png" id="vQ6-Ug-yzt">
                             <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="12"/>
                         </tabBarItem>
                     </items>
@@ -126,7 +127,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="yzY-OJ-snY">
-                    <rect key="frame" x="0.0" y="236" width="320" height="283"/>
+                    <rect key="frame" x="0.0" y="236" width="320" height="259"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -166,6 +167,10 @@
                         <outlet property="delegate" destination="-1" id="vQl-pL-dOr"/>
                     </connections>
                 </textField>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="seta_tabbar.png" translatesAutoresizingMaskIntoConstraints="NO" id="UTh-cH-uVd">
+                    <rect key="frame" x="147" y="518" width="20" height="12"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
@@ -173,7 +178,10 @@
         </view>
     </objects>
     <resources>
+        <image name="buscador.png" width="30" height="30"/>
         <image name="delete.png" width="512" height="512"/>
-        <image name="tabbar.png" width="320" height="50"/>
+        <image name="gravarIcon.png" width="30" height="30"/>
+        <image name="perfilcone.png" width="30" height="30"/>
+        <image name="seta_tabbar.png" width="48" height="28"/>
     </resources>
 </document>

@@ -36,5 +36,6 @@
 
 @property (strong, nonatomic) IBOutlet UITabBarItem *usuarioItem;
 @property (strong, nonatomic) IBOutlet UITabBarItem *buscarItem;
+@property (strong, nonatomic) IBOutlet UITabBarItem *gravarItem;
 @property (strong, nonatomic) IBOutlet UITabBar *tabBar;
 @end
