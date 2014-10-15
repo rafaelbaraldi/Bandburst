@@ -20,6 +20,9 @@
 		1B1666291935084000E2FB47 /* TPUsuario.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1666281935084000E2FB47 /* TPUsuario.m */; };
 		1B337AA019D6021700BAC433 /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B337A9E19D6021700BAC433 /* check.png */; };
 		1B337AA319D603D700BAC433 /* uncheck.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B337AA219D603D700BAC433 /* uncheck.png */; };
+		1B41D5E519EF10ED00D6D034 /* gravarIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B41D5E219EF10ED00D6D034 /* gravarIcon@2x.png */; };
+		1B41D5E619EF10ED00D6D034 /* perfilcone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B41D5E319EF10ED00D6D034 /* perfilcone@2x.png */; };
+		1B41D5E719EF10ED00D6D034 /* buscador@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B41D5E419EF10ED00D6D034 /* buscador@2x.png */; };
 		1B52395F1995537800D2A640 /* TelaMusicasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B52395D1995537800D2A640 /* TelaMusicasViewController.m */; };
 		1B5239601995537800D2A640 /* TelaMusicasViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B52395E1995537800D2A640 /* TelaMusicasViewController.xib */; };
 		1B5FE140192FC23B00E35BCC /* BuscaStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B5FE13F192FC23B00E35BCC /* BuscaStore.m */; };
@@ -206,6 +209,9 @@
 		1B1666281935084000E2FB47 /* TPUsuario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPUsuario.m; sourceTree = "<group>"; };
 		1B337A9E19D6021700BAC433 /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
 		1B337AA219D603D700BAC433 /* uncheck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uncheck.png; sourceTree = "<group>"; };
+		1B41D5E219EF10ED00D6D034 /* gravarIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gravarIcon@2x.png"; sourceTree = "<group>"; };
+		1B41D5E319EF10ED00D6D034 /* perfilcone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "perfilcone@2x.png"; sourceTree = "<group>"; };
+		1B41D5E419EF10ED00D6D034 /* buscador@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buscador@2x.png"; sourceTree = "<group>"; };
 		1B52395C1995537800D2A640 /* TelaMusicasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TelaMusicasViewController.h; sourceTree = "<group>"; };
 		1B52395D1995537800D2A640 /* TelaMusicasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TelaMusicasViewController.m; sourceTree = "<group>"; };
 		1B52395E1995537800D2A640 /* TelaMusicasViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TelaMusicasViewController.xib; sourceTree = "<group>"; };
@@ -862,6 +868,9 @@
 		316AAA08199E9D75001CE96B /* Imagens Layout */ = {
 			isa = PBXGroup;
 			children = (
+				1B41D5E219EF10ED00D6D034 /* gravarIcon@2x.png */,
+				1B41D5E319EF10ED00D6D034 /* perfilcone@2x.png */,
+				1B41D5E419EF10ED00D6D034 /* buscador@2x.png */,
 				31ACBCDB19DF217800C9F42E /* tabbar.png */,
 				1B67BD8019D9E66000A663EC /* gravador.png */,
 				1B67BD8819D9F33500A663EC /* seta_tabbar.png */,
@@ -1208,6 +1217,7 @@
 				1BE44A4119DB2846009CA9B0 /* TelaGravacoesViewController.xib in Resources */,
 				1BEA45961992C7A100876D75 /* 9.png in Resources */,
 				315D4DE619DF18CA003C9A8F /* placeholderFoto.png in Resources */,
+				1B41D5E519EF10ED00D6D034 /* gravarIcon@2x.png in Resources */,
 				737D09E91975C5D1000975F6 /* TelaInicioViewController.xib in Resources */,
 				1BEA45A01992C7A100876D75 /* 4.png in Resources */,
 				1B67BD8919D9F33500A663EC /* seta_tabbar.png in Resources */,
@@ -1226,6 +1236,7 @@
 				31F83E1D192E85050070D597 /* TBFiltroInstrumento.xib in Resources */,
 				1BEA45951992C7A100876D75 /* 8.png in Resources */,
 				31FB8CDB19CA25BF00ECEBDF /* WalkwayBold.otf in Resources */,
+				1B41D5E719EF10ED00D6D034 /* buscador@2x.png in Resources */,
 				1B337AA319D603D700BAC433 /* uncheck.png in Resources */,
 				3181DBB719EF0E57002CAF55 /* TelaPerfilViewController.xib in Resources */,
 				31A004401993F0CA00121EF6 /* TelaBandaViewController.xib in Resources */,
@@ -1259,6 +1270,7 @@
 				316AAA10199EA49B001CE96B /* bgNavigation.png in Resources */,
 				31F1F8AF199E82380000B61F /* som.png in Resources */,
 				1B1613081992A2A1009D5513 /* TelaNovaBandaViewController.xib in Resources */,
+				1B41D5E619EF10ED00D6D034 /* perfilcone@2x.png in Resources */,
 				31ACBCDC19DF217800C9F42E /* tabbar.png in Resources */,
 				31F67C75193515CC00113DA8 /* escrever.png in Resources */,
 				1BEA45A41992C7A100876D75 /* 5.png in Resources */,

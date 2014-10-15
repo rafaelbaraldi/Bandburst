@@ -178,10 +178,10 @@
         </view>
     </objects>
     <resources>
-        <image name="buscador.png" width="30" height="30"/>
+        <image name="buscador.png" width="60" height="60"/>
         <image name="delete.png" width="512" height="512"/>
-        <image name="gravarIcon.png" width="30" height="30"/>
-        <image name="perfilcone.png" width="30" height="30"/>
+        <image name="gravarIcon.png" width="60" height="60"/>
+        <image name="perfilcone.png" width="60" height="60"/>
         <image name="seta_tabbar.png" width="48" height="28"/>
     </resources>
 </document>
