@@ -71,7 +71,7 @@
 }
 
 +(int)qtdHorario{
-    
+    return 0;
     
 }
 
