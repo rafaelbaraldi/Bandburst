@@ -14,7 +14,7 @@
 #import "LocalStore.h"
 #import "Usuario.h"
 #import "TPInstrumento.h"
-
+#import "TPHorario.h"
 #import "TBEstilosQueTocaViewController.h"
 
 const int OBSERVACOES = 2;
@@ -69,9 +69,15 @@ const int OBSERVACOES = 2;
         [instumentosQueToca addObject:instumento];
     }
     
+    NSMutableArray* horariosQueToca = [[NSMutableArray alloc] init];
+    for (TPHorario* h in user.horarios) {
+        [horariosQueToca addObject:[NSString stringWithFormat:@"%@%@", h.dia, h.periodo]];
+    }
+    
+    
     [[CadastroStore sharedStore] setInstrumentosQueToca:instumentosQueToca];
     [[CadastroStore sharedStore] setEstilosQueToca:user.estilos];
-    [[CadastroStore sharedStore] setHorariosQueToca:user.horarios];
+    [[CadastroStore sharedStore] setHorariosQueToca:horariosQueToca];
     
     _txtNome.text = user.nome;
     _txtEmail.text = user.email;
