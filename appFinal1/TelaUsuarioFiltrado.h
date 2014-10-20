@@ -24,6 +24,7 @@
 //@property (weak, nonatomic) IBOutlet UILabel *lblInstrumentos;
 
 @property NSMutableArray *dadosUsuarios;
+@property NSMutableArray *horarios;
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageUsuario;
 

@@ -35,6 +35,7 @@
     
     if (self){ 
         _identificador = idUsuario;
+        _horarios = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -80,11 +81,15 @@
     _lblAtribuicoes.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14.0f];
     
     [_lblNome adjustsFontSizeToFitWidth];
-    
-    
+
     //Esconde linhas da tabela
     _tbDados.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     _tbDados.separatorColor = [UIColor clearColor];
+    
+    //Scroll Table
+    if([_pessoa.estilos count] + [_pessoa.instrumentos count] +[_horarios count] <= 7){
+         _tbDados.scrollEnabled = NO;
+    }
 }
 
 -(void)carregaUsuarioFiltrado{
@@ -94,6 +99,9 @@
     _lblNome.text = _pessoa.nome;
     _lblSexo.text = _pessoa.sexo;
 //    _lblEmail.text = _pessoa.email;
+    
+    //Carrega Horarios
+    _horarios = [TPHorario getHorarios:_pessoa.horarios];
     
     //Cidade e Bairro
     _lblCidadeBairro.lineBreakMode = NSLineBreakByCharWrapping;
@@ -106,20 +114,8 @@
     //Carrega dados do usuario
     [self carregaDadosUsuarios];
     
-    //Estilos
-//    [self carregaEstilosUsuario];
-    
-    //Posicionamento das View
-    [self carregaPosicaoView];
-    
     //Foto
     [self carregaImagemUsuario];
-    
-    //Horario
-//    [self carregaHorariosUsuario];
-    
-    //Instrumentos
-//    [self carregaInstrumentosUsuario];
 }
 
 
@@ -203,7 +199,7 @@
             nRow = [_pessoa.instrumentos count];
             break;
         case 2:
-            nRow = 0;
+            nRow = [_horarios count];
             break;
     }
 
@@ -223,7 +219,6 @@
 }
 
 -(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    
 
     NSString *titulo;
     switch (section) {
@@ -246,26 +241,107 @@
     
     UITableViewCell *celula = [tableView dequeueReusableCellWithIdentifier:@"dadosCell"];
     
+    NSString *nomeHorario;
+    
     if(celula == nil){
         celula = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"dadosCell"];
         
+        //Adicionar Periodo Horario
+        UILabel *periodo = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 298, 30)];
+        periodo.text = @"";
+        periodo.textAlignment = NSTextAlignmentRight;
+        periodo.numberOfLines = 0;
+        periodo.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14.0f];
+        periodo.textColor = [[LocalStore sharedStore] FONTECOR];
+        periodo.tag = 3;
+        [celula addSubview:periodo];
+        
+        //Imagem Tenho Instrumento
+        UIImageView* imgTenho = [[UIImageView alloc] initWithFrame:CGRectMake(225, 3, 23, 23)];
+        [imgTenho setTag:1];
+        [celula addSubview:imgTenho];
+        
+        //Imagem Toco Instrumento
+        UIImageView* imgToco = [[UIImageView alloc] initWithFrame:CGRectMake(272, 3, 23, 23)];
+        [imgToco setTag:2];
+        [celula addSubview:imgToco];
+        
+        //Instrumento
+        if (indexPath.section == 1) {
+            //Possui
+            BOOL possui = ((TPInstrumento*)[_pessoa.instrumentos objectAtIndex:indexPath.row]).possui;
+           
+            if (possui) {
+                imgTenho.image = [UIImage imageNamed:@"check.png"];
+            }
+            else{
+                imgTenho.image = [UIImage imageNamed:@"uncheck.png"];
+            }
+            
+            //Toco
+            [imgToco setImage:[UIImage imageNamed:@"check.png"]];
+        }
+        
+        //Horario
+        if(indexPath.section == 2){
+            
+            nomeHorario = [[[_horarios objectAtIndex:indexPath.row] componentsSeparatedByString:@" "] firstObject];
+            
+            //Adciona o periodo Horario
+            periodo.text = [[_horarios objectAtIndex:indexPath.row] stringByReplacingOccurrencesOfString:nomeHorario withString:@" "];
+        }
     }
     else{
-
+        
+        //Instrumento
+        UIImageView *imgTenho = (UIImageView*)[celula viewWithTag:1];
+        UIImageView *imgToco = (UIImageView*)[celula viewWithTag:2];
+        if(indexPath.section == 1){
+            
+            //Toco
+            [imgToco setImage:[UIImage imageNamed:@"check.png"]];
+            
+            //Possui
+            BOOL possui = ((TPInstrumento*)[_pessoa.instrumentos objectAtIndex:indexPath.row]).possui;
+            if (possui) {
+                imgTenho.image = [UIImage imageNamed:@"check.png"];
+            }
+            else{
+                imgTenho.image = [UIImage imageNamed:@"uncheck.png"];
+            }
+        }
+        else{
+            imgTenho.image = nil;
+            imgToco.image = nil;
+        }
+        
+        //Horario
+        UILabel *periodo = (UILabel*)[celula viewWithTag:3];
+        if(indexPath.section == 2){
+            nomeHorario = [[[_horarios objectAtIndex:indexPath.row] componentsSeparatedByString:@" "] firstObject];
+            periodo.text = [[_horarios objectAtIndex:indexPath.row] stringByReplacingOccurrencesOfString:nomeHorario withString:@""];
+        }
+        else{
+            periodo.text = @"";
+        }
     }
     
     switch (indexPath.section) {
+        //Estilo Musical
         case 0:
             celula.textLabel.text = [_pessoa.estilos objectAtIndex:indexPath.row];
-            break;
-            
+        break;
+        
+        //Instrumentos
         case 1:
             celula.textLabel.text = ((TPInstrumento*)[_pessoa.instrumentos objectAtIndex:indexPath.row]).nome;
-            break;
-            
+        break;
+        
+        //Horarios Disponiveis
         case 2:
-            celula.textLabel.text = 0;
-            break;
+            nomeHorario = [[[_horarios objectAtIndex:indexPath.row] componentsSeparatedByString:@" "] firstObject];
+            celula.textLabel.text = nomeHorario;
+        break;
     }
     
     //Fonte da Label
@@ -280,128 +356,7 @@
         [celula setBackgroundColor:[UIColor whiteColor]];
     }
     
-    
     return celula;
 }
-
-
-
-
-
-
-
-
-
--(void)carregaPosicaoView{
-    
-//    CGRect frame = _lblEstilo.frame;
-//    frame.size.width = 299;
-//    frame.size.height = ceilf((float)[_pessoa.estilos count] / 4) * 27;
-//    [_lblEstilo setFrame:frame];
-//    
-//    frame = _lblInstrumentos.frame;
-//    frame.origin.y = _lblEstilo.frame.origin.y + _lblEstilo.frame.size.height + 30;
-//    frame.size.height = ([_pessoa.instrumentos count] + 1) * 27;
-//    [_lblInstrumentos setFrame:frame];
-    
-//    frame = _lblTituloAtribuicoes.frame;
-//    frame.origin.y = _lblInstrumentos.frame.origin.y + _lblInstrumentos.frame.size.height + 30;
-//    [_lblTituloAtribuicoes setFrame:frame];
-//    
-//    frame = _lblAtribuicoes.frame;
-//    frame.origin.y = _lblTituloAtribuicoes.frame.origin.y + _lblTituloAtribuicoes.frame.size.height + 10;
-//    [_lblAtribuicoes setFrame:frame];
-}
-
-
-//-(void)carregaEstilosUsuario{
-//    
-//    _lblEstilo.numberOfLines = ceilf((float)[_pessoa.estilos count] / 4);
-//    [_lblEstilo sizeToFit];
-//    
-//    //Estilo Musica
-//    for (NSString* s in _pessoa.estilos) {
-//        _lblEstilo.text = [NSString stringWithFormat:@"%@, %@", _lblEstilo.text, s];
-//    }
-//    _lblEstilo.text = [_lblEstilo.text substringFromIndex:2];
-//    
-//    [self espacoEntreLinhasLBL:_lblEstilo];
-//}
-
-//-(void)carregaHorariosUsuario{
-//
-//    
-//    UILabel *lblTituloHorario = [[UILabel alloc] initWithFrame:CGRectMake(20, _lblAtribuicoes.frame.origin.y + _lblAtribuicoes.frame.size.height + 20, 300, 20)];
-//    UILabel *lblHorarios = [[UILabel alloc] initWithFrame:CGRectMake(20, lblTituloHorario.frame.origin.y + lblTituloHorario.frame.size.height, 300, 20)];
-//    
-//    lblTituloHorario.text = @"Horarios para ensaio";
-//    lblTituloHorario.textColor = [[LocalStore sharedStore] FONTECOR];
-//    lblTituloHorario.font = [UIFont boldSystemFontOfSize:18];
-//    
-//    lblHorarios.text = [TPHorario horariosEmTexto:_pessoa.horarios];
-//    
-//    //Espaco entre as linhas
-//    [self espacoEntreLinhasLBL:lblHorarios];
-//    
-//    lblHorarios.numberOfLines = [_pessoa.horarios count];
-//    lblHorarios.textColor = [UIColor whiteColor];
-//    [lblHorarios sizeToFit];
-//    
-//    [_scrollView addSubview:lblTituloHorario];
-//    [_scrollView addSubview:lblHorarios];
-//    
-//    //Aumentar o scroll
-//    _scrollView.frame = CGRectMake(0, 0, 320, 550 + (lblHorarios.frame.size.height / 2));
-//    _scrollView.contentSize = CGSizeMake(320, lblHorarios.frame.origin.y + lblHorarios.frame.size.height + 20);
-//}
-
-//-(void)carregaInstrumentosUsuario{
-//    
-//    int i = 0;
-//    for(TPInstrumento *tp in _pessoa.instrumentos){
-//        _lblInstrumentos.text = [NSString stringWithFormat:@"%@\n%@", _lblInstrumentos.text, tp.nome];
-//        
-//        UIButton *btnPossui = [[UIButton alloc] initWithFrame:CGRectMake(240, 33+(i*27), 18, 18)];
-//        if (tp.possui) {
-//            [btnPossui addSubview:[self botaoInstrumentoPossui:YES]];
-//        }
-//        else{
-//            [btnPossui addSubview:[self botaoInstrumentoPossui:NO]];
-//        }
-//        
-//        [_lblInstrumentos addSubview:btnPossui];
-//        i++;
-//    }
-//    
-//    //Espaco entre as linhas
-//    [self espacoEntreLinhasLBL:_lblInstrumentos];
-//
-//    _lblInstrumentos.numberOfLines = [_pessoa.instrumentos count] + 1;
-//}
-
-//-(UIImageView*)botaoInstrumentoPossui:(BOOL)possui{
-//    
-//    UIImageView *botao = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 18, 18)];
-//    if(possui){
-//        botao.image = [UIImage imageNamed:@"selecionado.png"];
-//    }
-//    else{
-//        botao.image = [UIImage imageNamed:@"deselecionado.png"];
-//    }
-//    
-//    return botao;
-//}
-//
-//-(void)espacoEntreLinhasLBL:(UILabel*)label{
-//    
-//    NSMutableParagraphStyle *style  = [[NSMutableParagraphStyle alloc] init];
-//    style.minimumLineHeight = 27.f;
-//    style.maximumLineHeight = 27.f;
-//    NSDictionary *attributtes = @{NSParagraphStyleAttributeName : style,};
-//    label.attributedText = [[NSAttributedString alloc] initWithString:label.text
-//                                                                      attributes:attributtes];
-//    label.lineBreakMode = NSLineBreakByCharWrapping;
-//}
-
 
 @end

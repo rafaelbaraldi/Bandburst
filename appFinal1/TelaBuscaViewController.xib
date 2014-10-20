@@ -127,7 +127,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="yzY-OJ-snY">
-                    <rect key="frame" x="0.0" y="236" width="320" height="259"/>
+                    <rect key="frame" x="0.0" y="236" width="320" height="280"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -178,10 +178,10 @@
         </view>
     </objects>
     <resources>
-        <image name="buscador.png" width="60" height="60"/>
+        <image name="buscador.png" width="30" height="30"/>
         <image name="delete.png" width="512" height="512"/>
-        <image name="gravarIcon.png" width="60" height="60"/>
-        <image name="perfilcone.png" width="60" height="60"/>
+        <image name="gravarIcon.png" width="30" height="30"/>
+        <image name="perfilcone.png" width="30" height="30"/>
         <image name="seta_tabbar.png" width="48" height="28"/>
     </resources>
 </document>

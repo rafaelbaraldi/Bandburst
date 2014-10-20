@@ -13,6 +13,6 @@
 @property NSString *dia;
 @property NSString *periodo;
 
-+(NSString*)horariosEmTexto:(NSMutableArray*)horarios;
++(NSMutableArray*)getHorarios:(NSMutableArray*)horarios;
 
 @end
