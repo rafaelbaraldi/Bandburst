@@ -53,6 +53,7 @@
     _TelaTBEstilos = [[TBEstilosViewController alloc] initWithNibName:@"TBEstilosViewController" bundle:nil];
     _TelaTBEstilosQueToco = [[TBEstilosQueTocaViewController alloc] initWithNibName:@"TBEstilosQueTocaViewController" bundle:nil];
     _TelaCadastro = [[TelaCadastroViewController alloc] initWithNibName:@"TelaCadastroViewController" bundle:nil];
+    _TelaCadastro.ehEdicao = NO;
     _TelaLogin = [[TelaLoginViewController alloc] initWithNibName:@"TelaLoginViewController" bundle:nil];
     _TelaEsqueciSenha = [[TelaEsqueciSenhaViewController alloc] initWithNibName:@"TelaEsqueciSenhaViewController" bundle:nil];
     _TelaPerfil = [[TelaPerfilViewController alloc] initWithNibName:@"TelaPerfilViewController" bundle:nil];
@@ -67,6 +68,8 @@
     _TelaAmigos = [[TelaAmigosViewController alloc] initWithNibName:@"TelaAmigosViewController" bundle:nil];
     _TelaBanda = [[TelaBandaViewController alloc] initWithNibName:@"TelaBandaViewController" bundle:nil];
     _TelaGravacoes = [[TelaGravacoesViewController alloc] initWithNibName:@"TelaGravacoesViewController" bundle:nil];
+    _TelaEditarPerfil = [[TelaCadastroViewController alloc] initWithNibName:@"TelaCadastroViewController" bundle:nil];
+    _TelaEditarPerfil.ehEdicao = YES;
 }
 
 -(void)carregaContexto{

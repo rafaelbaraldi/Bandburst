@@ -162,7 +162,7 @@
 
 -(void)botaoPerfilEditar{
     
-    _btnPerfilEditar.enabled = NO;
+    _btnPerfilEditar.enabled = YES;
 
     [[_btnPerfilEditar layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
 }
@@ -181,6 +181,7 @@
 }
 
 - (IBAction)btnPerfilEditarClick:(id)sender {
+    [[self navigationController] pushViewController:[[LocalStore sharedStore] TelaEditarPerfil] animated:YES];
 }
 
 -(void)carregaBandas{

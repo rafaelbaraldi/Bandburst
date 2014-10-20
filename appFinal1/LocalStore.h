@@ -65,6 +65,7 @@
 @property TelaNovaBandaViewController* TelaNovaBanda;
 @property TelaAmigosViewController* TelaAmigos;
 @property TelaBandaViewController *TelaBanda;
+@property TelaCadastroViewController *TelaEditarPerfil;
 
 @property AppDelegate *appDelegate;
 @property NSManagedObjectContext *context;

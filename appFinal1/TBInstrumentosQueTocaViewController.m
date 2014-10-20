@@ -128,6 +128,9 @@
         NSString *instrumento = [[[CadastroStore sharedStore] instrumentosQueToca] objectAtIndex:indexPath.row];
         instrumento = [instrumento stringByReplacingOccurrencesOfString:@"1" withString:@""];
         
+        UIImageView* imgToco;
+        UIImageView* imgTenho;
+        
         if(celula == nil){
             celula = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"InstrumentosQueTocaCell"];
             
@@ -142,12 +145,12 @@
             [nome setTag:1];
             [celula addSubview:nome];
             
-            UIImageView* imgToco = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"check.png"]];
+            imgToco = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"check.png"]];
             [imgToco setFrame:CGRectMake(180, 8, 23, 23)];
             [imgToco setTag:2];
             [celula addSubview:imgToco];
             
-            UIImageView* imgTenho = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"uncheck.png"]];
+            imgTenho = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"uncheck.png"]];
             [imgTenho setFrame:CGRectMake(250, 8, 23, 23)];
             [imgTenho setTag:3];
             [celula addSubview:imgTenho];
@@ -158,23 +161,24 @@
             
             CGRect frame = CGRectMake(15, 2, 140, 40);
             [nome setFrame:frame];
+
             
-            NSString *condicao = [[[CadastroStore sharedStore] instrumentosQueToca] objectAtIndex:indexPath.row];
-            
-            UIImageView* imgToco = (UIImageView*)[celula viewWithTag:2];
+            imgToco = (UIImageView*)[celula viewWithTag:2];
             [imgToco setImage:[UIImage imageNamed:@"check.png"]];
             
-            UIImageView* imgTenho = (UIImageView*)[celula viewWithTag:3];
-            
-            if ([condicao rangeOfString:@"1"].location != NSNotFound) {
-                //nao tem 1
-                [imgTenho setImage:[UIImage imageNamed:@"check.png"]];
-            }
-            else{
-                //tem 1
-                [imgTenho setImage:[UIImage imageNamed:@"uncheck.png"]];
-            }
+            imgTenho = (UIImageView*)[celula viewWithTag:3];
         }
+        
+        NSString *condicao = [[[CadastroStore sharedStore] instrumentosQueToca] objectAtIndex:indexPath.row];
+        if ([condicao rangeOfString:@"1"].location != NSNotFound) {
+            //nao tem 1
+            [imgTenho setImage:[UIImage imageNamed:@"check.png"]];
+        }
+        else{
+            //tem 1
+            [imgTenho setImage:[UIImage imageNamed:@"uncheck.png"]];
+        }
+        
     }
     
     return celula;

@@ -11,8 +11,9 @@
 #import "LocalStore.h"
 #import "CadastroStore.h"
 #import "LoginStore.h"
-
+#import "LocalStore.h"
 #import "Usuario.h"
+#import "TPInstrumento.h"
 
 #import "TBEstilosQueTocaViewController.h"
 
@@ -39,6 +40,10 @@ const int OBSERVACOES = 2;
 - (void)viewDidLoad{
     [super viewDidLoad];
     
+    if (_ehEdicao) {
+        [self corregaCamposEdicao];
+    }
+    
     [[[self navigationController] navigationBar] setTintColor:[[LocalStore sharedStore] FONTECOR]];
     
     //Usa Cadastro no singleton
@@ -49,6 +54,39 @@ const int OBSERVACOES = 2;
     
     //Senha
     [_txtSenha setSecureTextEntry:YES];
+}
+
+-(void)corregaCamposEdicao{
+    
+    TPUsuario* user = [[LocalStore sharedStore] usuarioAtual];
+    
+    NSMutableArray* instumentosQueToca = [[NSMutableArray alloc] init];
+    for (TPInstrumento* i in user.instrumentos) {
+        NSString* instumento = i.nome;
+        if (i.possui) {
+            instumento = [NSString stringWithFormat:@"%@1", i.nome];
+        }
+        [instumentosQueToca addObject:instumento];
+    }
+    
+    [[CadastroStore sharedStore] setInstrumentosQueToca:instumentosQueToca];
+    [[CadastroStore sharedStore] setEstilosQueToca:user.estilos];
+    [[CadastroStore sharedStore] setHorariosQueToca:user.horarios];
+    
+    _txtNome.text = user.nome;
+    _txtEmail.text = user.email;
+//    _txtSenha.text = user.senha;
+    _txtCidade.text = user.cidade;
+    _txtBairro.text = user.bairro;
+    _txtObservacoes.text = user.atribuicoes;
+    
+    if ([user.sexo isEqualToString:@"Masculino"]) {
+        [_segGenero setSelectedSegmentIndex:0];
+    }
+    else{
+        [_segGenero setSelectedSegmentIndex:1];
+    }
+    
 }
 
 -(void) viewWillAppear:(BOOL)animated{

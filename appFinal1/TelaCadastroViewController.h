@@ -29,6 +29,8 @@
 @property (strong, nonatomic) IBOutlet UIButton *btnConfirmar;
 @property (weak, nonatomic) IBOutlet UIButton *btnHorarios;
 
+@property BOOL ehEdicao;
+
 //Actions View Principal
 - (IBAction)btnInstrumentosClick:(id)sender;
 - (IBAction)btnEstilosClik:(id)sender;
