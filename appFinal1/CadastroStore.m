@@ -68,8 +68,8 @@
     
     NSData *jsonCadastrar = [NSJSONSerialization dataWithJSONObject:jsonUsuario options:NSJSONWritingPrettyPrinted error:nil];
     
-//    NSString* newStr = [[NSString alloc] initWithData:jsonCadastrar encoding:NSUTF8StringEncoding];
-//    NSLog(@"%@",newStr);
+    NSString* newStr = [[NSString alloc] initWithData:jsonCadastrar encoding:NSUTF8StringEncoding];
+    NSLog(@"%@",newStr);
 
     NSString* cadastrou = [CadastroConexao cadastrar:jsonCadastrar];
     
