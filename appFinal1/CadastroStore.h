@@ -34,5 +34,6 @@
 +(NSString *)validaEmail:(NSString*)email;
 
 +(NSString*)cadastrar:(Usuario*)usuario;
++(NSString*)atualizar:(Usuario*)usuario;
 
 @end

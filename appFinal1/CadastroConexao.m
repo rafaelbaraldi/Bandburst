@@ -63,6 +63,28 @@
     return s;
 }
 
++(NSString*)atualizar:(NSData*)jsonCadastro{
+    
+    NSString *url = @"http://54.187.203.61/appMusica/atualizaUsuario.php";
+    
+    NSString *strJson = [[NSString alloc] initWithData:jsonCadastro encoding:NSUTF8StringEncoding];
+    
+    NSData *jsonData = [strJson dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    
+    NSMutableURLRequest *request = [[ NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"context-type"];
+    [request setHTTPBody:jsonData];
+    
+    NSURLResponse *response;
+    NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
+    
+    NSString* s = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
+    s = [[LocalStore sharedStore]substituiCaracteresHTML:s];
+    
+    return s;
+}
+
 +(NSString*)validarEmail:(NSString*)email{
     
     NSString *url = @"http://54.187.203.61/appMusica/validarEmail.php";
