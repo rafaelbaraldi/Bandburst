@@ -33,7 +33,6 @@
 
 +(NSString *)validaEmail:(NSString*)email;
 
-+(NSString*)cadastrar:(Usuario*)usuario;
-+(NSString*)atualizar:(Usuario*)usuario;
++(NSString*)cadastrar:(Usuario*)usuario atualizar:(BOOL)atualizar;
 
 @end

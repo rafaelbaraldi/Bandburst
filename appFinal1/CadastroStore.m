@@ -8,6 +8,8 @@
 
 #import "CadastroStore.h"
 
+#import "LocalStore.h"
+
 #import "BuscaStore.h"
 
 #import "CadastroConexao.h"
@@ -52,50 +54,34 @@
     return self;
 }
 
-+(NSString*)cadastrar:(Usuario*)usuario{
++(NSString*)cadastrar:(Usuario*)usuario atualizar:(BOOL)atualizar{
     
     NSDictionary *jsonUsuario = [NSDictionary dictionaryWithObjectsAndKeys:
-                                 usuario.observacoes, @"observacoes",
-                                 usuario.estilos, @"estilos",
-                                 usuario.instrumentos, @"instrumentos",
-                                 usuario.horarios, @"horarios",                                 
-                                 usuario.bairro, @"bairro",
-                                 usuario.cidade, @"cidade",
-                                 usuario.sexo, @"sexo",
-                                 usuario.senha, @"senha",
-                                 usuario.email, @"email",
-                                 usuario.nome, @"nome" , nil];
+                                     [[LocalStore sharedStore] usuarioAtual].identificador, @"identificador",
+                                     usuario.observacoes, @"observacoes",
+                                     usuario.estilos, @"estilos",
+                                     usuario.instrumentos, @"instrumentos",
+                                     usuario.horarios, @"horarios",
+                                     usuario.bairro, @"bairro",
+                                     usuario.cidade, @"cidade",
+                                     usuario.sexo, @"sexo",
+                                     usuario.senha, @"senha",
+                                     usuario.email, @"email",
+                                     usuario.nome, @"nome" , nil];
+
     
     NSData *jsonCadastrar = [NSJSONSerialization dataWithJSONObject:jsonUsuario options:NSJSONWritingPrettyPrinted error:nil];
     
-    NSString* newStr = [[NSString alloc] initWithData:jsonCadastrar encoding:NSUTF8StringEncoding];
-    NSLog(@"%@",newStr);
+//    NSString* newStr = [[NSString alloc] initWithData:jsonCadastrar encoding:NSUTF8StringEncoding];
+//    NSLog(@"%@",newStr);
 
-    NSString* cadastrou = [CadastroConexao cadastrar:jsonCadastrar];
-    
-    return cadastrou;
-}
-
-+(NSString*)atualizar:(Usuario*)usuario{
-    
-    NSDictionary *jsonUsuario = [NSDictionary dictionaryWithObjectsAndKeys:
-                                 usuario.observacoes, @"observacoes",
-                                 usuario.estilos, @"estilos",
-                                 usuario.instrumentos, @"instrumentos",
-                                 usuario.horarios, @"horarios",
-                                 usuario.bairro, @"bairro",
-                                 usuario.cidade, @"cidade",
-                                 usuario.sexo, @"sexo",
-                                 usuario.senha, @"senha",
-                                 usuario.email, @"email",
-                                 usuario.nome, @"nome" , nil];
-    
-    NSData *jsonCadastrar = [NSJSONSerialization dataWithJSONObject:jsonUsuario options:NSJSONWritingPrettyPrinted error:nil];
-    
-    NSString* newStr = [[NSString alloc] initWithData:jsonCadastrar encoding:NSUTF8StringEncoding];
-    NSLog(@"%@",newStr);
-    
-    NSString* cadastrou = [CadastroConexao atualizar:jsonCadastrar];
+    NSString* cadastrou;
+    if(!atualizar){
+        cadastrou =[CadastroConexao cadastrar:jsonCadastrar];
+    }
+    else{
+        cadastrou = [CadastroConexao atualizar:jsonCadastrar];
+    }
     
     return cadastrou;
 }
