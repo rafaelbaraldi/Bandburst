@@ -74,10 +74,6 @@
     
     //Bota add banda
     [[_btnCriarBanda layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
-    
-    //Botao do NAvigationItem
-//    [_tabBar setSelectedItem:_perfilItem];
-//    [_tabBar setTintColor:[[LocalStore sharedStore] FONTECOR]];
 }
 
 -(void)escondeBotaoDeVoltarSeUsuarioLogado{

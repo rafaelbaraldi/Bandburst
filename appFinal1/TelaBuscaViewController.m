@@ -46,10 +46,6 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    
-    //Seleciona a imagem da tab bar
-//    [_tabBar setSelectedItem:_buscarItem];
-//    [_tabBar setTintColor:[UIColor whiteColor]];
 
     [self escondeBotaoDeBoltarSeUsuarioLogado];
     
@@ -71,15 +67,6 @@
     return YES;
 }
 
--(void)escondeBotaoDeBoltarSeUsuarioLogado{
-    if (![[[LocalStore sharedStore] usuarioAtual].identificador isEqualToString:@"0"]) {
-        [[self navigationItem] setHidesBackButton:YES];
-    }
-    else{
-        [[self navigationItem] setHidesBackButton:NO];
-    }
-}
-
 - (void)viewDidLoad{
     [super viewDidLoad];
     
@@ -99,6 +86,30 @@
     [self arredondaBordaBotoes];
     
     [self carregaLayout];
+}
+
+-(void)escondeBotaoDeBoltarSeUsuarioLogado{
+
+    if (![[[LocalStore sharedStore] usuarioAtual].identificador isEqualToString:@"0"]) {
+        [[self navigationItem] setHidesBackButton:YES];
+        [self carregaBotaoFavoritos];
+    }
+    else{
+        [[self navigationItem] setHidesBackButton:NO];
+    }
+}
+
+-(void)carregaBotaoFavoritos{
+    
+    UIImage *imageOpcoes = [UIImage imageNamed:@"favoritados.png"];
+    
+    UIBarButtonItem *buttonItemOpcoes = [[UIBarButtonItem alloc] initWithImage:imageOpcoes style:UIBarButtonItemStylePlain target:self action:@selector(usuariosFavoritos)];
+    
+    [[self navigationItem] setRightBarButtonItem:buttonItemOpcoes animated:YES];
+}
+
+-(void)usuariosFavoritos{
+    [[self navigationController] pushViewController:[[LocalStore sharedStore] TelaFavoritados] animated:YES];
 }
 
 -(void)carregaLayout{

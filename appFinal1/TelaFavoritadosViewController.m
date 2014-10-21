@@ -1,12 +1,13 @@
 //
-//  TelaAmigosViewController.m
-//  appFinal1
+//  TelaFavoritadosViewController.m
+//  Bandburst
 //
-//  Created by RAFAEL BARALDI on 06/08/14.
+//  Created by RAFAEL CARDOSO DA SILVA on 21/10/14.
 //  Copyright (c) 2014 RAFAEL BARALDI. All rights reserved.
 //
 
-#import "TelaAmigosViewController.h"
+#import "TelaFavoritadosViewController.h"
+
 #import "BandaStore.h"
 #import "BandaConexao.h"
 #import "TPUsuario.h"
@@ -15,13 +16,14 @@
 #import "UIImageView+WebCache.h"
 #import "celulaPerfilTableViewCell.h"
 
-@interface TelaAmigosViewController ()
+@interface TelaFavoritadosViewController ()
 
 @end
 
-@implementation TelaAmigosViewController
+@implementation TelaFavoritadosViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         _amigos = [[NSMutableArray alloc] init];
@@ -69,13 +71,6 @@
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
-}
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if(![[[BandaStore sharedStore] membros] containsObject:[_amigosFiltrados objectAtIndex:indexPath.row]]){
-        [[[BandaStore sharedStore] membros] addObject:[_amigosFiltrados objectAtIndex:indexPath.row]];
-    }
-    [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaNovaBanda] animated:YES];
 }
 
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{

@@ -103,9 +103,12 @@
 		3153016E19EDBA060041127C /* config.png in Resources */ = {isa = PBXBuildFile; fileRef = 3153016D19EDBA060041127C /* config.png */; };
 		315D4DE619DF18CA003C9A8F /* placeholderFoto.png in Resources */ = {isa = PBXBuildFile; fileRef = 315D4DE519DF18CA003C9A8F /* placeholderFoto.png */; };
 		316AAA07199E8C81001CE96B /* CellTituloMusica.xib in Resources */ = {isa = PBXBuildFile; fileRef = 316AAA06199E8C81001CE96B /* CellTituloMusica.xib */; };
-		316AAA0A199E9D89001CE96B /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 316AAA09199E9D89001CE96B /* bg.png */; };
 		316DECD419F5A0D900141E3D /* config@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 316DECD319F5A0D900141E3D /* config@2x.png */; };
 		3181DBB719EF0E57002CAF55 /* TelaPerfilViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3181DBB619EF0E57002CAF55 /* TelaPerfilViewController.xib */; };
+		3196638F19F6C28200A5BC72 /* favoritados@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3196638D19F6C28200A5BC72 /* favoritados@2x.png */; };
+		3196639019F6C28200A5BC72 /* favoritados.png in Resources */ = {isa = PBXBuildFile; fileRef = 3196638E19F6C28200A5BC72 /* favoritados.png */; };
+		3196639419F6C52700A5BC72 /* TelaFavoritadosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3196639219F6C52700A5BC72 /* TelaFavoritadosViewController.m */; };
+		3196639519F6C52700A5BC72 /* TelaFavoritadosViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3196639319F6C52700A5BC72 /* TelaFavoritadosViewController.xib */; };
 		31A0043F1993F0CA00121EF6 /* TelaBandaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A0043D1993F0CA00121EF6 /* TelaBandaViewController.m */; };
 		31A004401993F0CA00121EF6 /* TelaBandaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31A0043E1993F0CA00121EF6 /* TelaBandaViewController.xib */; };
 		31C31744194783B700C99512 /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 31C31743194783B700C99512 /* delete.png */; };
@@ -125,7 +128,6 @@
 		31FB8CDB19CA25BF00ECEBDF /* WalkwayBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 31FB8CDA19CA25BF00ECEBDF /* WalkwayBold.otf */; };
 		73029BA619819A4200BFB4B3 /* TBFiltroHorario.m in Sources */ = {isa = PBXBuildFile; fileRef = 73029BA419819A4200BFB4B3 /* TBFiltroHorario.m */; };
 		73029BA719819A4200BFB4B3 /* TBFiltroHorario.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73029BA519819A4200BFB4B3 /* TBFiltroHorario.xib */; };
-		731B555D198817040092D608 /* perfil.png in Resources */ = {isa = PBXBuildFile; fileRef = 731B555C198817040092D608 /* perfil.png */; };
 		736BF94C19A8C24B0010C356 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 736BF92C19A8C24B0010C356 /* MKAnnotationView+WebCache.m */; };
 		736BF94D19A8C24B0010C356 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 736BF92E19A8C24B0010C356 /* NSData+ImageContentType.m */; };
 		736BF94E19A8C24B0010C356 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 736BF93019A8C24B0010C356 /* SDImageCache.m */; };
@@ -321,9 +323,13 @@
 		3153016D19EDBA060041127C /* config.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = config.png; sourceTree = "<group>"; };
 		315D4DE519DF18CA003C9A8F /* placeholderFoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholderFoto.png; sourceTree = "<group>"; };
 		316AAA06199E8C81001CE96B /* CellTituloMusica.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellTituloMusica.xib; sourceTree = "<group>"; };
-		316AAA09199E9D89001CE96B /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 		316DECD319F5A0D900141E3D /* config@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "config@2x.png"; sourceTree = "<group>"; };
 		3181DBB619EF0E57002CAF55 /* TelaPerfilViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TelaPerfilViewController.xib; sourceTree = "<group>"; };
+		3196638D19F6C28200A5BC72 /* favoritados@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favoritados@2x.png"; sourceTree = "<group>"; };
+		3196638E19F6C28200A5BC72 /* favoritados.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favoritados.png; sourceTree = "<group>"; };
+		3196639119F6C52700A5BC72 /* TelaFavoritadosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TelaFavoritadosViewController.h; sourceTree = "<group>"; };
+		3196639219F6C52700A5BC72 /* TelaFavoritadosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TelaFavoritadosViewController.m; sourceTree = "<group>"; };
+		3196639319F6C52700A5BC72 /* TelaFavoritadosViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TelaFavoritadosViewController.xib; sourceTree = "<group>"; };
 		31A0043C1993F0CA00121EF6 /* TelaBandaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TelaBandaViewController.h; sourceTree = "<group>"; };
 		31A0043D1993F0CA00121EF6 /* TelaBandaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TelaBandaViewController.m; sourceTree = "<group>"; };
 		31A0043E1993F0CA00121EF6 /* TelaBandaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TelaBandaViewController.xib; sourceTree = "<group>"; };
@@ -349,7 +355,6 @@
 		73029BA319819A4200BFB4B3 /* TBFiltroHorario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBFiltroHorario.h; sourceTree = "<group>"; };
 		73029BA419819A4200BFB4B3 /* TBFiltroHorario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBFiltroHorario.m; sourceTree = "<group>"; };
 		73029BA519819A4200BFB4B3 /* TBFiltroHorario.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TBFiltroHorario.xib; sourceTree = "<group>"; };
-		731B555C198817040092D608 /* perfil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = perfil.png; sourceTree = "<group>"; };
 		736BF92B19A8C24B0010C356 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		736BF92C19A8C24B0010C356 /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
 		736BF92D19A8C24B0010C356 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -557,7 +562,6 @@
 				1B5FE141192FCFE600E35BCC /* WebService */,
 				1B5FE13D192FC22600E35BCC /* Singleton */,
 				1B82766B192BDB2000E461AD /* Tela */,
-				31F67C6F1935130A00113DA8 /* Imagens */,
 			);
 			name = Busca;
 			sourceTree = "<group>";
@@ -574,6 +578,9 @@
 				31F67C76193523D400113DA8 /* TelaUsuarioFiltrado.h */,
 				31F67C77193523D400113DA8 /* TelaUsuarioFiltrado.m */,
 				31F67C78193523D400113DA8 /* TelaUsuarioFiltrado.xib */,
+				3196639119F6C52700A5BC72 /* TelaFavoritadosViewController.h */,
+				3196639219F6C52700A5BC72 /* TelaFavoritadosViewController.m */,
+				3196639319F6C52700A5BC72 /* TelaFavoritadosViewController.xib */,
 				736BF95E19A992DE0010C356 /* celulaPerfilTableViewCell.h */,
 				736BF95F19A992DE0010C356 /* celulaPerfilTableViewCell.m */,
 			);
@@ -854,6 +861,11 @@
 		316AAA08199E9D75001CE96B /* Imagens Layout */ = {
 			isa = PBXGroup;
 			children = (
+				31CEDC9C19EEE93F00450C1D /* favoritado.png */,
+				31CEDC9D19EEE93F00450C1D /* favoritar.png */,
+				31F67C74193515CC00113DA8 /* escrever.png */,
+				73F6F71019A63F980003B408 /* deselecionado.png */,
+				31C31743194783B700C99512 /* delete.png */,
 				1B41D5E219EF10ED00D6D034 /* gravarIcon@2x.png */,
 				1B41D5E319EF10ED00D6D034 /* perfilcone@2x.png */,
 				1B41D5E419EF10ED00D6D034 /* buscador@2x.png */,
@@ -863,12 +875,12 @@
 				1B67BD8419D9F00500A663EC /* playing.png */,
 				1B67BD8019D9E66000A663EC /* gravador.png */,
 				1B67BD8819D9F33500A663EC /* seta_tabbar.png */,
-				316AAA09199E9D89001CE96B /* bg.png */,
 				31CAECD919DC8C0300C5AF10 /* recorder.png */,
 				31CAECDD19DC8DCA00C5AF10 /* grava.png */,
-				731B555C198817040092D608 /* perfil.png */,
 				3153016D19EDBA060041127C /* config.png */,
 				316DECD319F5A0D900141E3D /* config@2x.png */,
+				3196638D19F6C28200A5BC72 /* favoritados@2x.png */,
+				3196638E19F6C28200A5BC72 /* favoritados.png */,
 				31F1F8AE199E82380000B61F /* som.png */,
 			);
 			name = "Imagens Layout";
@@ -881,18 +893,6 @@
 				31FB8CDA19CA25BF00ECEBDF /* WalkwayBold.otf */,
 			);
 			name = fontes;
-			sourceTree = "<group>";
-		};
-		31F67C6F1935130A00113DA8 /* Imagens */ = {
-			isa = PBXGroup;
-			children = (
-				31CEDC9C19EEE93F00450C1D /* favoritado.png */,
-				31CEDC9D19EEE93F00450C1D /* favoritar.png */,
-				31F67C74193515CC00113DA8 /* escrever.png */,
-				73F6F71019A63F980003B408 /* deselecionado.png */,
-				31C31743194783B700C99512 /* delete.png */,
-			);
-			name = Imagens;
 			sourceTree = "<group>";
 		};
 		736BF92A19A8C24B0010C356 /* SDWebImage */ = {
@@ -1185,7 +1185,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				731B555D198817040092D608 /* perfil.png in Resources */,
 				1B06F7A7199414C700A6338C /* TelaInfosBandaViewController.xib in Resources */,
 				1BE8E3F31925343300D108C0 /* TelaCadastroViewController.xib in Resources */,
 				73A3072F19746B4C005551D3 /* TBInstrumentosViewController.xib in Resources */,
@@ -1219,11 +1218,12 @@
 				31FB8CDB19CA25BF00ECEBDF /* WalkwayBold.otf in Resources */,
 				1B41D5E719EF10ED00D6D034 /* buscador@2x.png in Resources */,
 				1B337AA319D603D700BAC433 /* uncheck.png in Resources */,
+				3196639019F6C28200A5BC72 /* favoritados.png in Resources */,
+				3196638F19F6C28200A5BC72 /* favoritados@2x.png in Resources */,
 				3181DBB719EF0E57002CAF55 /* TelaPerfilViewController.xib in Resources */,
 				31A004401993F0CA00121EF6 /* TelaBandaViewController.xib in Resources */,
 				1BEA45971992C7A100876D75 /* 10.png in Resources */,
 				1B970D8719D33D7700D0FD01 /* bandburst.png in Resources */,
-				316AAA0A199E9D89001CE96B /* bg.png in Resources */,
 				1BEA45981992C7A100876D75 /* 11.png in Resources */,
 				1BE8E3C6192533AD00D108C0 /* InfoPlist.strings in Resources */,
 				31CEDC9E19EEE93F00450C1D /* favoritado.png in Resources */,
@@ -1260,6 +1260,7 @@
 				1BEA459A1992C7A100876D75 /* 0.png in Resources */,
 				1BEA459C1992C7A100876D75 /* 13.png in Resources */,
 				739DA1E5198C0E7D005053DB /* TelaOpcoesViewController.xib in Resources */,
+				3196639519F6C52700A5BC72 /* TelaFavoritadosViewController.xib in Resources */,
 				2FB3B34419745A0B0054B7F7 /* CoreAudioViewController.xib in Resources */,
 				1B827670192BDB3500E461AD /* TelaBuscaViewController.xib in Resources */,
 			);
@@ -1319,6 +1320,7 @@
 				1BC921E519EC622200D9B9C1 /* AEFloatConverter.m in Sources */,
 				31A0043F1993F0CA00121EF6 /* TelaBandaViewController.m in Sources */,
 				73A3073319746B60005551D3 /* TBInstrumentosQueTocaViewController.m in Sources */,
+				3196639419F6C52700A5BC72 /* TelaFavoritadosViewController.m in Sources */,
 				1B1666291935084000E2FB47 /* TPUsuario.m in Sources */,
 				1BC921E919EC622200D9B9C1 /* EZAudioPlot.m in Sources */,
 				1B82766F192BDB3500E461AD /* TelaBuscaViewController.m in Sources */,
