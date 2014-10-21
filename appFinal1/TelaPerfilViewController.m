@@ -227,11 +227,11 @@
     
     [[BandaStore sharedStore] setIdBandaSelecionada:[bt titleLabel].text];
     
-    if ([LocalStore verificaSeViewJaEstaNaPilha:[[self navigationController] viewControllers] proximaTela:[[LocalStore sharedStore] TelaBanda]]) {
-        [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaBanda] animated:YES];
+    if ([LocalStore verificaSeViewJaEstaNaPilha:[[self navigationController] viewControllers] proximaTela:[[LocalStore sharedStore] TelaPerfilBanda]]) {
+        [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaPerfilBanda] animated:YES];
     }
     else{
-        [[self navigationController] pushViewController:[[LocalStore sharedStore] TelaBanda] animated:YES];
+        [[self navigationController] pushViewController:[[LocalStore sharedStore] TelaPerfilBanda] animated:YES];
     }
 }
 
