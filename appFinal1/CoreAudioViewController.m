@@ -110,7 +110,7 @@
     //Carrega todas as músicas do CoreData
     _musicas = [[NSMutableArray alloc]initWithArray:[[[LocalStore sharedStore] context] executeFetchRequest:[NSFetchRequest fetchRequestWithEntityName:@"Musica"] error:nil]];
     for (Musica* m in _musicas) {
-        if ([m.categoria isEqualToString:categoria] && [m.nome isEqualToString:nome]) {
+        if ([m.categoria isEqualToString:categoria] && [m.nome isEqualToString:nome] && m.idUsuario.intValue == [[[LocalStore sharedStore] usuarioAtual].identificador intValue]) {
             return YES;
         }
     }
@@ -164,7 +164,7 @@
             }
         }
     }
-    else if(alertView.tag ==1){
+    else if(alertView.tag == 2){
         if(buttonIndex == 1){
             [self playGravacao:nil];
         }
