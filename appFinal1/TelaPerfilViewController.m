@@ -184,10 +184,11 @@
     _bandas = [PerfilStore retornaListaDeBandas];
     
     if([_bandas count] == 0){
-        
         _lblInfo.hidden = NO;
     }
     else{
+        
+        _lblInfo.hidden = YES;
     
         int y = 15;
         
@@ -200,12 +201,11 @@
             [icone addTarget:self action:@selector(banda:) forControlEvents:UIControlEventTouchUpInside];
             
             //Nome
-            UILabel* nome = [[UILabel alloc] initWithFrame:CGRectMake(110, y + 5, 60, 45)];
+            UILabel* nome = [[UILabel alloc] initWithFrame:CGRectMake(120, y + 5, 100, 45)];
             nome.text =  b.nome;
             nome.textColor = [UIColor blackColor];
             nome.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14.0];
             nome.textColor = [[LocalStore sharedStore] FONTECOR];
-            [nome setTextAlignment:NSTextAlignmentCenter];
             
             if([b.nome length] > 11){
                 [nome setNumberOfLines:2];

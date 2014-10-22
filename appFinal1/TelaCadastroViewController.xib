@@ -51,7 +51,6 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                     <connections>
-                        <action selector="txtEmailDidEnd:" destination="-1" eventType="editingDidEnd" id="ic7-jJ-Exp"/>
                         <outlet property="delegate" destination="-1" id="e3A-JM-VBE"/>
                     </connections>
                 </textField>

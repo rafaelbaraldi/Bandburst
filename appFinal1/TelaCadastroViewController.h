@@ -36,6 +36,6 @@
 - (IBAction)btnEstilosClik:(id)sender;
 - (IBAction)btnConfirmarClick:(id)sender;
 - (IBAction)btnHorariosClick:(id)sender;
-- (IBAction)txtEmailDidEnd:(id)sender;
+//- (IBAction)txtEmailDidEnd:(id)sender;
 
 @end

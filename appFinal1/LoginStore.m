@@ -100,7 +100,6 @@ static NSString* senha = @"";
     }
     
     //Salva usuario logado no CoreData
-    NSLog(@"%@", [usuario valueForKeyPath:@"-"]);
     [u setNome:[usuario valueForKeyPath:@"-"]];
     [u setEmail:[usuario valueForKeyPath:@"-"]];
     [u setSenha:[usuario valueForKeyPath:@"-"]];

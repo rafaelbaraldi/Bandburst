@@ -273,14 +273,14 @@ const int OBSERVACOES = 2;
 }
 
 //Valida e-mail
-- (IBAction)txtEmailDidEnd:(id)sender {
-    
-    if ([[CadastroStore validaEmail:_txtEmail.text] length] > 0) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERRO" message:@"" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        alert.message = @"O domínio desse e-mail é inválido. Por favor digite novamente";
-        [alert show];
-    }
-}
+//- (IBAction)txtEmailDidEnd:(id)sender {
+//    
+//    if ([[CadastroStore validaEmail:_txtEmail.text] length] > 0) {
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERRO" message:@"" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+//        alert.message = @"O domínio desse e-mail é inválido. Por favor digite novamente";
+//        [alert show];
+//    }
+//}
 
 //Regular Tela para digitar as opções de Observacoes
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{

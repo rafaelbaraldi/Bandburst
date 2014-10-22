@@ -104,9 +104,6 @@
     if(celula == nil){
         celula = [[celulaPerfilTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UsuarioPesquisaCell"];
         
-        //Remove cor de seleção
-        celula.selectionStyle = UITableViewCellSelectionStyleNone;
-        
         UILabel *nome = [[UILabel alloc] initWithFrame:CGRectMake(120, 25, 170, 20)];
         nome.text = ((TPUsuario*)[_amigosFiltrados objectAtIndex:indexPath.row]).nome;
         nome.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16];
@@ -138,7 +135,6 @@
     //Layout Celula
     UIView *bgColorCell = [[UIView alloc] init];
     [bgColorCell setBackgroundColor:[[LocalStore sharedStore] FONTECOR]];
-    [celula setSelectedBackgroundView:bgColorCell];
     [celula setBackgroundColor:[UIColor clearColor]];
     
     //Background
@@ -161,6 +157,13 @@
     fotoUsuario.tag = 4;
     
     return fotoUsuario.image;
+}
+
+//Quando seleciona a linha, entra na tela de perfil do usuario
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    TelaUsuarioFiltrado *tuVC = [[TelaUsuarioFiltrado alloc] initWithIdentificador:((TPUsuario*)[_amigosFiltrados objectAtIndex:indexPath.row]).identificador];
+    [[self navigationController] pushViewController:tuVC animated:YES];
 }
 
 @end
