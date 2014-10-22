@@ -25,6 +25,7 @@
 #import "TelaGravacoesViewController.h"
 #import "TelaFavoritadosViewController.h"
 #import "TelaPerfilBandaViewController.h"
+#import "TelaPlayerViewController.h"
 
 #import "TBInstrumentosViewController.h"
 #import "TBInstrumentosQueTocaViewController.h"
@@ -70,6 +71,7 @@
 @property TelaCadastroViewController *TelaEditarPerfil;
 @property TelaFavoritadosViewController *TelaFavoritados;
 @property TelaPerfilBandaViewController *TelaPerfilBanda;
+@property TelaPlayerViewController *TelaPlayer;
 
 @property AppDelegate *appDelegate;
 @property NSManagedObjectContext *context;

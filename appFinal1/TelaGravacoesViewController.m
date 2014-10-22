@@ -11,6 +11,8 @@
 #import "PerfilStore.h"
 #import "Musica.h"
 
+#import "GravacaoStore.h"
+
 @interface TelaGravacoesViewController ()
 
 @end
@@ -126,25 +128,35 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    Musica* musica = ((Musica*)[[_musicasPorCategoria objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]);
-//    NSLog(@"%@", musica.url);
-    NSString *thePath = [NSString stringWithFormat:@"%@.mp3", musica.url];
+    //Set gravação para Tocar
+    [[GravacaoStore sharedStore] setGravacao: ((Musica*)[[_musicasPorCategoria objectAtIndex:indexPath.section] objectAtIndex:indexPath.row])];
     
-    NSURL *url = [NSURL URLWithString:thePath];
+    if ([LocalStore verificaSeViewJaEstaNaPilha:[[self navigationController] viewControllers] proximaTela:[[LocalStore sharedStore] TelaPlayer]]) {
+        [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaPlayer] animated:NO];
+    }
+    else{
+        [[self navigationController] pushViewController:[[LocalStore sharedStore] TelaPlayer] animated:NO];
+    }
+    
+//    Musica* musica = ((Musica*)[[_musicasPorCategoria objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]);
+//    NSLog(@"%@", musica.url);
+//    NSString *thePath = [NSString stringWithFormat:@"%@.mp3", musica.url];
+    
+//    NSURL *url = [NSURL URLWithString:thePath];
 
-    NSLog(@"%@", musica.url);
+//    NSLog(@"%@", musica.url);
     
 //    NSURL *url = [NSURL URLWithString:@"https://dl.dropboxusercontent.com/u/66188885/pp.mp3"];
     
-    _musicPlayer = [[MPMoviePlayerController alloc] initWithContentURL:url];
-    
-    _musicPlayer.shouldAutoplay = NO;
-    _musicPlayer.repeatMode = NO;
+//    _musicPlayer = [[MPMoviePlayerController alloc] initWithContentURL:url];
+ 
+//    _musicPlayer.shouldAutoplay = NO;
+//    _musicPlayer.repeatMode = NO;
 
-    [self.view addSubview: _musicPlayer.view];
+//    [self.view addSubview: _musicPlayer.view];
 
-    [_musicPlayer setFullscreen:YES animated:YES];
-    [_musicPlayer play];
+//    [_musicPlayer setFullscreen:YES animated:YES];
+//    [_musicPlayer play];
 
 //    musicPlayer.backgroundView.backgroundColor = [[LocalStore sharedStore] FONTECOR];
 }

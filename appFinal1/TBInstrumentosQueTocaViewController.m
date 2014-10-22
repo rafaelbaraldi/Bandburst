@@ -184,7 +184,6 @@
     return celula;
 }
 
-
 //Selecionar Celula
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     

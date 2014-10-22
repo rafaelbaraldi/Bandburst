@@ -72,6 +72,7 @@
     _TelaFavoritados = [[TelaFavoritadosViewController alloc] initWithNibName:@"TelaFavoritadosViewController" bundle:nil];
     _TelaEditarPerfil.ehEdicao = YES;
     _TelaPerfilBanda = [[TelaPerfilBandaViewController alloc] initWithNibName:@"TelaPerfilBandaViewController" bundle:nil];
+    _TelaPlayer = [[TelaPlayerViewController alloc] initWithNibName:@"TelaPlayerViewController" bundle:nil];
 }
 
 -(void)carregaContexto{

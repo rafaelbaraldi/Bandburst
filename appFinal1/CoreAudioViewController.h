@@ -12,6 +12,8 @@
 #import "EZAudio/EZAudioPlotGL.h"
 #import "EZAudio/EZMicrophone.h"
 
+#import "Musica.h"
+
 @interface CoreAudioViewController : UIViewController <UITabBarDelegate, EZMicrophoneDelegate, UIAlertViewDelegate> {
     
     AVAudioRecorder *recorder;
@@ -21,6 +23,8 @@
 
 @property BOOL gravando;
 @property NSMutableArray* musicas;
+
+@property Musica *m;
 
 @property (strong, nonatomic) IBOutlet UILabel *tempo;
 @property (weak, nonatomic) IBOutlet UIButton *btnGravar;

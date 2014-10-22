@@ -11,6 +11,8 @@
 #import "Musica.h"
 #import "LocalStore.h"
 
+#import "GravacaoStore.h"
+
 @interface CoreAudioViewController ()
 @end
 
@@ -166,7 +168,15 @@
     }
     else if(alertView.tag == 2){
         if(buttonIndex == 1){
-            [self playGravacao:nil];
+            //Set gravação para Tocar
+            [[GravacaoStore sharedStore] setGravacao:_m];
+            
+            if ([LocalStore verificaSeViewJaEstaNaPilha:[[self navigationController] viewControllers] proximaTela:[[LocalStore sharedStore] TelaPlayer]]) {
+                [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaPlayer] animated:NO];
+            }
+            else{
+                [[self navigationController] pushViewController:[[LocalStore sharedStore] TelaPlayer] animated:NO];
+            }
         }
         else{
             [[self navigationController] popViewControllerAnimated:YES];
