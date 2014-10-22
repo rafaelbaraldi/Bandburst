@@ -159,7 +159,8 @@
 -(void)botaoPerfilEditar{
     
     _btnPerfilEditar.enabled = YES;
-
+    
+    [[_btnPerfilEditar titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
     [[_btnPerfilEditar layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
 }
 

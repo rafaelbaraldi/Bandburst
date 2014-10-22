@@ -6,6 +6,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TelaPerfilBandaViewController">
             <connections>
+                <outlet property="btnChat" destination="QX8-B0-iBM" id="0ab-LW-j1f"/>
+                <outlet property="btnEditar" destination="1xL-gB-ITA" id="BoF-nT-2H4"/>
+                <outlet property="lblNome" destination="9H1-bE-Vqn" id="v4Z-AL-HXb"/>
+                <outlet property="segTabela" destination="N6E-bB-aS5" id="J39-22-cuU"/>
                 <outlet property="tbMembros" destination="cqP-aK-YRS" id="VGx-dt-pNg"/>
                 <outlet property="tbMusicas" destination="QsJ-zx-mcy" id="b5Y-k7-cAJ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -24,11 +28,11 @@
                     <rect key="frame" x="103" y="101" width="69" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.8980392814" green="0.49019610879999997" blue="0.33333334329999997" alpha="1" colorSpace="deviceRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1xL-gB-ITA">
-                    <rect key="frame" x="258" y="89" width="45" height="45"/>
+                    <rect key="frame" x="256" y="87" width="50" height="50"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.8980392814" green="0.49019610879999997" blue="0.33333334329999997" alpha="1" colorSpace="deviceRGB"/>
                     <state key="normal" title="Editar">
@@ -43,6 +47,9 @@
                     <state key="normal" title="     Chat da banda >">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="btnCharClick:" destination="-1" eventType="touchUpInside" id="beI-PZ-IJG"/>
+                    </connections>
                 </button>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="N6E-bB-aS5">
                     <rect key="frame" x="8" y="224" width="304" height="29"/>
@@ -53,10 +60,10 @@
                     </segments>
                     <color key="tintColor" red="0.8980392814" green="0.49019610879999997" blue="0.33333334329999997" alpha="1" colorSpace="deviceRGB"/>
                     <connections>
-                        <action selector="segTabelaChange:" destination="-1" eventType="valueChanged" id="Jhe-AN-4Sz"/>
+                        <action selector="segTabelaChange:" destination="-1" eventType="valueChanged" id="1s7-S6-HTF"/>
                     </connections>
                 </segmentedControl>
-                <tableView clipsSubviews="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="cqP-aK-YRS">
+                <tableView clipsSubviews="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="cqP-aK-YRS">
                     <rect key="frame" x="8" y="260" width="304" height="250"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -65,7 +72,7 @@
                         <outlet property="delegate" destination="-1" id="94h-q5-JZM"/>
                     </connections>
                 </tableView>
-                <tableView hidden="YES" clipsSubviews="YES" tag="2" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="QsJ-zx-mcy">
+                <tableView hidden="YES" clipsSubviews="YES" tag="2" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="QsJ-zx-mcy">
                     <rect key="frame" x="8" y="260" width="304" height="250"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

@@ -16,7 +16,12 @@
 @property (strong, nonatomic) IBOutlet UITableView *tbMembros;
 @property (strong, nonatomic) IBOutlet UITableView *tbMusicas;
 @property TPBanda* banda;
+@property (strong, nonatomic) IBOutlet UIButton *btnEditar;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *segTabela;
+@property (strong, nonatomic) IBOutlet UIButton *btnChat;
+@property (strong, nonatomic) IBOutlet UILabel *lblNome;
 
 - (IBAction)segTabelaChange:(id)sender;
+- (IBAction)btnCharClick:(id)sender;
 
 @end
