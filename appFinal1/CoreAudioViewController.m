@@ -24,16 +24,16 @@
         _gravando = false;
         
         [[self navigationItem] setTitle:@"Gravar"];
-//        [[self navigationItem] setHidesBackButton:YES];
     }
     return self;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    
-    //Imagem do tab bar selecionada
-//    [_tabBar setSelectedItem:_gravarItem];
-//    [_tabBar setTintColor:[[LocalStore sharedStore] FONTECOR]];
+    [_audioPlot clear];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    _tempo.text = @"00:00:00";
 }
 
 - (void)didReceiveMemoryWarning{
@@ -41,14 +41,12 @@
 }
 
 -(void)linhaGravacaEZAudio{
-    
     self.microphone = [EZMicrophone microphoneWithDelegate:self];
     self.audioPlot.backgroundColor = [UIColor blackColor];
     self.audioPlot.color           = [[LocalStore sharedStore] FONTECOR];
     self.audioPlot.plotType        = EZPlotTypeRolling;
     self.audioPlot.shouldFill      = YES;
     self.audioPlot.shouldMirror    = YES;
-
 }
 
 - (void)viewDidLoad{
@@ -99,12 +97,12 @@
 //Registar gravação no CoreData
 -(void)registrarGravacao:(NSString*)nome categoria:(NSString*)categoria{
     
-    Musica *m = [NSEntityDescription insertNewObjectForEntityForName:@"Musica" inManagedObjectContext:[[LocalStore sharedStore] context]];
+    _novaGravacao = [NSEntityDescription insertNewObjectForEntityForName:@"Musica" inManagedObjectContext:[[LocalStore sharedStore] context]];
     
-    m.nome = nome;
-    m.categoria = categoria;
-    m.url = urlPlay.path;
-    m.idUsuario = [NSNumber numberWithInt:[[[LocalStore sharedStore] usuarioAtual].identificador intValue]];
+    _novaGravacao.nome = nome;
+    _novaGravacao.categoria = categoria;
+    _novaGravacao.url = urlPlay.path;
+    _novaGravacao.idUsuario = [NSNumber numberWithInt:[[[LocalStore sharedStore] usuarioAtual].identificador intValue]];
     [[[LocalStore sharedStore] context] save:nil];
 }
 
@@ -148,10 +146,12 @@
                     //Inicia gravação
                     [recorder record];
                     
+                    //Começa a contar o tempo
                     _timer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(atualizaTimer) userInfo:nil repeats:YES];
                     
-                    [self.microphone startFetchingAudio];
+                    [_microphone startFetchingAudio];
                     
+                    //Time
                     _tempoGravacao = [NSDate dateWithTimeIntervalSinceNow:0];
                     _tempoInicial = [NSDate dateWithTimeIntervalSinceNow:0];
                 }
@@ -168,8 +168,9 @@
     }
     else if(alertView.tag == 2){
         if(buttonIndex == 1){
+            
             //Set gravação para Tocar
-            [[GravacaoStore sharedStore] setGravacao:_m];
+            [[GravacaoStore sharedStore] setGravacao:_novaGravacao];
             
             if ([LocalStore verificaSeViewJaEstaNaPilha:[[self navigationController] viewControllers] proximaTela:[[LocalStore sharedStore] TelaPlayer]]) {
                 [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaPlayer] animated:NO];
@@ -195,9 +196,7 @@
         [_btnGravar setImage:[UIImage imageNamed:@"gravar.png"] forState:UIControlStateNormal];
         _gravando = false;
         
-        
-        [self.microphone stopFetchingAudio];
-        
+        [_microphone stopFetchingAudio];
         
         [_timer invalidate];
         
@@ -214,7 +213,6 @@
         [[av textFieldAtIndex:0] setPlaceholder:@"Nome"];
         [[av textFieldAtIndex:1] setPlaceholder:@"Categoria"];
         [av setTag:1];
-        
         [av show];
     }
 }

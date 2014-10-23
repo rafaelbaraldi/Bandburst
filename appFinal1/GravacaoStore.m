@@ -25,7 +25,7 @@
 -(id)init{
     self = [super init];
     if(self){
-        
+        _streaming = NO;
     }
     return self;
 }

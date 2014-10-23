@@ -16,4 +16,6 @@
 
 @property Musica *gravacao;
 
+@property BOOL streaming;
+
 @end

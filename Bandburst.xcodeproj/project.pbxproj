@@ -109,6 +109,7 @@
 		3196639519F6C52700A5BC72 /* TelaFavoritadosViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3196639319F6C52700A5BC72 /* TelaFavoritadosViewController.xib */; };
 		31A0043F1993F0CA00121EF6 /* TelaBandaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A0043D1993F0CA00121EF6 /* TelaBandaViewController.m */; };
 		31A004401993F0CA00121EF6 /* TelaBandaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31A0043E1993F0CA00121EF6 /* TelaBandaViewController.xib */; };
+		31BD71A319F9685200388774 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 31BD71A219F9685200388774 /* pause.png */; };
 		31C31744194783B700C99512 /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 31C31743194783B700C99512 /* delete.png */; };
 		31CEDC9E19EEE93F00450C1D /* favoritado.png in Resources */ = {isa = PBXBuildFile; fileRef = 31CEDC9C19EEE93F00450C1D /* favoritado.png */; };
 		31CEDC9F19EEE93F00450C1D /* favoritar.png in Resources */ = {isa = PBXBuildFile; fileRef = 31CEDC9D19EEE93F00450C1D /* favoritar.png */; };
@@ -334,6 +335,7 @@
 		31A0043C1993F0CA00121EF6 /* TelaBandaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TelaBandaViewController.h; sourceTree = "<group>"; };
 		31A0043D1993F0CA00121EF6 /* TelaBandaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TelaBandaViewController.m; sourceTree = "<group>"; };
 		31A0043E1993F0CA00121EF6 /* TelaBandaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TelaBandaViewController.xib; sourceTree = "<group>"; };
+		31BD71A219F9685200388774 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
 		31C31743194783B700C99512 /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
 		31CEDC9C19EEE93F00450C1D /* favoritado.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favoritado.png; sourceTree = "<group>"; };
 		31CEDC9D19EEE93F00450C1D /* favoritar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favoritar.png; sourceTree = "<group>"; };
@@ -883,6 +885,7 @@
 				1B67BD8319D9F00500A663EC /* gravar.png */,
 				1B41D5E219EF10ED00D6D034 /* gravarIcon@2x.png */,
 				3153016919EDAE2B0041127C /* logo.png */,
+				31BD71A219F9685200388774 /* pause.png */,
 				31EC795319F824A1004CB4A9 /* playing.png */,
 				31EC794419F81B94004CB4A9 /* placeholderFoto.png */,
 				1B41D5E319EF10ED00D6D034 /* perfilcone@2x.png */,
@@ -1203,6 +1206,7 @@
 				31EC796019F83757004CB4A9 /* slider.png in Resources */,
 				737D09E91975C5D1000975F6 /* TelaInicioViewController.xib in Resources */,
 				1BEA45A01992C7A100876D75 /* 4.png in Resources */,
+				31BD71A319F9685200388774 /* pause.png in Resources */,
 				1B67BD8919D9F33500A663EC /* seta_tabbar.png in Resources */,
 				31F83E15192E84C70070D597 /* TBFiltroEstilo.xib in Resources */,
 				1BEA45A21992C7A100876D75 /* 6.png in Resources */,

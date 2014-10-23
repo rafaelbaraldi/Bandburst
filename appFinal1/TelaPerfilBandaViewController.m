@@ -13,6 +13,8 @@
 #import "LocalStore.h"
 #import "TelaBandaViewController.h"
 
+#import "GravacaoStore.h"
+
 #import "UIImageView+WebCache.h"
 
 @interface TelaPerfilBandaViewController ()
@@ -217,6 +219,8 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    //TAG 1 -> INTEGRANTES DA BANDA
     if (tableView.tag == 1) {
         TelaUsuarioFiltrado* vc = [[TelaUsuarioFiltrado alloc] initWithIdentificador:((TPUsuario*)[_banda.membros objectAtIndex:indexPath.row]).identificador];
         
@@ -225,6 +229,23 @@
         }
         else{
             [[self navigationController] pushViewController:vc animated:NO];
+        }
+    }
+    else{
+        Musica *m = [NSEntityDescription insertNewObjectForEntityForName:@"Musica" inManagedObjectContext:[[LocalStore sharedStore] context]];
+        m.nome = [self carregaNomeMusica:((TPMusica*)[_banda.musicas objectAtIndex:indexPath.row]).url];
+        m.categoria = @"";
+        m.url = ((Musica*)[_banda.musicas objectAtIndex:indexPath.row]).url;
+        
+        //Sets GravacaoStore
+        [[GravacaoStore sharedStore] setGravacao:m];
+        [[GravacaoStore sharedStore] setStreaming:YES];
+        
+        if ([LocalStore verificaSeViewJaEstaNaPilha:[[self navigationController] viewControllers] proximaTela:[[LocalStore sharedStore] TelaPlayer]]) {
+            [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaPlayer] animated:NO];
+        }
+        else{
+            [[self navigationController] pushViewController:[[LocalStore sharedStore] TelaPlayer] animated:NO];
         }
     }
 }
