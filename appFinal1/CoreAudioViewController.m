@@ -171,6 +171,7 @@
             
             //Set gravação para Tocar
             [[GravacaoStore sharedStore] setGravacao:_novaGravacao];
+            [[GravacaoStore sharedStore] setStreaming:NO];
             
             if ([LocalStore verificaSeViewJaEstaNaPilha:[[self navigationController] viewControllers] proximaTela:[[LocalStore sharedStore] TelaPlayer]]) {
                 [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaPlayer] animated:NO];

@@ -130,6 +130,7 @@
     
     //Set gravação para Tocar
     [[GravacaoStore sharedStore] setGravacao: ((Musica*)[[_musicasPorCategoria objectAtIndex:indexPath.section] objectAtIndex:indexPath.row])];
+    [[GravacaoStore sharedStore] setStreaming:NO];
     
     if ([LocalStore verificaSeViewJaEstaNaPilha:[[self navigationController] viewControllers] proximaTela:[[LocalStore sharedStore] TelaPlayer]]) {
         [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaPlayer] animated:NO];

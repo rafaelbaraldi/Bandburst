@@ -46,8 +46,6 @@
 -(void)viewWillDisappear:(BOOL)animated{
     
     [_player stop];
-    
-//    [[GravacaoStore sharedStore] setG]
 }
 
 -(void)carregaLayout{
@@ -61,26 +59,46 @@
     [_progressoGravacao setThumbImage:[UIImage imageNamed:@"slider.png"] forState:UIControlStateNormal];
 }
 
--(void)carregaMusica{
+-(NSString*)carregaNomeMusica:(NSString*)url{
     
-    _lblNomeGravacao.text = ((Musica*)[[GravacaoStore sharedStore] gravacao]).nome;
-    _lblCategoriaGravacao.text = ((Musica*)[[GravacaoStore sharedStore] gravacao]).categoria;
+    NSString* nomeMusica =  url;
+    
+    nomeMusica = [nomeMusica substringFromIndex:[nomeMusica rangeOfString:@"/"].location + 1];
+    nomeMusica = [nomeMusica substringFromIndex:[nomeMusica rangeOfString:@"/"].location + 1];
+    nomeMusica = [nomeMusica substringFromIndex:[nomeMusica rangeOfString:@"/"].location + 1];
+    nomeMusica = [nomeMusica substringFromIndex:[nomeMusica rangeOfString:@"/"].location + 1];
+    nomeMusica = [nomeMusica substringFromIndex:[nomeMusica rangeOfString:@"/"].location + 1];
+    nomeMusica = [nomeMusica substringFromIndex:[nomeMusica rangeOfString:@"/"].location + 1];
+    nomeMusica = [nomeMusica substringFromIndex:[nomeMusica rangeOfString:@"/"].location + 1];
+    
+    nomeMusica = [nomeMusica substringToIndex:nomeMusica.length-4];
+    
+    return nomeMusica;
+}
+
+-(void)carregaMusica{
     
     //Carre o Player
     if (![[GravacaoStore sharedStore] streaming]) {
+        
+        _lblNomeGravacao.text = ((Musica*)[[GravacaoStore sharedStore] gravacao]).nome;
+        _lblCategoriaGravacao.text = ((Musica*)[[GravacaoStore sharedStore] gravacao]).categoria;
+        
         NSURL* url = [[NSURL alloc] initFileURLWithPath:((Musica*)[[GravacaoStore sharedStore] gravacao]).url];
         _player = [[AVAudioPlayer alloc]initWithContentsOfURL:url error:nil];
     }
     else{
-        NSString *urlStreaming = [[[GravacaoStore sharedStore] gravacao].url stringByReplacingOccurrencesOfString:@" " withString:[NSString stringWithFormat:@"%%20"]];
+        
+        _lblNomeGravacao.text = [self carregaNomeMusica:((TPMusica*)[[GravacaoStore sharedStore] gravacaoStreaming]).url];
+        _lblCategoriaGravacao.text = @"";
+        
+        NSString *urlStreaming = [[[GravacaoStore sharedStore] gravacaoStreaming].url stringByReplacingOccurrencesOfString:@" " withString:[NSString stringWithFormat:@"%%20"]];
         
         NSURL *url = [[NSURL alloc] initWithString:urlStreaming];
         NSData *data = [NSData dataWithContentsOfURL:url];
         _player = [[AVAudioPlayer alloc]initWithData:data error:nil];
     }
     
-    
-
     _player.volume = 0.5;
     _player.delegate = self;
 }

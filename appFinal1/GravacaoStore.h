@@ -10,11 +10,14 @@
 
 #import "Musica.h"
 
+#import "TPMusica.h"
+
 @interface GravacaoStore : NSObject
 
 +(GravacaoStore*)sharedStore;
 
 @property Musica *gravacao;
+@property TPMusica *gravacaoStreaming;
 
 @property BOOL streaming;
 

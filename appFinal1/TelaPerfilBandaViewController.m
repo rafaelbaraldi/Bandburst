@@ -47,9 +47,13 @@
     
     [[self navigationItem] setTitle:_banda.nome];
     
+    //Carrega dados da Banda
     [_tbMembros reloadData];
     [_tbMusicas reloadData];
-    
+ 
+    //Carrega nome da Banda
+    _lblNome.text = _banda.nome;
+    [_lblNome sizeToFit];
 }
 
 -(void)carregaLayout{
@@ -231,14 +235,9 @@
             [[self navigationController] pushViewController:vc animated:NO];
         }
     }
-    else{
-        Musica *m = [NSEntityDescription insertNewObjectForEntityForName:@"Musica" inManagedObjectContext:[[LocalStore sharedStore] context]];
-        m.nome = [self carregaNomeMusica:((TPMusica*)[_banda.musicas objectAtIndex:indexPath.row]).url];
-        m.categoria = @"";
-        m.url = ((Musica*)[_banda.musicas objectAtIndex:indexPath.row]).url;
-        
+    else{        
         //Sets GravacaoStore
-        [[GravacaoStore sharedStore] setGravacao:m];
+        [[GravacaoStore sharedStore] setGravacaoStreaming:((TPMusica*)[_banda.musicas objectAtIndex:indexPath.row])];
         [[GravacaoStore sharedStore] setStreaming:YES];
         
         if ([LocalStore verificaSeViewJaEstaNaPilha:[[self navigationController] viewControllers] proximaTela:[[LocalStore sharedStore] TelaPlayer]]) {
