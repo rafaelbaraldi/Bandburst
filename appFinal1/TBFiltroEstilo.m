@@ -18,11 +18,9 @@
 
 @implementation TBFiltroEstilo
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        [[self navigationItem] setTitle:@"Filtro Estilo Musical"];
     }
     return self;
 }
@@ -31,7 +29,7 @@
     [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaBusca] animated:YES];
 }
 
-- (void)viewDidLoad{
+-(void)viewDidLoad{
     [super viewDidLoad];
 
     //Carrega Lista de todos estilos musicais
@@ -41,6 +39,32 @@
     [[[BuscaStore sharedStore] estilosFiltrados] removeAllObjects];
     
     [[[[self navigationController] navigationBar] topItem] setTitle:@""];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    
+    if([[[BuscaStore sharedStore] estilo] length] > 0){
+        [self carregaRemoverFiltro];
+    }
+    else{
+        [[self navigationItem] setRightBarButtonItem:nil];
+    }
+    
+    //Navigation Controller
+    [[self navigationItem] setTitle:@"Filtro estilo musical"];
+    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
+}
+
+-(void)carregaRemoverFiltro{
+    
+    UIBarButtonItem *buttonItemOpcoes = [[UIBarButtonItem alloc] initWithTitle:@"Remover" style:UIBarButtonItemStyleBordered target:self action:@selector(removerFiltro)];
+    [[self navigationItem] setRightBarButtonItem:buttonItemOpcoes animated:YES];
+}
+
+-(void)removerFiltro{
+    [[BuscaStore sharedStore] setEstilo:@""];
+    
+    [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaBusca] animated:YES];
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{

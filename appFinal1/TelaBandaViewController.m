@@ -29,9 +29,6 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-    
-    //BG - Layout
-//    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.png"]]];
 }
 
 -(void)dadosBanda{

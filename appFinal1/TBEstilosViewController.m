@@ -20,13 +20,18 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        [[self navigationItem] setTitle:@"Estilos Musicais"];
     }
     return self;
 }
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
+    [[self navigationItem] setTitle:@"Estilos Musicais"];
 }
 
 - (void)didReceiveMemoryWarning{

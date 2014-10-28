@@ -38,15 +38,9 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <items>
-                        <tabBarItem tag="1" title="Gravar" image="gravarIcon.png" id="TEj-qM-8ki">
-                            <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="10"/>
-                        </tabBarItem>
-                        <tabBarItem tag="2" image="buscador.png" id="c3r-MW-hxS">
-                            <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="10"/>
-                        </tabBarItem>
-                        <tabBarItem tag="3" image="perfilcone.png" id="F2Q-c9-Ula">
-                            <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="10"/>
-                        </tabBarItem>
+                        <tabBarItem tag="1" title="" image="gravarIcon.png" id="TEj-qM-8ki"/>
+                        <tabBarItem tag="2" image="buscador.png" id="c3r-MW-hxS"/>
+                        <tabBarItem tag="3" image="perfilcone.png" id="F2Q-c9-Ula"/>
                     </items>
                     <color key="barTintColor" red="0.8980392814" green="0.49019610879999997" blue="0.33333334329999997" alpha="1" colorSpace="deviceRGB"/>
                     <connections>
@@ -82,6 +76,6 @@
         <image name="gravar.png" width="130" height="129"/>
         <image name="gravarIcon.png" width="30" height="30"/>
         <image name="perfilcone.png" width="30" height="30"/>
-        <image name="seta_tabbar.png" width="48" height="28"/>
+        <image name="seta_tabbar.png" width="54" height="35"/>
     </resources>
 </document>

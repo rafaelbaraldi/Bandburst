@@ -27,8 +27,6 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     
-    [[self navigationItem] setTitle:@"Opções"];
-    
     _fbpv = [[FBProfilePictureView alloc] initWithFrame:CGRectMake(150, 200, 100, 100)];
     [self.view addSubview:self.fbpv];
     
@@ -40,6 +38,12 @@
     loginView.frame = frame;
     //    loginView.frame = CGRectOffset(loginView.frame, (self.view.center.x - (loginView.frame.size.width / 2)), 150);
     [self.view addSubview:loginView];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    //Navigation Controller
+    [[self navigationItem] setTitle:@"Opções"];
+    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
 }
 
 - (void)didReceiveMemoryWarning{

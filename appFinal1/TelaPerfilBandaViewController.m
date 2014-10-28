@@ -23,21 +23,17 @@
 
 @implementation TelaPerfilBandaViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
         _visualizandoMembros = YES;
         _tbMusicas.hidden = YES;
     }
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad{
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
     
     [self carregaLayout];
 }
@@ -54,6 +50,10 @@
     //Carrega nome da Banda
     _lblNome.text = _banda.nome;
     [_lblNome sizeToFit];
+    
+    //Navigation Controller
+    [[self navigationItem] setTitle:_banda.nome];
+    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
 }
 
 -(void)carregaLayout{
@@ -76,10 +76,8 @@
     [_segTabela setTitleTextAttributes:atributos forState:UIControlStateNormal];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{

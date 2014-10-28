@@ -26,8 +26,6 @@
     if (self) {
         _amigos = [[NSMutableArray alloc] init];
         _amigosFiltrados = [[NSMutableArray alloc] init];
-        
-        [[self navigationItem] setTitle:@"Favoritos"];
     }
     return self;
 }
@@ -48,6 +46,8 @@
     [_amigosFiltrados addObjectsFromArray:_amigos];
     [_tbAmigos reloadData];
     
+    //Navigation Controller
+    [[self navigationItem] setTitle:@"Favoritos"];
     [[[[self navigationController] navigationBar] topItem] setTitle:@""];
     [[[self navigationController] navigationBar] setTintColor:[[LocalStore sharedStore] FONTECOR]];
 }

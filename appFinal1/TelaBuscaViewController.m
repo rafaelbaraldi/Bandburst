@@ -57,14 +57,8 @@
     
     [self atualizaTela];
     
+    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
     [[self navigationItem] setTitle:@"Encontrar Músico"];
-}
-
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
-    
-    [[UITabBar appearance] setBarTintColor:[UIColor redColor]];
-    
-    return YES;
 }
 
 - (void)viewDidLoad{
@@ -113,6 +107,8 @@
 }
 
 -(void)carregaLayout{
+    
+    [[UITabBar appearance] setBarTintColor:[[LocalStore sharedStore] FONTECOR]];
     
     [[[[self navigationController] navigationBar] topItem] setTitle:@""];
     [[[self navigationController] navigationBar] setTintColor:[[LocalStore sharedStore] FONTECOR]];
@@ -186,20 +182,30 @@
     
     //Filtro Instrumento
     if ([[[BuscaStore sharedStore] instrumento] length] > 0) {
+        _btnInstumento.titleLabel.textAlignment = NSTextAlignmentCenter;
         _btnInstumento.titleLabel.text = [[BuscaStore sharedStore] instrumento];
-        _btnRemoverInstrumento.hidden = NO;
+        _btnInstumento.titleLabel.textColor = [UIColor blackColor];
     }
     else{
-        _btnRemoverInstrumento.hidden = YES;
+        _btnInstumento.titleLabel.textColor = [UIColor whiteColor];
     }
     
     //Filtro Estilo Musical
-    if ([[[BuscaStore sharedStore] estilo] length] > 0) {        
+    if ([[[BuscaStore sharedStore] estilo] length] > 0) {
+        _btnEstilo.titleLabel.textAlignment = NSTextAlignmentCenter;
         _btnEstilo.titleLabel.text = [[BuscaStore sharedStore] estilo];
-        _btnRemoverEstilo.hidden = NO;
+        _btnEstilo.titleLabel.textColor = [UIColor blackColor];
     }
     else{
-        _btnRemoverEstilo.hidden = YES;
+        _btnEstilo.titleLabel.textColor = [UIColor whiteColor];
+    }
+
+    //Filtro Estilo Musical
+    if ([[[BuscaStore sharedStore] horario] length] > 0) {
+        _btnHorarios.titleLabel.textColor = [UIColor blackColor];
+    }
+    else{
+        _btnHorarios.titleLabel.textColor = [UIColor whiteColor];
     }
 }
 
@@ -213,43 +219,38 @@
     if([h length] > 0){
         h = [h substringFromIndex:4];
     }
+    
     [[BuscaStore sharedStore] setHorario:h];
 }
 
 //Botoes
 - (IBAction)btnInstrumentoClick:(id)sender {
-    TBFiltroInstrumento *tbInstrumentoVC = [[TBFiltroInstrumento alloc] init];
-    [[self navigationController] pushViewController:tbInstrumentoVC animated:YES];
+    if ([LocalStore verificaSeViewJaEstaNaPilha:[[self navigationController] viewControllers] proximaTela:[[LocalStore sharedStore] TBFiltroInstrumento]]) {
+        [[self navigationController] popToViewController:[[LocalStore sharedStore] TBFiltroInstrumento] animated:YES];
+    }
+    else{
+        [[self navigationController] pushViewController:[[LocalStore sharedStore] TBFiltroInstrumento] animated:YES];
+    }
 }
 
 //Abre view de Estilo Musical para filtrar
 - (IBAction)btnEstiloClick:(id)sender {
-    TBFiltroEstilo *tbEstiloVC = [[TBFiltroEstilo alloc] init];
-    [[self navigationController] pushViewController:tbEstiloVC animated:YES];
+    if ([LocalStore verificaSeViewJaEstaNaPilha:[[self navigationController] viewControllers] proximaTela:[[LocalStore sharedStore] TBFiltroEstilo]]) {
+        [[self navigationController] popToViewController:[[LocalStore sharedStore] TBFiltroEstilo] animated:YES];
+    }
+    else{
+        [[self navigationController] pushViewController:[[LocalStore sharedStore] TBFiltroEstilo] animated:YES];
+    }
 }
 
 //Abre view de Horarios para filtrar
 - (IBAction)btnHorariosClick:(id)sender {
-    TBFiltroHorario *tbHorariosVC = [[TBFiltroHorario alloc] init];
-    [[self navigationController] pushViewController:tbHorariosVC animated:YES];
-}
-
-- (IBAction)btnRemoverEstiloClick:(id)sender {
-    [[BuscaStore sharedStore] setEstilo:@""];
-    _btnEstilo.titleLabel.text = @"Estilo Musical";
-    
-    _usuarios = [BuscaStore atualizaBusca:_usuarios cidade:_txtCidade.text];
-    [self atualizaTela];
-    [self carregaUsuarioBuscado];
-}
-
-- (IBAction)btnRemoverInstrumentoClick:(id)sender {
-    [[BuscaStore sharedStore] setInstrumento:@""];
-    _btnInstumento.titleLabel.text = @"Instrumento";
-    
-    _usuarios = [BuscaStore atualizaBusca:_usuarios cidade:_txtCidade.text];
-    [self atualizaTela];
-    [self carregaUsuarioBuscado];
+    if ([LocalStore verificaSeViewJaEstaNaPilha:[[self navigationController] viewControllers] proximaTela:[[LocalStore sharedStore] TBFiltroHorario]]) {
+        [[self navigationController] popToViewController:[[LocalStore sharedStore] TBFiltroHorario] animated:YES];
+    }
+    else{
+        [[self navigationController] pushViewController:[[LocalStore sharedStore] TBFiltroHorario] animated:YES];
+    }
 }
 
 //Delegate TextField
@@ -261,7 +262,6 @@
 
 //Busca pela cidade
 -(void)textFieldDidChange{
-//    _usuarios = [BuscaStore atualizaBusca:_usuarios cidade:_txtCidade.text];
     [self carregaUsuarioBuscado];
 }
 

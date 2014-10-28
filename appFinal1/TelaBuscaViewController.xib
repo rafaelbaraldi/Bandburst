@@ -9,8 +9,6 @@
                 <outlet property="btnEstilo" destination="9Pe-oG-gi2" id="R6V-Wf-zkN"/>
                 <outlet property="btnHorarios" destination="jH1-oh-0US" id="vfM-AX-S0D"/>
                 <outlet property="btnInstumento" destination="ZcF-60-fJs" id="dsA-TR-zJX"/>
-                <outlet property="btnRemoverEstilo" destination="bym-wc-cur" id="lwy-Rq-7St"/>
-                <outlet property="btnRemoverInstrumento" destination="h0P-7Z-idq" id="C3I-R3-P8k"/>
                 <outlet property="buscarItem" destination="jib-XL-ILu" id="6aw-0e-MJc"/>
                 <outlet property="gravarItem" destination="p7Z-6i-Aqn" id="w7c-EO-e4Q"/>
                 <outlet property="lblMsgBusca" destination="2R3-Zl-kHm" id="Wlc-a7-KLF"/>
@@ -32,7 +30,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="tintColor" red="1" green="0.97945190540000004" blue="0.94103399399999998" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="textColor" red="0.8980392814" green="0.49019610879999997" blue="0.33333334329999997" alpha="1" colorSpace="deviceRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <tabBar contentMode="scaleToFill" fixedFrame="YES" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nJ8-aO-iVP">
@@ -40,16 +38,13 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <items>
-                        <tabBarItem tag="1" title="" image="gravarIcon.png" id="p7Z-6i-Aqn"/>
-                        <tabBarItem tag="2" title="" image="buscador.png" id="jib-XL-ILu">
-                            <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="13"/>
+                        <tabBarItem tag="1" title="" image="gravarIcon.png" id="p7Z-6i-Aqn">
+                            <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                         </tabBarItem>
-                        <tabBarItem tag="3" image="perfilcone.png" id="vQ6-Ug-yzt">
-                            <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="12"/>
-                        </tabBarItem>
+                        <tabBarItem tag="2" title="" image="buscador.png" id="jib-XL-ILu"/>
+                        <tabBarItem tag="3" image="perfilcone.png" id="vQ6-Ug-yzt"/>
                     </items>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <color key="barTintColor" red="0.8980392814" green="0.49019610879999997" blue="0.33333334329999997" alpha="1" colorSpace="deviceRGB"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="VKX-Yp-bUU"/>
                     </connections>
@@ -66,7 +61,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZcF-60-fJs">
-                            <rect key="frame" x="4" y="1" width="145" height="30"/>
+                            <rect key="frame" x="4" y="1" width="142" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.98823535442352295" green="0.12549020349979401" blue="0.30196079611778259" alpha="1" colorSpace="deviceRGB"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -100,26 +95,6 @@
                             </state>
                             <connections>
                                 <action selector="btnHorariosClick:" destination="-1" eventType="touchUpInside" id="EPT-aa-MK1"/>
-                            </connections>
-                        </button>
-                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bym-wc-cur">
-                            <rect key="frame" x="270" y="-5" width="24" height="24"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" image="delete.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="btnRemoverEstiloClick:" destination="-1" eventType="touchUpInside" id="Cbx-ho-hPE"/>
-                            </connections>
-                        </button>
-                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h0P-7Z-idq">
-                            <rect key="frame" x="118" y="-5" width="24" height="24"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" image="delete.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="btnRemoverInstrumentoClick:" destination="-1" eventType="touchUpInside" id="XuF-fq-7oY"/>
                             </connections>
                         </button>
                     </subviews>
@@ -179,9 +154,8 @@
     </objects>
     <resources>
         <image name="buscador.png" width="30" height="30"/>
-        <image name="delete.png" width="512" height="512"/>
         <image name="gravarIcon.png" width="30" height="30"/>
         <image name="perfilcone.png" width="30" height="30"/>
-        <image name="seta_tabbar.png" width="48" height="28"/>
+        <image name="seta_tabbar.png" width="54" height="35"/>
     </resources>
 </document>

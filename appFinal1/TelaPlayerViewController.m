@@ -20,7 +20,6 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        [[self navigationItem] setTitle:@"Gravação"];
     }
     return self;
 }
@@ -41,6 +40,10 @@
     //Carrega musica
     [self carregaMusica];
     [self btnPlayGravacaoClick:nil];
+    
+    //Navigation Controller
+    [[self navigationItem] setTitle:@"Gravação"];
+    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{

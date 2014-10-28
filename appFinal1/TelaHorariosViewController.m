@@ -22,7 +22,6 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        [[self navigationItem] setTitle:@"Horários de Ensaio"];
     }
     return self;
 }
@@ -37,6 +36,11 @@
 
 -(void)viewDidDisappear:(BOOL)animated{
     [_collectionHorario reloadData];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
+    [[self navigationItem] setTitle:@"Horários de Ensaio"];
 }
 
 - (void)didReceiveMemoryWarning{

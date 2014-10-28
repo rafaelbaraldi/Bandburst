@@ -70,9 +70,14 @@
     _TelaGravacoes = [[TelaGravacoesViewController alloc] initWithNibName:@"TelaGravacoesViewController" bundle:nil];
     _TelaEditarPerfil = [[TelaCadastroViewController alloc] initWithNibName:@"TelaCadastroViewController" bundle:nil];
     _TelaFavoritados = [[TelaFavoritadosViewController alloc] initWithNibName:@"TelaFavoritadosViewController" bundle:nil];
+    
     _TelaEditarPerfil.ehEdicao = YES;
+    
     _TelaPerfilBanda = [[TelaPerfilBandaViewController alloc] initWithNibName:@"TelaPerfilBandaViewController" bundle:nil];
     _TelaPlayer = [[TelaPlayerViewController alloc] initWithNibName:@"TelaPlayerViewController" bundle:nil];
+    _TBFiltroEstilo = [[TBFiltroEstilo alloc] initWithNibName:@"TBFiltroEstilo" bundle:nil];
+    _TBFiltroHorario = [[TBFiltroHorario alloc] initWithNibName:@"TBFiltroHorario" bundle:nil];
+    _TBFiltroInstrumento = [[TBFiltroInstrumento alloc] initWithNibName:@"TBFiltroInstrumento" bundle:nil];
 }
 
 -(void)carregaContexto{

@@ -25,9 +25,7 @@
     if (self) {
         _fotoSelecionada = [[UIImageView alloc] init];
         
-        [[self navigationItem] setTitle:@"Cadastro Foto"];
         [[self navigationItem] setHidesBackButton:YES];
-        
     }
     return self;
 }
@@ -73,6 +71,9 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [self exibiFoto];
+    
+    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
+    [[self navigationItem] setTitle:@"Cadastro Foto"];
 }
 
 -(void)exibiFoto{

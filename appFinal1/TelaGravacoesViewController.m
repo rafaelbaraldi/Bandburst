@@ -22,8 +22,6 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        [[self navigationItem] setTitle:@"Gravar"];
-        [[self navigationItem] setHidesBackButton:YES];
     }
     return self;
 }
@@ -42,12 +40,17 @@
     _perfilIcone.selectedImage = [[UIImage imageNamed:@"perfilcone.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
     [_barra setTintColor: [UIColor whiteColor]];
+    
+    [[UITabBar appearance] setBarTintColor:[[LocalStore sharedStore] FONTECOR]];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     
     [self carregaAudios];
     [_tbMusicas reloadData];
+    
+    //Navigation Controller
+    [[self navigationItem] setTitle:@"Gravações"];
 }
 
 -(void)carregaAudios{
@@ -138,28 +141,6 @@
     else{
         [[self navigationController] pushViewController:[[LocalStore sharedStore] TelaPlayer] animated:NO];
     }
-    
-//    Musica* musica = ((Musica*)[[_musicasPorCategoria objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]);
-//    NSLog(@"%@", musica.url);
-//    NSString *thePath = [NSString stringWithFormat:@"%@.mp3", musica.url];
-    
-//    NSURL *url = [NSURL URLWithString:thePath];
-
-//    NSLog(@"%@", musica.url);
-    
-//    NSURL *url = [NSURL URLWithString:@"https://dl.dropboxusercontent.com/u/66188885/pp.mp3"];
-    
-//    _musicPlayer = [[MPMoviePlayerController alloc] initWithContentURL:url];
- 
-//    _musicPlayer.shouldAutoplay = NO;
-//    _musicPlayer.repeatMode = NO;
-
-//    [self.view addSubview: _musicPlayer.view];
-
-//    [_musicPlayer setFullscreen:YES animated:YES];
-//    [_musicPlayer play];
-
-//    musicPlayer.backgroundView.backgroundColor = [[LocalStore sharedStore] FONTECOR];
 }
 
 -(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{

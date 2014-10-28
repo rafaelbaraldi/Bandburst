@@ -42,6 +42,28 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [[self navigationItem] setTitle:@"Filtro Horários"];
+
+    if([[[BuscaStore sharedStore] horario] length] > 0){
+        [self carregaRemoverFiltro];
+    }
+    else{
+        [[self navigationItem] setRightBarButtonItem:nil];
+    }
+    
+    [_collectionHorario reloadData];
+}
+
+-(void)carregaRemoverFiltro{
+    
+    UIBarButtonItem *buttonItemOpcoes = [[UIBarButtonItem alloc] initWithTitle:@"Remover" style:UIBarButtonItemStyleBordered target:self action:@selector(removerFiltro)];
+    [[self navigationItem] setRightBarButtonItem:buttonItemOpcoes animated:YES];
+}
+
+-(void)removerFiltro{
+    [[BuscaStore sharedStore] setHorario:@""];
+    [[[BuscaStore sharedStore] horariosFiltrados] removeAllObjects];
+
+    [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaBusca] animated:YES];
 }
 
 - (void)didReceiveMemoryWarning{

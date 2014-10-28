@@ -27,7 +27,6 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        [[self navigationItem] setHidesBackButton:YES];
     }
     return self;
 }
@@ -65,15 +64,18 @@
     
     //layout
     [self carregaLayout];
+    
+    //Titulo navigation
+    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
+    [[self navigationItem] setTitle:@"Perfil"];
 }
 
 -(void)carregaLayout{
     
-    //Titulo navigation
-    [[self navigationItem] setTitle:@"Perfil"];
-    
     //Bota add banda
     [[_btnCriarBanda layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
+    
+    [[UITabBar appearance] setBarTintColor:[[LocalStore sharedStore] FONTECOR]];
 }
 
 -(void)escondeBotaoDeVoltarSeUsuarioLogado{

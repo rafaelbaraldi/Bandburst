@@ -22,14 +22,16 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         _gravando = false;
-        
-        [[self navigationItem] setTitle:@"Gravar"];
     }
     return self;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [_audioPlot clear];
+    
+    //Navigation Controller
+    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
+    [[self navigationItem] setTitle:@"Gravar"];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{

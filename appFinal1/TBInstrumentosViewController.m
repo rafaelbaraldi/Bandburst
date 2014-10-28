@@ -20,7 +20,6 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        [[self navigationItem] setTitle:@"Instrumentos Musicais"];
     }
     return self;
 }
@@ -31,6 +30,12 @@
 
 - (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
+    
+    [[self navigationItem] setTitle:@"Instrumentos Musicais"];
 }
 
 -(void)retorna{

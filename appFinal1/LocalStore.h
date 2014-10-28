@@ -32,6 +32,10 @@
 #import "TBEstilosViewController.h"
 #import "TBEstilosQueTocaViewController.h"
 
+#import "TBFiltroEstilo.h"
+#import "TBFiltroHorario.h"
+#import "TBFiltroInstrumento.h"
+
 #import "CoreAudioViewController.h"
 
 #import "TPUsuario.h"
@@ -72,6 +76,10 @@
 @property TelaFavoritadosViewController *TelaFavoritados;
 @property TelaPerfilBandaViewController *TelaPerfilBanda;
 @property TelaPlayerViewController *TelaPlayer;
+
+@property TBFiltroEstilo *TBFiltroEstilo;
+@property TBFiltroHorario *TBFiltroHorario;
+@property TBFiltroInstrumento *TBFiltroInstrumento;
 
 @property AppDelegate *appDelegate;
 @property NSManagedObjectContext *context;

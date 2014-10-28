@@ -37,9 +37,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <items>
-                        <tabBarItem tag="1" title="Gravar" image="gravarIcon.png" id="SNh-IY-EWo">
-                            <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="10"/>
-                        </tabBarItem>
+                        <tabBarItem tag="1" title="" image="gravarIcon.png" id="SNh-IY-EWo"/>
                         <tabBarItem tag="2" image="buscador.png" id="gjP-XC-Tfa">
                             <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="10"/>
                         </tabBarItem>
@@ -90,6 +88,6 @@
         <image name="buscador.png" width="30" height="30"/>
         <image name="gravarIcon.png" width="30" height="30"/>
         <image name="perfilcone.png" width="30" height="30"/>
-        <image name="seta_tabbar.png" width="48" height="28"/>
+        <image name="seta_tabbar.png" width="54" height="35"/>
     </resources>
 </document>

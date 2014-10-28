@@ -22,7 +22,6 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        [[self navigationItem] setTitle:@"Meus Estilos Musicas"];
     }
     return self;
 }
@@ -39,6 +38,9 @@
 
 -(void) viewWillAppear:(BOOL)animated{
     [_tbEstilosQueToca reloadData];
+    
+    [[[[self navigationController] navigationBar] topItem] setTitle:@""];    
+    [[self navigationItem] setTitle:@"Meus Estilos Musicas"];
 }
 
 - (void)didReceiveMemoryWarning{

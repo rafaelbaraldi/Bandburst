@@ -22,7 +22,6 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        [[self navigationItem] setTitle:@"Nova Banda"];
     }
     return self;
 }
@@ -36,6 +35,8 @@
 -(void)viewWillAppear:(BOOL)animated{
     [_tbMembros reloadData];
     
+    //Navigation Controller
+    [[self navigationItem] setTitle:@"Nova banda"];
     [[[[self navigationController] navigationBar] topItem] setTitle:@""];
     [[[self navigationController] navigationBar] setTintColor:[[LocalStore sharedStore] FONTECOR]];
 }

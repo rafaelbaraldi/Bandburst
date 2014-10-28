@@ -23,8 +23,6 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        
-        [[self navigationItem] setTitle:@"Filtro Instrumento"];
     }
     return self;
 }
@@ -44,6 +42,32 @@
     [[[BuscaStore sharedStore] instrumentosFiltrados] removeAllObjects];
     
     [[[[self navigationController] navigationBar] topItem] setTitle:@""];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    
+    if([[[BuscaStore sharedStore] instrumento] length] > 0){
+        [self carregaRemoverFiltro];
+    }
+    else{
+        [[self navigationItem] setRightBarButtonItem:nil];
+    }
+    
+    //Navigation Controller
+    [[self navigationItem] setTitle:@"Filtro instrumento"];
+    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
+}
+
+-(void)carregaRemoverFiltro{
+    
+    UIBarButtonItem *buttonItemOpcoes = [[UIBarButtonItem alloc] initWithTitle:@"Remover" style:UIBarButtonItemStyleBordered target:self action:@selector(removerFiltro)];
+    [[self navigationItem] setRightBarButtonItem:buttonItemOpcoes animated:YES];
+}
+
+-(void)removerFiltro{
+    [[BuscaStore sharedStore] setInstrumento:@""];
+    
+    [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaBusca] animated:YES];
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{

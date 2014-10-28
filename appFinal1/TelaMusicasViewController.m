@@ -22,7 +22,6 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        [[self navigationItem] setTitle:@"Selecionar Música"];
         _musicas = [PerfilStore retornaListaDeMusicas];
         _categorias = [PerfilStore retornaListaDeCategorias:_musicas];
         _musicasPorCategoria = [PerfilStore retornaListaDeMusicasPorCategorias:_musicas];
@@ -36,6 +35,13 @@
 
 - (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    
+    //Navigation Controller
+    [[self navigationItem] setTitle:@"Selecionar música"];
+    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

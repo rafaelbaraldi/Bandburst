@@ -20,9 +20,6 @@
 - (IBAction)btnEstiloClick:(id)sender;
 - (IBAction)btnHorariosClick:(id)sender;
 
-- (IBAction)btnRemoverEstiloClick:(id)sender;
-- (IBAction)btnRemoverInstrumentoClick:(id)sender;
-
 @property (strong, nonatomic) IBOutlet UIButton *btnInstumento;
 @property (strong, nonatomic) IBOutlet UIButton *btnEstilo;
 @property (strong, nonatomic) IBOutlet UIButton *btnHorarios;
@@ -30,12 +27,12 @@
 @property (strong, nonatomic) IBOutlet UITextField *txtCidade;
 @property (strong, nonatomic) IBOutlet UITableView *tbUsuarios;
 
-@property (strong, nonatomic) IBOutlet UIButton *btnRemoverInstrumento;
-@property (strong, nonatomic) IBOutlet UIButton *btnRemoverEstilo;
 @property (strong, nonatomic) IBOutlet UILabel *lblMsgBusca;
 
 @property (strong, nonatomic) IBOutlet UITabBarItem *usuarioItem;
 @property (strong, nonatomic) IBOutlet UITabBarItem *buscarItem;
 @property (strong, nonatomic) IBOutlet UITabBarItem *gravarItem;
+
 @property (strong, nonatomic) IBOutlet UITabBar *tabBar;
+
 @end

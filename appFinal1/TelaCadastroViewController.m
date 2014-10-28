@@ -28,7 +28,6 @@ const int OBSERVACOES = 2;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        [[self navigationItem] setTitle:@"Cadastro"];
     }
     return self;
 }
@@ -74,7 +73,6 @@ const int OBSERVACOES = 2;
         [horariosQueToca addObject:[NSString stringWithFormat:@"%@%@", h.dia, h.periodo]];
     }
     
-    
     [[CadastroStore sharedStore] setInstrumentosQueToca:instumentosQueToca];
     [[CadastroStore sharedStore] setEstilosQueToca:user.estilos];
     [[CadastroStore sharedStore] setHorariosQueToca:horariosQueToca];
@@ -98,6 +96,8 @@ const int OBSERVACOES = 2;
 -(void) viewWillAppear:(BOOL)animated{
     
     [[[[self navigationController] navigationBar] topItem] setTitle:@""];
+    
+    [[self navigationItem] setTitle:@"Cadastro"];
     
     [self carregaLabels];
 }

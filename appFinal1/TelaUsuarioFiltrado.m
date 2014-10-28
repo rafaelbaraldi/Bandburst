@@ -25,7 +25,6 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        [[self navigationItem] setTitle:@"Meu Perfil"];
     }
     return self;
 }
@@ -71,6 +70,10 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [self carregaBotaoSeguirAmigo];
+    
+    //Navigation Controller
+    [[self navigationItem] setTitle:@"Meu perfil"];
+    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
 }
 
 -(void)carregaLayout{

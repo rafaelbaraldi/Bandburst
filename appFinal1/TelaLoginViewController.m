@@ -67,9 +67,11 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
- 
 
+    //Navigation Controller
     [[self navigationItem] setTitle:@"Bandburst"];
+    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
+    [[self navigationItem] setHidesBackButton:YES];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{

@@ -21,7 +21,6 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        [[self navigationItem] setTitle:@"Redefinir Senha"];
     }
     return self;
 }
@@ -58,6 +57,9 @@
     
     //Carrega email temporario
     [_txtEmail setText:[[LoginStore sharedStore] emailTemporario]];
+    
+    [[self navigationItem] setTitle:@"Redefinir senha"];
+    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
