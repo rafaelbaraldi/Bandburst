@@ -50,9 +50,11 @@
     [_tbMusicas reloadData];
     
     //Navigation Controller
-    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
     [[self navigationItem] setTitle:@"Gravações"];
-    
+}
+
+-(void)viewDidDisappear:(BOOL)animated{
+    [[self navigationItem] setTitle:@""];
 }
 
 -(void)carregaAudios{

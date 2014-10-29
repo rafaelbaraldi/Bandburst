@@ -59,7 +59,10 @@
     [_txtEmail setText:[[LoginStore sharedStore] emailTemporario]];
     
     [[self navigationItem] setTitle:@"Redefinir senha"];
-    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
+}
+
+-(void)viewDidDisappear:(BOOL)animated{
+    [[self navigationItem] setTitle:@""];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{

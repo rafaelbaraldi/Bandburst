@@ -37,8 +37,11 @@
     
     //Navigation Controller
     [[self navigationItem] setTitle:@"Nova banda"];
-    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
     [[[self navigationController] navigationBar] setTintColor:[[LocalStore sharedStore] FONTECOR]];
+}
+
+-(void)viewDidDisappear:(BOOL)animated{
+    [[self navigationItem] setTitle:@""];
 }
 
 - (void)didReceiveMemoryWarning{

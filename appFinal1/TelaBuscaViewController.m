@@ -57,8 +57,11 @@
     
     [self atualizaTela];
     
-    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
     [[self navigationItem] setTitle:@"Encontrar Músico"];
+}
+
+-(void)viewDidDisappear:(BOOL)animated{
+    [[self navigationItem] setTitle:@""];
 }
 
 - (void)viewDidLoad{

@@ -42,11 +42,14 @@
     [self carregaControladorDeImagem];
 }
 
+-(void)viewDidDisappear:(BOOL)animated{
+    [[self navigationItem] setTitle:@""];
+}
+
 -(void)arredondaBordaBotoes{
     
     [[_btnAdicionarFoto layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
     [[_btnContinuar layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
-    
     
     [[_btnAdicionarFoto titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
     [[_btnContinuar titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
@@ -72,7 +75,6 @@
 -(void)viewWillAppear:(BOOL)animated{
     [self exibiFoto];
     
-    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
     [[self navigationItem] setTitle:@"Cadastro Foto"];
 }
 

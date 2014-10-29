@@ -39,8 +39,11 @@
 -(void) viewWillAppear:(BOOL)animated{
     [_tbEstilosQueToca reloadData];
     
-    [[[[self navigationController] navigationBar] topItem] setTitle:@""];    
     [[self navigationItem] setTitle:@"Meus Estilos Musicas"];
+}
+
+-(void)viewDidDisappear:(BOOL)animated{
+    [[self navigationItem] setTitle:@""];
 }
 
 - (void)didReceiveMemoryWarning{

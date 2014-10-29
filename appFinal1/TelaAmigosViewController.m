@@ -48,12 +48,15 @@
     
     //Navigation Controller
     [[self navigationItem] setTitle:@"Favoritos"];
-    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
     [[[self navigationController] navigationBar] setTintColor:[[LocalStore sharedStore] FONTECOR]];
 }
 
 - (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
+}
+
+-(void)viewDidDisappear:(BOOL)animated{
+    [[self navigationItem] setTitle:@""];
 }
 
 -(void)carregaLayout{

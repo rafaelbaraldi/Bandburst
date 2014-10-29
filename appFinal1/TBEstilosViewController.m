@@ -29,9 +29,11 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    
-    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
     [[self navigationItem] setTitle:@"Estilos Musicais"];
+}
+
+-(void)viewDidDisappear:(BOOL)animated{
+    [[self navigationItem] setTitle:@""];
 }
 
 - (void)didReceiveMemoryWarning{

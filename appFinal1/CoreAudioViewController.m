@@ -30,8 +30,11 @@
     [_audioPlot clear];
     
     //Navigation Controller
-    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
     [[self navigationItem] setTitle:@"Gravar"];
+}
+
+-(void)viewDidDisappear:(BOOL)animated{
+    [[self navigationItem] setTitle:@""];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{

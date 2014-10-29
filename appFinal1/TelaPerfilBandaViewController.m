@@ -53,7 +53,10 @@
     
     //Navigation Controller
     [[self navigationItem] setTitle:_banda.nome];
-    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
+}
+
+-(void)viewDidDisappear:(BOOL)animated{
+    [[self navigationItem] setTitle:@""];
 }
 
 -(void)carregaLayout{

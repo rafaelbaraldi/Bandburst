@@ -43,8 +43,6 @@ const int OBSERVACOES = 2;
         [self corregaCamposEdicao];
     }
     
-    [[[self navigationController] navigationBar] setTintColor:[[LocalStore sharedStore] FONTECOR]];
-    
     //Usa Cadastro no singleton
     [[CadastroStore sharedStore]setViewTela:self];
     
@@ -53,6 +51,10 @@ const int OBSERVACOES = 2;
     
     //Senha
     [_txtSenha setSecureTextEntry:YES];
+}
+
+-(void)viewDidDisappear:(BOOL)animated{
+    [[self navigationItem] setTitle:@""];
 }
 
 -(void)corregaCamposEdicao{
@@ -94,9 +96,6 @@ const int OBSERVACOES = 2;
 }
 
 -(void) viewWillAppear:(BOOL)animated{
-    
-    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
-    
     [[self navigationItem] setTitle:@"Cadastro"];
     
     [self carregaLabels];

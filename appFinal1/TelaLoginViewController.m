@@ -70,13 +70,16 @@
 
     //Navigation Controller
     [[self navigationItem] setTitle:@"Bandburst"];
-    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
     [[self navigationItem] setHidesBackButton:YES];
+}
+
+-(void)viewDidDisappear:(BOOL)animated{
+    [[self navigationItem] setTitle:@""];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     [self.navigationItem setHidesBackButton:YES];
-    
+
     _txtSenha.text = @"";
 }
 

@@ -50,6 +50,10 @@
     [self carregaLayout];
 }
 
+-(void)viewDidDisappear:(BOOL)animated{
+    [[self navigationItem] setTitle:@""];
+}
+
 -(void)carregaOpcoesScrool{
     
     _scrollView.pagingEnabled = NO;
@@ -72,8 +76,7 @@
     [self carregaBotaoSeguirAmigo];
     
     //Navigation Controller
-    [[self navigationItem] setTitle:@"Meu perfil"];
-    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
+    [[self navigationItem] setTitle:_pessoa.nome];
 }
 
 -(void)carregaLayout{

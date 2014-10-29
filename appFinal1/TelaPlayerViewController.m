@@ -42,8 +42,11 @@
     [self btnPlayGravacaoClick:nil];
     
     //Navigation Controller
-    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
     [[self navigationItem] setTitle:@"Gravação"];
+}
+
+-(void)viewDidDisappear:(BOOL)animated{
+    [[self navigationItem] setTitle:@""];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
