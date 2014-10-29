@@ -19,10 +19,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblCidadeBairro;
 @property (weak, nonatomic) IBOutlet UITextView *lblAtribuicoes;
 
-//@property (strong, nonatomic) IBOutlet UILabel *lblEstilo;
-//@property (strong, nonatomic) IBOutlet UILabel *lblEmail;
-//@property (weak, nonatomic) IBOutlet UILabel *lblInstrumentos;
-
 @property NSMutableArray *dadosUsuarios;
 @property NSMutableArray *horarios;
 

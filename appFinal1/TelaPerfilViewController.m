@@ -42,9 +42,6 @@
     _perfilItem.selectedImage = [[UIImage imageNamed:@"perfilcone.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
     [_tabBar setTintColor: [UIColor whiteColor]];
-    
-    //Collection view
-    [self carregaConfiguracaoCollectionMusica];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -54,10 +51,6 @@
     
     //Carrega dados do Usuario
     [self carregaDadosUsuario];
-    
-    //Carrega os audios
-    [self carregaAudios];
-    [_collectionV reloadData];
     
     //Carrega as Bandas
     [self carregaBandas];
@@ -124,9 +117,6 @@
     
     //Botao Editar Perfil (Função em programação)
     [self botaoPerfilEditar];
-    
-    //Carrega Qtd de Amigos
-    _lblPerfilAmigos.text = [NSString stringWithFormat:@"%@", [PerfilStore qtdDeAmigos]];
 }
 
 -(UIImage*)carregaImagemFake{
@@ -268,31 +258,6 @@
     if(![[[LocalStore sharedStore] usuarioAtual].identificador isEqualToString:@"0"]){
         [[self navigationController] pushViewController:[[LocalStore sharedStore] TelaNovaBanda] animated:YES];
     }
-}
-
-//Collection das musicas
--(void)carregaConfiguracaoCollectionMusica{
-    
-    _collectionV.backgroundColor = [UIColor whiteColor];
-    self.automaticallyAdjustsScrollViewInsets = NO;
-}
-
--(void)carregaAudios{
-    
-    _musicas = [PerfilStore retornaListaDeMusicas];
-    _categorias = [PerfilStore retornaListaDeCategorias:_musicas];
-    _musicasPorCategoria = [PerfilStore retornaListaDeMusicasPorCategorias:_musicas];
-    
-    UINib *cellNib = [UINib nibWithNibName:@"CellMusica" bundle:nil];
-    [_collectionV registerNib:cellNib forCellWithReuseIdentifier:@"FlickrCell"];
-    
-    UINib *cellTitulo = [UINib nibWithNibName:@"CellTituloMusica" bundle:nil];
-    [_collectionV registerNib:cellTitulo forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView"];
-    
-    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
-    
-    //Opcoes CollectionView de Musicas
-    [_collectionV setBackgroundColor:[UIColor clearColor]];
 }
 
 -(UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{

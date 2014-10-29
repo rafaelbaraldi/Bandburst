@@ -93,6 +93,9 @@
     if([_pessoa.estilos count] + [_pessoa.instrumentos count] +[_horarios count] <= 7){
          _tbDados.scrollEnabled = NO;
     }
+    else{
+         _tbDados.scrollEnabled = YES;
+    }
 }
 
 -(void)carregaUsuarioFiltrado{
@@ -188,6 +191,12 @@
     }
     for (TPHorario *h in _pessoa.horarios){
         [_dadosUsuarios addObject:h];
+    }
+}
+
+-(void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    if([indexPath row] == ((NSIndexPath*)[[tableView indexPathsForVisibleRows] lastObject]).row){
+        tableView.contentSize = CGSizeMake(320, ([_pessoa.estilos count] + [_pessoa.instrumentos count] +[_horarios count] + 3) * 33);
     }
 }
 
