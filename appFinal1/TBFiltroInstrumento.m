@@ -60,7 +60,7 @@
 
 -(void)carregaRemoverFiltro{
     
-    UIBarButtonItem *buttonItemOpcoes = [[UIBarButtonItem alloc] initWithTitle:@"Remover" style:UIBarButtonItemStyleBordered target:self action:@selector(removerFiltro)];
+    UIBarButtonItem *buttonItemOpcoes = [[UIBarButtonItem alloc] initWithTitle:@"Remover" style:UIBarButtonItemStylePlain target:self action:@selector(removerFiltro)];
     [[self navigationItem] setRightBarButtonItem:buttonItemOpcoes animated:YES];
 }
 

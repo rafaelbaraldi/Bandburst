@@ -9,12 +9,13 @@
 #import <UIKit/UIKit.h>
 #import <AudioToolbox/AudioToolbox.h>
 #import <AVFoundation/AVFoundation.h>
-#import "EZAudio/EZAudioPlotGL.h"
-#import "EZAudio/EZMicrophone.h"
+//#import "EZAudio/EZAudioPlotGL.h"
+//#import "EZAudio/EZMicrophone.h"
 
 #import "Musica.h"
 
-@interface CoreAudioViewController : UIViewController <UITabBarDelegate, EZMicrophoneDelegate, UIAlertViewDelegate> {
+//@interface CoreAudioViewController : UIViewController <UITabBarDelegate, EZMicrophoneDelegate, UIAlertViewDelegate> {
+@interface CoreAudioViewController : UIViewController <UITabBarDelegate, UIAlertViewDelegate> {
     
     AVAudioRecorder *recorder;
     NSURL *urlPlay;
@@ -38,9 +39,9 @@
 - (IBAction)gravar:(id)sender;
 - (IBAction)playGravacao:(id)sender;
 
-@property (strong, nonatomic) IBOutlet EZAudioPlotGL *audioPlot;
+//@property (strong, nonatomic) IBOutlet EZAudioPlotGL *audioPlot;
 
-@property EZMicrophone* microphone;
+//@property EZMicrophone* microphone;
 
 @property NSDate *tempoGravacao;
 @property NSDate *tempoInicial;

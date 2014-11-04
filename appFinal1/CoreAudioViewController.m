@@ -27,7 +27,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    [_audioPlot clear];
+//    [_audioPlot clear];
     
     //Navigation Controller
     [[self navigationItem] setTitle:@"Gravar"];
@@ -46,12 +46,12 @@
 }
 
 -(void)linhaGravacaEZAudio{
-    self.microphone = [EZMicrophone microphoneWithDelegate:self];
-    self.audioPlot.backgroundColor = [UIColor blackColor];
-    self.audioPlot.color           = [[LocalStore sharedStore] FONTECOR];
-    self.audioPlot.plotType        = EZPlotTypeRolling;
-    self.audioPlot.shouldFill      = YES;
-    self.audioPlot.shouldMirror    = YES;
+//    self.microphone = [EZMicrophone microphoneWithDelegate:self];
+//    self.audioPlot.backgroundColor = [UIColor blackColor];
+//    self.audioPlot.color           = [[LocalStore sharedStore] FONTECOR];
+//    self.audioPlot.plotType        = EZPlotTypeRolling;
+//    self.audioPlot.shouldFill      = YES;
+//    self.audioPlot.shouldMirror    = YES;
 }
 
 - (void)viewDidLoad{
@@ -134,7 +134,7 @@
             if([txtCategoria length] > 0 && [txtNome length] > 0){
                 if(![self musicaComEsseNomeJaExisteNessaCategoria:txtNome categoria:txtCategoria]){
                     
-                    [_audioPlot clear];
+//                    [_audioPlot clear];
                     
                     //Preparava gravador
                     [self carregaGravador:txtNome categoria:txtCategoria];
@@ -154,7 +154,7 @@
                     //Começa a contar o tempo
                     _timer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(atualizaTimer) userInfo:nil repeats:YES];
                     
-                    [_microphone startFetchingAudio];
+//                    [_microphone startFetchingAudio];
                     
                     //Time
                     _tempoGravacao = [NSDate dateWithTimeIntervalSinceNow:0];
@@ -202,7 +202,7 @@
         [_btnGravar setImage:[UIImage imageNamed:@"gravar.png"] forState:UIControlStateNormal];
         _gravando = false;
         
-        [_microphone stopFetchingAudio];
+//        [_microphone stopFetchingAudio];
         
         [_timer invalidate];
         
@@ -269,10 +269,10 @@
     }
 }
 
--(void)microphone:(EZMicrophone *)microphone hasAudioReceived:(float **)buffer withBufferSize:(UInt32)bufferSize withNumberOfChannels:(UInt32)numberOfChannels {
-    dispatch_async(dispatch_get_main_queue(),^{
-        [self.audioPlot updateBuffer:buffer[0] withBufferSize:bufferSize];
-    });
-}
+//-(void)microphone:(EZMicrophone *)microphone hasAudioReceived:(float **)buffer withBufferSize:(UInt32)bufferSize withNumberOfChannels:(UInt32)numberOfChannels {
+//    dispatch_async(dispatch_get_main_queue(),^{
+//        [self.audioPlot updateBuffer:buffer[0] withBufferSize:bufferSize];
+//    });
+//}
 
 @end
