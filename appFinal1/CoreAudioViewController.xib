@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5053" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CoreAudioViewController">
             <connections>
-                <outlet property="audioPlot" destination="vXt-vD-QbV" id="2sj-jN-lGF"/>
                 <outlet property="btnGravar" destination="xq6-C9-MdR" id="l4L-0C-rBN"/>
                 <outlet property="buscarItem" destination="c3r-MW-hxS" id="bsY-Iy-VAM"/>
                 <outlet property="gravarItem" destination="TEj-qM-8ki" id="odl-na-1c2"/>
@@ -23,7 +22,6 @@
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xq6-C9-MdR">
                     <rect key="frame" x="125" y="299" width="70" height="70"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <state key="normal" image="gravar.png">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -35,7 +33,6 @@
                 </button>
                 <tabBar contentMode="scaleToFill" fixedFrame="YES" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kee-EF-taZ">
                     <rect key="frame" x="0.0" y="530" width="320" height="49"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <items>
                         <tabBarItem tag="1" title="" image="gravarIcon.png" id="TEj-qM-8ki"/>
@@ -47,14 +44,12 @@
                         <outlet property="delegate" destination="-1" id="mS0-fO-SD9"/>
                     </connections>
                 </tabBar>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vXt-vD-QbV" customClass="EZAudioPlotGL">
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vXt-vD-QbV">
                     <rect key="frame" x="0.0" y="55" width="320" height="190"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pXW-eP-Ikv">
                     <rect key="frame" x="113" y="245" width="95" height="47"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.93580776453018188" green="0.57318609952926636" blue="0.41507679224014282" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -63,12 +58,9 @@
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="seta_tabbar.png" translatesAutoresizingMaskIntoConstraints="NO" id="mi5-l1-LGA">
                     <rect key="frame" x="43" y="518" width="20" height="12"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
     <resources>
@@ -78,4 +70,9 @@
         <image name="perfilcone.png" width="30" height="30"/>
         <image name="seta_tabbar.png" width="54" height="35"/>
     </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>

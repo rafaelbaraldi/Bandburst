@@ -12,16 +12,7 @@
 
 #import "LocalStore.h"
 
-#import "TelaCadastroViewController.h"
-#import "TelaBuscaViewController.h"
 #import "TelaLoginViewController.h"
-#import "TelaPerfilViewController.h"
-
-#import "TBFiltroInstrumento.h"
-
-#import "CoreAudioViewController.h"
-
-#import "TPUsuario.h"
 
 #import <FacebookSDK/FacebookSDK.h>
 
@@ -35,11 +26,13 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
 
+
+//    TelaLoginViewController *navegacaoC = [[TelaLoginViewController alloc] initWithNibName:@"TelaLoginViewController" bundle:nil];
     
     [LocalStore setParaUsuarioZero];
 
     BOOL logado = [LoginStore verificaSeEstaLogado];
-    
+
     UIViewController *telaVc;
     if(logado){
         telaVc = [[LocalStore sharedStore] TelaBusca];
@@ -49,15 +42,13 @@
     }
     
     //Navigation Controller - Alterar Cores
-    UINavigationController *navegacaoC = [[UINavigationController alloc] initWithRootViewController:telaVc];
-    [navegacaoC.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [[LocalStore sharedStore] FONTECOR], NSFontAttributeName: [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]}];
-//    [navegacaoC.navigationBar setBarStyle:UIBarStyleBlackOpaque];
+    UINavigationController *navegacao = [[UINavigationController alloc] initWithRootViewController:telaVc];
+    [navegacao.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [[LocalStore sharedStore] FONTECOR]}];
     
     [[UITextField appearance] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
     [[UILabel appearance] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
-//    [[UIButton appearance] setBackgroundColor:[[LocalStore sharedStore] FONTECOR]];
     
-    [self.window setRootViewController:navegacaoC];
+    [self.window setRootViewController:navegacao];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     

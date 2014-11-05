@@ -183,24 +183,24 @@
 		1B06F7A01993FC6400A6338C /* TPMusica.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPMusica.h; sourceTree = "<group>"; };
 		1B06F7A11993FC6400A6338C /* TPMusica.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPMusica.m; sourceTree = "<group>"; };
 		1B06F7A3199414C700A6338C /* TelaInfosBandaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TelaInfosBandaViewController.h; sourceTree = "<group>"; };
-		1B06F7A4199414C700A6338C /* TelaInfosBandaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TelaInfosBandaViewController.m; sourceTree = "<group>"; };
+		1B06F7A4199414C700A6338C /* TelaInfosBandaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TelaInfosBandaViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		1B06F7A5199414C700A6338C /* TelaInfosBandaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TelaInfosBandaViewController.xib; sourceTree = "<group>"; };
 		1B1613041992A2A1009D5513 /* TelaNovaBandaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TelaNovaBandaViewController.h; sourceTree = "<group>"; };
-		1B1613051992A2A1009D5513 /* TelaNovaBandaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TelaNovaBandaViewController.m; sourceTree = "<group>"; };
+		1B1613051992A2A1009D5513 /* TelaNovaBandaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TelaNovaBandaViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		1B1613061992A2A1009D5513 /* TelaNovaBandaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TelaNovaBandaViewController.xib; sourceTree = "<group>"; };
 		1B16130A1992A4B0009D5513 /* BandaStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BandaStore.h; sourceTree = "<group>"; };
 		1B16130B1992A4B0009D5513 /* BandaStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BandaStore.m; sourceTree = "<group>"; };
 		1B16130D1992A6E2009D5513 /* TelaAmigosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TelaAmigosViewController.h; sourceTree = "<group>"; };
-		1B16130E1992A6E2009D5513 /* TelaAmigosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TelaAmigosViewController.m; sourceTree = "<group>"; };
+		1B16130E1992A6E2009D5513 /* TelaAmigosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TelaAmigosViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		1B16130F1992A6E2009D5513 /* TelaAmigosViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TelaAmigosViewController.xib; sourceTree = "<group>"; };
 		1B1613131992A993009D5513 /* BandaConexao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BandaConexao.h; sourceTree = "<group>"; };
-		1B1613141992A993009D5513 /* BandaConexao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BandaConexao.m; sourceTree = "<group>"; };
+		1B1613141992A993009D5513 /* BandaConexao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = BandaConexao.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		1B1666271935084000E2FB47 /* TPUsuario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPUsuario.h; sourceTree = "<group>"; };
 		1B1666281935084000E2FB47 /* TPUsuario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPUsuario.m; sourceTree = "<group>"; };
 		1B337A9E19D6021700BAC433 /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
 		1B337AA219D603D700BAC433 /* uncheck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uncheck.png; sourceTree = "<group>"; };
 		1B3BF25F19F6D19200ECE606 /* TelaPerfilBandaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TelaPerfilBandaViewController.h; sourceTree = "<group>"; };
-		1B3BF26019F6D19200ECE606 /* TelaPerfilBandaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TelaPerfilBandaViewController.m; sourceTree = "<group>"; };
+		1B3BF26019F6D19200ECE606 /* TelaPerfilBandaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TelaPerfilBandaViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		1B3BF26119F6D19200ECE606 /* TelaPerfilBandaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TelaPerfilBandaViewController.xib; sourceTree = "<group>"; };
 		1B41D5E219EF10ED00D6D034 /* gravarIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gravarIcon@2x.png"; sourceTree = "<group>"; };
 		1B41D5E319EF10ED00D6D034 /* perfilcone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "perfilcone@2x.png"; sourceTree = "<group>"; };
@@ -211,12 +211,12 @@
 		1B5FE13E192FC23B00E35BCC /* BuscaStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuscaStore.h; sourceTree = "<group>"; };
 		1B5FE13F192FC23B00E35BCC /* BuscaStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuscaStore.m; sourceTree = "<group>"; };
 		1B5FE142192FD00300E35BCC /* BuscaConexao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuscaConexao.h; sourceTree = "<group>"; };
-		1B5FE143192FD00300E35BCC /* BuscaConexao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuscaConexao.m; sourceTree = "<group>"; };
+		1B5FE143192FD00300E35BCC /* BuscaConexao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = BuscaConexao.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		1B67BD8019D9E66000A663EC /* gravador.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gravador.png; sourceTree = "<group>"; };
 		1B67BD8319D9F00500A663EC /* gravar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gravar.png; sourceTree = "<group>"; };
 		1B6BFA8519EDAC67003465DA /* stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stop.png; sourceTree = "<group>"; };
 		1B82766C192BDB3500E461AD /* TelaBuscaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TelaBuscaViewController.h; sourceTree = "<group>"; };
-		1B82766D192BDB3500E461AD /* TelaBuscaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TelaBuscaViewController.m; sourceTree = "<group>"; };
+		1B82766D192BDB3500E461AD /* TelaBuscaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TelaBuscaViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		1B82766E192BDB3500E461AD /* TelaBuscaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TelaBuscaViewController.xib; sourceTree = "<group>"; };
 		1B970D8F19D365A900D0FD01 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TBInstrumentosQueTocaViewController.xib; sourceTree = "<group>"; };
 		1B9A0F4919CB5964009AA3EB /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
@@ -248,7 +248,7 @@
 		1BE8E3F01925343300D108C0 /* TelaCadastroViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TelaCadastroViewController.m; sourceTree = "<group>"; };
 		1BE8E3F11925343300D108C0 /* TelaCadastroViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TelaCadastroViewController.xib; sourceTree = "<group>"; };
 		1BE8E3FA192544E900D108C0 /* LocalStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalStore.h; sourceTree = "<group>"; };
-		1BE8E3FB192544E900D108C0 /* LocalStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalStore.m; sourceTree = "<group>"; };
+		1BE8E3FB192544E900D108C0 /* LocalStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LocalStore.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		1BEA45801992C64B00876D75 /* TPBanda.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPBanda.h; sourceTree = "<group>"; };
 		1BEA45811992C64B00876D75 /* TPBanda.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPBanda.m; sourceTree = "<group>"; };
 		1BEA45841992C7A100876D75 /* 8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 8.png; sourceTree = "<group>"; };
@@ -269,7 +269,7 @@
 		1BEA45931992C7A100876D75 /* 5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5.png; sourceTree = "<group>"; };
 		1BEA45941992C7A100876D75 /* 7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 7.png; sourceTree = "<group>"; };
 		1BEA45A71992C96200876D75 /* PerfilConexao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PerfilConexao.h; sourceTree = "<group>"; };
-		1BEA45A81992C96200876D75 /* PerfilConexao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PerfilConexao.m; sourceTree = "<group>"; };
+		1BEA45A81992C96200876D75 /* PerfilConexao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PerfilConexao.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		1BEA45AA1992C98D00876D75 /* PerfilStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PerfilStore.h; sourceTree = "<group>"; };
 		1BEA45AB1992C98D00876D75 /* PerfilStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PerfilStore.m; sourceTree = "<group>"; };
 		2F270FC91981936C00EFBEB4 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
@@ -290,7 +290,7 @@
 		3196638D19F6C28200A5BC72 /* favoritados@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favoritados@2x.png"; sourceTree = "<group>"; };
 		3196638E19F6C28200A5BC72 /* favoritados.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favoritados.png; sourceTree = "<group>"; };
 		3196639119F6C52700A5BC72 /* TelaFavoritadosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TelaFavoritadosViewController.h; sourceTree = "<group>"; };
-		3196639219F6C52700A5BC72 /* TelaFavoritadosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TelaFavoritadosViewController.m; sourceTree = "<group>"; };
+		3196639219F6C52700A5BC72 /* TelaFavoritadosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TelaFavoritadosViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		3196639319F6C52700A5BC72 /* TelaFavoritadosViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TelaFavoritadosViewController.xib; sourceTree = "<group>"; };
 		31A0043C1993F0CA00121EF6 /* TelaBandaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TelaBandaViewController.h; sourceTree = "<group>"; };
 		31A0043D1993F0CA00121EF6 /* TelaBandaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TelaBandaViewController.m; sourceTree = "<group>"; };
@@ -311,7 +311,7 @@
 		31EC795F19F83757004CB4A9 /* slider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slider.png; sourceTree = "<group>"; };
 		31F67C74193515CC00113DA8 /* escrever.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = escrever.png; sourceTree = "<group>"; };
 		31F67C76193523D400113DA8 /* TelaUsuarioFiltrado.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TelaUsuarioFiltrado.h; sourceTree = "<group>"; };
-		31F67C77193523D400113DA8 /* TelaUsuarioFiltrado.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TelaUsuarioFiltrado.m; sourceTree = "<group>"; };
+		31F67C77193523D400113DA8 /* TelaUsuarioFiltrado.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TelaUsuarioFiltrado.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		31F67C78193523D400113DA8 /* TelaUsuarioFiltrado.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TelaUsuarioFiltrado.xib; sourceTree = "<group>"; };
 		31F67C7B1935286600113DA8 /* TPInstrumento.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPInstrumento.h; sourceTree = "<group>"; };
 		31F67C7C1935286600113DA8 /* TPInstrumento.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPInstrumento.m; sourceTree = "<group>"; };
@@ -386,7 +386,7 @@
 		73A3073019746B60005551D3 /* TBInstrumentosQueTocaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBInstrumentosQueTocaViewController.h; sourceTree = "<group>"; };
 		73A3073119746B60005551D3 /* TBInstrumentosQueTocaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBInstrumentosQueTocaViewController.m; sourceTree = "<group>"; };
 		73A307361974844A005551D3 /* CadastroConexao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CadastroConexao.h; sourceTree = "<group>"; };
-		73A307371974844A005551D3 /* CadastroConexao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CadastroConexao.m; sourceTree = "<group>"; };
+		73A307371974844A005551D3 /* CadastroConexao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CadastroConexao.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		73C16CDF19A76F3C00B30E50 /* LayoutCustom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayoutCustom.h; sourceTree = "<group>"; };
 		73C16CE019A76F3C00B30E50 /* LayoutCustom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LayoutCustom.m; sourceTree = "<group>"; };
 		73C84969196F11BD003D9371 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -400,11 +400,11 @@
 		73EC6E90196B121B0034CB9B /* TelaLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TelaLoginViewController.m; sourceTree = "<group>"; };
 		73EC6E91196B121B0034CB9B /* TelaLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TelaLoginViewController.xib; sourceTree = "<group>"; };
 		73EC6E95196B18430034CB9B /* LoginConexao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginConexao.h; sourceTree = "<group>"; };
-		73EC6E96196B18430034CB9B /* LoginConexao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginConexao.m; sourceTree = "<group>"; };
+		73EC6E96196B18430034CB9B /* LoginConexao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LoginConexao.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		73EC6E99196B32FE0034CB9B /* LoginStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginStore.h; sourceTree = "<group>"; };
 		73EC6E9A196B32FE0034CB9B /* LoginStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginStore.m; sourceTree = "<group>"; };
 		73EC6E9D196B3BB90034CB9B /* TelaPerfilViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TelaPerfilViewController.h; sourceTree = "<group>"; };
-		73EC6E9E196B3BB90034CB9B /* TelaPerfilViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TelaPerfilViewController.m; sourceTree = "<group>"; };
+		73EC6E9E196B3BB90034CB9B /* TelaPerfilViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = TelaPerfilViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		73F6F71019A63F980003B408 /* deselecionado.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deselecionado.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 

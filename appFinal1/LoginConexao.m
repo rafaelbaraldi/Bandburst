@@ -13,7 +13,7 @@
 
 +(NSDictionary*)login:(NSString*)email senha:(NSString*)senha{
 
-    NSString *url = @"http://54.187.203.61/appMusica/login.php";
+    NSString *url = @"http://54.207.112.185/appMusica/login.php";
     
     NSString *post = [NSString stringWithFormat:@"email=%@&senha=%@", email, senha];
     
@@ -38,7 +38,7 @@
 
 +(NSDictionary*)esqueciSenha:(NSString*)email{
     
-    NSString *url = @"http://54.187.203.61/appMusica/esqueciasenha.php";
+    NSString *url = @"http://54.207.112.185/appMusica/esqueciasenha.php";
     
     NSString *post = [NSString stringWithFormat:@"email=%@", email];
     

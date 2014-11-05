@@ -12,7 +12,7 @@
 @implementation PerfilConexao
 
 +(NSDictionary*)buscaIdENomeBandas:(NSString*)identificador{
-    NSString *url = @"http://54.187.203.61/appMusica/buscaIdBandas.php";
+    NSString *url = @"http://54.207.112.185/appMusica/buscaIdBandas.php";
     
     NSString *post = [NSString stringWithFormat:@"id=%@", identificador];
     
@@ -35,7 +35,7 @@
 }
 
 +(NSDictionary*)buscaQtdDeAmigos{
-    NSString *url = @"http://54.187.203.61/appMusica/buscaQtdDeAmigos.php";
+    NSString *url = @"http://54.207.112.185/appMusica/buscaQtdDeAmigos.php";
     
     NSString *post = [NSString stringWithFormat:@"id=%@", [[LocalStore sharedStore] usuarioAtual].identificador];
     

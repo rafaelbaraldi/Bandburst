@@ -39,31 +39,31 @@
     
     //Entrar
     [[_btnEntrar layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
-    [[_btnEntrar titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+//    [[_btnEntrar titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
     
     //Cadastrar
     [[_btnCadastrar layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
-    [[_btnCadastrar titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+//    [[_btnCadastrar titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
     
     //Login
     [[_btnContinuar layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
-    [[_btnContinuar titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+//    [[_btnContinuar titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
 
     //TXT Email
     [_txtSenha setSecureTextEntry:YES];
     [[_txtEmail layer]setBorderWidth:2.0f];
     [[_txtEmail layer] setCornerRadius:[[LocalStore sharedStore] RAIOTEXT]];
     [[_txtEmail layer] setBorderColor:[[LocalStore sharedStore] FONTECOR].CGColor];
-    [_txtEmail setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+//    [_txtEmail setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
     
     //TXT Senha
     [[_txtSenha layer]setBorderWidth:2.0f];
     [[_txtSenha layer] setCornerRadius:[[LocalStore sharedStore] RAIOTEXT]];
     [[_txtSenha layer] setBorderColor:[[LocalStore sharedStore] FONTECOR].CGColor];
-    [_txtSenha setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+//    [_txtSenha setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
     
     //Esqueceu senha
-    [[_lblEsqueceuSenha titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+//    [[_lblEsqueceuSenha titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -151,7 +151,7 @@
     [LocalStore setParaUsuarioZero];
     
     if ([LocalStore verificaSeViewJaEstaNaPilha:[[self navigationController] viewControllers] proximaTela:[[LocalStore sharedStore] TelaBusca]]) {
-        [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaBusca] animated:YES];
+        [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaGravacao] animated:YES];
     }
     else{
         [[self navigationController] pushViewController:[[LocalStore sharedStore] TelaBusca] animated:YES];

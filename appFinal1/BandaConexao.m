@@ -12,7 +12,7 @@
 @implementation BandaConexao
 
 +(NSDictionary*)buscaIdAmigos:(NSString*)identificador{
-    NSString *url = @"http://54.187.203.61/appMusica/buscaIdAmigos.php";
+    NSString *url = @"http://54.207.112.185/appMusica/buscaIdAmigos.php";
     
     NSString *post = [NSString stringWithFormat:@"id=%@", identificador];
     
@@ -35,7 +35,7 @@
 }
 
 +(NSDictionary*)buscaBanda:(NSString*)identificador{
-    NSString *url = @"http://54.187.203.61/appMusica/buscaBanda.php";
+    NSString *url = @"http://54.207.112.185/appMusica/buscaBanda.php";
     
     NSString *post = [NSString stringWithFormat:@"id=%@", identificador];
     
@@ -58,7 +58,7 @@
 }
 
 +(NSDictionary*)buscaMensagensBanda:(NSString*)identificador{
-    NSString *url = @"http://54.187.203.61/appMusica/buscaMensagensBanda.php";
+    NSString *url = @"http://54.207.112.185/appMusica/buscaMensagensBanda.php";
     
     NSString *post = [NSString stringWithFormat:@"id=%@", identificador];
     
@@ -81,7 +81,7 @@
 }
 
 +(NSDictionary*)buscaMusicasBanda:(NSString*)identificador{
-    NSString *url = @"http://54.187.203.61/appMusica/buscaMusicasBanda.php";
+    NSString *url = @"http://54.207.112.185/appMusica/buscaMusicasBanda.php";
     
     NSString *post = [NSString stringWithFormat:@"id=%@", identificador];
     
@@ -104,7 +104,7 @@
 }
 
 +(NSString*)cadastraBanda:(NSData*)jsonCadastro{
-    NSString *url = @"http://54.187.203.61/appMusica/cadastroBanda.php";
+    NSString *url = @"http://54.207.112.185/appMusica/cadastroBanda.php";
     
     NSString *strJson = [[NSString alloc] initWithData:jsonCadastro encoding:NSUTF8StringEncoding];
     
@@ -127,7 +127,7 @@
 
 
 +(NSString*)enviaMensagem:(NSString*)mensagem idBanda:(NSString*)idBanda idUsuario:(NSString*)idUsuario{
-    NSString *url = @"http://54.187.203.61/appMusica/enviaMensagem.php";
+    NSString *url = @"http://54.207.112.185/appMusica/enviaMensagem.php";
     
     NSString *post = [NSString stringWithFormat:@"idBanda=%@&idUsuario=%@&mensagem=%@", idBanda, idUsuario, mensagem];
     
@@ -149,7 +149,7 @@
 }
 
 +(NSString*)enviaMusica:(NSString*)nomeMusica urlMusica:(NSString*)urlMusica idBanda:(NSString*)idBanda idUsuario:(NSString*)idUsuario{
-    NSString *url = [NSString stringWithFormat:@"http://54.187.203.61/appMusica/salvaMusica.php?idBanda=%@&idUsuario=%@&", idBanda, idUsuario];
+    NSString *url = [NSString stringWithFormat:@"http://54.207.112.185/appMusica/salvaMusica.php?idBanda=%@&idUsuario=%@&", idBanda, idUsuario];
     
     NSData *postData = [NSData dataWithContentsOfFile:urlMusica];
     

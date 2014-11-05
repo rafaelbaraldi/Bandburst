@@ -49,14 +49,14 @@
 
     [self escondeBotaoDeBoltarSeUsuarioLogado];
     
-    //Verifica se há filtro de horarios preenchidos
+//    //Verifica se há filtro de horarios preenchidos
     [self carregaFiltroDeHorario];
-    
-    //Carrega os usuarios buscado
+
+//    //Carrega os usuarios buscado
     [self carregaUsuarioBuscado];
-    
+
     [self atualizaTela];
-    
+
     [[self navigationItem] setTitle:@"Encontrar Músico"];
 }
 
@@ -165,15 +165,15 @@
     
     //Botao Estilo
     [[_btnEstilo layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
-    [[_btnEstilo titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14]];
+//    [[_btnEstilo titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14]];
     
     //Botao instrumento
     [[_btnInstumento layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
-    [[_btnInstumento titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14]];
+//    [[_btnInstumento titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14]];
     
     //Botao de Horarios
     [[_btnHorarios layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
-    [[_btnHorarios titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14]];
+//    [[_btnHorarios titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14]];
     
     //Text Cidade
     [[_txtCidade layer] setBorderWidth:2.0f];
@@ -291,7 +291,7 @@
     celulaPerfilTableViewCell* celula = [tableView dequeueReusableCellWithIdentifier:@"UsuarioPesquisaCell"];
     
     //URL Foto do Usuario
-    NSString *urlFoto = [NSString stringWithFormat:@"http://54.187.203.61/appMusica/FotosDePerfil/%@.png", ((TPUsuario*)[_usuarios objectAtIndex:indexPath.row]).identificador];
+    NSString *urlFoto = [NSString stringWithFormat:@"http://54.207.112.185/appMusica/FotosDePerfil/%@.png", ((TPUsuario*)[_usuarios objectAtIndex:indexPath.row]).identificador];
     NSURL *imageURL = [NSURL URLWithString:urlFoto];
     
     if(celula == nil){
@@ -299,14 +299,14 @@
         
         UILabel *nome = [[UILabel alloc] initWithFrame:CGRectMake(120, 25, 170, 20)];
         nome.text = ((TPUsuario*)[_usuarios objectAtIndex:indexPath.row]).nome;
-        nome.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16];
+//        nome.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16];
         nome.textColor = [[LocalStore sharedStore] FONTECOR];
         nome.adjustsFontSizeToFitWidth = YES;
         nome.tag = 1;
         
         UILabel *cidade = [[UILabel alloc] initWithFrame:CGRectMake(120, 55, 170, 15)];
         cidade.text = ((TPUsuario*)[_usuarios objectAtIndex:indexPath.row]).cidade;
-        cidade.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:12];
+//        cidade.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:12];
         cidade.textColor = [[LocalStore sharedStore] FONTECOR];
         cidade.adjustsFontSizeToFitWidth = YES;
         cidade.tag = 2;

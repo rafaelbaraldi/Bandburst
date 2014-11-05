@@ -106,7 +106,7 @@
     celulaPerfilTableViewCell* celula = [tableView dequeueReusableCellWithIdentifier:@"UsuarioPesquisaCell"];
     
     //URL Foto do Usuario
-    NSString *urlFoto = [NSString stringWithFormat:@"http://54.187.203.61/appMusica/FotosDePerfil/%@.png", ((TPUsuario*)[_amigosFiltrados objectAtIndex:indexPath.row]).identificador];
+    NSString *urlFoto = [NSString stringWithFormat:@"http://54.207.112.185/appMusica/FotosDePerfil/%@.png", ((TPUsuario*)[_amigosFiltrados objectAtIndex:indexPath.row]).identificador];
     NSURL *imageURL = [NSURL URLWithString:urlFoto];
     
     if(celula == nil){

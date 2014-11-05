@@ -144,7 +144,7 @@
 
 -(void)carregaImagemUsuario{
     
-    NSString *urlFoto = [NSString stringWithFormat:@"http://54.187.203.61/appMusica/FotosDePerfil/%@.png", [BuscaStore buscaPessoa:_identificador].identificador];
+    NSString *urlFoto = [NSString stringWithFormat:@"http://54.207.112.185/appMusica/FotosDePerfil/%@.png", [BuscaStore buscaPessoa:_identificador].identificador];
     
     UIImage* foto = [[SDImageCache sharedImageCache] imageFromMemoryCacheForKey:urlFoto];
     if(foto == nil){

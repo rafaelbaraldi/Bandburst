@@ -132,7 +132,7 @@
 
 -(void)carregaImagemPerfil{
     
-    NSString *urlFoto = [NSString stringWithFormat:@"http://54.187.203.61/appMusica/FotosDePerfil/%@.png", [[LocalStore sharedStore] usuarioAtual].identificador];
+    NSString *urlFoto = [NSString stringWithFormat:@"http://54.207.112.185/appMusica/FotosDePerfil/%@.png", [[LocalStore sharedStore] usuarioAtual].identificador];
     NSURL *imageURL = [NSURL URLWithString:urlFoto];
     
     _imagePerfil.image = [[SDImageCache sharedImageCache] imageFromMemoryCacheForKey:urlFoto];

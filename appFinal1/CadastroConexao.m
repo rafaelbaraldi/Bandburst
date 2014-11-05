@@ -16,7 +16,7 @@
 
 +(void)uploadFoto:(UIImage*)foto{
 
-    NSString *url = @"http://54.187.203.61/appMusica/cadastroFoto.php";
+    NSString *url = @"http://54.207.112.185/appMusica/cadastroFoto.php";
 
     NSData *postData = UIImagePNGRepresentation(foto);
     
@@ -43,7 +43,7 @@
 
 +(NSString*)cadastrar:(NSData*)jsonCadastro{
     
-    NSString *url = @"http://54.187.203.61/appMusica/cadastroUsuario.php";
+    NSString *url = @"http://54.207.112.185/appMusica/cadastroUsuario.php";
     
     NSString *strJson = [[NSString alloc] initWithData:jsonCadastro encoding:NSUTF8StringEncoding];
 
@@ -65,7 +65,7 @@
 
 +(NSString*)atualizar:(NSData*)jsonCadastro{
     
-    NSString *url = @"http://54.187.203.61/appMusica/atualizaUsuario.php";
+    NSString *url = @"http://54.207.112.185/appMusica/atualizaUsuario.php";
     
     NSString *strJson = [[NSString alloc] initWithData:jsonCadastro encoding:NSUTF8StringEncoding];
     
@@ -87,7 +87,7 @@
 
 +(NSString*)validarEmail:(NSString*)email{
     
-    NSString *url = @"http://54.187.203.61/appMusica/validarEmail.php";
+    NSString *url = @"http://54.207.112.185/appMusica/validarEmail.php";
     
     NSString *post = [NSString stringWithFormat:@"email=%@", email];
     

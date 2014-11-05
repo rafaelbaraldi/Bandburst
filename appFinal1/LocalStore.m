@@ -34,7 +34,7 @@
         
         _USUARIOZERO = @"0";
         
-        _URL = @"http://54.187.203.61/appMusica/";
+        _URL = @"http://54.207.112.185/appMusica/";
         
         //Configs da fonte
         _FONTECOR = [UIColor colorWithRed:0.898 green:0.49 blue:0.333 alpha:1]; /* Hexadecmial #c26c23  - r:229 g:125 b:85  */

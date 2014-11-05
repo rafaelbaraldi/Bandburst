@@ -1,4 +1,4 @@
-//
+    //
 //  BuscaConexao.m
 //  appFinal1
 //
@@ -13,7 +13,7 @@
 
 +(NSDictionary*)retornaListaDe:(NSString *)tabela{
     
-    NSString *url = [NSString stringWithFormat:@"http://54.187.203.61/appMusica/%@.php", tabela];
+    NSString *url = [NSString stringWithFormat:@"http://54.207.112.185/appMusica/%@.php", tabela];
     NSData *data = [url dataUsingEncoding:NSUTF8StringEncoding];
     
     url = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
@@ -39,7 +39,7 @@
 }
 
 +(NSDictionary*)buscaUsuario:(NSString *)instrumento estilo:(NSString*)estilo cidade:(NSString*)cidade horario:(NSString*)horario{
-    NSString *url = @"http://54.187.203.61/appMusica/usuario.php";
+    NSString *url = @"http://54.207.112.185/appMusica/usuario.php";
     
     NSString *post = [NSString stringWithFormat:@"instrumento=%@&estilo=%@&cidade=%@&horario=%@", instrumento, estilo, cidade, horario];
     
@@ -63,7 +63,7 @@
 }
 
 +(NSDictionary*)buscaUsuario:(NSString*)identificador{
-    NSString *url = @"http://54.187.203.61/appMusica/usuarioFiltrado.php";
+    NSString *url = @"http://54.207.112.185/appMusica/usuarioFiltrado.php";
     
     NSString *post = [NSString stringWithFormat:@"id=%@", identificador];
     
@@ -86,7 +86,7 @@
 }
 
 +(NSString*)seguirAmigo:(NSString*)idAmigo acao:(NSString*)acao{
-    NSString *url = @"http://54.187.203.61/appMusica/seguirAmigo.php";
+    NSString *url = @"http://54.207.112.185/appMusica/seguirAmigo.php";
     
     NSString *post = [NSString stringWithFormat:@"id_usuario=%@&id_seguindo=%@&acao=%@", [[LocalStore sharedStore] usuarioAtual].identificador, idAmigo, acao];
     

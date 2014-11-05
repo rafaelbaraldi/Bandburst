@@ -225,7 +225,7 @@
 -(UIImageView*)carregaImagemUsuario:(NSString*)identificador{
     
     //URL da foto
-    NSString *urlFoto = [NSString stringWithFormat:@"http://54.187.203.61/appMusica/FotosDePerfil/%@.png", identificador];
+    NSString *urlFoto = [NSString stringWithFormat:@"http://54.207.112.185/appMusica/FotosDePerfil/%@.png", identificador];
     NSURL *imageURL = [NSURL URLWithString:urlFoto];
     
     UIImageView *fotoUsuario = [[UIImageView alloc] initWithFrame:CGRectMake(15, 3, 50, 50)];
