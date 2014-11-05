@@ -58,8 +58,8 @@
     
     _lblNomeGravacao.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:18.0];
     _lblCategoriaGravacao.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14.0];
-    _lblTempoTotal.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:10.0];
-    _lblTempoCorrente.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:10.0];
+//    _lblTempoTotal.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:10.0];
+//    _lblTempoCorrente.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:10.0];
     
     //Slider Progresso da Gravação
     [_progressoGravacao setThumbImage:[UIImage imageNamed:@"slider.png"] forState:UIControlStateNormal];

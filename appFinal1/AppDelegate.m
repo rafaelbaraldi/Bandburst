@@ -45,8 +45,9 @@
     UINavigationController *navegacao = [[UINavigationController alloc] initWithRootViewController:telaVc];
     [navegacao.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [[LocalStore sharedStore] FONTECOR]}];
     
-    [[UITextField appearance] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
-    [[UILabel appearance] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+//    [[UITextField appearance] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14]];
+//    [[UILabel appearance] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14]];
+    [[UITabBar appearance] setBarTintColor:[[LocalStore sharedStore] FONTECOR]];
     
     [self.window setRootViewController:navegacao];
     self.window.backgroundColor = [UIColor whiteColor];

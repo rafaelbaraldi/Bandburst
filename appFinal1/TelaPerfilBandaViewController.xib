@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TelaPerfilBandaViewController">
             <connections>
+                <outlet property="btnAdicionarGravacao" destination="Hb2-bo-7K3" id="ZQA-Pp-q2V"/>
                 <outlet property="btnChat" destination="QX8-B0-iBM" id="0ab-LW-j1f"/>
                 <outlet property="btnEditar" destination="1xL-gB-ITA" id="BoF-nT-2H4"/>
                 <outlet property="lblNome" destination="9H1-bE-Vqn" id="v4Z-AL-HXb"/>
@@ -64,7 +65,7 @@
                     </connections>
                 </segmentedControl>
                 <tableView clipsSubviews="YES" tag="1" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="cqP-aK-YRS">
-                    <rect key="frame" x="8" y="260" width="304" height="250"/>
+                    <rect key="frame" x="8" y="255" width="304" height="230"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
@@ -73,7 +74,7 @@
                     </connections>
                 </tableView>
                 <tableView hidden="YES" clipsSubviews="YES" tag="2" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="QsJ-zx-mcy">
-                    <rect key="frame" x="8" y="260" width="304" height="250"/>
+                    <rect key="frame" x="8" y="255" width="304" height="230"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
@@ -81,6 +82,19 @@
                         <outlet property="delegate" destination="-1" id="nay-QX-c51"/>
                     </connections>
                 </tableView>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hb2-bo-7K3">
+                    <rect key="frame" x="153" y="493" width="159" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.8980392814" green="0.49019610879999997" blue="0.33333334329999997" alpha="1" colorSpace="deviceRGB"/>
+                    <color key="tintColor" red="0.98823535439999999" green="0.12549020350000001" blue="0.30196079609999998" alpha="1" colorSpace="deviceRGB"/>
+                    <state key="normal" title="Adicionar gravação">
+                        <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="btnAdicionarGravacaoClick:" destination="-1" eventType="touchUpInside" id="VvF-Wi-h6P"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>

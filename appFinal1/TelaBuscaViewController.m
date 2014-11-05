@@ -67,6 +67,19 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     
+    [self carregaTabBar];
+    
+    //Metodo de Busca por cidade
+    [_txtCidade addTarget:self action:@selector(textFieldDidChange) forControlEvents:UIControlEventEditingChanged];
+
+    //Deixa a borda dos boteos arredondados
+    [self arredondaBordaBotoes];
+    
+    [self carregaLayout];
+}
+
+-(void)carregaTabBar{
+    
     _gravarItem.image = [[UIImage imageNamed:@"gravarIcon.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     _gravarItem.selectedImage = [[UIImage imageNamed:@"gravarIcon.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     _buscarItem.image = [[UIImage imageNamed:@"buscador.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
@@ -76,13 +89,7 @@
     
     [_tabBar setTintColor: [UIColor whiteColor]];
     
-    //Metodo de Busca por cidade
-    [_txtCidade addTarget:self action:@selector(textFieldDidChange) forControlEvents:UIControlEventEditingChanged];
-
-    //Deixa a borda dos boteos arredondados
-    [self arredondaBordaBotoes];
-    
-    [self carregaLayout];
+    _tabBarSeta.backgroundColor = [[LocalStore sharedStore] FONTECOR];
 }
 
 -(void)escondeBotaoDeBoltarSeUsuarioLogado{

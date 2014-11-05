@@ -27,12 +27,18 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        [[self navigationItem] setHidesBackButton:YES];
     }
     return self;
 }
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    
+    [self carregaTabBar];
+}
+
+-(void)carregaTabBar{
     
     _gravarPerfil.image = [[UIImage imageNamed:@"gravarIcon.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     _gravarPerfil.selectedImage = [[UIImage imageNamed:@"gravarIcon.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
@@ -42,6 +48,8 @@
     _perfilItem.selectedImage = [[UIImage imageNamed:@"perfilcone.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
     [_tabBar setTintColor: [UIColor whiteColor]];
+    
+    _tabBarSeta.backgroundColor = [[LocalStore sharedStore] FONTECOR];
 }
 
 -(void)viewWillAppear:(BOOL)animated{

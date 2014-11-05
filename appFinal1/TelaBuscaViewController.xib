@@ -13,6 +13,7 @@
                 <outlet property="gravarItem" destination="p7Z-6i-Aqn" id="w7c-EO-e4Q"/>
                 <outlet property="lblMsgBusca" destination="2R3-Zl-kHm" id="Wlc-a7-KLF"/>
                 <outlet property="tabBar" destination="nJ8-aO-iVP" id="H8V-TF-p51"/>
+                <outlet property="tabBarSeta" destination="UTh-cH-uVd" id="zNe-ab-LQP"/>
                 <outlet property="tbUsuarios" destination="yzY-OJ-snY" id="eJZ-MP-7hM"/>
                 <outlet property="txtCidade" destination="Pn6-pB-ta9" id="OM5-mq-buj"/>
                 <outlet property="usuarioItem" destination="vQ6-Ug-yzt" id="02N-N6-yy0"/>
@@ -145,6 +146,7 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="seta_tabbar.png" translatesAutoresizingMaskIntoConstraints="NO" id="UTh-cH-uVd">
                     <rect key="frame" x="147" y="518" width="20" height="12"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.98823535439999999" green="0.12549020350000001" blue="0.30196079609999998" alpha="1" colorSpace="deviceRGB"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -156,6 +158,6 @@
         <image name="buscador.png" width="30" height="30"/>
         <image name="gravarIcon.png" width="30" height="30"/>
         <image name="perfilcone.png" width="30" height="30"/>
-        <image name="seta_tabbar.png" width="54" height="35"/>
+        <image name="seta_tabbar.png" width="39" height="25"/>
     </resources>
 </document>

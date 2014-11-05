@@ -12,6 +12,7 @@
 #import "TPMusica.h"
 #import "LocalStore.h"
 #import "TelaBandaViewController.h"
+#import "TelaMusicasViewController.h"
 
 #import "GravacaoStore.h"
 
@@ -77,6 +78,9 @@
     
     NSDictionary* atributos = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16], NSFontAttributeName, nil];
     [_segTabela setTitleTextAttributes:atributos forState:UIControlStateNormal];
+    
+    _btnAdicionarGravacao.layer.cornerRadius = [[LocalStore sharedStore] RAIOBORDA];
+    _btnAdicionarGravacao.backgroundColor = [[LocalStore sharedStore] FONTECOR];
 }
 
 - (void)didReceiveMemoryWarning{
@@ -94,7 +98,6 @@
         
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CelulaDeMembros"];
-//            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
             
             UILabel* nome = [[UILabel alloc] initWithFrame:CGRectMake(50, 15, 240, 30)];
             nome.text = ((TPUsuario*)[_banda.membros objectAtIndex:indexPath.row]).nome;
@@ -110,7 +113,7 @@
             foto.layer.cornerRadius =  foto.frame.size.width / 2;
             foto.tag = 2;
             
-            // Here we use the new provided setImageWithURL: method to load the web image
+            //Carrega foto com THREAD
             [foto sd_setImageWithURL:imageURL placeholderImage:[self carregaImagemFake]
                                        completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                                            [[SDImageCache sharedImageCache] storeImage:image forKey:urlFoto];
@@ -125,7 +128,7 @@
             
             UIImageView* foto = (UIImageView*)[cell viewWithTag:2];
             
-            // Here we use the new provided setImageWithURL: method to load the web image
+            //Carrega foto com THREAD
             [foto sd_setImageWithURL:imageURL placeholderImage:[self carregaImagemFake]
                            completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                                [[SDImageCache sharedImageCache] storeImage:image forKey:urlFoto];
@@ -147,7 +150,6 @@
         
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CelulaDeMembros"];
-//            [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
             
             UIImageView* som = [[UIImageView alloc] initWithFrame:CGRectMake(15, 15, 40, 30)];
             [som setImage:[UIImage imageNamed:@"audio.png"]];
@@ -256,15 +258,30 @@
     if (_visualizandoMembros) {
         _tbMembros.hidden = NO;
         _tbMusicas.hidden = YES;
+        _btnAdicionarGravacao.hidden = YES;
     }
     else{
+        //Visualizando Músicas
         _tbMembros.hidden = YES;
         _tbMusicas.hidden = NO;
+        _btnAdicionarGravacao.hidden = NO;
     }
 }
 
 - (IBAction)btnCharClick:(id)sender {
     TelaBandaViewController* vc = [[LocalStore sharedStore] TelaBanda];
+    
+    if ([LocalStore verificaSeViewJaEstaNaPilha:[[self navigationController] viewControllers] proximaTela:vc]) {
+        [[self navigationController] popToViewController:vc animated:NO];
+    }
+    else{
+        [[self navigationController] pushViewController:vc animated:NO];
+    }
+}
+
+- (IBAction)btnAdicionarGravacaoClick:(id)sender {
+    
+    TelaMusicasViewController *vc = [[TelaMusicasViewController alloc] initWithNibName:@"TelaMusicasViewController" bundle:nil];
     
     if ([LocalStore verificaSeViewJaEstaNaPilha:[[self navigationController] viewControllers] proximaTela:vc]) {
         [[self navigationController] popToViewController:vc animated:NO];

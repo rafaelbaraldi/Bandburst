@@ -20,8 +20,10 @@
 @property (strong, nonatomic) IBOutlet UISegmentedControl *segTabela;
 @property (strong, nonatomic) IBOutlet UIButton *btnChat;
 @property (strong, nonatomic) IBOutlet UILabel *lblNome;
+@property (strong, nonatomic) IBOutlet UIButton *btnAdicionarGravacao;
 
 - (IBAction)segTabelaChange:(id)sender;
 - (IBAction)btnCharClick:(id)sender;
+- (IBAction)btnAdicionarGravacaoClick:(id)sender;
 
 @end

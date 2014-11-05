@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5053" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CoreAudioViewController">
@@ -11,6 +11,7 @@
                 <outlet property="gravarItem" destination="TEj-qM-8ki" id="odl-na-1c2"/>
                 <outlet property="perfilItem" destination="F2Q-c9-Ula" id="p1J-L4-NPR"/>
                 <outlet property="tabBar" destination="Kee-EF-taZ" id="9yg-Ve-F2O"/>
+                <outlet property="tabBarSeta" destination="mi5-l1-LGA" id="LMo-zN-Qfe"/>
                 <outlet property="tempo" destination="pXW-eP-Ikv" id="mKc-cU-3Ar"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
@@ -68,11 +69,6 @@
         <image name="gravar.png" width="130" height="129"/>
         <image name="gravarIcon.png" width="30" height="30"/>
         <image name="perfilcone.png" width="30" height="30"/>
-        <image name="seta_tabbar.png" width="54" height="35"/>
+        <image name="seta_tabbar.png" width="39" height="25"/>
     </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
 </document>

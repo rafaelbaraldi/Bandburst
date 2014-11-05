@@ -31,50 +31,88 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    
+    //Esconde linhas em branco da TableView
+    _tbMusicas.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    _tbMusicas.separatorColor = [UIColor clearColor];
 }
 
 - (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
 }
 
+-(void)viewDidDisappear:(BOOL)animated{
+    [[self navigationItem] setTitle:@""];
+}
+
 -(void)viewWillAppear:(BOOL)animated{
     
     //Navigation Controller
-    [[self navigationItem] setTitle:@"Selecionar música"];
-    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
+    [[self navigationItem] setTitle:@"Selecionar gravação"];
+}
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return [_categorias count];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return [[_musicasPorCategoria objectAtIndex:section] count];
 }
 
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    
-    return [_categorias count];
-}
-
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+-(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     return [_categorias objectAtIndex:section];
 }
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"musicasCell"];
+    UITableViewCell* celula = [tableView dequeueReusableCellWithIdentifier:@"MembrosCell"];
     
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"musicaCell"];
+    if(celula == nil){
+        celula = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MembrosCell"];
+        
+        UIImageView* som = [[UIImageView alloc] initWithFrame:CGRectMake(15, 5, 40, 30)];
+        [som setImage:[UIImage imageNamed:@"audio.png"]];
+        [som setTag:1];
+        [celula addSubview:som];
+        
+//        UIImageView* play = [[UIImageView alloc] initWithFrame:CGRectMake(270, 5, 35, 35)];
+//        [play setImage:[UIImage imageNamed:@"playing.png"]];
+//        [play setTag:2];
+//        [celula addSubview:play];
+        
+        UILabel* musica = [[UILabel alloc] initWithFrame:CGRectMake(60, 5, 200, 30)];
+        [musica setText:((Musica*)[[_musicasPorCategoria objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]).nome];
+        [musica setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+        [musica setTextColor:[[LocalStore sharedStore] FONTECOR]];
+        [musica setTag:3];
+        [celula addSubview:musica];
+        
+        if([_musicas indexOfObject:[[_musicasPorCategoria objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]] % 2 == 0){
+            [celula setBackgroundColor:[UIColor colorWithRed:234/255.0f green:234/255.0f blue:234/255.0f alpha:1]];
+        }
+        else{
+            [celula setBackgroundColor:[UIColor whiteColor]];
+        }
+    }
+    else{
+        UILabel* musica = (UILabel*)[celula viewWithTag:3];
+        [musica setText:((Musica*)[[_musicasPorCategoria objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]).nome];
+        
+        if([_musicas indexOfObject:[[_musicasPorCategoria objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]] % 2 == 0){
+            [celula setBackgroundColor:[UIColor colorWithRed:234/255.0f green:234/255.0f blue:234/255.0f alpha:1]];        }
+        else{
+            [celula setBackgroundColor:[UIColor whiteColor]];
+        }
     }
     
-    cell.textLabel.text = ((Musica*)[[_musicasPorCategoria objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]).nome;
-    
-    return cell;
+    return celula;
 }
 
 -(void)enviaMusicaServidor:(NSIndexPath*)indexPath{
     NSString* s = [BandaStore enviaMusica:((Musica*)[[_musicasPorCategoria objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]).nome urlMusica:((Musica*)[[_musicasPorCategoria objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]).url idBanda:[[BandaStore sharedStore] idBandaSelecionada] idUsuario:[[LocalStore sharedStore] usuarioAtual].identificador];
     
     if([s length] > 0){
-        [BandaStore enviaMensagem:[NSString stringWithFormat:@"%@ enviou uma nova musica! Consulte as musicas de sua banda clicando no nome da banda acima", [[LocalStore sharedStore] usuarioAtual].nome] idBanda:[[BandaStore sharedStore] idBandaSelecionada] idUsuario:[[LocalStore sharedStore] usuarioAtual].identificador];
+        [BandaStore enviaMensagem:[NSString stringWithFormat:@"%@ enviou uma nova gravação! Consulte as músicas de sua banda.", [[LocalStore sharedStore] usuarioAtual].nome] idBanda:[[BandaStore sharedStore] idBandaSelecionada] idUsuario:[[LocalStore sharedStore] usuarioAtual].identificador];
     }
     
     
@@ -92,7 +130,7 @@
     
     _indexMusica = indexPath;
     
-    UIAlertView *alertMusica = [[UIAlertView alloc] initWithTitle:@"Musica" message:@"Tem certeza que deseja enviar essa musica?" delegate:self cancelButtonTitle:@"Cancelar" otherButtonTitles:@"Sim", nil];
+    UIAlertView *alertMusica = [[UIAlertView alloc] initWithTitle:@"Musica" message:@"Tem certeza que deseja enviar essa gravação?" delegate:self cancelButtonTitle:@"Cancelar" otherButtonTitles:@"Sim", nil];
     
     [alertMusica show];
 }

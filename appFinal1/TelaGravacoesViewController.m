@@ -22,6 +22,7 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        [[self navigationItem] setHidesBackButton:YES];
     }
     return self;
 }
@@ -32,16 +33,7 @@
     //Arredonda views
     [self arredondaBordaBotoes];
     
-    _gravarIcone.image = [[UIImage imageNamed:@"gravarIcon.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    _gravarIcone.selectedImage = [[UIImage imageNamed:@"gravarIcon.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    _buscarIcone.image = [[UIImage imageNamed:@"buscador.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    _buscarIcone.selectedImage = [[UIImage imageNamed:@"buscador.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    _perfilIcone.image = [[UIImage imageNamed:@"perfilcone.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    _perfilIcone.selectedImage = [[UIImage imageNamed:@"perfilcone.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    
-    [_barra setTintColor: [UIColor whiteColor]];
-    
-    [[UITabBar appearance] setBarTintColor:[[LocalStore sharedStore] FONTECOR]];
+    [self carregaTabBar];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -55,6 +47,19 @@
 
 -(void)viewDidDisappear:(BOOL)animated{
     [[self navigationItem] setTitle:@""];
+}
+
+-(void)carregaTabBar{
+    _gravarIcone.image = [[UIImage imageNamed:@"gravarIcon.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    _gravarIcone.selectedImage = [[UIImage imageNamed:@"gravarIcon.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    _buscarIcone.image = [[UIImage imageNamed:@"buscador.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    _buscarIcone.selectedImage = [[UIImage imageNamed:@"buscador.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    _perfilIcone.image = [[UIImage imageNamed:@"perfilcone.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    _perfilIcone.selectedImage = [[UIImage imageNamed:@"perfilcone.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    [_barra setTintColor: [UIColor whiteColor]];
+    
+   _tabBarSeta.backgroundColor = [[LocalStore sharedStore] FONTECOR];
 }
 
 -(void)carregaAudios{
@@ -74,6 +79,9 @@
     
     //Cor botao
     _btnNovaGravacao.backgroundColor = [[LocalStore sharedStore] FONTECOR];
+    
+    //Galeria
+    _lblGaleria.backgroundColor = [[LocalStore sharedStore] FONTECOR];
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{

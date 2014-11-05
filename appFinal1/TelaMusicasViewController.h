@@ -15,5 +15,6 @@
 @property NSMutableArray *musicasPorCategoria;
 
 @property NSIndexPath* indexMusica;
+@property (strong, nonatomic) IBOutlet UITableView *tbMusicas;
 
 @end

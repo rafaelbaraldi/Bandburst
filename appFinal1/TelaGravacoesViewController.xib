@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5053" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TelaGravacoesViewController">
@@ -10,8 +10,9 @@
                 <outlet property="btnNovaGravacao" destination="nnE-3l-xAe" id="Y5u-n9-mOq"/>
                 <outlet property="buscarIcone" destination="gjP-XC-Tfa" id="Soj-lM-Jzx"/>
                 <outlet property="gravarIcone" destination="SNh-IY-EWo" id="yCG-qe-NiJ"/>
-                <outlet property="lblGaleria" destination="oKO-gF-bcv" id="MoP-kW-cXJ"/>
+                <outlet property="lblGaleria" destination="oKO-gF-bcv" id="Rdb-3E-BjP"/>
                 <outlet property="perfilIcone" destination="pDw-qU-WZ3" id="yrv-LV-Uz6"/>
+                <outlet property="tabBarSeta" destination="4Jy-kz-k1v" id="YpH-dk-TgO"/>
                 <outlet property="tbMusicas" destination="ez0-Gs-7lh" id="O3p-Xu-FtU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -80,11 +81,6 @@
         <image name="buscador.png" width="30" height="30"/>
         <image name="gravarIcon.png" width="30" height="30"/>
         <image name="perfilcone.png" width="30" height="30"/>
-        <image name="seta_tabbar.png" width="54" height="35"/>
+        <image name="seta_tabbar.png" width="39" height="25"/>
     </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
 </document>

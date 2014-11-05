@@ -26,6 +26,7 @@
 @property NSMutableArray* musicas;
 
 @property Musica *novaGravacao;
+@property (strong, nonatomic) IBOutlet UIImageView *tabBarSeta;
 
 @property (strong, nonatomic) IBOutlet UILabel *tempo;
 @property (weak, nonatomic) IBOutlet UIButton *btnGravar;

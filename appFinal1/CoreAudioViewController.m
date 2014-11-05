@@ -55,7 +55,21 @@
 }
 
 - (void)viewDidLoad{
-    [super viewDidLoad];
+    [super viewDidLoad];    
+    
+    [[[[self navigationController] navigationBar] backItem] setTitle:@""];
+    
+    [self linhaGravacaEZAudio];
+    
+    [self carregaTabBar];
+    
+    [self arredondaBordaBotoes];
+    
+    //Carrega todas as músicas do CoreData
+    _musicas = [[NSMutableArray alloc]initWithArray:[[[LocalStore sharedStore] context] executeFetchRequest:[NSFetchRequest fetchRequestWithEntityName:@"Musica"] error:nil]];
+}
+
+-(void)carregaTabBar{
     
     _gravarItem.image = [[UIImage imageNamed:@"gravarIcon.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     _gravarItem.selectedImage = [[UIImage imageNamed:@"gravarIcon.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
@@ -66,19 +80,14 @@
     
     [_tabBar setTintColor: [UIColor whiteColor]];
     
-    [[[[self navigationController] navigationBar] backItem] setTitle:@""];
-    
-    [self linhaGravacaEZAudio];
-    
-    [self arredondaBordaBotoes];
-    
-    //Carrega todas as músicas do CoreData
-    _musicas = [[NSMutableArray alloc]initWithArray:[[[LocalStore sharedStore] context] executeFetchRequest:[NSFetchRequest fetchRequestWithEntityName:@"Musica"] error:nil]];
+    _tabBarSeta.backgroundColor = [[LocalStore sharedStore] FONTECOR];
 }
 
 -(void)arredondaBordaBotoes{
     
     [[_btnGravar layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
+    
+    _tempo.backgroundColor = [[LocalStore sharedStore] FONTECOR];
 }
 
 -(void)carregaGravador:(NSString*)nome categoria:(NSString*)categoria{

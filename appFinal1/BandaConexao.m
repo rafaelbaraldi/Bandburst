@@ -125,7 +125,6 @@
     return s;
 }
 
-
 +(NSString*)enviaMensagem:(NSString*)mensagem idBanda:(NSString*)idBanda idUsuario:(NSString*)idUsuario{
     NSString *url = @"http://54.207.112.185/appMusica/enviaMensagem.php";
     

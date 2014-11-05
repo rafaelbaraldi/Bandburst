@@ -22,6 +22,7 @@
 @property (strong, nonatomic) IBOutlet UITableView *tbMusicas;
 
 - (IBAction)btnNovaGravacaoClick:(id)sender;
+@property (strong, nonatomic) IBOutlet UIImageView *tabBarSeta;
 
 @property (strong, nonatomic) IBOutlet UITabBarItem *gravarIcone;
 @property (strong, nonatomic) IBOutlet UITabBarItem *buscarIcone;
