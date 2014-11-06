@@ -36,9 +36,10 @@
 }
 
 -(void)carregaFonte{
-    [_lblInstrumento setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
-    [_lblToco setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
-    [_lblTenho setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    
+    _lblInstrumento.backgroundColor = [[LocalStore sharedStore] FONTECOR];
+    _lblTenho.backgroundColor = [[LocalStore sharedStore] FONTECOR];
+    _lblToco.backgroundColor = [[LocalStore sharedStore] FONTECOR];
 }
 
 - (void)didReceiveMemoryWarning{

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface TelaEsqueciSenhaViewController : UIViewController <UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UILabel *lblEcontrarConta;
 
 @property (weak, nonatomic) IBOutlet UITextField *txtEmail;
 @property (weak, nonatomic) IBOutlet UITextView *lblMsg;

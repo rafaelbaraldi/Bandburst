@@ -16,6 +16,8 @@
 
 #import <FacebookSDK/FacebookSDK.h>
 
+#import "UIImageView+WebCache.h"
+
 @implementation AppDelegate
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -24,11 +26,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
 
-
-//    TelaLoginViewController *navegacaoC = [[TelaLoginViewController alloc] initWithNibName:@"TelaLoginViewController" bundle:nil];
+    //Utilizamos Cache para FOTOS de perfil
+    //Definir qnto as imagens ficarao salvas no CACHE
+    [[SDImageCache sharedImageCache] setMaxCacheAge:1];
     
+    //Usuario de inicio é ZERO
     [LocalStore setParaUsuarioZero];
 
     BOOL logado = [LoginStore verificaSeEstaLogado];

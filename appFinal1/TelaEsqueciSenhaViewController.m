@@ -38,19 +38,22 @@
 -(void)carregaLayout{
     
     //PROCURAR
-    [[_btnProcurar layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
+    _btnProcurar.backgroundColor = [[LocalStore sharedStore] FONTECOR];
+    _btnProcurar.layer.cornerRadius =[[LocalStore sharedStore] RAIOBORDA];
     
     //TXT EMAIL
     [[_txtEmail layer]setBorderWidth:2.0f];
     [[_txtEmail layer] setCornerRadius:[[LocalStore sharedStore] RAIOTEXT]];
     [[_txtEmail layer] setBorderColor:[[LocalStore sharedStore] FONTECOR].CGColor];
-    [_txtEmail setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+//    [_txtEmail setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    
+    _lblEcontrarConta.textColor = [[LocalStore sharedStore] FONTECOR];
     
     //Info
-    [_txtInfo setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+//    [_txtInfo setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
     
     //Msg
-    [_lblMsg setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+//    [_lblMsg setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
 }
 
 -(void)viewWillAppear:(BOOL)animated{

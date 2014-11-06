@@ -14,6 +14,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnContinuar;
 @property (strong, nonatomic) IBOutlet UILabel *lblMensagem;
 
+@property BOOL trocouImagem;
+
 @property UIActionSheet *menu;
 @property UIImageView *fotoSelecionada;
 @property UIImagePickerController *imagePickerController;

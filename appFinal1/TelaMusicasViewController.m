@@ -14,7 +14,6 @@
 #import "BandaStore.h"
 
 @interface TelaMusicasViewController ()
-
 @end
 
 @implementation TelaMusicasViewController
@@ -35,6 +34,8 @@
     //Esconde linhas em branco da TableView
     _tbMusicas.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     _tbMusicas.separatorColor = [UIColor clearColor];
+    
+    _lblGaleria.backgroundColor = [[LocalStore sharedStore] FONTECOR];
 }
 
 - (void)didReceiveMemoryWarning{

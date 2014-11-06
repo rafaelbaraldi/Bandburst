@@ -12,4 +12,5 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tbEstilosQueToca;
 
+@property (weak, nonatomic) IBOutlet UILabel *lblEstilo;
 @end

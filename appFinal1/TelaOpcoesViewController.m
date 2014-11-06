@@ -11,6 +11,8 @@
 #import "LocalStore.h"
 #import "LoginStore.h"
 
+#import "CadastroStore.h"
+
 @interface TelaOpcoesViewController ()
 
 @end
@@ -51,6 +53,10 @@
 }
 
 - (IBAction)btnAlterarFoto:(id)sender {
+    
+    //Está no cadastro?
+    [[CadastroStore sharedStore] setCadastro:NO];
+    
     [[self navigationController] pushViewController:[[LocalStore sharedStore] TelaCadastroFoto] animated:YES];
 }
 

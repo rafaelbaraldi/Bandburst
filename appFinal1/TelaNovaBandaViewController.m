@@ -51,16 +51,17 @@
 -(void) carregaLayout{
     
     //Criar banda
+    [_btnCriarBanda setBackgroundColor:[[LocalStore sharedStore] FONTECOR]];
     [[_btnCriarBanda layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
-    [[_btnCriarBanda titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14]];
+//    [[_btnCriarBanda titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14]];
     
     //Nome da banda
     [[_txtNomeDaBanda layer] setBorderWidth:2.0f];
-    [[_txtNomeDaBanda layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
+    [[_txtNomeDaBanda layer] setCornerRadius:[[LocalStore sharedStore] RAIOTEXT]];
     [[_txtNomeDaBanda layer] setBorderColor:[[LocalStore sharedStore] FONTECOR].CGColor];
 
     //Mais membro
-    [[_btnMaisMembro layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
+    [_btnMaisMembro setBackgroundColor:[[LocalStore sharedStore] FONTECOR]];
     [[_btnMaisMembro layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
     [[_btnMaisMembro titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14]];
     

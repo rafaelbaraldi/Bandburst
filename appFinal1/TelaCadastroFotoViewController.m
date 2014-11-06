@@ -14,6 +14,8 @@
 #import "CadastroStore.h"
 #import "CadastroConexao.h"
 
+#import "UIImageView+WebCache.h"
+
 @interface TelaCadastroFotoViewController ()
 
 @end
@@ -24,8 +26,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         _fotoSelecionada = [[UIImageView alloc] init];
-        
-        [[self navigationItem] setHidesBackButton:YES];
     }
     return self;
 }
@@ -46,15 +46,16 @@
     [[self navigationItem] setTitle:@""];
 }
 
--(void)arredondaBordaBotoes{
+-(void)verificaCadastroOuAtualizacao{
     
-    [[_btnAdicionarFoto layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
-    [[_btnContinuar layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
-    
-    [[_btnAdicionarFoto titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
-    [[_btnContinuar titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
-    [_lblMensagem setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
-    
+    if([[CadastroStore sharedStore] cadastro]){
+        [self.navigationItem setHidesBackButton:YES];
+        _lblMensagem.hidden = NO;
+    }
+    else{
+        [self.navigationItem setHidesBackButton:NO];
+        _lblMensagem.hidden = YES;
+    }
 }
 
 -(void)willPresentActionSheet:(UIActionSheet *)actionSheet{
@@ -75,21 +76,45 @@
 -(void)viewWillAppear:(BOOL)animated{
     [self exibiFoto];
     
-    [[self navigationItem] setTitle:@"Cadastro Foto"];
+    //Verifica se está cadastrando ao Alterando Foto
+    [self verificaCadastroOuAtualizacao];
+    
+    [[self navigationItem] setTitle:@"Foto"];
+}
+
+-(void)arredondaBordaBotoes{
+    
+    [[_btnAdicionarFoto layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
+    [[_btnContinuar layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
+    
+    //    [[_btnAdicionarFoto titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    //    [[_btnContinuar titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    //    [_lblMensagem setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    
 }
 
 -(void)exibiFoto{
     
-    if (_fotoSelecionada.image != nil) {
-        [_imgView setImage:_fotoSelecionada.image];
+    if (![[CadastroStore sharedStore] cadastro] && !_trocouImagem) {
+        NSString *urlFoto = [NSString stringWithFormat:@"http://54.207.112.185/appMusica/FotosDePerfil/%@.png", [[LocalStore sharedStore] usuarioAtual].identificador];
         
-        _imgView.layer.masksToBounds = YES;
-        _imgView.layer.cornerRadius = _imgView.frame.size.width / 2;
+        _imgView.image = [[SDImageCache sharedImageCache] imageFromMemoryCacheForKey:urlFoto];
     }
+    else{
+        _imgView.image = _fotoSelecionada.image;
+    }
+    
+    if([[CadastroStore sharedStore] cadastro]){
+        _imgView.image = [UIImage imageNamed:@"placeholderFoto.png"];
+    }
+
+    _imgView.layer.masksToBounds = YES;
+    _imgView.layer.cornerRadius = _imgView.frame.size.width / 2;
 }
 
 //Metodo para alterar dimensoes da imagem
 - (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)newSize {
+    
     UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
     [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
     UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
@@ -105,22 +130,37 @@
 - (IBAction)btnContinuarClick:(id)sender {
     
     //Verificar se carregou alguma foto
-    if (_fotoSelecionada.image != nil) {
+    if (_fotoSelecionada.image != nil && _trocouImagem) {
         UIImage *foto = _fotoSelecionada.image;
         foto = [self imageWithImage:foto scaledToSize:CGSizeMake(96, 128)];
         
-        [CadastroConexao uploadFoto: foto];
+        //Salva imagem no servidor
+        [CadastroConexao uploadFoto:foto];
+        
+        //Altera imagem no cache
+        [[SDImageCache sharedImageCache] storeImage:foto forKey:[NSString stringWithFormat:@"http://54.207.112.185/appMusica/FotosDePerfil/%@.png", [[LocalStore sharedStore] usuarioAtual].identificador]];
+        
+        //Precisa trocar a foto na proxima vez para salvar
+        _trocouImagem = NO;
     }
     
     //Limpa Imagem
     _fotoSelecionada.image = [UIImage imageNamed:@"placeholderFoto.png"];
     
-    //Vai para tela de busca - inicio do APP
-    if ([LocalStore verificaSeViewJaEstaNaPilha:[[self navigationController] viewControllers] proximaTela:[[LocalStore sharedStore] TelaPerfil]]) {
-        [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaBusca] animated:YES];
+    //Verifica para qual View deve seguir
+    UIViewController *vc;
+    if([[CadastroStore sharedStore] cadastro]){
+        vc = [[LocalStore sharedStore] TelaBusca];
     }
     else{
-        [[self navigationController] pushViewController:[[LocalStore sharedStore] TelaBusca] animated:YES];
+        vc = [[LocalStore sharedStore] TelaPerfil];
+    }
+    
+    if ([LocalStore verificaSeViewJaEstaNaPilha:[[self navigationController] viewControllers] proximaTela:vc]) {
+        [[self navigationController] popToViewController:vc animated:YES];
+    }
+    else{
+        [[self navigationController] pushViewController:vc animated:YES];
     }
 }
 
@@ -148,15 +188,6 @@
     }
 }
 
--(void)importarDoFacebook{
-}
-
--(void)escolherNaBiblioteca{
-    _imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    
-    [self presentViewController:_imagePickerController animated:YES completion:nil];
-}
-
 -(void)carregaControladorDeImagem{
     
     _imagePickerController = [[UIImagePickerController alloc] init];
@@ -166,6 +197,18 @@
     _fotoSelecionada = [[UIImageView alloc] init];
 }
 
+//Troca imagem importando do face
+-(void)importarDoFacebook{
+}
+
+//Troca imagem escolhendo a partir da biblioteca
+-(void)escolherNaBiblioteca{
+    _imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    
+    [self presentViewController:_imagePickerController animated:YES completion:nil];
+}
+
+//Trocar imagem tirando nova foto
 -(void)tirarFoto{
     _imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
     _imagePickerController.cameraDevice = UIImagePickerControllerCameraDeviceFront;
@@ -176,6 +219,9 @@
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     
     _fotoSelecionada.image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    
+    //Marca que a imagem foi trocada
+    _trocouImagem = YES;
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }

@@ -16,4 +16,12 @@
 @property NSArray *horarios;
 - (IBAction)exibeLog:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UILabel *lblSegunda;
+@property (weak, nonatomic) IBOutlet UILabel *lblTerca;
+@property (weak, nonatomic) IBOutlet UILabel *lblQuarta;
+@property (weak, nonatomic) IBOutlet UILabel *lblQuinta;
+@property (weak, nonatomic) IBOutlet UILabel *lblSexta;
+@property (weak, nonatomic) IBOutlet UILabel *lblSabado;
+@property (weak, nonatomic) IBOutlet UILabel *lblDomingo;
+
 @end

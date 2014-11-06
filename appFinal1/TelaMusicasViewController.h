@@ -14,6 +14,7 @@
 @property NSMutableArray *categorias;
 @property NSMutableArray *musicasPorCategoria;
 
+@property (weak, nonatomic) IBOutlet UILabel *lblGaleria;
 @property NSIndexPath* indexMusica;
 @property (strong, nonatomic) IBOutlet UITableView *tbMusicas;
 

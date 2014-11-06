@@ -69,15 +69,19 @@
     _tbMusicas.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     _tbMusicas.separatorColor = [UIColor clearColor];
     
-    [[_btnEditar layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
-    [[_btnEditar titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    _lblNome.textColor = [[LocalStore sharedStore] FONTECOR];
     
-    [_lblNome setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    [_btnEditar setBackgroundColor:[[LocalStore sharedStore] FONTECOR]];
+    [[_btnEditar layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
+//    [[_btnEditar titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    
+//    [_lblNome setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
     
     [[_btnChat titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
     
     NSDictionary* atributos = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16], NSFontAttributeName, nil];
     [_segTabela setTitleTextAttributes:atributos forState:UIControlStateNormal];
+    _segTabela.tintColor = [[LocalStore sharedStore] FONTECOR];
     
     _btnAdicionarGravacao.layer.cornerRadius = [[LocalStore sharedStore] RAIOBORDA];
     _btnAdicionarGravacao.backgroundColor = [[LocalStore sharedStore] FONTECOR];

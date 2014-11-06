@@ -30,6 +30,7 @@
     [super viewDidLoad];
     
     _tbEstilosQueToca.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 20)];
+    _lblEstilo.backgroundColor = [[LocalStore sharedStore] FONTECOR];
 }
 
 -(BOOL)automaticallyAdjustsScrollViewInsets{

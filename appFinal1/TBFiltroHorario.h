@@ -13,5 +13,12 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblHorarios;
 @property NSArray *horarios;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionHorario;
+@property (weak, nonatomic) IBOutlet UILabel *lblSegunda;
+@property (weak, nonatomic) IBOutlet UILabel *lblTerca;
+@property (weak, nonatomic) IBOutlet UILabel *lblQuarta;
+@property (weak, nonatomic) IBOutlet UILabel *lblQuinta;
+@property (weak, nonatomic) IBOutlet UILabel *lblSexta;
+@property (weak, nonatomic) IBOutlet UILabel *lblSabado;
+@property (weak, nonatomic) IBOutlet UILabel *lblDomingo;
 
 @end

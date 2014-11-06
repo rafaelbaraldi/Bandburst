@@ -73,10 +73,16 @@
 
 -(void)carregaLayout{
     
-    //Bota add banda
-    [[_btnCriarBanda layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
+    //Botao criar banda
+    _btnCriarBanda.backgroundColor = [[LocalStore sharedStore] FONTECOR];
+    _btnCriarBanda.layer.cornerRadius = [[LocalStore sharedStore] RAIOBORDA];
     
-    [[UITabBar appearance] setBarTintColor:[[LocalStore sharedStore] FONTECOR]];
+    //Botao Editar perfil
+    _btnPerfilEditar.backgroundColor = [[LocalStore sharedStore] FONTECOR];
+    _btnPerfilEditar.layer.cornerRadius = [[LocalStore sharedStore] RAIOBORDA];
+    
+    //Nomes
+    _lblPerfilNome.textColor = [[LocalStore sharedStore] FONTECOR];
 }
 
 -(void)escondeBotaoDeVoltarSeUsuarioLogado{
@@ -122,9 +128,6 @@
     else{
         _lblPerfilAtribuicoes.textAlignment = NSTextAlignmentCenter;
     }
-    
-    //Botao Editar Perfil (Função em programação)
-    [self botaoPerfilEditar];
 }
 
 -(UIImage*)carregaImagemFake{
@@ -153,15 +156,6 @@
     }
     _imagePerfil.layer.masksToBounds = YES;
     _imagePerfil.layer.cornerRadius = _imagePerfil.frame.size.width / 2;
-
-}
-
--(void)botaoPerfilEditar{
-    
-    _btnPerfilEditar.enabled = YES;
-    
-    [[_btnPerfilEditar titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
-    [[_btnPerfilEditar layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
 }
 
 -(void)carregaBotaoOpcoes{
@@ -178,7 +172,9 @@
 }
 
 - (IBAction)btnPerfilEditarClick:(id)sender {
-    [[self navigationController] pushViewController:[[LocalStore sharedStore] TelaEditarPerfil] animated:YES];
+    if(![[[LocalStore sharedStore] usuarioAtual].identificador isEqualToString:@"0"]){
+        [[self navigationController] pushViewController:[[LocalStore sharedStore] TelaEditarPerfil] animated:YES];
+    }
 }
 
 -(void)carregaBandas{

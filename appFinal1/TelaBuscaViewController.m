@@ -326,7 +326,6 @@
         ((UILabel*)[celula viewWithTag:2]).text = ((TPUsuario*)[_usuarios objectAtIndex:indexPath.row]).cidade;
     }
     
-    // Here we use the new provided setImageWithURL: method to load the web image
     [celula.imageView sd_setImageWithURL:imageURL placeholderImage:[self carregaImagemFake]
                                completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                                    [[SDImageCache sharedImageCache] storeImage:image forKey:urlFoto];

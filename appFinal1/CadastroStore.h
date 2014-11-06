@@ -15,6 +15,8 @@
 
 @property NSString *nomeFotoPerfil;
 
+@property BOOL cadastro;
+
 @property NSMutableArray *instrumentos;
 @property NSMutableArray *instrumentosQueToca;
 @property NSMutableArray *instrumentosFiltrados;

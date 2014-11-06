@@ -76,15 +76,19 @@
     [self carregaBotaoSeguirAmigo];
     
     //Navigation Controller
-    [[self navigationItem] setTitle:_pessoa.nome];
+    [[self navigationItem] setTitle:@"Perfil"];
 }
 
 -(void)carregaLayout{
 
-    _lblNome.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:18.0f];
-    _lblSexo.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14.0f];
-    _lblCidadeBairro.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14.0f];
-    _lblAtribuicoes.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14.0f];
+//    _lblNome.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:18.0f];
+//    _lblSexo.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14.0f];
+//    _lblCidadeBairro.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14.0f];
+//    _lblAtribuicoes.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14.0f];
+    
+    //Arruma Cor
+    _lblNome.textColor = [[LocalStore sharedStore] FONTECOR];
+    _lblCidadeBairro.textColor = [[LocalStore sharedStore] FONTECOR];
     
     [_lblNome adjustsFontSizeToFitWidth];
 

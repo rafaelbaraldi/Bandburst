@@ -20,9 +20,9 @@
 @property NSMutableArray* bandas;
 
 - (IBAction)btnPerfilEditarClick:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextView *lblPerfilAtribuicoes;
 
 @property (weak, nonatomic) IBOutlet UIImageView *imagePerfil;
-@property (strong, nonatomic) IBOutlet UITextView *lblPerfilAtribuicoes;
 
 @property (weak, nonatomic) IBOutlet UILabel *lblPerfilNome;
 @property (weak, nonatomic) IBOutlet UILabel *lblPerfilCidade;

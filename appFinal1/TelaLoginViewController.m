@@ -38,15 +38,18 @@
 -(void)carregaLayout{
     
     //Entrar
-    [[_btnEntrar layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
+    _btnEntrar.backgroundColor = [[LocalStore sharedStore] FONTECOR];
+    _btnEntrar.layer.cornerRadius = [[LocalStore sharedStore] RAIOBORDA];
 //    [[_btnEntrar titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
     
     //Cadastrar
-    [[_btnCadastrar layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
+    _btnCadastrar.backgroundColor = [[LocalStore sharedStore] FONTECOR];
+    _btnCadastrar.layer.cornerRadius = [[LocalStore sharedStore] RAIOBORDA];
 //    [[_btnCadastrar titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
     
     //Login
-    [[_btnContinuar layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
+    _btnContinuar.backgroundColor = [[LocalStore sharedStore] FONTECOR];
+    _btnContinuar.layer.cornerRadius = [[LocalStore sharedStore] RAIOBORDA];
 //    [[_btnContinuar titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
 
     //TXT Email
@@ -57,12 +60,13 @@
 //    [_txtEmail setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
     
     //TXT Senha
-    [[_txtSenha layer]setBorderWidth:2.0f];
+    [[_txtSenha layer] setBorderWidth:2.0f];
     [[_txtSenha layer] setCornerRadius:[[LocalStore sharedStore] RAIOTEXT]];
     [[_txtSenha layer] setBorderColor:[[LocalStore sharedStore] FONTECOR].CGColor];
 //    [_txtSenha setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
     
     //Esqueceu senha
+    _lblEsqueceuSenha.tintColor = [[LocalStore sharedStore] FONTECOR];
 //    [[_lblEsqueceuSenha titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
 }
 

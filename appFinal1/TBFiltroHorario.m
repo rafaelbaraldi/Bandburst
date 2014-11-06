@@ -34,10 +34,7 @@
     [super viewDidLoad];
     
     [self carregaValoresHorarios];
-    
-    [_collectionHorario setBackgroundColor:[UIColor clearColor]];
-
-    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
+    [self carregaLayout];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -51,6 +48,22 @@
     }
     
     [_collectionHorario reloadData];
+}
+
+-(void) carregaLayout{
+    [_collectionHorario setBackgroundColor:[UIColor clearColor]];
+    
+    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
+    
+    _lblSegunda.textColor = [[LocalStore sharedStore] FONTECOR];
+    _lblTerca.textColor = [[LocalStore sharedStore] FONTECOR];
+    _lblQuarta.textColor = [[LocalStore sharedStore] FONTECOR];
+    _lblQuinta.textColor = [[LocalStore sharedStore] FONTECOR];
+    _lblSexta.textColor = [[LocalStore sharedStore] FONTECOR];
+    _lblSabado.textColor = [[LocalStore sharedStore] FONTECOR];
+    _lblDomingo.textColor = [[LocalStore sharedStore] FONTECOR];
+    
+    _lblHorarios.textColor = [[LocalStore sharedStore] FONTECOR];
 }
 
 -(void)carregaRemoverFiltro{
@@ -116,9 +129,6 @@
 }
 
 -(void)carregaValoresHorarios{
-    
-    //LBL Selecione horario
-    [_lblHorarios setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
     
     //Carrega Cell
     UINib *nib = [UINib nibWithNibName:@"cellHorario" bundle:nil];
