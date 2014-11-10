@@ -82,7 +82,7 @@
             idDosMembros = [NSString stringWithFormat:@"%@, %@", idDosMembros, s.identificador];
         }
         
-        [BandaStore criarBanda:_txtNomeDaBanda.text membros:idDosMembros];
+        [BandaStore criarBanda:_txtNomeDaBanda.text membros:idDosMembros idAdm:[[[LocalStore sharedStore] usuarioAtual] identificador]];
         
         [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaPerfil] animated:YES];
     }
@@ -99,17 +99,6 @@
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
-
-//-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    UITableViewCell* celula = [tableView dequeueReusableCellWithIdentifier:@"MembrosCell"];
-//    
-//    if(celula == nil){
-//        celula = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MembrosCell"];
-//    }
-//    celula.textLabel.text = ((TPUsuario*)[[[BandaStore sharedStore] membros] objectAtIndex:indexPath.row]).nome;
-//    
-//    return celula;
-//}
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     

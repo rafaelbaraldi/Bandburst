@@ -118,6 +118,10 @@
 		31FB8CDB19CA25BF00ECEBDF /* WalkwayBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 31FB8CDA19CA25BF00ECEBDF /* WalkwayBold.otf */; };
 		73029BA619819A4200BFB4B3 /* TBFiltroHorario.m in Sources */ = {isa = PBXBuildFile; fileRef = 73029BA419819A4200BFB4B3 /* TBFiltroHorario.m */; };
 		73029BA719819A4200BFB4B3 /* TBFiltroHorario.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73029BA519819A4200BFB4B3 /* TBFiltroHorario.xib */; };
+		734C4B201A116187004E22A0 /* sair@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 734C4B1E1A116187004E22A0 /* sair@2x.png */; };
+		734C4B211A116187004E22A0 /* sair.png in Resources */ = {isa = PBXBuildFile; fileRef = 734C4B1F1A116187004E22A0 /* sair.png */; };
+		734C4B241A116817004E22A0 /* estrela@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 734C4B221A116817004E22A0 /* estrela@2x.png */; };
+		734C4B251A116817004E22A0 /* estrela.png in Resources */ = {isa = PBXBuildFile; fileRef = 734C4B231A116817004E22A0 /* estrela.png */; };
 		736BF94C19A8C24B0010C356 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 736BF92C19A8C24B0010C356 /* MKAnnotationView+WebCache.m */; };
 		736BF94D19A8C24B0010C356 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 736BF92E19A8C24B0010C356 /* NSData+ImageContentType.m */; };
 		736BF94E19A8C24B0010C356 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 736BF93019A8C24B0010C356 /* SDImageCache.m */; };
@@ -325,6 +329,10 @@
 		73029BA319819A4200BFB4B3 /* TBFiltroHorario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBFiltroHorario.h; sourceTree = "<group>"; };
 		73029BA419819A4200BFB4B3 /* TBFiltroHorario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBFiltroHorario.m; sourceTree = "<group>"; };
 		73029BA519819A4200BFB4B3 /* TBFiltroHorario.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TBFiltroHorario.xib; sourceTree = "<group>"; };
+		734C4B1E1A116187004E22A0 /* sair@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sair@2x.png"; sourceTree = "<group>"; };
+		734C4B1F1A116187004E22A0 /* sair.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sair.png; sourceTree = "<group>"; };
+		734C4B221A116817004E22A0 /* estrela@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "estrela@2x.png"; sourceTree = "<group>"; };
+		734C4B231A116817004E22A0 /* estrela.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = estrela.png; sourceTree = "<group>"; };
 		736BF92B19A8C24B0010C356 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		736BF92C19A8C24B0010C356 /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
 		736BF92D19A8C24B0010C356 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -451,18 +459,13 @@
 		1B1613031992A283009D5513 /* Tela */ = {
 			isa = PBXGroup;
 			children = (
+				734C4B1D1A10EC4E004E22A0 /* sem uso */,
 				1B1613041992A2A1009D5513 /* TelaNovaBandaViewController.h */,
 				1B1613051992A2A1009D5513 /* TelaNovaBandaViewController.m */,
 				1B1613061992A2A1009D5513 /* TelaNovaBandaViewController.xib */,
 				1B16130D1992A6E2009D5513 /* TelaAmigosViewController.h */,
 				1B16130E1992A6E2009D5513 /* TelaAmigosViewController.m */,
 				1B16130F1992A6E2009D5513 /* TelaAmigosViewController.xib */,
-				31A0043C1993F0CA00121EF6 /* TelaBandaViewController.h */,
-				31A0043D1993F0CA00121EF6 /* TelaBandaViewController.m */,
-				31A0043E1993F0CA00121EF6 /* TelaBandaViewController.xib */,
-				1B06F7A3199414C700A6338C /* TelaInfosBandaViewController.h */,
-				1B06F7A4199414C700A6338C /* TelaInfosBandaViewController.m */,
-				1B06F7A5199414C700A6338C /* TelaInfosBandaViewController.xib */,
 				1B52395C1995537800D2A640 /* TelaMusicasViewController.h */,
 				1B52395D1995537800D2A640 /* TelaMusicasViewController.m */,
 				1B52395E1995537800D2A640 /* TelaMusicasViewController.xib */,
@@ -785,6 +788,10 @@
 		316AAA08199E9D75001CE96B /* Imagens Layout */ = {
 			isa = PBXGroup;
 			children = (
+				734C4B221A116817004E22A0 /* estrela@2x.png */,
+				734C4B231A116817004E22A0 /* estrela.png */,
+				734C4B1E1A116187004E22A0 /* sair@2x.png */,
+				734C4B1F1A116187004E22A0 /* sair.png */,
 				31EC795F19F83757004CB4A9 /* slider.png */,
 				31EC795419F824A1004CB4A9 /* audio.png */,
 				31EC795519F824A1004CB4A9 /* audio0.png */,
@@ -830,6 +837,19 @@
 				31EC795B19F8256D004CB4A9 /* GravacaoStore.m */,
 			);
 			name = Singleton;
+			sourceTree = "<group>";
+		};
+		734C4B1D1A10EC4E004E22A0 /* sem uso */ = {
+			isa = PBXGroup;
+			children = (
+				31A0043C1993F0CA00121EF6 /* TelaBandaViewController.h */,
+				31A0043D1993F0CA00121EF6 /* TelaBandaViewController.m */,
+				31A0043E1993F0CA00121EF6 /* TelaBandaViewController.xib */,
+				1B06F7A3199414C700A6338C /* TelaInfosBandaViewController.h */,
+				1B06F7A4199414C700A6338C /* TelaInfosBandaViewController.m */,
+				1B06F7A5199414C700A6338C /* TelaInfosBandaViewController.xib */,
+			);
+			name = "sem uso";
 			sourceTree = "<group>";
 		};
 		736BF92A19A8C24B0010C356 /* SDWebImage */ = {
@@ -1124,6 +1144,7 @@
 				31EC796019F83757004CB4A9 /* slider.png in Resources */,
 				737D09E91975C5D1000975F6 /* TelaInicioViewController.xib in Resources */,
 				1BEA45A01992C7A100876D75 /* 4.png in Resources */,
+				734C4B251A116817004E22A0 /* estrela.png in Resources */,
 				31BD71A319F9685200388774 /* pause.png in Resources */,
 				31F83E15192E84C70070D597 /* TBFiltroEstilo.xib in Resources */,
 				1BEA45A21992C7A100876D75 /* 6.png in Resources */,
@@ -1153,6 +1174,7 @@
 				1B67BD8619D9F00500A663EC /* gravar.png in Resources */,
 				31EC795619F824A1004CB4A9 /* playing.png in Resources */,
 				1BEA459D1992C7A100876D75 /* 2.png in Resources */,
+				734C4B201A116187004E22A0 /* sair@2x.png in Resources */,
 				1B970D8E19D365A900D0FD01 /* TBInstrumentosQueTocaViewController.xib in Resources */,
 				737F34A11976F9CC00AAF796 /* cellHorario.xib in Resources */,
 				316AAA07199E8C81001CE96B /* CellTituloMusica.xib in Resources */,
@@ -1175,6 +1197,7 @@
 				1B41D5E619EF10ED00D6D034 /* perfilcone@2x.png in Resources */,
 				31F67C75193515CC00113DA8 /* escrever.png in Resources */,
 				31EC795719F824A1004CB4A9 /* audio.png in Resources */,
+				734C4B241A116817004E22A0 /* estrela@2x.png in Resources */,
 				1BEA45A41992C7A100876D75 /* 5.png in Resources */,
 				1B1613111992A6E2009D5513 /* TelaAmigosViewController.xib in Resources */,
 				31C31744194783B700C99512 /* delete.png in Resources */,
@@ -1183,6 +1206,7 @@
 				1BEA459C1992C7A100876D75 /* 13.png in Resources */,
 				739DA1E5198C0E7D005053DB /* TelaOpcoesViewController.xib in Resources */,
 				3196639519F6C52700A5BC72 /* TelaFavoritadosViewController.xib in Resources */,
+				734C4B211A116187004E22A0 /* sair.png in Resources */,
 				2FB3B34419745A0B0054B7F7 /* CoreAudioViewController.xib in Resources */,
 				1B827670192BDB3500E461AD /* TelaBuscaViewController.xib in Resources */,
 				31EC795819F824A1004CB4A9 /* audio0.png in Resources */,

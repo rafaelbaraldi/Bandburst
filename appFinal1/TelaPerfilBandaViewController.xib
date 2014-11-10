@@ -7,10 +7,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TelaPerfilBandaViewController">
             <connections>
+                <outlet property="btnAddMembro" destination="LGV-fi-fug" id="vNR-rK-7E8"/>
                 <outlet property="btnAdicionarGravacao" destination="Hb2-bo-7K3" id="ZQA-Pp-q2V"/>
+                <outlet property="btnAlterarAdm" destination="YOP-s3-Hzw" id="Udd-3B-W0x"/>
                 <outlet property="btnChat" destination="QX8-B0-iBM" id="0ab-LW-j1f"/>
                 <outlet property="btnEditar" destination="1xL-gB-ITA" id="BoF-nT-2H4"/>
-                <outlet property="lblNome" destination="9H1-bE-Vqn" id="v4Z-AL-HXb"/>
+                <outlet property="lblNome" destination="6Jf-AN-DVA" id="kc7-P2-NUG"/>
                 <outlet property="segTabela" destination="N6E-bB-aS5" id="J39-22-cuU"/>
                 <outlet property="tbMembros" destination="cqP-aK-YRS" id="VGx-dt-pNg"/>
                 <outlet property="tbMusicas" destination="QsJ-zx-mcy" id="b5Y-k7-cAJ"/>
@@ -23,21 +25,18 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="0.png" translatesAutoresizingMaskIntoConstraints="NO" id="3wb-ao-3uK">
-                    <rect key="frame" x="15" y="72" width="80" height="80"/>
+                    <rect key="frame" x="15" y="72" width="70" height="70"/>
                 </imageView>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9H1-bE-Vqn">
-                    <rect key="frame" x="103" y="101" width="145" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                    <color key="textColor" red="0.8980392814" green="0.49019610879999997" blue="0.33333334329999997" alpha="1" colorSpace="deviceRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1xL-gB-ITA">
-                    <rect key="frame" x="256" y="87" width="50" height="50"/>
+                    <rect key="frame" x="237" y="85" width="75" height="40"/>
                     <color key="backgroundColor" red="0.8980392814" green="0.49019610879999997" blue="0.33333334329999997" alpha="1" colorSpace="deviceRGB"/>
                     <state key="normal" title="Editar">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="btnEditarClick:" destination="-1" eventType="touchUpInside" id="yyW-IX-N1k"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QX8-B0-iBM">
                     <rect key="frame" x="0.0" y="171" width="320" height="45"/>
@@ -88,8 +87,39 @@
                         <action selector="btnAdicionarGravacaoClick:" destination="-1" eventType="touchUpInside" id="VvF-Wi-h6P"/>
                     </connections>
                 </button>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LGV-fi-fug">
+                    <rect key="frame" x="153" y="493" width="159" height="30"/>
+                    <color key="backgroundColor" red="0.8980392814" green="0.49019610879999997" blue="0.33333334329999997" alpha="1" colorSpace="deviceRGB"/>
+                    <color key="tintColor" red="0.98823535439999999" green="0.12549020350000001" blue="0.30196079609999998" alpha="1" colorSpace="deviceRGB"/>
+                    <state key="normal" title="Adicionar membro">
+                        <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="btnAddMembro:" destination="-1" eventType="touchUpInside" id="VrB-sO-sIl"/>
+                    </connections>
+                </button>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YOP-s3-Hzw">
+                    <rect key="frame" x="230" y="131" width="88" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal" title="adminsitrador">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="btnAlterarAdm:" destination="-1" eventType="touchUpInside" id="bsq-7I-bcJ"/>
+                    </connections>
+                </button>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Jf-AN-DVA">
+                    <rect key="frame" x="90" y="91" width="143" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="RXM-HT-X8z"/>
+                    </connections>
+                </textField>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <point key="canvasLocation" x="528" y="56"/>
         </view>
     </objects>
     <resources>

@@ -21,6 +21,7 @@
 
 @property NSMutableArray *dadosUsuarios;
 @property NSMutableArray *horarios;
+@property (weak, nonatomic) IBOutlet UIImageView *estrela;
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageUsuario;
 

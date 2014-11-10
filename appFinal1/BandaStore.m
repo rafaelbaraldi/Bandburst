@@ -52,9 +52,10 @@
 }
 
 
-+(NSString*)criarBanda:(NSString*)nome membros:(NSString*)membros{
++(NSString*)criarBanda:(NSString*)nome membros:(NSString*)membros idAdm:(NSString*)idAdm{
     NSDictionary *jsonUsuario = [NSDictionary dictionaryWithObjectsAndKeys:
                                  nome, @"nome",
+                                 idAdm, @"idAdm",
                                  membros, @"membros" , nil];
     
     NSData *jsonCadastrar = [NSJSONSerialization dataWithJSONObject:jsonUsuario options:NSJSONWritingPrettyPrinted error:nil];
@@ -75,12 +76,14 @@
     
     banda.identificador = @"";
     banda.nome = @"";
+    banda.idAdm = @"";
     banda.membros = [[NSMutableArray alloc]init];
     
     for(NSString *s in json){
         if([banda.nome  isEqualToString:@""]){
             banda.identificador = [s valueForKeyPath:@"id"];
             banda.nome = [s valueForKeyPath:@"nome"];;
+            banda.idAdm = [s valueForKeyPath:@"idBanda"];
         }
         if (![[s valueForKeyPath:@"usuario_id"] isEqualToString:@""]) {
             TPUsuario* membro = [[TPUsuario alloc] init];

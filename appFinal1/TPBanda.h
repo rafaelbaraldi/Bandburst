@@ -13,6 +13,7 @@
 @property NSString* identificador;
 @property NSString* nome;
 @property NSString* foto;
+@property NSString* idAdm;
 @property NSMutableArray* membros;
 @property NSMutableArray* musicas;
 @property NSMutableArray* mensagens;

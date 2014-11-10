@@ -181,10 +181,12 @@
 }
 
 -(void)botaoSeguirAmigo{
+    _estrela.hidden = YES;
     [_btnSeguir setImage:[UIImage imageNamed:@"favoritar.png"] forState:UIControlStateNormal];
 }
 
 -(void)botaoSguindoAmigo{
+    _estrela.hidden = NO;
     [_btnSeguir setImage:[UIImage imageNamed:@"favoritado.png"] forState:UIControlStateNormal];
 }
 

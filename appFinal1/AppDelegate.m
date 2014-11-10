@@ -29,7 +29,7 @@
 
     //Utilizamos Cache para FOTOS de perfil
     //Definir qnto as imagens ficarao salvas no CACHE
-    [[SDImageCache sharedImageCache] setMaxCacheAge:1];
+    [[SDImageCache sharedImageCache] setMaxCacheAge:5];
     
     //Usuario de inicio é ZERO
     [LocalStore setParaUsuarioZero];

@@ -84,7 +84,7 @@
 
 -(void)carregaMusica{
     
-    //Carre o Player
+    //Carrega o Player
     if (![[GravacaoStore sharedStore] streaming]) {
         
         _lblNomeGravacao.text = ((Musica*)[[GravacaoStore sharedStore] gravacao]).nome;

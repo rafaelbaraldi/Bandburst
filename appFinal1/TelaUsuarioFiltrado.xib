@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TelaUsuarioFiltrado">
             <connections>
                 <outlet property="btnSeguir" destination="O4m-NZ-uPc" id="4At-Ga-6Ed"/>
+                <outlet property="estrela" destination="Or0-s4-qbn" id="dT7-eg-ztU"/>
                 <outlet property="imageUsuario" destination="GsB-IR-rtq" id="btz-nc-DVZ"/>
                 <outlet property="lblAtribuicoes" destination="cJB-aK-Fna" id="Zpg-fy-Dcb"/>
                 <outlet property="lblCidadeBairro" destination="gFX-7q-Y1o" id="qTa-xV-0CJ"/>
@@ -81,6 +82,10 @@
                                 <outlet property="delegate" destination="-1" id="SFk-38-0kZ"/>
                             </connections>
                         </tableView>
+                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="estrela.png" id="Or0-s4-qbn">
+                            <rect key="frame" x="249" y="76" width="20" height="20"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
@@ -92,6 +97,7 @@
         </view>
     </objects>
     <resources>
+        <image name="estrela.png" width="30" height="30"/>
         <image name="favoritar.png" width="214" height="80"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

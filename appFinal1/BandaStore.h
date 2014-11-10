@@ -15,12 +15,16 @@
 +(BandaStore*)sharedStore;
 
 @property NSMutableArray* membros;
+
 @property NSString *idBandaSelecionada;
 
 +(NSMutableArray*)retornaListaDeAmigos;
+
 +(NSMutableArray*)buscaMensagensBanda:(NSString*)identificador;
+
 +(NSMutableArray*)buscaMusicasBanda:(NSString*)identificador;
-+(NSString*)criarBanda:(NSString*)nome membros:(NSString*)membros;
+
++(NSString*)criarBanda:(NSString*)nome membros:(NSString*)membros idAdm:(NSString*)idAdm;
 
 +(NSString*)enviaMensagem:(NSString*)mensagem idBanda:(NSString*)idBanda idUsuario:(NSString*)idUsuario;
 

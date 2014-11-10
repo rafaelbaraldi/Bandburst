@@ -105,7 +105,7 @@
 
 -(void)carregaBotaoFavoritos{
     
-    UIImage *imageOpcoes = [UIImage imageNamed:@"favoritados.png"];
+    UIImage *imageOpcoes = [UIImage imageNamed:@"estrela.png"];
     
     UIBarButtonItem *buttonItemOpcoes = [[UIBarButtonItem alloc] initWithImage:imageOpcoes style:UIBarButtonItemStylePlain target:self action:@selector(usuariosFavoritos)];
     
@@ -117,6 +117,8 @@
 }
 
 -(void)carregaLayout{
+    
+    _lblMsgBusca.textColor = [[LocalStore sharedStore] FONTECOR];
     
     [[UITabBar appearance] setBarTintColor:[[LocalStore sharedStore] FONTECOR]];
     

@@ -52,39 +52,66 @@
     _lblNome.text = _banda.nome;
     [_lblNome sizeToFit];
     
+    //Alerta
+    _alerta = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:nil];
+    
     //Navigation Controller
-    [[self navigationItem] setTitle:_banda.nome];
+    [[self navigationItem] setTitle:@"Banda"];
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
     [[self navigationItem] setTitle:@""];
+    
+    //Arruma edtiando
+    if(_editando){
+        [self btnEditarClick:nil];
+    }
 }
 
 -(void)carregaLayout{
+    
+    //Editar Banda
+    _editando = NO;
     
     //Esconde linhas em branco da TableView
     _tbMembros.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     _tbMembros.separatorColor = [UIColor clearColor];
     
+    //Muscias
     _tbMusicas.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     _tbMusicas.separatorColor = [UIColor clearColor];
     
-    _lblNome.textColor = [[LocalStore sharedStore] FONTECOR];
+    //Add membro
+    _btnAddMembro.backgroundColor = [[LocalStore sharedStore] FONTECOR];
+    _btnAddMembro.layer.cornerRadius = [[LocalStore sharedStore] RAIOBORDA];
     
+    //Add Musica
+    _btnAdicionarGravacao.layer.cornerRadius = [[LocalStore sharedStore] RAIOBORDA];
+    _btnAdicionarGravacao.backgroundColor = [[LocalStore sharedStore] FONTECOR];
+    
+    //Alterar membro
+    _btnAlterarAdm.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    _btnAlterarAdm.titleLabel.textAlignment = NSTextAlignmentCenter;
+    [_btnAlterarAdm setTitle: @"Trocar\nadministrador" forState: UIControlStateNormal];
+    
+    //Nome da banda
+    [_lblNome setUserInteractionEnabled:NO];
+//    [_lblNome setBorderStyle:UITextBorderStyleNone];
+    _lblNome.layer.borderWidth = 2.0f;
+    _lblNome.textColor = [[LocalStore sharedStore] FONTECOR];
+    _lblNome.layer.borderColor = [UIColor whiteColor].CGColor;
+    _lblNome.layer.cornerRadius = [[LocalStore sharedStore] RAIOTEXT];
+    
+    //Editar
     [_btnEditar setBackgroundColor:[[LocalStore sharedStore] FONTECOR]];
     [[_btnEditar layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
-//    [[_btnEditar titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
     
-//    [_lblNome setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
-    
+    //Chat
     [[_btnChat titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
     
     NSDictionary* atributos = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16], NSFontAttributeName, nil];
     [_segTabela setTitleTextAttributes:atributos forState:UIControlStateNormal];
     _segTabela.tintColor = [[LocalStore sharedStore] FONTECOR];
-    
-    _btnAdicionarGravacao.layer.cornerRadius = [[LocalStore sharedStore] RAIOBORDA];
-    _btnAdicionarGravacao.backgroundColor = [[LocalStore sharedStore] FONTECOR];
 }
 
 - (void)didReceiveMemoryWarning{
@@ -103,15 +130,32 @@
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CelulaDeMembros"];
             
-            UILabel* nome = [[UILabel alloc] initWithFrame:CGRectMake(50, 15, 240, 30)];
+            //Nome
+            UILabel* nome = [[UILabel alloc] initWithFrame:CGRectMake(50, 0, 165, 60)];
             nome.text = ((TPUsuario*)[_banda.membros objectAtIndex:indexPath.row]).nome;
-            
             nome.tag = 1;
-            [nome setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+            nome.numberOfLines = 2;
+            nome.lineBreakMode = YES;
+            nome.font = [nome.font fontWithSize:14];
             [nome setTextColor:[[LocalStore sharedStore] FONTECOR]];
             
             [cell addSubview:nome];
 
+            //Administrador
+            UILabel* adm = [[UILabel alloc] initWithFrame:CGRectMake(225, 15, 80, 30)];
+            adm.textColor = [UIColor colorWithRed:1 green:0.231 blue:0.188 alpha:1];
+            adm.font = [adm.font fontWithSize:11];
+            adm.tag = 3;
+            
+            if([((TPUsuario*)[_banda.membros objectAtIndex:indexPath.row]).identificador isEqualToString:_banda.idAdm]){
+                adm.text = @"Administrador";
+            }
+            else{
+                adm.text = @"";
+            }
+            [cell addSubview:adm];
+            
+            //Foto
             UIImageView* foto = [[UIImageView alloc] initWithFrame:CGRectMake(5, 10, 40, 40)];
             foto.layer.masksToBounds = YES;
             foto.layer.cornerRadius =  foto.frame.size.width / 2;
@@ -127,8 +171,15 @@
         }
         else{
             UILabel* nome = (UILabel*)[cell viewWithTag:1];
-            
             nome.text = ((TPUsuario*)[_banda.membros objectAtIndex:indexPath.row]).nome;
+            
+            UILabel* adm = (UILabel*)[cell viewWithTag:3];
+            if([((TPUsuario*)[_banda.membros objectAtIndex:indexPath.row]).identificador isEqualToString:_banda.idAdm]){
+                adm.text = @"Administrador";
+            }
+            else{
+                adm.text = @"";
+            }
             
             UIImageView* foto = (UIImageView*)[cell viewWithTag:2];
             
@@ -157,23 +208,23 @@
             
             UIImageView* som = [[UIImageView alloc] initWithFrame:CGRectMake(15, 15, 40, 30)];
             [som setImage:[UIImage imageNamed:@"audio.png"]];
-            [som setTag:1];
+            [som setTag:2];
             [cell addSubview:som];
             
             UIImageView* play = [[UIImageView alloc] initWithFrame:CGRectMake(265, 12, 35, 35)];
             [play setImage:[UIImage imageNamed:@"playing.png"]];
-            [play setTag:2];
+            [play setTag:3];
             [cell addSubview:play];
             
             UILabel* musica = [[UILabel alloc] initWithFrame:CGRectMake(60, 15, 200, 30)];
             [musica setText:[self carregaNomeMusica:((TPMusica*)[_banda.musicas objectAtIndex:indexPath.row]).url]];
             [musica setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
             [musica setTextColor:[[LocalStore sharedStore] FONTECOR]];
-            [musica setTag:3];
+            [musica setTag:1];
             [cell addSubview:musica];
         }
         else{
-            UILabel* musica = (UILabel*)[cell viewWithTag:3];
+            UILabel* musica = (UILabel*)[cell viewWithTag:1];
             [musica setText:[self carregaNomeMusica:((TPMusica*)[_banda.musicas objectAtIndex:indexPath.row]).url]];
         }
         
@@ -261,12 +312,19 @@
     
     if (_visualizandoMembros) {
         _tbMembros.hidden = NO;
+        
+        if(_editando && [self verificaSeAdmBanda]){
+             _btnAddMembro.hidden = NO;
+        }
+        
         _tbMusicas.hidden = YES;
         _btnAdicionarGravacao.hidden = YES;
     }
     else{
         //Visualizando Músicas
         _tbMembros.hidden = YES;
+        _btnAddMembro.hidden = YES;
+        
         _tbMusicas.hidden = NO;
         _btnAdicionarGravacao.hidden = NO;
     }
@@ -294,4 +352,219 @@
         [[self navigationController] pushViewController:vc animated:NO];
     }
 }
+
+-(BOOL)verificaSeAdmBanda{
+    
+    if([_banda.idAdm isEqualToString:[[LocalStore sharedStore] usuarioAtual].identificador]){
+        return YES;
+    }
+    else{
+        return NO;
+    }
+}
+
+-(void)posicionaViewTable :(UITableView*)table{
+    
+    int xImage;
+    int xLbl;
+    
+    _tbMembros.tag = 1;
+    if(_tbMembros.isEditing && _tbMusicas.isEditing){
+        xImage = 55;
+        xLbl = 100;
+    }
+    else{
+        xImage = 5;
+        xLbl = 55;
+    }
+    
+    for (int i = 0; i < [table numberOfRowsInSection:0]; i++){
+        
+        BOOL entra = YES;
+        if([((TPUsuario*)[_banda.membros objectAtIndex:i]).identificador isEqualToString:_banda.idAdm] && table.tag == 1){
+            entra = NO;
+        }
+        else{
+            YES;
+        }
+        
+        if(entra) {
+            
+            UITableViewCell *c = [table cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+            UIImageView *image = (UIImageView*)[c viewWithTag:2];
+            image.frame = CGRectMake(xImage, image.frame.origin.y , image.frame.size.width , image.frame.size.height);
+            
+            UILabel *lbl = (UILabel*)[c viewWithTag:1];
+            lbl.frame = CGRectMake(xLbl, lbl.frame.origin.y , lbl.frame.size.width , lbl.frame.size.height);
+        }
+    }
+}
+
+//Não habilitar edição para o Administrador
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    //TAG 1 -> INTEGRANTES DA BANDA
+    if (tableView.tag == 1) {
+        if(![((TPUsuario*)[_banda.membros objectAtIndex:indexPath.row]).identificador isEqualToString:_banda.idAdm]){
+            return UITableViewCellEditingStyleDelete;
+        }
+        else{
+            return UITableViewCellEditingStyleNone;
+        }
+    }
+    else{
+        return UITableViewCellEditingStyleDelete;
+    }
+}
+
+- (IBAction)btnEditarClick:(id)sender {
+    
+    BOOL admBanda = [self verificaSeAdmBanda];
+    
+    //Em editação
+    if (_editando) {
+        _editando = NO;
+    }
+    else{
+         _editando = YES;
+    }
+    
+    if(admBanda){
+        
+        if(_editando){
+            
+            //Alterar nome
+            [_lblNome setUserInteractionEnabled:YES];
+            _lblNome.layer.borderColor = [[LocalStore sharedStore] FONTECOR].CGColor;
+            
+            //Saida banda adm
+            UIBarButtonItem *buttonItemOpcoes = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(saidaBanda)];
+            [[self navigationItem] setRightBarButtonItem:buttonItemOpcoes animated:YES];
+            
+            //Remover Musicas e Membros
+            _tbMembros.editing = YES;
+            _tbMusicas.editing = YES;
+            [self posicionaViewTable:_tbMembros];
+            [self posicionaViewTable:_tbMusicas];
+            
+            //Add Membro
+            if(_tbMusicas.hidden){
+                 _btnAddMembro.hidden = NO;
+            }
+            
+            //Alterar adm
+            _btnAlterarAdm.hidden = NO;
+        }
+    }
+    else{
+        //Sair da banda
+        UIImage *imgSaida = [UIImage imageNamed:@"sair.png"];
+        UIBarButtonItem *buttonItemOpcoes = [[UIBarButtonItem alloc] initWithImage:imgSaida style:UIBarButtonItemStylePlain target:self action:@selector(saidaBanda)];
+        [[self navigationItem] setRightBarButtonItem:buttonItemOpcoes animated:YES];
+    }
+    
+    //Editando ou não
+    if(!_editando){
+        
+        //Alterar nome
+        [_lblNome setUserInteractionEnabled:NO];
+        _lblNome.layer.borderColor = [UIColor whiteColor].CGColor;
+        
+        //Remover Musicas e Membros
+        _tbMembros.editing = NO;
+        _tbMusicas.editing = NO;
+        
+        [self posicionaViewTable:_tbMembros];
+        [self posicionaViewTable:_tbMusicas];
+    
+        //Saida banda
+        [self.navigationItem setRightBarButtonItem:nil];
+        
+        //Add Membro
+        _btnAddMembro.hidden = YES;
+        
+        //Alterar adm
+        _btnAlterarAdm.hidden = YES;
+        
+        //Botao editar
+        [_btnEditar setTitle:@"Editar" forState:UIControlStateNormal];
+    }
+    else{
+        //Saida banda
+
+        
+        //Botao Editar
+        [_btnEditar setTitle:@"Concluído" forState:UIControlStateNormal];
+    }
+}
+
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    //TAG 1 -> INTEGRANTES DA BANDA
+    if (tableView.tag == 1) {
+        _alerta.title = [NSString stringWithFormat:@"Tem certeza que deseja remover %@ da banda %@?", ((TPUsuario*)[_banda.membros objectAtIndex:indexPath.row]).nome, _banda.nome];
+        [_alerta addButtonWithTitle:@"Sim, remover membro"];
+    }
+    else{
+        _alerta.title = [NSString stringWithFormat:@"Tem certeza que deseja remover %@ da banda %@?", [self carregaNomeMusica:((TPMusica*)[_banda.musicas objectAtIndex:indexPath.row]).url], _banda.nome];
+        [_alerta addButtonWithTitle:@"Sim, remover música"];
+    }
+    
+    [_alerta showInView:self.view];
+}
+
+- (IBAction)btnAddMembro:(id)sender {
+    [[self navigationController] pushViewController:[[LocalStore sharedStore] TelaAmigos] animated:YES];
+}
+
+- (IBAction)btnAlterarAdm:(id)sender {
+    
+    _alerta.title = [NSString stringWithFormat:@"Tem certeza que deseja trocar o administrador da banda %@?", _banda.nome];
+    [_alerta addButtonWithTitle:@"Sim, trocar adminsitrador"];
+    
+    [_alerta showInView:self.view];
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    NSString *action = [actionSheet buttonTitleAtIndex:buttonIndex];
+    
+    if([action isEqualToString:@"Sim, excluir banda"]){
+        //Excluir banda
+    }
+    if([action isEqualToString:@"Sim, sair da banda"]){
+        //Sair da banda
+    }
+    if([action isEqualToString:@"Sim, trocar adminsitrador"]){
+        //Trocar admnistrador da banda
+    }
+    if([action isEqualToString:@"Sim, remover membro"]){
+        //Remover membro
+    }
+    if([action isEqualToString:@"Sim, remover música"]){
+        //Remover musica
+    }
+}
+
+-(void)saidaBanda{
+    
+    if([self verificaSeAdmBanda]){
+        
+        _alerta.title = [NSString stringWithFormat:@"Tem certeza que deseja excluir a banda %@?", _banda.nome];
+        [_alerta addButtonWithTitle:@"Sim, excluir banda"];
+    }
+    else{
+        _alerta.title = [NSString stringWithFormat:@"Tem certeza que deseja sair da banda %@?", _banda.nome];
+        [_alerta addButtonWithTitle:@"Sim, sair da banda"];
+    }
+    
+    [_alerta showInView:self.view];
+}
+
 @end
