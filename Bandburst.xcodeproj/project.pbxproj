@@ -118,6 +118,7 @@
 		31FB8CDB19CA25BF00ECEBDF /* WalkwayBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 31FB8CDA19CA25BF00ECEBDF /* WalkwayBold.otf */; };
 		73029BA619819A4200BFB4B3 /* TBFiltroHorario.m in Sources */ = {isa = PBXBuildFile; fileRef = 73029BA419819A4200BFB4B3 /* TBFiltroHorario.m */; };
 		73029BA719819A4200BFB4B3 /* TBFiltroHorario.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73029BA519819A4200BFB4B3 /* TBFiltroHorario.xib */; };
+		731FF6201A11835A0073CF65 /* IHKeyboardAvoiding.m in Sources */ = {isa = PBXBuildFile; fileRef = 731FF61F1A11835A0073CF65 /* IHKeyboardAvoiding.m */; };
 		734C4B201A116187004E22A0 /* sair@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 734C4B1E1A116187004E22A0 /* sair@2x.png */; };
 		734C4B211A116187004E22A0 /* sair.png in Resources */ = {isa = PBXBuildFile; fileRef = 734C4B1F1A116187004E22A0 /* sair.png */; };
 		734C4B241A116817004E22A0 /* estrela@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 734C4B221A116817004E22A0 /* estrela@2x.png */; };
@@ -329,6 +330,8 @@
 		73029BA319819A4200BFB4B3 /* TBFiltroHorario.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBFiltroHorario.h; sourceTree = "<group>"; };
 		73029BA419819A4200BFB4B3 /* TBFiltroHorario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBFiltroHorario.m; sourceTree = "<group>"; };
 		73029BA519819A4200BFB4B3 /* TBFiltroHorario.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TBFiltroHorario.xib; sourceTree = "<group>"; };
+		731FF61E1A11835A0073CF65 /* IHKeyboardAvoiding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IHKeyboardAvoiding.h; sourceTree = "<group>"; };
+		731FF61F1A11835A0073CF65 /* IHKeyboardAvoiding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IHKeyboardAvoiding.m; sourceTree = "<group>"; };
 		734C4B1E1A116187004E22A0 /* sair@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sair@2x.png"; sourceTree = "<group>"; };
 		734C4B1F1A116187004E22A0 /* sair.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sair.png; sourceTree = "<group>"; };
 		734C4B221A116817004E22A0 /* estrela@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "estrela@2x.png"; sourceTree = "<group>"; };
@@ -599,6 +602,7 @@
 		1BE8E3AD192533AD00D108C0 = {
 			isa = PBXGroup;
 			children = (
+				731FF6211A1183690073CF65 /* IHKeyBoard */,
 				736BF92A19A8C24B0010C356 /* SDWebImage */,
 				1BE8E3C1192533AD00D108C0 /* appFinal1 */,
 				1BE8E3D0192533AD00D108C0 /* Images.xcassets */,
@@ -837,6 +841,15 @@
 				31EC795B19F8256D004CB4A9 /* GravacaoStore.m */,
 			);
 			name = Singleton;
+			sourceTree = "<group>";
+		};
+		731FF6211A1183690073CF65 /* IHKeyBoard */ = {
+			isa = PBXGroup;
+			children = (
+				731FF61E1A11835A0073CF65 /* IHKeyboardAvoiding.h */,
+				731FF61F1A11835A0073CF65 /* IHKeyboardAvoiding.m */,
+			);
+			name = IHKeyBoard;
 			sourceTree = "<group>";
 		};
 		734C4B1D1A10EC4E004E22A0 /* sem uso */ = {
@@ -1280,6 +1293,7 @@
 				73029BA619819A4200BFB4B3 /* TBFiltroHorario.m in Sources */,
 				1BEA45AC1992C98D00876D75 /* PerfilStore.m in Sources */,
 				736BF96019A992DE0010C356 /* celulaPerfilTableViewCell.m in Sources */,
+				731FF6201A11835A0073CF65 /* IHKeyboardAvoiding.m in Sources */,
 				1B5FE144192FD00300E35BCC /* BuscaConexao.m in Sources */,
 				1B1613151992A993009D5513 /* BandaConexao.m in Sources */,
 				2F270FCB1981936C00EFBEB4 /* Reachability.m in Sources */,

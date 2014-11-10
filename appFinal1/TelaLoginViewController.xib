@@ -11,9 +11,10 @@
                 <outlet property="btnContinuar" destination="oPc-VE-eFT" id="h5Y-fK-lkC"/>
                 <outlet property="btnEntrar" destination="FuR-Ke-QcW" id="JSd-9g-iOG"/>
                 <outlet property="lblEsqueceuSenha" destination="hNU-rR-RcC" id="1nD-5l-BsU"/>
+                <outlet property="target" destination="x2j-YL-uEv" id="oNW-Yg-VXv"/>
                 <outlet property="txtEmail" destination="912-fn-hzB" id="ms3-wB-3Wg"/>
                 <outlet property="txtSenha" destination="Izg-eY-nrP" id="qRV-FQ-Hfm"/>
-                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="UUH-bj-DdR"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -84,8 +85,12 @@
                         <action selector="btnEntrarClick:" destination="-1" eventType="touchUpInside" id="xbb-gm-Iwx"/>
                     </connections>
                 </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x2j-YL-uEv">
+                    <rect key="frame" x="8" y="344" width="304" height="50"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <point key="canvasLocation" x="375" y="382"/>
         </view>
     </objects>
     <resources>

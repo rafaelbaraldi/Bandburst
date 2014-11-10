@@ -13,6 +13,8 @@
 #import "LoginStore.h"
 #import "LocalStore.h"
 
+#import "IHKeyboardAvoiding.h"
+
 #import "Reachability.h"
 
 @interface TelaLoginViewController ()
@@ -30,6 +32,8 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    
+    [IHKeyboardAvoiding setAvoidingView:self.view withTarget:_target];
     
     [[[self navigationController] navigationBar] setTintColor:[[LocalStore sharedStore] FONTECOR]];
     [self carregaLayout];
