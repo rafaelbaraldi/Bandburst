@@ -18,6 +18,12 @@
 
 #import "UIImageView+WebCache.h"
 
+const int ALERTA_TROCAR_ADMINISTRADOR = 0;
+const int ALERTA_SAIR = 1;
+const int ALERTA_REMOVER_MEMBRO = 2;
+const int ALERTA_REMOVER_MUSICA = 3;
+const int ALERTA_EXCLUIR_BANDA = 4;
+
 @interface TelaPerfilBandaViewController ()
 
 @end
@@ -29,7 +35,7 @@
     if (self) {
         _visualizandoMembros = YES;
         _tbMusicas.hidden = YES;
-        _removerMembro = [[NSMutableArray alloc] init];
+        _alertasEdicao = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -54,9 +60,6 @@
     _lblNome.text = _banda.nome;
     [_lblNome sizeToFit];
     
-    //Alerta
-    _alerta = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:nil];
-    
     //Navigation Controller
     [[self navigationItem] setTitle:@"Banda"];
 }
@@ -65,18 +68,24 @@
     [[self navigationItem] setTitle:@""];
     
     //Arruma edtiando
-    if([[BandaStore sharedStore] editando]){
-//        [self btnEditarClick:nil];
+    if([[BandaStore sharedStore] editando] && _addMembro == NO){
+        [self btnEditarClick:nil];
     }
+    
+    //Gamb verifica se vai para tela de add membro
+    _addMembro = NO;
     
     [_tbMembros reloadData];
     [_tbMusicas reloadData];
 }
 
 -(void)carregaLayout{
-    
     //Editar Banda
     [[BandaStore sharedStore] setEditando:NO];
+    
+    //Alerta
+    _banda = [[BandaStore sharedStore] bandaSelecionada];
+    [self carregaAlertaDeEdicao];
     
     //Esconde linhas em branco da TableView
     _tbMembros.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
@@ -101,7 +110,6 @@
     
     //Nome da banda
     [_lblNome setUserInteractionEnabled:NO];
-//    [_lblNome setBorderStyle:UITextBorderStyleNone];
     _lblNome.layer.borderWidth = 2.0f;
     _lblNome.textColor = [[LocalStore sharedStore] FONTECOR];
     _lblNome.layer.borderColor = [UIColor whiteColor].CGColor;
@@ -119,6 +127,25 @@
     _segTabela.tintColor = [[LocalStore sharedStore] FONTECOR];
 }
 
+-(void)carregaAlertaDeEdicao{
+    
+    UIActionSheet* alertaTrocaAdm = [[UIActionSheet alloc] initWithTitle:[NSString stringWithFormat:@"Tem certeza que deseja trocar o administrador da banda %@?", _banda.nome] delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Sim, trocar adminsitrador", nil];
+    
+    UIActionSheet* alertaRemoverMembro = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Sim, remover membro", nil];
+    
+    UIActionSheet* alertaRemoverMusica = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Sim, remover música", nil];
+    
+    UIActionSheet* alertaSair = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Sim, sair da banda", nil];
+    
+    UIActionSheet* alertaExcluirBanda = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Sim, excluir banda", nil];
+    
+    [_alertasEdicao addObject:alertaTrocaAdm];
+    [_alertasEdicao addObject:alertaSair];
+    [_alertasEdicao addObject:alertaRemoverMembro];
+    [_alertasEdicao addObject:alertaRemoverMusica];
+    [_alertasEdicao addObject:alertaExcluirBanda];
+}
+
 - (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
 }
@@ -134,6 +161,13 @@
         
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CelulaDeMembros"];
+            
+            //Carrega Posição das view
+            [self carregaPosicaoViewsTabela];
+            if([((TPUsuario*)[_banda.membros objectAtIndex:indexPath.row]).identificador isEqualToString:_banda.idAdm]){
+                _xImage = 5;
+                _xLbl = 50;
+            }
             
             //Nome
             UILabel* nome = [[UILabel alloc] initWithFrame:CGRectMake(_xLbl, 0, 165, 60)];
@@ -175,20 +209,28 @@
             [cell addSubview:foto];
         }
         else{
-            UILabel* nome = (UILabel*)[cell viewWithTag:1];
-            nome.text = ((TPUsuario*)[_banda.membros objectAtIndex:indexPath.row]).nome;
-            
             UILabel* adm = (UILabel*)[cell viewWithTag:3];
             if([((TPUsuario*)[_banda.membros objectAtIndex:indexPath.row]).identificador isEqualToString:_banda.idAdm]){
                 adm.text = @"Administrador";
-            }
-            else{
+            }else{
                 adm.text = @"";
             }
             
-            UIImageView* foto = (UIImageView*)[cell viewWithTag:2];
+            //Poisicoes
+            [self carregaPosicaoViewsTabela];
+            if([((TPUsuario*)[_banda.membros objectAtIndex:indexPath.row]).identificador isEqualToString:_banda.idAdm]){
+                _xImage = 5;
+                _xLbl = 50;
+            }
+
+            //Nome
+            UILabel* nome = (UILabel*)[cell viewWithTag:1];
+            nome.text = ((TPUsuario*)[_banda.membros objectAtIndex:indexPath.row]).nome;
+            nome.frame = CGRectMake(_xLbl, 0, 165, 60);
             
             //Carrega foto com THREAD
+            UIImageView* foto = (UIImageView*)[cell viewWithTag:2];
+            foto.frame = CGRectMake(_xImage, 10, 40, 40);
             [foto sd_setImageWithURL:imageURL placeholderImage:[self carregaImagemFake]
                            completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                                [[SDImageCache sharedImageCache] storeImage:image forKey:urlFoto];
@@ -205,13 +247,12 @@
         return cell;
     }
     else{
-        
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CelulaDeMusicas"];
         
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CelulaDeMembros"];
             
-            UIImageView* som = [[UIImageView alloc] initWithFrame:CGRectMake(15, 15, 40, 30)];
+            UIImageView* som = [[UIImageView alloc] initWithFrame:CGRectMake(5, 15, 40, 30)];
             [som setImage:[UIImage imageNamed:@"audio.png"]];
             [som setTag:2];
             [cell addSubview:som];
@@ -221,9 +262,9 @@
             [play setTag:3];
             [cell addSubview:play];
             
-            UILabel* musica = [[UILabel alloc] initWithFrame:CGRectMake(60, 15, 200, 30)];
+            UILabel* musica = [[UILabel alloc] initWithFrame:CGRectMake(55, 15, 200, 30)];
             [musica setText:[self carregaNomeMusica:((TPMusica*)[_banda.musicas objectAtIndex:indexPath.row]).url]];
-            [musica setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+            [musica setFont:[musica.font fontWithSize:14]];
             [musica setTextColor:[[LocalStore sharedStore] FONTECOR]];
             [musica setTag:1];
             [cell addSubview:musica];
@@ -312,6 +353,23 @@
     }
 }
 
+//Não habilitar edição para o Administrador
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    //TAG 1 -> INTEGRANTES DA BANDA
+    if (tableView.tag == 1) {
+        if(![((TPUsuario*)[_banda.membros objectAtIndex:indexPath.row]).identificador isEqualToString:_banda.idAdm]){
+            return UITableViewCellEditingStyleDelete;
+        }
+        else{
+            return UITableViewCellEditingStyleNone;
+        }
+    }
+    else{
+        return UITableViewCellEditingStyleDelete;
+    }
+}
+
 - (IBAction)segTabelaChange:(id)sender {
     _visualizandoMembros = !_visualizandoMembros;
     
@@ -382,46 +440,25 @@
 
 -(void)posicionaViewTable :(UITableView*)table{
     
-    [self carregaPosicaoViewsTabela];
-    
     _tbMembros.tag = 1;
     
     for (int i = 0; i < [table numberOfRowsInSection:0]; i++){
         
-        BOOL entra = YES;
-        if([((TPUsuario*)[_banda.membros objectAtIndex:i]).identificador isEqualToString:_banda.idAdm] && table.tag == 1){
-            entra = NO;
-        }
-        else{
-            YES;
+        [self carregaPosicaoViewsTabela];
+        
+        if(table.tag == 1){
+            if([((TPUsuario*)[_banda.membros objectAtIndex:i]).identificador isEqualToString:_banda.idAdm ]){
+                _xImage = 5;
+                _xLbl = 50;
+            }
         }
         
-        if(entra) {
-            
-            UITableViewCell *c = [table cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
-            UIImageView *image = (UIImageView*)[c viewWithTag:2];
-            image.frame = CGRectMake(_xImage, image.frame.origin.y , image.frame.size.width , image.frame.size.height);
-            
-            UILabel *lbl = (UILabel*)[c viewWithTag:1];
-            lbl.frame = CGRectMake(_xLbl, lbl.frame.origin.y , lbl.frame.size.width , lbl.frame.size.height);
-        }
-    }
-}
-
-//Não habilitar edição para o Administrador
-- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath{
-
-    //TAG 1 -> INTEGRANTES DA BANDA
-    if (tableView.tag == 1) {
-        if(![((TPUsuario*)[_banda.membros objectAtIndex:indexPath.row]).identificador isEqualToString:_banda.idAdm]){
-            return UITableViewCellEditingStyleDelete;
-        }
-        else{
-            return UITableViewCellEditingStyleNone;
-        }
-    }
-    else{
-        return UITableViewCellEditingStyleDelete;
+        UITableViewCell *c = [table cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+        UIImageView *image = (UIImageView*)[c viewWithTag:2];
+        image.frame = CGRectMake(_xImage, image.frame.origin.y , image.frame.size.width , image.frame.size.height);
+        
+        UILabel *lbl = (UILabel*)[c viewWithTag:1];
+        lbl.frame = CGRectMake(_xLbl, lbl.frame.origin.y , lbl.frame.size.width , lbl.frame.size.height);
     }
 }
 
@@ -502,7 +539,6 @@
         }
     }
     else{
-        
         //Botao Editar
         [_btnEditar setTitle:@"Concluído" forState:UIControlStateNormal];
     }
@@ -515,75 +551,86 @@
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    UIActionSheet *alert;
+    
     //TAG 1 -> INTEGRANTES DA BANDA
     if (tableView.tag == 1) {
-        _alerta.title = [NSString stringWithFormat:@"Tem certeza que deseja remover %@ da banda %@?", ((TPUsuario*)[_banda.membros objectAtIndex:indexPath.row]).nome, _banda.nome];
-        [_alerta addButtonWithTitle:@"Sim, remover membro"];
+        //Alert
+        alert = [_alertasEdicao objectAtIndex:ALERTA_REMOVER_MEMBRO];
+        alert.title = [NSString stringWithFormat:@"Tem certeza que deseja remover %@ da banda %@?", ((TPUsuario*)[_banda.membros objectAtIndex:indexPath.row]).nome, _banda.nome];
         
         //Salva o id do membro se for remover
-        [_removerMembro addObject:((TPUsuario*)[_banda.membros objectAtIndex:indexPath.row]).identificador];
-        [_removerMembro addObject:indexPath];
+        _usuarioRemover = ((TPUsuario*)[_banda.membros objectAtIndex:indexPath.row]);
+//        [_removerMembro addObject:indexPath];
     }
     else{
-        _alerta.title = [NSString stringWithFormat:@"Tem certeza que deseja remover %@ da banda %@?", [self carregaNomeMusica:((TPMusica*)[_banda.musicas objectAtIndex:indexPath.row]).url], _banda.nome];
-        [_alerta addButtonWithTitle:@"Sim, remover música"];
+        //Alert
+        alert = [_alertasEdicao objectAtIndex:ALERTA_REMOVER_MUSICA];
+        alert.title = [NSString stringWithFormat:@"Tem certeza que deseja remover %@ da banda %@?", [self carregaNomeMusica:((TPMusica*)[_banda.musicas objectAtIndex:indexPath.row]).url], _banda.nome];
     }
     
-    [_alerta showInView:self.view];
+    [alert showInView:self.view];
 }
 
 - (IBAction)btnAddMembro:(id)sender {
     [[self navigationController] pushViewController:[[LocalStore sharedStore] TelaAmigos] animated:YES];
+    _addMembro = YES;
 }
 
 - (IBAction)btnAlterarAdm:(id)sender {
     
-    _alerta.title = [NSString stringWithFormat:@"Tem certeza que deseja trocar o administrador da banda %@?", _banda.nome];
-    [_alerta addButtonWithTitle:@"Sim, trocar adminsitrador"];
-    
-    [_alerta showInView:self.view];
+    UIActionSheet *alert = [_alertasEdicao objectAtIndex:ALERTA_TROCAR_ADMINISTRADOR];
+    [alert showInView:self.view];
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     
     NSString *action = [actionSheet buttonTitleAtIndex:buttonIndex];
     
+    //Excluir banda
     if([action isEqualToString:@"Sim, excluir banda"]){
-        //Excluir banda
     }
+    
+    //Sair da banda
     if([action isEqualToString:@"Sim, sair da banda"]){
-        //Sair da banda
+        [BandaStore  alterarDados:@"remover_membro" dado:[[LocalStore sharedStore] usuarioAtual].identificador idBanda:_banda.identificador];
+        [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaPerfil] animated:YES];
     }
+    
+    //Trocar admnistrador da banda
     if([action isEqualToString:@"Sim, trocar adminsitrador"]){
-        //Trocar admnistrador da banda
     }
+    
+    //Remover membro
     if([action isEqualToString:@"Sim, remover membro"]){
-        //Remover membro
-        [BandaStore  alterarDados:@"remover_membro" dado:[_removerMembro objectAtIndex:0] idBanda:_banda.identificador];
-        
+        TPUsuario *u = _usuarioRemover;
+        [BandaStore  alterarDados:@"remover_membro" dado:u.identificador idBanda:_banda.identificador];
+
         //Remove da tabela
-        NSIndexPath *i = [_removerMembro objectAtIndex:1];
-        [_banda.membros removeObjectAtIndex:i.row];
+        [_banda.membros removeObject:u];
         [_tbMembros reloadData];
     }
+    
+    //Remover musica
     if([action isEqualToString:@"Sim, remover música"]){
-        //Remover musica
     }
 }
 
 -(void)saidaBanda{
     
+    UIActionSheet *alert;
+    
     if([self verificaSeAdmBanda]){
         
-        _alerta.title = [NSString stringWithFormat:@"Tem certeza que deseja excluir a banda %@?", _banda.nome];
-        [_alerta addButtonWithTitle:@"Sim, excluir banda"];
+        alert = [_alertasEdicao objectAtIndex:ALERTA_EXCLUIR_BANDA];
+        alert.title = [NSString stringWithFormat:@"Tem certeza que deseja excluir a banda %@?", _banda.nome];
     }
     else{
-        _alerta.title = [NSString stringWithFormat:@"Tem certeza que deseja sair da banda %@?", _banda.nome];
-        [_alerta addButtonWithTitle:@"Sim, sair da banda"];
+        alert = [_alertasEdicao objectAtIndex:ALERTA_SAIR];
+        alert.title = [NSString stringWithFormat:@"Tem certeza que deseja sair da banda %@?", _banda.nome];
     }
     
-    [_alerta showInView:self.view];
+    [alert showInView:self.view];
 }
 
 @end

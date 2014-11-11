@@ -89,6 +89,11 @@
         if(add){
             [[[[BandaStore sharedStore] bandaSelecionada] membros] addObject:[_amigosFiltrados objectAtIndex:indexPath.row]];
             [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaPerfilBanda] animated:YES];
+            
+            //Add no servidor
+            NSString *r = [BandaStore  alterarDados:@"adicionar_membro" dado:((TPUsuario*)[_amigosFiltrados objectAtIndex:indexPath.row]).identificador idBanda:[[BandaStore sharedStore] idBandaSelecionada]];
+            
+            NSLog(@"%@", r);
         }
     }
     else{

@@ -9,18 +9,26 @@
 #import <UIKit/UIKit.h>
 #import "TPBanda.h"
 
+#import "TPMusica.h"
+#import "TPUsuario.h"
+
 @interface TelaPerfilBandaViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate, UITextFieldDelegate>
 
 @property BOOL visualizandoMembros;
 
+@property NSMutableArray* alertasEdicao;
+
 @property TPBanda* banda;
+
+@property BOOL addMembro;
 
 @property int xImage;
 @property int xLbl;
 
-@property UIActionSheet *alerta;
+//@property UIActionSheet *alerta;
 
-@property NSMutableArray* removerMembro;
+@property TPUsuario* usuarioRemover;
+@property TPMusica *musicaRemover;
 
 @property (strong, nonatomic) IBOutlet UITableView *tbMembros;
 @property (strong, nonatomic) IBOutlet UITableView *tbMusicas;

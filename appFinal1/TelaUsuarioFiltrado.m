@@ -119,7 +119,7 @@
     //Cidade e Bairro
     _lblCidadeBairro.lineBreakMode = NSLineBreakByCharWrapping;
     _lblCidadeBairro.numberOfLines = 2;
-    _lblCidadeBairro.text = [NSString stringWithFormat:@"%@, %@", _pessoa.cidade, _pessoa.bairro];
+    _lblCidadeBairro.text = [NSString stringWithFormat:@"%@\n%@", _pessoa.cidade, _pessoa.bairro];
     
     //Atribuicoes
     [self carregaAtribuicoes];
@@ -170,6 +170,13 @@
     }
     else{
         [self botaoSeguirAmigo];
+    }
+    
+    if ([_pessoa.identificador isEqualToString:[[LocalStore sharedStore] usuarioAtual].identificador]) {
+        _btnSeguir.hidden = YES;
+    }
+    else{
+        _btnSeguir.hidden = NO;
     }
 }
 

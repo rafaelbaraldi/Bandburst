@@ -110,12 +110,14 @@
 }
 
 -(void)enviaMusicaServidor:(NSIndexPath*)indexPath{
-    NSString* s = [BandaStore enviaMusica:((Musica*)[[_musicasPorCategoria objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]).nome urlMusica:((Musica*)[[_musicasPorCategoria objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]).url idBanda:[[BandaStore sharedStore] idBandaSelecionada] idUsuario:[[LocalStore sharedStore] usuarioAtual].identificador];
+    NSString* s = [BandaStore enviaMusica:((Musica*)[[_musicasPorCategoria objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]).nome urlMusica:((Musica*)[[_musicasPorCategoria objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]).url idBanda:[[BandaStore sharedStore] bandaSelecionada].identificador idUsuario:[[LocalStore sharedStore] usuarioAtual].identificador];
     
     if([s length] > 0){
-        [BandaStore enviaMensagem:[NSString stringWithFormat:@"%@ enviou uma nova gravação! Consulte as músicas de sua banda.", [[LocalStore sharedStore] usuarioAtual].nome] idBanda:[[BandaStore sharedStore] idBandaSelecionada] idUsuario:[[LocalStore sharedStore] usuarioAtual].identificador];
+        [BandaStore enviaMensagem:[NSString stringWithFormat:@"%@ enviou uma nova gravação! Consulte as músicas de sua banda.", [[LocalStore sharedStore] usuarioAtual].nome] idBanda:[[BandaStore sharedStore] bandaSelecionada].identificador idUsuario:[[LocalStore sharedStore] usuarioAtual].identificador];
     }
     
+    //Recarrega banda com nova musica
+    [[BandaStore sharedStore] setBandaSelecionada:[BandaStore buscaBanda:[[BandaStore sharedStore] idBandaSelecionada]]];
     
     [[self navigationController] popViewControllerAnimated:YES];
 }

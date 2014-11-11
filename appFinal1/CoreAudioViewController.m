@@ -34,7 +34,6 @@
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
-    [[self navigationItem] setTitle:@""];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -218,6 +217,11 @@
         UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Gravação" message:@"Som gravado com sucesso" delegate:self cancelButtonTitle:@"Voltar" otherButtonTitles:@"Tocar Gravação", nil];
         [av setTag:2];
         [av show];
+        
+        //Nao deixa o usuario sair da view
+        [self.navigationItem setHidesBackButton:NO animated:YES];
+        _tabBar.hidden = NO;
+        _tabBarSeta.hidden = NO;
     }
     else{
         UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Gravação" message:@"Preencha os campos abaixo" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
@@ -229,6 +233,11 @@
         [[av textFieldAtIndex:1] setPlaceholder:@"Categoria"];
         [av setTag:1];
         [av show];
+        
+        //Nao deixa o usuario sair da view
+        [self.navigationItem setHidesBackButton:YES animated:YES];
+        _tabBar.hidden = YES;
+        _tabBarSeta.hidden = YES;
     }
 }
 

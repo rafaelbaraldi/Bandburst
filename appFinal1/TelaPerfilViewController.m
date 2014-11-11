@@ -221,8 +221,9 @@
 }
 
 -(void)banda:(UIButton*)bt{
-    
-//    [[BandaStore sharedStore] setIdBandaSelecionada:[bt titleLabel].text];
+  
+    //Salva id da Banda atual
+    [[BandaStore sharedStore] setIdBandaSelecionada:[bt titleLabel].text];
     
     //Salva banda selecionada
     [[BandaStore sharedStore] setBandaSelecionada:[BandaStore buscaBanda:[bt titleLabel].text]];

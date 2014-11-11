@@ -306,14 +306,14 @@
     if(celula == nil){
         celula = [[celulaPerfilTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UsuarioPesquisaCell"];
         
-        UILabel *nome = [[UILabel alloc] initWithFrame:CGRectMake(120, 25, 170, 20)];
+        UILabel *nome = [[UILabel alloc] initWithFrame:CGRectMake(120, 22, 170, 20)];
         nome.text = ((TPUsuario*)[_usuarios objectAtIndex:indexPath.row]).nome;
 //        nome.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16];
         nome.textColor = [[LocalStore sharedStore] FONTECOR];
         nome.adjustsFontSizeToFitWidth = YES;
         nome.tag = 1;
         
-        UILabel *cidade = [[UILabel alloc] initWithFrame:CGRectMake(120, 55, 170, 15)];
+        UILabel *cidade = [[UILabel alloc] initWithFrame:CGRectMake(120, 52, 170, 15)];
         cidade.text = ((TPUsuario*)[_usuarios objectAtIndex:indexPath.row]).cidade;
 //        cidade.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:12];
         cidade.textColor = [[LocalStore sharedStore] FONTECOR];
