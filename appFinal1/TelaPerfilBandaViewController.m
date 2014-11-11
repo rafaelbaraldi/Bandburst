@@ -29,6 +29,7 @@
     if (self) {
         _visualizandoMembros = YES;
         _tbMusicas.hidden = YES;
+        _removerMembro = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -40,9 +41,10 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    _banda = [BandaStore buscaBanda:[[BandaStore sharedStore] idBandaSelecionada]];
     
-    [[self navigationItem] setTitle:_banda.nome];
+    _banda = [[BandaStore sharedStore] bandaSelecionada];
+    
+    [[self navigationItem] setTitle:@"Banda"];
     
     //Carrega dados da Banda
     [_tbMembros reloadData];
@@ -63,15 +65,18 @@
     [[self navigationItem] setTitle:@""];
     
     //Arruma edtiando
-    if(_editando){
-        [self btnEditarClick:nil];
+    if([[BandaStore sharedStore] editando]){
+//        [self btnEditarClick:nil];
     }
+    
+    [_tbMembros reloadData];
+    [_tbMusicas reloadData];
 }
 
 -(void)carregaLayout{
     
     //Editar Banda
-    _editando = NO;
+    [[BandaStore sharedStore] setEditando:NO];
     
     //Esconde linhas em branco da TableView
     _tbMembros.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
@@ -131,7 +136,7 @@
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CelulaDeMembros"];
             
             //Nome
-            UILabel* nome = [[UILabel alloc] initWithFrame:CGRectMake(50, 0, 165, 60)];
+            UILabel* nome = [[UILabel alloc] initWithFrame:CGRectMake(_xLbl, 0, 165, 60)];
             nome.text = ((TPUsuario*)[_banda.membros objectAtIndex:indexPath.row]).nome;
             nome.tag = 1;
             nome.numberOfLines = 2;
@@ -156,7 +161,7 @@
             [cell addSubview:adm];
             
             //Foto
-            UIImageView* foto = [[UIImageView alloc] initWithFrame:CGRectMake(5, 10, 40, 40)];
+            UIImageView* foto = [[UIImageView alloc] initWithFrame:CGRectMake(_xImage, 10, 40, 40)];
             foto.layer.masksToBounds = YES;
             foto.layer.cornerRadius =  foto.frame.size.width / 2;
             foto.tag = 2;
@@ -313,7 +318,7 @@
     if (_visualizandoMembros) {
         _tbMembros.hidden = NO;
         
-        if(_editando && [self verificaSeAdmBanda]){
+        if([[BandaStore sharedStore] editando] && [self verificaSeAdmBanda]){
              _btnAddMembro.hidden = NO;
         }
         
@@ -363,20 +368,23 @@
     }
 }
 
--(void)posicionaViewTable :(UITableView*)table{
+-(void)carregaPosicaoViewsTabela{
     
-    int xImage;
-    int xLbl;
-    
-    _tbMembros.tag = 1;
     if(_tbMembros.isEditing && _tbMusicas.isEditing){
-        xImage = 55;
-        xLbl = 100;
+        _xImage = 50;
+        _xLbl = 95;
     }
     else{
-        xImage = 5;
-        xLbl = 55;
+        _xImage = 5;
+        _xLbl = 50;
     }
+}
+
+-(void)posicionaViewTable :(UITableView*)table{
+    
+    [self carregaPosicaoViewsTabela];
+    
+    _tbMembros.tag = 1;
     
     for (int i = 0; i < [table numberOfRowsInSection:0]; i++){
         
@@ -392,10 +400,10 @@
             
             UITableViewCell *c = [table cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
             UIImageView *image = (UIImageView*)[c viewWithTag:2];
-            image.frame = CGRectMake(xImage, image.frame.origin.y , image.frame.size.width , image.frame.size.height);
+            image.frame = CGRectMake(_xImage, image.frame.origin.y , image.frame.size.width , image.frame.size.height);
             
             UILabel *lbl = (UILabel*)[c viewWithTag:1];
-            lbl.frame = CGRectMake(xLbl, lbl.frame.origin.y , lbl.frame.size.width , lbl.frame.size.height);
+            lbl.frame = CGRectMake(_xLbl, lbl.frame.origin.y , lbl.frame.size.width , lbl.frame.size.height);
         }
     }
 }
@@ -422,16 +430,16 @@
     BOOL admBanda = [self verificaSeAdmBanda];
     
     //Em editação
-    if (_editando) {
-        _editando = NO;
+    if ([[BandaStore sharedStore] editando]) {
+        [[BandaStore sharedStore] setEditando:NO];
     }
     else{
-         _editando = YES;
+        [[BandaStore sharedStore] setEditando:YES];
     }
     
     if(admBanda){
         
-        if(_editando){
+        if([[BandaStore sharedStore] editando]){
             
             //Alterar nome
             [_lblNome setUserInteractionEnabled:YES];
@@ -464,7 +472,7 @@
     }
     
     //Editando ou não
-    if(!_editando){
+    if(![[BandaStore sharedStore] editando]){
         
         //Alterar nome
         [_lblNome setUserInteractionEnabled:NO];
@@ -473,11 +481,10 @@
         //Remover Musicas e Membros
         _tbMembros.editing = NO;
         _tbMusicas.editing = NO;
-        
         [self posicionaViewTable:_tbMembros];
         [self posicionaViewTable:_tbMusicas];
     
-        //Saida banda
+        //Saida banda - remove da tela
         [self.navigationItem setRightBarButtonItem:nil];
         
         //Add Membro
@@ -488,16 +495,18 @@
         
         //Botao editar
         [_btnEditar setTitle:@"Editar" forState:UIControlStateNormal];
+        
+        //Confirmar alteraçao do Nome
+        if (![_banda.nome isEqualToString:_lblNome.text]) {
+            [BandaStore  alterarDados:@"alterar_nome" dado:_lblNome.text idBanda:_banda.identificador];
+        }
     }
     else{
-        //Saida banda
-
         
         //Botao Editar
         [_btnEditar setTitle:@"Concluído" forState:UIControlStateNormal];
     }
 }
-
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     [textField resignFirstResponder];
@@ -510,6 +519,10 @@
     if (tableView.tag == 1) {
         _alerta.title = [NSString stringWithFormat:@"Tem certeza que deseja remover %@ da banda %@?", ((TPUsuario*)[_banda.membros objectAtIndex:indexPath.row]).nome, _banda.nome];
         [_alerta addButtonWithTitle:@"Sim, remover membro"];
+        
+        //Salva o id do membro se for remover
+        [_removerMembro addObject:((TPUsuario*)[_banda.membros objectAtIndex:indexPath.row]).identificador];
+        [_removerMembro addObject:indexPath];
     }
     else{
         _alerta.title = [NSString stringWithFormat:@"Tem certeza que deseja remover %@ da banda %@?", [self carregaNomeMusica:((TPMusica*)[_banda.musicas objectAtIndex:indexPath.row]).url], _banda.nome];
@@ -546,6 +559,12 @@
     }
     if([action isEqualToString:@"Sim, remover membro"]){
         //Remover membro
+        [BandaStore  alterarDados:@"remover_membro" dado:[_removerMembro objectAtIndex:0] idBanda:_banda.identificador];
+        
+        //Remove da tabela
+        NSIndexPath *i = [_removerMembro objectAtIndex:1];
+        [_banda.membros removeObjectAtIndex:i.row];
+        [_tbMembros reloadData];
     }
     if([action isEqualToString:@"Sim, remover música"]){
         //Remover musica

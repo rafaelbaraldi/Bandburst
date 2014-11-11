@@ -222,7 +222,10 @@
 
 -(void)banda:(UIButton*)bt{
     
-    [[BandaStore sharedStore] setIdBandaSelecionada:[bt titleLabel].text];
+//    [[BandaStore sharedStore] setIdBandaSelecionada:[bt titleLabel].text];
+    
+    //Salva banda selecionada
+    [[BandaStore sharedStore] setBandaSelecionada:[BandaStore buscaBanda:[bt titleLabel].text]];
     
     if ([LocalStore verificaSeViewJaEstaNaPilha:[[self navigationController] viewControllers] proximaTela:[[LocalStore sharedStore] TelaPerfilBanda]]) {
         [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaPerfilBanda] animated:YES];

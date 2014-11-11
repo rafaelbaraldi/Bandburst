@@ -15,6 +15,7 @@
 +(NSDictionary*)buscaMensagensBanda:(NSString*)identificador;
 +(NSDictionary*)buscaMusicasBanda:(NSString*)identificador;
 
++(NSString*)alterarDados:(NSData*)jsonAlterar;
 +(NSString*)cadastraBanda:(NSData*)jsonCadastro;
 +(NSString*)enviaMensagem:(NSString*)mensagem idBanda:(NSString*)idBanda idUsuario:(NSString*)idUsuario;
 

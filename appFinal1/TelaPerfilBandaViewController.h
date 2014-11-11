@@ -14,9 +14,13 @@
 @property BOOL visualizandoMembros;
 
 @property TPBanda* banda;
-@property BOOL editando;
+
+@property int xImage;
+@property int xLbl;
 
 @property UIActionSheet *alerta;
+
+@property NSMutableArray* removerMembro;
 
 @property (strong, nonatomic) IBOutlet UITableView *tbMembros;
 @property (strong, nonatomic) IBOutlet UITableView *tbMusicas;

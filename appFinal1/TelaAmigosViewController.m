@@ -75,10 +75,28 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if(![[[BandaStore sharedStore] membros] containsObject:[_amigosFiltrados objectAtIndex:indexPath.row]]){
-        [[[BandaStore sharedStore] membros] addObject:[_amigosFiltrados objectAtIndex:indexPath.row]];
+    
+    if([[BandaStore sharedStore] editando]){
+        
+        BOOL add = YES;
+        NSMutableArray *data = [[[BandaStore sharedStore] bandaSelecionada] membros];
+        for (TPUsuario *u in data) {
+            if ([u.identificador isEqualToString:((TPUsuario*)[_amigosFiltrados objectAtIndex:indexPath.row]).identificador]) {
+                add = NO;
+            }
+        }
+        
+        if(add){
+            [[[[BandaStore sharedStore] bandaSelecionada] membros] addObject:[_amigosFiltrados objectAtIndex:indexPath.row]];
+            [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaPerfilBanda] animated:YES];
+        }
     }
-    [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaNovaBanda] animated:YES];
+    else{
+        if(![[[BandaStore sharedStore] membros] containsObject:[_amigosFiltrados objectAtIndex:indexPath.row]]){
+            [[[BandaStore sharedStore] membros] addObject:[_amigosFiltrados objectAtIndex:indexPath.row]];
+        }
+        [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaNovaBanda] animated:YES];
+    }
 }
 
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{

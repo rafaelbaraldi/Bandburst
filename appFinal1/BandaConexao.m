@@ -103,6 +103,28 @@
     return json;
 }
 
++(NSString*)alterarDados:(NSData *)jsonAlterar{
+    NSString *url = @"http://54.207.112.185/appMusica/alterarBanda.php";
+    
+    NSString *strJson = [[NSString alloc] initWithData:jsonAlterar encoding:NSUTF8StringEncoding];
+    
+    NSData *jsonData = [strJson dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    
+    NSMutableURLRequest *request = [[ NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
+    
+    [request setHTTPMethod:@"POST"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"context-type"];
+    [request setHTTPBody:jsonData];
+    
+    NSURLResponse *response;
+    NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
+    
+    NSString* s = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
+    s = [[LocalStore sharedStore]substituiCaracteresHTML:s];
+    
+    return s;
+}
+
 +(NSString*)cadastraBanda:(NSData*)jsonCadastro{
     NSString *url = @"http://54.207.112.185/appMusica/cadastroBanda.php";
     

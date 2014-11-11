@@ -99,6 +99,18 @@
     return banda;
 }
 
++(NSString*)alterarDados:(NSString*)acao dado:(NSString*)dado idBanda:(NSString*)idBanda{
+    
+    NSDictionary *dicBanda = [NSDictionary dictionaryWithObjectsAndKeys:
+                                 acao, @"acao",
+                                 idBanda, @"identificador",
+                                 dado, @"dado" , nil];
+    
+    NSData *jsonAlterarBanda = [NSJSONSerialization dataWithJSONObject:dicBanda options:NSJSONWritingPrettyPrinted error:nil];
+    
+    return [BandaConexao alterarDados:jsonAlterarBanda];
+}
+
 +(NSMutableArray*)buscaMensagensBanda:(NSString*)identificador{
     NSDictionary* json = [BandaConexao buscaMensagensBanda:identificador];
     

@@ -18,6 +18,10 @@
 
 @property NSString *idBandaSelecionada;
 
+@property TPBanda *bandaSelecionada;
+
+@property BOOL editando;
+
 +(NSMutableArray*)retornaListaDeAmigos;
 
 +(NSMutableArray*)buscaMensagensBanda:(NSString*)identificador;
@@ -31,5 +35,7 @@
 +(TPBanda*)buscaBanda:(NSString*)identificador;
 
 +(NSString*)enviaMusica:(NSString*)nomeMusica urlMusica:(NSString*)urlMusica idBanda:(NSString*)idBanda idUsuario:(NSString*)idUsuario;
+
++(NSString*)alterarDados:(NSString*)acao dado:(NSString*)dado idBanda:(NSString*)idBanda;
 
 @end
