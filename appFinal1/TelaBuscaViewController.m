@@ -92,6 +92,11 @@
     _tabBarSeta.backgroundColor = [[LocalStore sharedStore] FONTECOR];
 }
 
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [self.adView setKeywords:searchBar.text];
+    [self.adView refreshAd];
+}
+
 -(void)escondeBotaoDeBoltarSeUsuarioLogado{
 
     if (![[[LocalStore sharedStore] usuarioAtual].identificador isEqualToString:@"0"]) {

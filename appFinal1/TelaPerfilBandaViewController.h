@@ -28,7 +28,7 @@
 //@property UIActionSheet *alerta;
 
 @property TPUsuario* usuarioRemover;
-@property TPMusica *musicaRemover;
+@property TPMusica* musicaRemover;
 
 @property (strong, nonatomic) IBOutlet UITableView *tbMembros;
 @property (strong, nonatomic) IBOutlet UITableView *tbMusicas;

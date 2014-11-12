@@ -18,6 +18,8 @@
 
 #import "UIImageView+WebCache.h"
 
+#import "Crashlytics/Crashlytics.h"
+
 @implementation AppDelegate
 
 @synthesize managedObjectContext = _managedObjectContext;
@@ -26,7 +28,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-
+    
+//    [[Crashlytics sharedInstance] crash];
+    
     //Utilizamos Cache para FOTOS de perfil
     //Definir qnto as imagens ficarao salvas no CACHE
     [[SDImageCache sharedImageCache] setMaxCacheAge:5];

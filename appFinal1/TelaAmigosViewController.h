@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TelaAmigosViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
+@interface TelaAmigosViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UIActionSheetDelegate>
 
 @property NSMutableArray* amigos;
 @property NSMutableArray* amigosFiltrados;
+
+@property UIActionSheet *alerta;
+
+@property NSString *idNovoAdministrador;
 
 @property (strong, nonatomic) IBOutlet UITableView *tbAmigos;
 

@@ -119,6 +119,10 @@
 		73029BA619819A4200BFB4B3 /* TBFiltroHorario.m in Sources */ = {isa = PBXBuildFile; fileRef = 73029BA419819A4200BFB4B3 /* TBFiltroHorario.m */; };
 		73029BA719819A4200BFB4B3 /* TBFiltroHorario.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73029BA519819A4200BFB4B3 /* TBFiltroHorario.xib */; };
 		731FF6201A11835A0073CF65 /* IHKeyboardAvoiding.m in Sources */ = {isa = PBXBuildFile; fileRef = 731FF61F1A11835A0073CF65 /* IHKeyboardAvoiding.m */; };
+		731FF6261A13B8C60073CF65 /* MoPub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 731FF6231A13B8C60073CF65 /* MoPub.framework */; };
+		731FF6271A13B8C60073CF65 /* MoPub.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 731FF6241A13B8C60073CF65 /* MoPub.bundle */; };
+		731FF6281A13B8C60073CF65 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 731FF6251A13B8C60073CF65 /* Fabric.framework */; };
+		731FF62A1A13BCFF0073CF65 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 731FF6291A13BCFF0073CF65 /* Crashlytics.framework */; };
 		734C4B201A116187004E22A0 /* sair@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 734C4B1E1A116187004E22A0 /* sair@2x.png */; };
 		734C4B211A116187004E22A0 /* sair.png in Resources */ = {isa = PBXBuildFile; fileRef = 734C4B1F1A116187004E22A0 /* sair.png */; };
 		734C4B241A116817004E22A0 /* estrela@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 734C4B221A116817004E22A0 /* estrela@2x.png */; };
@@ -332,6 +336,10 @@
 		73029BA519819A4200BFB4B3 /* TBFiltroHorario.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TBFiltroHorario.xib; sourceTree = "<group>"; };
 		731FF61E1A11835A0073CF65 /* IHKeyboardAvoiding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IHKeyboardAvoiding.h; sourceTree = "<group>"; };
 		731FF61F1A11835A0073CF65 /* IHKeyboardAvoiding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IHKeyboardAvoiding.m; sourceTree = "<group>"; };
+		731FF6231A13B8C60073CF65 /* MoPub.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MoPub.framework; sourceTree = "<group>"; };
+		731FF6241A13B8C60073CF65 /* MoPub.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = MoPub.bundle; path = MoPub.framework/Versions/A/Resources/MoPub.bundle; sourceTree = "<group>"; };
+		731FF6251A13B8C60073CF65 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		731FF6291A13BCFF0073CF65 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		734C4B1E1A116187004E22A0 /* sair@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sair@2x.png"; sourceTree = "<group>"; };
 		734C4B1F1A116187004E22A0 /* sair.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sair.png; sourceTree = "<group>"; };
 		734C4B221A116817004E22A0 /* estrela@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "estrela@2x.png"; sourceTree = "<group>"; };
@@ -429,7 +437,10 @@
 				1BE8E3BC192533AD00D108C0 /* CoreGraphics.framework in Frameworks */,
 				1BE8E3C0192533AD00D108C0 /* CoreData.framework in Frameworks */,
 				1BE8E3BE192533AD00D108C0 /* UIKit.framework in Frameworks */,
+				731FF6281A13B8C60073CF65 /* Fabric.framework in Frameworks */,
+				731FF62A1A13BCFF0073CF65 /* Crashlytics.framework in Frameworks */,
 				1BE8E3BA192533AD00D108C0 /* Foundation.framework in Frameworks */,
+				731FF6261A13B8C60073CF65 /* MoPub.framework in Frameworks */,
 				1B9A0F4A19CB5964009AA3EB /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -627,6 +638,10 @@
 		1BE8E3B8192533AD00D108C0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				731FF6291A13BCFF0073CF65 /* Crashlytics.framework */,
+				731FF6231A13B8C60073CF65 /* MoPub.framework */,
+				731FF6241A13B8C60073CF65 /* MoPub.bundle */,
+				731FF6251A13B8C60073CF65 /* Fabric.framework */,
 				1B9A0F4919CB5964009AA3EB /* FacebookSDK.framework */,
 				736BF95C19A8C2790010C356 /* ImageIO.framework */,
 				73C84969196F11BD003D9371 /* Security.framework */,
@@ -1075,6 +1090,7 @@
 				1BE8E3B2192533AD00D108C0 /* Sources */,
 				1BE8E3B3192533AD00D108C0 /* Frameworks */,
 				1BE8E3B4192533AD00D108C0 /* Resources */,
+				731FF62B1A13C0E70073CF65 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1155,6 +1171,7 @@
 				1BEA45961992C7A100876D75 /* 9.png in Resources */,
 				1B41D5E519EF10ED00D6D034 /* gravarIcon@2x.png in Resources */,
 				31EC796019F83757004CB4A9 /* slider.png in Resources */,
+				731FF6271A13B8C60073CF65 /* MoPub.bundle in Resources */,
 				737D09E91975C5D1000975F6 /* TelaInicioViewController.xib in Resources */,
 				1BEA45A01992C7A100876D75 /* 4.png in Resources */,
 				734C4B251A116817004E22A0 /* estrela.png in Resources */,
@@ -1235,6 +1252,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		731FF62B1A13C0E70073CF65 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run d649ec7c8a5ecc4c8f45b956843fe415ee329baa 1db4b05b9d37256876c8b3973f20d9ce4c9bf5e1df2713e97f93223d76b204f1";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1BE8E3B2192533AD00D108C0 /* Sources */ = {

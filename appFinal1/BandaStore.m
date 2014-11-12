@@ -51,6 +51,34 @@
     return itens;
 }
 
++(NSMutableArray*)retornaListaDeAmigosParaAdministrar{
+    
+    NSMutableArray *amigos = [[[BandaStore sharedStore] bandaSelecionada] membros];
+    
+    return amigos;
+}
+
++(NSMutableArray*)retornaListaDeAmigosForaDaBanda{
+    
+    NSMutableArray *amigos = [BandaStore retornaListaDeAmigos];
+    NSMutableArray *membros = [[[BandaStore sharedStore] bandaSelecionada] membros];
+    
+    for (int i = 0; i < [membros count]; i++) {
+        
+        TPUsuario *uMembro = [membros objectAtIndex:i];
+    
+        for (int j = 0; j < [amigos count]; j++) {
+         
+            TPUsuario *uAmigo = [amigos objectAtIndex:j];
+            
+            if ([uAmigo.identificador isEqualToString:uMembro.identificador]) {
+                [amigos removeObjectAtIndex:j];
+            }
+        }
+    }
+    
+    return amigos;
+}
 
 +(NSString*)criarBanda:(NSString*)nome membros:(NSString*)membros idAdm:(NSString*)idAdm{
     NSDictionary *jsonUsuario = [NSDictionary dictionaryWithObjectsAndKeys:

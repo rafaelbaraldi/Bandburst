@@ -39,7 +39,16 @@
 -(void)viewWillAppear:(BOOL)animated{
     
     //Carrega Lista de favoritos
-    _amigos = [BandaStore retornaListaDeAmigos];
+    if([[BandaStore sharedStore] editando]){
+        _amigos = [BandaStore retornaListaDeAmigosForaDaBanda];
+    }
+    
+    if ([[BandaStore sharedStore] alterandoAdm]){
+        _amigos = [BandaStore retornaListaDeAmigosParaAdministrar];
+    }
+    else    if(![[BandaStore sharedStore] editando]){
+        _amigos = [BandaStore retornaListaDeAmigos];
+    }
     
     //Recarrega lista da tabela
     [_amigosFiltrados removeAllObjects];
@@ -64,6 +73,9 @@
     //Esconde linhas em branco da TableView
     _tbAmigos.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     _tbAmigos.separatorColor = [UIColor clearColor];
+    
+    //Aterar se for para alterar o adm da banda atual
+    _alerta = [[UIActionSheet alloc] initWithTitle:[NSString stringWithFormat:@"Tem certeza que deseja trocar o administrador da banda %@?", [[BandaStore sharedStore] bandaSelecionada].nome] delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Sim, trocar adminsitrador", nil];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -78,29 +90,28 @@
     
     if([[BandaStore sharedStore] editando]){
         
-        BOOL add = YES;
-        NSMutableArray *data = [[[BandaStore sharedStore] bandaSelecionada] membros];
-        for (TPUsuario *u in data) {
-            if ([u.identificador isEqualToString:((TPUsuario*)[_amigosFiltrados objectAtIndex:indexPath.row]).identificador]) {
-                add = NO;
-            }
-        }
+        [[[[BandaStore sharedStore] bandaSelecionada] membros] addObject:[_amigosFiltrados objectAtIndex:indexPath.row]];
+        [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaPerfilBanda] animated:YES];
         
-        if(add){
-            [[[[BandaStore sharedStore] bandaSelecionada] membros] addObject:[_amigosFiltrados objectAtIndex:indexPath.row]];
-            [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaPerfilBanda] animated:YES];
+        //Add no servidor
+        [BandaStore  alterarDados:@"adicionar_membro" dado:((TPUsuario*)[_amigosFiltrados objectAtIndex:indexPath.row]).identificador idBanda:[[BandaStore sharedStore] idBandaSelecionada]];
+    }
+    
+    if ([[BandaStore sharedStore] alterandoAdm]) {
+        if(![((TPUsuario*)[_amigosFiltrados objectAtIndex:indexPath.row]).identificador isEqualToString:[[LocalStore sharedStore] usuarioAtual].identificador]){
             
-            //Add no servidor
-            NSString *r = [BandaStore  alterarDados:@"adicionar_membro" dado:((TPUsuario*)[_amigosFiltrados objectAtIndex:indexPath.row]).identificador idBanda:[[BandaStore sharedStore] idBandaSelecionada]];
+            _idNovoAdministrador = ((TPUsuario*)[_amigosFiltrados objectAtIndex:indexPath.row]).identificador;
             
-            NSLog(@"%@", r);
+            [_alerta showInView:self.view];
         }
     }
-    else{
-        if(![[[BandaStore sharedStore] membros] containsObject:[_amigosFiltrados objectAtIndex:indexPath.row]]){
-            [[[BandaStore sharedStore] membros] addObject:[_amigosFiltrados objectAtIndex:indexPath.row]];
+    else
+        if(![[BandaStore sharedStore] editando]){{
+            if(![[[BandaStore sharedStore] membros] containsObject:[_amigosFiltrados objectAtIndex:indexPath.row]]){
+                [[[BandaStore sharedStore] membros] addObject:[_amigosFiltrados objectAtIndex:indexPath.row]];
+            }
+            [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaNovaBanda] animated:YES];
         }
-        [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaNovaBanda] animated:YES];
     }
 }
 
@@ -192,6 +203,21 @@
     fotoUsuario.tag = 4;
     
     return fotoUsuario.image;
+}
+
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    if (buttonIndex == 0) {
+        [BandaStore alterarDados:@"alterar_administrador" dado:_idNovoAdministrador idBanda:[[BandaStore sharedStore] bandaSelecionada].identificador];
+        
+        //Atualiza banda
+        [[BandaStore sharedStore] setBandaSelecionada:[BandaStore buscaBanda:[[BandaStore sharedStore] idBandaSelecionada]]];
+        
+        _idNovoAdministrador = nil;
+        [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaPerfilBanda] animated:YES];
+    }
+    
 }
 
 @end

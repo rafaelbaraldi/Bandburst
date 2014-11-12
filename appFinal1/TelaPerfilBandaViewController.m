@@ -52,6 +52,9 @@ const int ALERTA_EXCLUIR_BANDA = 4;
     
     [[self navigationItem] setTitle:@"Banda"];
     
+    //Alterando ADM
+    [[BandaStore sharedStore] setAlterandoAdm:NO];
+    
     //Carrega dados da Banda
     [_tbMembros reloadData];
     [_tbMusicas reloadData];
@@ -252,7 +255,17 @@ const int ALERTA_EXCLUIR_BANDA = 4;
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CelulaDeMembros"];
             
-            UIImageView* som = [[UIImageView alloc] initWithFrame:CGRectMake(5, 15, 40, 30)];
+            //Carrega Posição das view
+            [self carregaPosicaoViewsTabela];
+            
+            UILabel* musica = [[UILabel alloc] initWithFrame:CGRectMake(_xLbl, 15, 200, 30)];
+            [musica setText:[self carregaNomeMusica:((TPMusica*)[_banda.musicas objectAtIndex:indexPath.row]).url]];
+            [musica setFont:[musica.font fontWithSize:14]];
+            [musica setTextColor:[[LocalStore sharedStore] FONTECOR]];
+            [musica setTag:1];
+            [cell addSubview:musica];
+            
+            UIImageView* som = [[UIImageView alloc] initWithFrame:CGRectMake(_xImage, 15, 40, 30)];
             [som setImage:[UIImage imageNamed:@"audio.png"]];
             [som setTag:2];
             [cell addSubview:som];
@@ -261,13 +274,6 @@ const int ALERTA_EXCLUIR_BANDA = 4;
             [play setImage:[UIImage imageNamed:@"playing.png"]];
             [play setTag:3];
             [cell addSubview:play];
-            
-            UILabel* musica = [[UILabel alloc] initWithFrame:CGRectMake(55, 15, 200, 30)];
-            [musica setText:[self carregaNomeMusica:((TPMusica*)[_banda.musicas objectAtIndex:indexPath.row]).url]];
-            [musica setFont:[musica.font fontWithSize:14]];
-            [musica setTextColor:[[LocalStore sharedStore] FONTECOR]];
-            [musica setTag:1];
-            [cell addSubview:musica];
         }
         else{
             UILabel* musica = (UILabel*)[cell viewWithTag:1];
@@ -475,7 +481,6 @@ const int ALERTA_EXCLUIR_BANDA = 4;
     }
     
     if(admBanda){
-        
         if([[BandaStore sharedStore] editando]){
             
             //Alterar nome
@@ -559,14 +564,16 @@ const int ALERTA_EXCLUIR_BANDA = 4;
         alert = [_alertasEdicao objectAtIndex:ALERTA_REMOVER_MEMBRO];
         alert.title = [NSString stringWithFormat:@"Tem certeza que deseja remover %@ da banda %@?", ((TPUsuario*)[_banda.membros objectAtIndex:indexPath.row]).nome, _banda.nome];
         
-        //Salva o id do membro se for remover
+        //Salva membro se for remover
         _usuarioRemover = ((TPUsuario*)[_banda.membros objectAtIndex:indexPath.row]);
-//        [_removerMembro addObject:indexPath];
     }
     else{
         //Alert
         alert = [_alertasEdicao objectAtIndex:ALERTA_REMOVER_MUSICA];
         alert.title = [NSString stringWithFormat:@"Tem certeza que deseja remover %@ da banda %@?", [self carregaNomeMusica:((TPMusica*)[_banda.musicas objectAtIndex:indexPath.row]).url], _banda.nome];
+        
+        //Salva musica se for remover
+        _musicaRemover = ((TPMusica*)[_banda.musicas objectAtIndex:indexPath.row]);
     }
     
     [alert showInView:self.view];
@@ -579,8 +586,11 @@ const int ALERTA_EXCLUIR_BANDA = 4;
 
 - (IBAction)btnAlterarAdm:(id)sender {
     
-    UIActionSheet *alert = [_alertasEdicao objectAtIndex:ALERTA_TROCAR_ADMINISTRADOR];
-    [alert showInView:self.view];
+    [[self navigationController] pushViewController:[[LocalStore sharedStore] TelaAmigos] animated:YES];
+    [[BandaStore sharedStore] setAlterandoAdm:YES];
+    
+//    UIActionSheet *alert = [_alertasEdicao objectAtIndex:ALERTA_TROCAR_ADMINISTRADOR];
+//    [alert showInView:self.view];
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
@@ -603,16 +613,21 @@ const int ALERTA_EXCLUIR_BANDA = 4;
     
     //Remover membro
     if([action isEqualToString:@"Sim, remover membro"]){
-        TPUsuario *u = _usuarioRemover;
-        [BandaStore  alterarDados:@"remover_membro" dado:u.identificador idBanda:_banda.identificador];
+
+        [BandaStore  alterarDados:@"remover_membro" dado:_usuarioRemover.identificador idBanda:_banda.identificador];
 
         //Remove da tabela
-        [_banda.membros removeObject:u];
+        [_banda.membros removeObject:_usuarioRemover];
         [_tbMembros reloadData];
     }
     
     //Remover musica
     if([action isEqualToString:@"Sim, remover música"]){
+
+        [BandaStore alterarDados:@"remover_musica" dado:_musicaRemover.url idBanda:_banda.identificador];
+        
+        [_banda.musicas removeObject:_musicaRemover];
+        [_tbMusicas reloadData];
     }
 }
 

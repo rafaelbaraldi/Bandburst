@@ -21,8 +21,11 @@
 @property TPBanda *bandaSelecionada;
 
 @property BOOL editando;
+@property BOOL alterandoAdm;
 
 +(NSMutableArray*)retornaListaDeAmigos;
++(NSMutableArray*)retornaListaDeAmigosParaAdministrar;
++(NSMutableArray*)retornaListaDeAmigosForaDaBanda;
 
 +(NSMutableArray*)buscaMensagensBanda:(NSString*)identificador;
 
