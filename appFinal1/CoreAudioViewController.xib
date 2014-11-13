@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5053" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CoreAudioViewController">
             <connections>
                 <outlet property="btnGravar" destination="xq6-C9-MdR" id="l4L-0C-rBN"/>
-                <outlet property="buscarItem" destination="c3r-MW-hxS" id="bsY-Iy-VAM"/>
-                <outlet property="gravarItem" destination="TEj-qM-8ki" id="odl-na-1c2"/>
-                <outlet property="perfilItem" destination="F2Q-c9-Ula" id="p1J-L4-NPR"/>
-                <outlet property="tabBar" destination="Kee-EF-taZ" id="9yg-Ve-F2O"/>
                 <outlet property="tabBarSeta" destination="mi5-l1-LGA" id="LMo-zN-Qfe"/>
                 <outlet property="tempo" destination="pXW-eP-Ikv" id="mKc-cU-3Ar"/>
                 <outlet property="view" destination="1" id="3"/>
@@ -32,19 +29,6 @@
                         <action selector="gravar:" destination="-1" eventType="touchUpInside" id="F6Z-co-1OX"/>
                     </connections>
                 </button>
-                <tabBar contentMode="scaleToFill" fixedFrame="YES" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kee-EF-taZ">
-                    <rect key="frame" x="0.0" y="530" width="320" height="49"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <items>
-                        <tabBarItem tag="1" title="" image="gravarIcon.png" id="TEj-qM-8ki"/>
-                        <tabBarItem tag="2" image="buscador.png" id="c3r-MW-hxS"/>
-                        <tabBarItem tag="3" image="perfilcone.png" id="F2Q-c9-Ula"/>
-                    </items>
-                    <color key="barTintColor" red="0.8980392814" green="0.49019610879999997" blue="0.33333334329999997" alpha="1" colorSpace="deviceRGB"/>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="mS0-fO-SD9"/>
-                    </connections>
-                </tabBar>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vXt-vD-QbV">
                     <rect key="frame" x="0.0" y="55" width="320" height="190"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -62,13 +46,16 @@
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <nil key="simulatedStatusBarMetrics"/>
         </view>
     </objects>
     <resources>
-        <image name="buscador.png" width="30" height="30"/>
         <image name="gravar.png" width="130" height="129"/>
-        <image name="gravarIcon.png" width="30" height="30"/>
-        <image name="perfilcone.png" width="30" height="30"/>
         <image name="seta_tabbar.png" width="39" height="25"/>
     </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>

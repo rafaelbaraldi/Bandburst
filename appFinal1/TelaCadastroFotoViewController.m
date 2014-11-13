@@ -44,6 +44,8 @@
 
 -(void)viewDidDisappear:(BOOL)animated{
     [[self navigationItem] setTitle:@""];
+    [[CadastroStore sharedStore] setCadastro:NO];
+    _trocouImagem = NO;
 }
 
 -(void)verificaCadastroOuAtualizacao{
@@ -73,6 +75,7 @@
     [super didReceiveMemoryWarning];
 }
 
+
 -(void)viewWillAppear:(BOOL)animated{
     [self exibiFoto];
     
@@ -87,6 +90,9 @@
     [[_btnAdicionarFoto layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
     [[_btnContinuar layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
     
+    _btnAdicionarFoto.backgroundColor = [[LocalStore sharedStore] FONTECOR];
+    _btnContinuar.backgroundColor = [[LocalStore sharedStore] FONTECOR];
+    
     //    [[_btnAdicionarFoto titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
     //    [[_btnContinuar titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
     //    [_lblMensagem setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
@@ -95,17 +101,18 @@
 
 -(void)exibiFoto{
     
+//    if([[CadastroStore sharedStore] cadastro]){
+//        _imgView.image = [UIImage imageNamed:@"placeholderFoto.png"];
+//    }
+    
     if (![[CadastroStore sharedStore] cadastro] && !_trocouImagem) {
         NSString *urlFoto = [NSString stringWithFormat:@"http://54.207.112.185/appMusica/FotosDePerfil/%@.png", [[LocalStore sharedStore] usuarioAtual].identificador];
         
         _imgView.image = [[SDImageCache sharedImageCache] imageFromMemoryCacheForKey:urlFoto];
     }
-    else{
-        _imgView.image = _fotoSelecionada.image;
-    }
     
-    if([[CadastroStore sharedStore] cadastro]){
-        _imgView.image = [UIImage imageNamed:@"placeholderFoto.png"];
+    if(_trocouImagem){
+        _imgView.image = _fotoSelecionada.image;
     }
 
     _imgView.layer.masksToBounds = YES;
@@ -150,7 +157,9 @@
     //Verifica para qual View deve seguir
     UIViewController *vc;
     if([[CadastroStore sharedStore] cadastro]){
-        vc = [[LocalStore sharedStore] TelaBusca];
+//        vc = [[LocalStore sharedStore] TelaBusca];
+        
+        [self iniciaAplication];
     }
     else{
         vc = [[LocalStore sharedStore] TelaPerfil];
@@ -166,7 +175,7 @@
 
 -(void)carregaMenu{
     
-    _menu = [[UIActionSheet alloc]  initWithTitle:@""
+    _menu = [[UIActionSheet alloc]  initWithTitle:@"Alterar foto do perfil"
                                          delegate:self
                                 cancelButtonTitle:@"Cancelar"
                            destructiveButtonTitle:nil
@@ -228,6 +237,35 @@
 
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)iniciaAplication{
+    
+    UINavigationController* nav3 = [[UINavigationController alloc] initWithRootViewController:[[LocalStore sharedStore] TelaGravacoes]];
+    UINavigationController* nav4 = [[UINavigationController alloc] initWithRootViewController:[[LocalStore sharedStore] TelaBusca]];
+    UINavigationController* nav5 = [[UINavigationController alloc] initWithRootViewController:[[LocalStore sharedStore] TelaPerfil]];
+    
+    [nav3.navigationBar setTintColor:[[LocalStore sharedStore] FONTECOR]];
+    [nav4.navigationBar setTintColor:[[LocalStore sharedStore] FONTECOR]];
+    [nav5.navigationBar setTintColor:[[LocalStore sharedStore] FONTECOR]];
+    
+    [nav3.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [[LocalStore sharedStore] FONTECOR]}];
+    [nav4.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [[LocalStore sharedStore] FONTECOR]}];
+    [nav5.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [[LocalStore sharedStore] FONTECOR]}];
+    
+    nav3.tabBarItem.image = [[UIImage imageNamed:@"gravarIcon.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    nav4.tabBarItem.image = [[UIImage imageNamed:@"buscador.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    nav5.tabBarItem.image = [[UIImage imageNamed:@"perfilcone.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    _tabBar = [[UITabBarController alloc] init];
+    
+    [_tabBar.tabBar setFrame:CGRectMake(0, 530, 320, 49)];
+    [_tabBar.tabBar setClipsToBounds:YES];
+    [_tabBar.tabBar setBarTintColor:[[LocalStore sharedStore] FONTECOR]];
+    [_tabBar.tabBar setBackgroundColor:[[LocalStore sharedStore] FONTECOR]];
+    
+    [_tabBar setViewControllers:@[nav3, nav4, nav5]];
+    [_tabBar setSelectedViewController:nav4];
 }
 
 

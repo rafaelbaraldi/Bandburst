@@ -37,6 +37,17 @@
     
     [[[self navigationController] navigationBar] setTintColor:[[LocalStore sharedStore] FONTECOR]];
     [self carregaLayout];
+    
+    [self verificaSeEstaLogado];
+}
+
+-(void) verificaSeEstaLogado{
+    
+    if([LoginStore verificaSeEstaLogado]){
+        
+        [self carregarTabBarInicial];
+        [self presentViewController:_tabBar animated:YES completion:nil];
+    }
 }
 
 -(void)carregaLayout{
@@ -129,13 +140,17 @@
     
     if([email length] > 0 && [senha length] > 0){
         if([LoginStore login:email senha:senha]){
+
+            [self carregarTabBarInicial];
             
-            if ([LocalStore verificaSeViewJaEstaNaPilha:[[self navigationController] viewControllers] proximaTela:[[LocalStore sharedStore] TelaBusca]]) {
-                [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaBusca] animated:YES];
-            }
-            else{
-                [[self navigationController] pushViewController:[[LocalStore sharedStore] TelaBusca] animated:YES];
-            }
+            [self presentViewController:_tabBar animated:YES completion:nil];
+            
+//            if ([LocalStore verificaSeViewJaEstaNaPilha:[[self navigationController] viewControllers] proximaTela:[[LocalStore sharedStore] TelaBusca]]) {
+//                [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaBusca] animated:YES];
+//            }
+//            else{
+//                [[self navigationController] pushViewController:[[LocalStore sharedStore] TelaBusca] animated:YES];
+//            }
         }
         else{
             UIAlertView *alertDadosIncorretos = [[UIAlertView alloc] initWithTitle:@"ERRO" message:@"E-mail ou senha inválidos" delegate:self cancelButtonTitle:@"Rejeitar" otherButtonTitles:nil];
@@ -158,11 +173,46 @@
     
     [LocalStore setParaUsuarioZero];
     
-    if ([LocalStore verificaSeViewJaEstaNaPilha:[[self navigationController] viewControllers] proximaTela:[[LocalStore sharedStore] TelaBusca]]) {
-        [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaGravacao] animated:YES];
-    }
-    else{
-        [[self navigationController] pushViewController:[[LocalStore sharedStore] TelaBusca] animated:YES];
-    }
+    [self carregarTabBarInicial];
+
+    [self presentViewController:_tabBar animated:YES completion:nil];
+    
+    
+//    if ([LocalStore verificaSeViewJaEstaNaPilha:[[self navigationController] viewControllers] proximaTela:[[LocalStore sharedStore] TelaBusca]]) {
+//        [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaGravacao] animated:YES];
+//    }
+//    else{
+//        [[self navigationController] pushViewController:[[LocalStore sharedStore] TelaBusca] animated:YES];
+//    }
 }
+
+-(void)carregarTabBarInicial{
+    
+    UINavigationController* nav3 = [[UINavigationController alloc] initWithRootViewController:[[LocalStore sharedStore] TelaGravacoes]];
+    UINavigationController* nav4 = [[UINavigationController alloc] initWithRootViewController:[[LocalStore sharedStore] TelaBusca]];
+    UINavigationController* nav5 = [[UINavigationController alloc] initWithRootViewController:[[LocalStore sharedStore] TelaPerfil]];
+    
+    [nav3.navigationBar setTintColor:[[LocalStore sharedStore] FONTECOR]];
+    [nav4.navigationBar setTintColor:[[LocalStore sharedStore] FONTECOR]];
+    [nav5.navigationBar setTintColor:[[LocalStore sharedStore] FONTECOR]];
+
+    [nav3.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [[LocalStore sharedStore] FONTECOR]}];
+    [nav4.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [[LocalStore sharedStore] FONTECOR]}];
+    [nav5.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [[LocalStore sharedStore] FONTECOR]}];
+    
+    nav3.tabBarItem.image = [[UIImage imageNamed:@"gravarIcon.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    nav4.tabBarItem.image = [[UIImage imageNamed:@"buscador.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    nav5.tabBarItem.image = [[UIImage imageNamed:@"perfilcone.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    _tabBar = [[UITabBarController alloc] init];
+    
+    [_tabBar.tabBar setFrame:CGRectMake(0, 530, 320, 49)];
+    [_tabBar.tabBar setClipsToBounds:YES];
+    [_tabBar.tabBar setBarTintColor:[[LocalStore sharedStore] FONTECOR]];
+    [_tabBar.tabBar setBackgroundColor:[[LocalStore sharedStore] FONTECOR]];
+    
+    [_tabBar setViewControllers:@[nav3, nav4, nav5]];
+    [_tabBar setSelectedViewController:nav4];
+}
+
 @end

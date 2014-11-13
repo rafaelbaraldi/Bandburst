@@ -60,26 +60,10 @@
     
     [self linhaGravacaEZAudio];
     
-    [self carregaTabBar];
-    
     [self arredondaBordaBotoes];
     
     //Carrega todas as músicas do CoreData
     _musicas = [[NSMutableArray alloc]initWithArray:[[[LocalStore sharedStore] context] executeFetchRequest:[NSFetchRequest fetchRequestWithEntityName:@"Musica"] error:nil]];
-}
-
--(void)carregaTabBar{
-    
-    _gravarItem.image = [[UIImage imageNamed:@"gravarIcon.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    _gravarItem.selectedImage = [[UIImage imageNamed:@"gravarIcon.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    _buscarItem.image = [[UIImage imageNamed:@"buscador.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    _buscarItem.selectedImage = [[UIImage imageNamed:@"buscador.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    _perfilItem.image = [[UIImage imageNamed:@"perfilcone.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    _perfilItem.selectedImage = [[UIImage imageNamed:@"perfilcone.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    
-    [_tabBar setTintColor: [UIColor whiteColor]];
-    
-    _tabBarSeta.backgroundColor = [[LocalStore sharedStore] FONTECOR];
 }
 
 -(void)arredondaBordaBotoes{
@@ -159,6 +143,10 @@
                     //Inicia gravação
                     [recorder record];
                     
+                    //Nao deixa o usuario sair da view
+                    [self.navigationItem setHidesBackButton:YES animated:YES];
+                    self.tabBarController.tabBar.hidden = YES;
+                    
                     //Começa a contar o tempo
                     _timer = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(atualizaTimer) userInfo:nil repeats:YES];
                     
@@ -220,8 +208,7 @@
         
         //Nao deixa o usuario sair da view
         [self.navigationItem setHidesBackButton:NO animated:YES];
-        _tabBar.hidden = NO;
-        _tabBarSeta.hidden = NO;
+        self.tabBarController.tabBar.hidden = NO;
     }
     else{
         UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Gravação" message:@"Preencha os campos abaixo" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
@@ -233,11 +220,6 @@
         [[av textFieldAtIndex:1] setPlaceholder:@"Categoria"];
         [av setTag:1];
         [av show];
-        
-        //Nao deixa o usuario sair da view
-        [self.navigationItem setHidesBackButton:YES animated:YES];
-        _tabBar.hidden = YES;
-        _tabBarSeta.hidden = YES;
     }
 }
 
@@ -259,32 +241,6 @@
     
     player = [[AVAudioPlayer alloc]initWithContentsOfURL:urlPlay error:nil];
     [player play];
-}
-
--(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
-    
-    UIViewController* vc;
-    
-    switch (item.tag) {
-        case 1:
-            vc = [[LocalStore sharedStore] TelaGravacao];
-            break;
-            
-        case 2:
-            vc = [[LocalStore sharedStore] TelaBusca];
-            break;
-            
-        case 3:
-            vc = [[LocalStore sharedStore] TelaPerfil];
-            break;
-    }
-    
-    if ([LocalStore verificaSeViewJaEstaNaPilha:[[self navigationController] viewControllers] proximaTela:vc]) {
-        [[self navigationController] popToViewController:vc animated:NO];
-    }
-    else{
-        [[self navigationController] pushViewController:vc animated:NO];
-    }
 }
 
 //-(void)microphone:(EZMicrophone *)microphone hasAudioReceived:(float **)buffer withBufferSize:(UInt32)bufferSize withNumberOfChannels:(UInt32)numberOfChannels {

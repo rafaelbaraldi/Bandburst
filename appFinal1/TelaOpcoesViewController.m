@@ -103,11 +103,14 @@
 - (IBAction)btnSair:(id)sender {
     [LoginStore deslogar];
     
-    if ([LocalStore verificaSeViewJaEstaNaPilha:[[self navigationController] viewControllers] proximaTela:[[LocalStore sharedStore] TelaLogin]]) {
-        [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaLogin] animated:YES];
-    }
-    else{
-        [[self navigationController] pushViewController:[[LocalStore sharedStore] TelaLogin] animated:YES];
-    }
+    [[self navigationController ] dismissViewControllerAnimated:YES completion:nil];
+    
+    
+//    if ([LocalStore verificaSeViewJaEstaNaPilha:[[self navigationController] viewControllers] proximaTela:[[LocalStore sharedStore] TelaLogin]]) {
+//        [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaLogin] animated:YES];
+//    }
+//    else{
+//        [[self navigationController] pushViewController:[[LocalStore sharedStore] TelaLogin] animated:YES];
+//    }
 }
 @end

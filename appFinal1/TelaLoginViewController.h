@@ -10,6 +10,8 @@
 
 @interface TelaLoginViewController : UIViewController <UITextFieldDelegate>
 
+@property UITabBarController* tabBar;
+
 @property (weak, nonatomic) IBOutlet UITextField *txtEmail;
 @property (weak, nonatomic) IBOutlet UITextField *txtSenha;
 @property (strong, nonatomic) IBOutlet UIButton *lblEsqueceuSenha;

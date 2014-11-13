@@ -38,15 +38,15 @@
     //Usuario de inicio é ZERO
     [LocalStore setParaUsuarioZero];
 
-    BOOL logado = [LoginStore verificaSeEstaLogado];
+//    BOOL logado = [LoginStore verificaSeEstaLogado];
 
     UIViewController *telaVc;
-    if(logado){
-        telaVc = [[LocalStore sharedStore] TelaBusca];
-    }
-    else{
+//    if(logado){
+//        telaVc = [[LocalStore sharedStore] TelaBusca];
+//    }
+//    else{
         telaVc = [[LocalStore sharedStore] TelaLogin];
-    }
+//    }
     
     //Navigation Controller - Alterar Cores
     UINavigationController *navegacao = [[UINavigationController alloc] initWithRootViewController:telaVc];
@@ -54,7 +54,7 @@
     
 //    [[UITextField appearance] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14]];
 //    [[UILabel appearance] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14]];
-    [[UITabBar appearance] setBarTintColor:[[LocalStore sharedStore] FONTECOR]];
+    
     
     [self.window setRootViewController:navegacao];
     self.window.backgroundColor = [UIColor whiteColor];

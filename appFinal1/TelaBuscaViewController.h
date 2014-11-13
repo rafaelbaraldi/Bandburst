@@ -9,7 +9,7 @@
 #import <MoPub/MoPub.h>
 #import <UIKit/UIKit.h>
 
-@interface TelaBuscaViewController : UIViewController <UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate, UITabBarDelegate, UITabBarControllerDelegate>
+@interface TelaBuscaViewController : UIViewController <UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
 
 
 @property (nonatomic) MPAdView *adView;
@@ -33,9 +33,9 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *lblMsgBusca;
 
-@property (strong, nonatomic) IBOutlet UITabBarItem *usuarioItem;
-@property (strong, nonatomic) IBOutlet UITabBarItem *buscarItem;
-@property (strong, nonatomic) IBOutlet UITabBarItem *gravarItem;
+//@property (strong, nonatomic) IBOutlet UITabBarItem *usuarioItem;
+//@property (strong, nonatomic) IBOutlet UITabBarItem *buscarItem;
+//@property (strong, nonatomic) IBOutlet UITabBarItem *gravarItem;
 
 @property (strong, nonatomic) IBOutlet UITabBar *tabBar;
 @property (strong, nonatomic) IBOutlet UIImageView *tabBarSeta;

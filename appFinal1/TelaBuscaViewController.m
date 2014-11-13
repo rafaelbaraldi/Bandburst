@@ -49,10 +49,10 @@
 
     [self escondeBotaoDeBoltarSeUsuarioLogado];
     
-//    //Verifica se há filtro de horarios preenchidos
+    //Verifica se há filtro de horarios preenchidos
     [self carregaFiltroDeHorario];
 
-//    //Carrega os usuarios buscado
+    //Carrega os usuarios buscado
     [self carregaUsuarioBuscado];
 
     [self atualizaTela];
@@ -67,8 +67,6 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     
-    [self carregaTabBar];
-    
     //Metodo de Busca por cidade
     [_txtCidade addTarget:self action:@selector(textFieldDidChange) forControlEvents:UIControlEventEditingChanged];
 
@@ -78,20 +76,6 @@
     [self carregaLayout];
 }
 
--(void)carregaTabBar{
-    
-    _gravarItem.image = [[UIImage imageNamed:@"gravarIcon.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    _gravarItem.selectedImage = [[UIImage imageNamed:@"gravarIcon.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    _buscarItem.image = [[UIImage imageNamed:@"buscador.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    _buscarItem.selectedImage = [[UIImage imageNamed:@"buscador.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    _usuarioItem.image = [[UIImage imageNamed:@"perfilcone.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    _usuarioItem.selectedImage = [[UIImage imageNamed:@"perfilcone.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    
-    [_tabBar setTintColor: [UIColor whiteColor]];
-    
-    _tabBarSeta.backgroundColor = [[LocalStore sharedStore] FONTECOR];
-}
-
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     [self.adView setKeywords:searchBar.text];
     [self.adView refreshAd];
@@ -99,13 +83,20 @@
 
 -(void)escondeBotaoDeBoltarSeUsuarioLogado{
 
-    if (![[[LocalStore sharedStore] usuarioAtual].identificador isEqualToString:@"0"]) {
-        [[self navigationItem] setHidesBackButton:YES];
-        [self carregaBotaoFavoritos];
+    if ([[[LocalStore sharedStore] usuarioAtual].identificador isEqualToString:@"0"]) {
+        
+        UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemReply target:self action:@selector(voltarLogin)];
+        
+        [[self navigationItem] setLeftBarButtonItem:buttonItem animated:YES];
+        
     }
     else{
-        [[self navigationItem] setHidesBackButton:NO];
+        [[self navigationItem] setLeftBarButtonItem:nil];
     }
+}
+
+-(void) voltarLogin{
+    [[self navigationController] dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void)carregaBotaoFavoritos{
@@ -123,12 +114,11 @@
 
 -(void)carregaLayout{
     
+    _tabBarSeta.backgroundColor = [[LocalStore sharedStore] FONTECOR];
+    
     _lblMsgBusca.textColor = [[LocalStore sharedStore] FONTECOR];
     
-    [[UITabBar appearance] setBarTintColor:[[LocalStore sharedStore] FONTECOR]];
-    
     [[[[self navigationController] navigationBar] topItem] setTitle:@""];
-    [[[self navigationController] navigationBar] setTintColor:[[LocalStore sharedStore] FONTECOR]];
 
     //Bag esconder Filtro
     _tbUsuarios.layer.zPosition = 3;
@@ -195,26 +185,28 @@
     [[_txtCidade layer] setBorderColor:[[LocalStore sharedStore] FONTECOR].CGColor];
 }
 
--(void)atualizaTela{
+-(void)atualizaTela{    
     
     //Filtro Instrumento
     if ([[[BuscaStore sharedStore] instrumento] length] > 0) {
         _btnInstumento.titleLabel.textAlignment = NSTextAlignmentCenter;
-        _btnInstumento.titleLabel.text = [[BuscaStore sharedStore] instrumento];
-        _btnInstumento.titleLabel.textColor = [UIColor blackColor];
+        [_btnInstumento setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [_btnInstumento setTitle:[NSString stringWithFormat:@"%@", [[BuscaStore sharedStore] instrumento]] forState:UIControlStateNormal];
     }
     else{
-        _btnInstumento.titleLabel.textColor = [UIColor whiteColor];
+        [_btnInstumento setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_btnInstumento setTitle:@"Instrumento" forState:UIControlStateNormal];
     }
     
     //Filtro Estilo Musical
     if ([[[BuscaStore sharedStore] estilo] length] > 0) {
         _btnEstilo.titleLabel.textAlignment = NSTextAlignmentCenter;
-        _btnEstilo.titleLabel.text = [[BuscaStore sharedStore] estilo];
-        _btnEstilo.titleLabel.textColor = [UIColor blackColor];
+        [_btnEstilo setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [_btnEstilo setTitle:[NSString stringWithFormat:@"%@", [[BuscaStore sharedStore] estilo]] forState:UIControlStateNormal];
     }
     else{
-        _btnEstilo.titleLabel.textColor = [UIColor whiteColor];
+        [_btnEstilo setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_btnEstilo setTitle:@"Estilo musical" forState:UIControlStateNormal];
     }
 
     //Filtro Estilo Musical

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "TelaLoginViewController.h"
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
@@ -18,5 +20,7 @@
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
+
+@property TelaLoginViewController *viewController;
 
 @end

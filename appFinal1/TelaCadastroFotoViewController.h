@@ -24,4 +24,6 @@
 - (IBAction)btnAdicionarFotoClick:(id)sender;
 - (IBAction)btnContinuarClick:(id)sender;
 
+@property UITabBarController *tabBar;
+
 @end

@@ -15,7 +15,7 @@
 #import "Musica.h"
 
 //@interface CoreAudioViewController : UIViewController <UITabBarDelegate, EZMicrophoneDelegate, UIAlertViewDelegate> {
-@interface CoreAudioViewController : UIViewController <UITabBarDelegate, UIAlertViewDelegate> {
+@interface CoreAudioViewController : UIViewController <UIAlertViewDelegate> {
     
     AVAudioRecorder *recorder;
     NSURL *urlPlay;
@@ -30,10 +30,6 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *tempo;
 @property (weak, nonatomic) IBOutlet UIButton *btnGravar;
-@property (strong, nonatomic) IBOutlet UITabBarItem *gravarItem;
-@property (strong, nonatomic) IBOutlet UITabBarItem *buscarItem;
-@property (strong, nonatomic) IBOutlet UITabBarItem *perfilItem;
-@property (strong, nonatomic) IBOutlet UITabBar *tabBar;
 
 @property NSTimer *timer;
 

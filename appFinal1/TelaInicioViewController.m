@@ -29,16 +29,16 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     
-    [[self navigationController] setNavigationBarHidden:YES];
+//    [[self navigationController] setNavigationBarHidden:YES];
+
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
-    [[self navigationController] setNavigationBarHidden:NO];
+//    [[self navigationController] setNavigationBarHidden:NO];
 }
 
 - (void)viewDidLoad{
     [super viewDidLoad];
 }
-
 
 @end
