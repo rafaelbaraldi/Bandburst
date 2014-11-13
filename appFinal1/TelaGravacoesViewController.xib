@@ -6,12 +6,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TelaGravacoesViewController">
             <connections>
-                <outlet property="barra" destination="YuF-j3-CJx" id="oRs-8I-nO7"/>
                 <outlet property="btnNovaGravacao" destination="nnE-3l-xAe" id="Y5u-n9-mOq"/>
-                <outlet property="buscarIcone" destination="gjP-XC-Tfa" id="Soj-lM-Jzx"/>
-                <outlet property="gravarIcone" destination="SNh-IY-EWo" id="yCG-qe-NiJ"/>
                 <outlet property="lblGaleria" destination="oKO-gF-bcv" id="Rdb-3E-BjP"/>
-                <outlet property="perfilIcone" destination="pDw-qU-WZ3" id="yrv-LV-Uz6"/>
                 <outlet property="tabBarSeta" destination="4Jy-kz-k1v" id="YpH-dk-TgO"/>
                 <outlet property="tbMusicas" destination="ez0-Gs-7lh" id="O3p-Xu-FtU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -32,25 +28,8 @@
                         <action selector="btnNovaGravacaoClick:" destination="-1" eventType="touchUpInside" id="beJ-UG-Kaa"/>
                     </connections>
                 </button>
-                <tabBar contentMode="scaleToFill" fixedFrame="YES" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YuF-j3-CJx">
-                    <rect key="frame" x="0.0" y="530" width="320" height="49"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <items>
-                        <tabBarItem tag="1" title="" image="gravarIcon.png" id="SNh-IY-EWo"/>
-                        <tabBarItem tag="2" image="buscador.png" id="gjP-XC-Tfa">
-                            <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="10"/>
-                        </tabBarItem>
-                        <tabBarItem tag="3" image="perfilcone.png" id="pDw-qU-WZ3">
-                            <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="10"/>
-                        </tabBarItem>
-                    </items>
-                    <color key="barTintColor" red="0.8980392814" green="0.49019610879999997" blue="0.33333334329999997" alpha="1" colorSpace="deviceRGB"/>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="f7B-2Z-qZd"/>
-                    </connections>
-                </tabBar>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="45" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ez0-Gs-7lh">
-                    <rect key="frame" x="0.0" y="160" width="320" height="349"/>
+                    <rect key="frame" x="0.0" y="160" width="320" height="346"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="Yf6-bi-xpm"/>
@@ -71,16 +50,14 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="seta_tabbar.png" translatesAutoresizingMaskIntoConstraints="NO" id="4Jy-kz-k1v">
-                    <rect key="frame" x="43" y="518" width="20" height="12"/>
+                    <rect key="frame" x="43" y="507" width="20" height="12"/>
+                    <color key="backgroundColor" red="0.98823535439999999" green="0.12549020350000001" blue="0.30196079609999998" alpha="1" colorSpace="deviceRGB"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
         </view>
     </objects>
     <resources>
-        <image name="buscador.png" width="30" height="30"/>
-        <image name="gravarIcon.png" width="30" height="30"/>
-        <image name="perfilcone.png" width="30" height="30"/>
         <image name="seta_tabbar.png" width="39" height="25"/>
     </resources>
 </document>

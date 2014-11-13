@@ -94,4 +94,10 @@
 
 +(void)carregaCoresDoLayout;
 
++(UITabBarController*)iniciaAplication;
+
++(void)hideTabBar:(UITabBarController*)tabbarcontroller;
+
++(void)showTabBar:(UITabBarController*)tabbarcontroller;
+
 @end

@@ -10,8 +10,6 @@
 
 @interface TelaLoginViewController : UIViewController <UITextFieldDelegate>
 
-@property UITabBarController* tabBar;
-
 @property (weak, nonatomic) IBOutlet UITextField *txtEmail;
 @property (weak, nonatomic) IBOutlet UITextField *txtSenha;
 @property (strong, nonatomic) IBOutlet UIButton *lblEsqueceuSenha;
@@ -22,7 +20,6 @@
 - (IBAction)btnContinuarClick:(id)sender;
 - (IBAction)btnCadastrarClick:(id)sender;
 - (IBAction)btnEntrarClick:(id)sender;
-
 
 @property (strong, nonatomic) IBOutlet UIButton *btnContinuar;
 @property (strong, nonatomic) IBOutlet UIButton *btnCadastrar;

@@ -41,7 +41,7 @@
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
-    [[self navigationItem] setTitle:@""];
+    //[[self navigationItem] setTitle:@""];
 }
 
 - (void)didReceiveMemoryWarning{
@@ -147,6 +147,14 @@
     [bgColorCell setBackgroundColor:[[LocalStore sharedStore] FONTECOR]];
     [celula setSelectedBackgroundView:bgColorCell];
     [celula setBackgroundColor:[UIColor clearColor]];
+    
+    //Background
+    if(indexPath.row % 2 != 0){
+        [celula setBackgroundColor:[UIColor colorWithRed:234/255.0f green:234/255.0f blue:234/255.0f alpha:1]];
+    }
+    else{
+        [celula setBackgroundColor:[UIColor whiteColor]];
+    }
     
     return celula;
 }

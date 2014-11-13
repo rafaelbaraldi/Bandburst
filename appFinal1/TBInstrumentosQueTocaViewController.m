@@ -49,7 +49,7 @@
 -(void) viewWillAppear:(BOOL)animated{
     [_tbInstrumentosQueToca reloadData];
     
-    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
+//    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
     
     [[self navigationItem] setTitle:@"Meus Instrumentos"];
 }

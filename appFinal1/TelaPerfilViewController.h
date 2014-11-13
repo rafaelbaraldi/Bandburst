@@ -31,10 +31,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *btnCriarBanda;
 
 @property (strong, nonatomic) IBOutlet UILabel *lblInfo;
-@property (strong, nonatomic) IBOutlet UITabBarItem *perfilItem;
-@property (strong, nonatomic) IBOutlet UITabBarItem *gravarPerfil;
-@property (strong, nonatomic) IBOutlet UITabBarItem *buscarItem;
-@property (strong, nonatomic) IBOutlet UITabBar *tabBar;
+
 @property (strong, nonatomic) IBOutlet UIImageView *tabBarSeta;
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollBanda;

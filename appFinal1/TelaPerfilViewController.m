@@ -34,22 +34,6 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-    
-    [self carregaTabBar];
-}
-
--(void)carregaTabBar{
-    
-    _gravarPerfil.image = [[UIImage imageNamed:@"gravarIcon.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    _gravarPerfil.selectedImage = [[UIImage imageNamed:@"gravarIcon.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    _buscarItem.image = [[UIImage imageNamed:@"buscador.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    _buscarItem.selectedImage = [[UIImage imageNamed:@"buscador.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    _perfilItem.image = [[UIImage imageNamed:@"perfilcone.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    _perfilItem.selectedImage = [[UIImage imageNamed:@"perfilcone.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    
-    [_tabBar setTintColor: [UIColor whiteColor]];
-    
-    _tabBarSeta.backgroundColor = [[LocalStore sharedStore] FONTECOR];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -69,6 +53,10 @@
     //Titulo navigation
     [[[[self navigationController] navigationBar] topItem] setTitle:@""];
     [[self navigationItem] setTitle:@"Perfil"];
+    
+    if (self.tabBarController.tabBar.hidden) {
+        [LocalStore showTabBar:self.tabBarController];
+    }
 }
 
 -(void)carregaLayout{
@@ -83,6 +71,15 @@
     
     //Nomes
     _lblPerfilNome.textColor = [[LocalStore sharedStore] FONTECOR];
+    _lblPerfilBairro.textColor = [[LocalStore sharedStore] FONTECOR];
+    [_lblPerfilBairro sizeToFit];
+    _lblPerfilCidade.textColor = [[LocalStore sharedStore] FONTECOR];
+    [_lblPerfilCidade  sizeToFit];
+    _lblInfo.textColor = [[LocalStore sharedStore] FONTECOR];
+    
+    _tabBarSeta.backgroundColor = [[LocalStore sharedStore] FONTECOR];
+    
+    _lblPerfilAtribuicoes.layer.cornerRadius = [[LocalStore sharedStore] RAIOBORDA];
 }
 
 -(void)escondeBotaoDeVoltarSeUsuarioLogado{
@@ -192,13 +189,13 @@
         for (TPBanda* b in _bandas) {
             
             //Imagem
-            UIButton* icone = [[UIButton alloc] initWithFrame:CGRectMake(30, y, 50, 50)];
+            UIButton* icone = [[UIButton alloc] initWithFrame:CGRectMake(20, y, 50, 50)];
             [icone setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%lu.png", (unsigned long)[_bandas indexOfObject:b]]] forState:UIControlStateNormal];
             [icone setTitle:b.identificador forState:UIControlStateNormal];
             [icone addTarget:self action:@selector(banda:) forControlEvents:UIControlEventTouchUpInside];
             
             //Nome
-            UILabel* nome = [[UILabel alloc] initWithFrame:CGRectMake(120, y + 5, 100, 45)];
+            UILabel* nome = [[UILabel alloc] initWithFrame:CGRectMake(90, y + 5, 200, 45)];
             nome.text =  b.nome;
             nome.textColor = [UIColor blackColor];
             nome.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14.0];

@@ -56,8 +56,17 @@ const int OBSERVACOES = 2;
     [_txtSenha setSecureTextEntry:YES];
 }
 
+-(void) viewWillAppear:(BOOL)animated{
+    [[self navigationItem] setTitle:@"Cadastro"];
+    
+    [self carregaLabels];
+    
+    //Esconde tabbar    
+    [LocalStore hideTabBar:self.tabBarController];
+}
+
 -(void)viewDidDisappear:(BOOL)animated{
-    [[self navigationItem] setTitle:@""];
+//    //[[self navigationItem] setTitle:@""];
 }
 
 -(void)corregaCamposEdicao{
@@ -96,12 +105,6 @@ const int OBSERVACOES = 2;
         [_segGenero setSelectedSegmentIndex:1];
     }
     
-}
-
--(void) viewWillAppear:(BOOL)animated{
-    [[self navigationItem] setTitle:@"Cadastro"];
-    
-    [self carregaLabels];
 }
 
 -(void)arredondaBordaBotoes{
@@ -148,6 +151,8 @@ const int OBSERVACOES = 2;
     [[_txtBairro layer] setBorderColor:[[LocalStore sharedStore] FONTECOR].CGColor];
     [[_txtObservacoes layer] setBorderColor:[[LocalStore sharedStore] FONTECOR].CGColor];
     
+    _lblCabecalho.textColor = [[LocalStore sharedStore] FONTECOR];
+    
     //    [_txtNome setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
     //    [_txtEmail setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
     //    [_txtSenha setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
@@ -176,7 +181,6 @@ const int OBSERVACOES = 2;
     for (UIControl* v in self.view.subviews) {
         v.enabled = condicao;
     }
-         
     for (UILabel* v in self.view.subviews) {
         v.enabled = condicao;
     }

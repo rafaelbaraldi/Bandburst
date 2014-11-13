@@ -68,7 +68,7 @@ const int ALERTA_EXCLUIR_BANDA = 4;
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
-    [[self navigationItem] setTitle:@""];
+    //[[self navigationItem] setTitle:@""];
     
     //Arruma edtiando
     if([[BandaStore sharedStore] editando] && _addMembro == NO){

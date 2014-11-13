@@ -47,6 +47,45 @@
     return self;
 }
 
++(UITabBarController*)iniciaAplication{
+    
+    UITabBarController *tabBar;
+    
+    UINavigationController* nav3 = [[UINavigationController alloc] initWithRootViewController:[[LocalStore sharedStore] TelaGravacoes]];
+    UINavigationController* nav4 = [[UINavigationController alloc] initWithRootViewController:[[LocalStore sharedStore] TelaBusca]];
+    UINavigationController* nav5 = [[UINavigationController alloc] initWithRootViewController:[[LocalStore sharedStore] TelaPerfil]];
+    
+    [nav3.navigationBar setTintColor:[[LocalStore sharedStore] FONTECOR]];
+    [nav4.navigationBar setTintColor:[[LocalStore sharedStore] FONTECOR]];
+    [nav5.navigationBar setTintColor:[[LocalStore sharedStore] FONTECOR]];
+    
+    [nav3.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [[LocalStore sharedStore] FONTECOR]}];
+    [nav4.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [[LocalStore sharedStore] FONTECOR]}];
+    [nav5.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [[LocalStore sharedStore] FONTECOR]}];
+    
+    nav3.tabBarItem.image = [[UIImage imageNamed:@"gravarIcon.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    nav4.tabBarItem.image = [[UIImage imageNamed:@"buscador.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    nav5.tabBarItem.image = [[UIImage imageNamed:@"perfilcone.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    nav3.tabBarItem.imageInsets = UIEdgeInsetsMake(5, 0, -5, 0);
+    nav4.tabBarItem.imageInsets = UIEdgeInsetsMake(5, 0, -5, 0);
+    nav5.tabBarItem.imageInsets = UIEdgeInsetsMake(5, 0, -5, 0);
+    
+    tabBar = [[UITabBarController alloc] init];
+    
+//    [tabBar.tabBar setFrame:CGRectMake(0, 535, 320, tabBar.tabBar.frame.size.height)];
+
+    [tabBar.tabBar setClipsToBounds:YES];
+    [tabBar.tabBar setBarTintColor:[[LocalStore sharedStore] FONTECOR]];
+    [tabBar.tabBar setBackgroundColor:[[LocalStore sharedStore] FONTECOR]];
+    [tabBar.tabBar setTranslucent:NO];
+    
+    [tabBar setViewControllers:@[nav3, nav4, nav5]];
+    [tabBar setSelectedViewController:nav4];
+    
+    return tabBar;
+}
+
 -(void)carregaTelas{
     
     _TelaTBInstruementosQueToco = [[TBInstrumentosQueTocaViewController alloc] initWithNibName:@"TBInstrumentosQueTocaViewController" bundle:nil];
@@ -84,6 +123,40 @@
 -(void)carregaContexto{
     _appDelegate = [[UIApplication sharedApplication] delegate];
     _context = [_appDelegate managedObjectContext];
+}
+
++(void)hideTabBar:(UITabBarController*)tabbarcontroller{
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        for (UIView *view in tabbarcontroller.view.subviews) {
+            if ([view isKindOfClass:[UITabBar class]]) {
+                [view setFrame:CGRectMake(view.frame.origin.x, view.frame.origin.y+49.f, view.frame.size.width, view.frame.size.height)];
+            }
+            else {
+                [view setFrame:CGRectMake(view.frame.origin.x, view.frame.origin.y, view.frame.size.width, view.frame.size.height+49.f)];
+            }
+        }
+    }completion:^(BOOL finished){
+        tabbarcontroller.tabBar.hidden = YES;
+    }];
+}
+
++(void)showTabBar:(UITabBarController *)tabbarcontroller{
+    
+    tabbarcontroller.tabBar.hidden = NO;
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        for (UIView *view in tabbarcontroller.view.subviews) {
+            if ([view isKindOfClass:[UITabBar class]]) {
+                [view setFrame:CGRectMake(view.frame.origin.x, view.frame.origin.y-49, view.frame.size.width, view.frame.size.height)];
+            }
+            else {
+                [view setFrame:CGRectMake(view.frame.origin.x, view.frame.origin.y-49, view.frame.size.width, view.frame.size.height-49)];
+            }
+        }
+//    } completion:^(BOOL finished) {
+//        tabbarcontroller.tabBar.hidden = NO;
+    }];
 }
 
 

@@ -1,25 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5053" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TelaPerfilViewController">
             <connections>
                 <outlet property="btnCriarBanda" destination="Swf-6E-QAs" id="zGS-8v-rAd"/>
                 <outlet property="btnPerfilEditar" destination="zmM-mg-woS" id="DLq-kY-NYX"/>
-                <outlet property="buscarItem" destination="wg7-G1-VDR" id="mc3-v6-cXo"/>
-                <outlet property="gravarPerfil" destination="dKl-z4-QUr" id="8Mo-wK-Vgi"/>
                 <outlet property="imagePerfil" destination="7Tf-9H-xid" id="g5W-UN-vfY"/>
                 <outlet property="lblInfo" destination="uGM-Yp-MZG" id="De1-Yp-xED"/>
                 <outlet property="lblPerfilAtribuicoes" destination="6Q0-dn-0gM" id="qnr-48-Nen"/>
                 <outlet property="lblPerfilBairro" destination="IYv-DW-ThP" id="oUb-w3-BEN"/>
                 <outlet property="lblPerfilCidade" destination="Big-56-ACD" id="sHU-yF-yEM"/>
                 <outlet property="lblPerfilNome" destination="FVV-tH-vSQ" id="ww0-2j-BcB"/>
-                <outlet property="perfilItem" destination="adH-7g-cTX" id="1il-yw-3dZ"/>
                 <outlet property="scrollBanda" destination="dTe-KY-eCI" id="jD8-8h-Zuz"/>
-                <outlet property="tabBar" destination="gif-oH-5tS" id="bbF-6h-VxD"/>
                 <outlet property="tabBarSeta" destination="pH3-An-B35" id="lLw-k9-suV"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -30,10 +25,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="placeholderFoto.png" translatesAutoresizingMaskIntoConstraints="NO" id="7Tf-9H-xid">
-                    <rect key="frame" x="24" y="72" width="85" height="85"/>
+                    <rect key="frame" x="36" y="72" width="85" height="85"/>
                 </imageView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FVV-tH-vSQ">
-                    <rect key="frame" x="5" y="164" width="123" height="21"/>
+                    <rect key="frame" x="13" y="164" width="137" height="21"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                     <color key="textColor" red="0.8980392814" green="0.49019610879999997" blue="0.33333334329999997" alpha="1" colorSpace="deviceRGB"/>
                     <nil key="highlightedColor"/>
@@ -51,30 +46,17 @@
                     </connections>
                 </button>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cidade" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Big-56-ACD">
-                    <rect key="frame" x="117" y="95" width="137" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <rect key="frame" x="129" y="93" width="108" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="0.8980392814" green="0.49019610879999997" blue="0.33333334329999997" alpha="1" colorSpace="deviceRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bairro" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IYv-DW-ThP">
-                    <rect key="frame" x="117" y="116" width="137" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <rect key="frame" x="129" y="116" width="108" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="0.8980392814" green="0.49019610879999997" blue="0.33333334329999997" alpha="1" colorSpace="deviceRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <tabBar contentMode="scaleToFill" fixedFrame="YES" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gif-oH-5tS">
-                    <rect key="frame" x="0.0" y="530" width="320" height="49"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <items>
-                        <tabBarItem tag="1" title="" image="gravarIcon.png" id="dKl-z4-QUr"/>
-                        <tabBarItem tag="2" image="buscador.png" id="wg7-G1-VDR"/>
-                        <tabBarItem tag="3" image="perfilcone.png" id="adH-7g-cTX"/>
-                    </items>
-                    <color key="barTintColor" red="0.8980392814" green="0.49019610879999997" blue="0.33333334329999997" alpha="1" colorSpace="deviceRGB"/>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="Mb5-Ai-hzW"/>
-                    </connections>
-                </tabBar>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sS2-bv-ZVp">
                     <rect key="frame" x="0.0" y="279" width="320" height="180"/>
                     <subviews>
@@ -85,7 +67,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dTe-KY-eCI">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </scrollView>
                     </subviews>
@@ -111,7 +93,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Swf-6E-QAs">
-                    <rect key="frame" x="170" y="480" width="145" height="34"/>
+                    <rect key="frame" x="170" y="452" width="145" height="34"/>
                     <color key="backgroundColor" red="0.8980392814" green="0.49019610879999997" blue="0.33333334329999997" alpha="1" colorSpace="deviceRGB"/>
                     <color key="tintColor" red="0.98823535439999999" green="0.12549020350000001" blue="0.30196079609999998" alpha="1" colorSpace="deviceRGB"/>
                     <state key="normal" title="Adicionar banda">
@@ -123,10 +105,11 @@
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="seta_tabbar.png" translatesAutoresizingMaskIntoConstraints="NO" id="pH3-An-B35">
-                    <rect key="frame" x="256" y="518" width="20" height="12"/>
+                    <rect key="frame" x="256" y="507" width="20" height="12"/>
+                    <color key="backgroundColor" red="0.98823535439999999" green="0.12549020350000001" blue="0.30196079609999998" alpha="1" colorSpace="deviceRGB"/>
                 </imageView>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Q0-dn-0gM">
-                    <rect key="frame" x="15" y="193" width="295" height="40"/>
+                    <rect key="frame" x="15" y="195" width="295" height="40"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -134,19 +117,10 @@
                 </textView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <point key="canvasLocation" x="321" y="417"/>
         </view>
     </objects>
     <resources>
-        <image name="buscador.png" width="30" height="30"/>
-        <image name="gravarIcon.png" width="30" height="30"/>
-        <image name="perfilcone.png" width="30" height="30"/>
         <image name="placeholderFoto.png" width="225" height="225"/>
         <image name="seta_tabbar.png" width="39" height="25"/>
     </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
 </document>

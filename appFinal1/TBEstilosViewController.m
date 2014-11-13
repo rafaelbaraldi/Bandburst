@@ -33,7 +33,7 @@
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
-    [[self navigationItem] setTitle:@""];
+//    //[[self navigationItem] setTitle:@""];
 }
 
 - (void)didReceiveMemoryWarning{

@@ -45,8 +45,9 @@
     
     if([LoginStore verificaSeEstaLogado]){
         
-        [self carregarTabBarInicial];
-        [self presentViewController:_tabBar animated:YES completion:nil];
+        dispatch_async(dispatch_get_main_queue(), ^(void){
+            [self presentViewController:[LocalStore iniciaAplication] animated:NO completion:NO];
+        });
     }
 }
 
@@ -93,7 +94,7 @@
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
-    [[self navigationItem] setTitle:@""];
+//    //[[self navigationItem] setTitle:@""];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -101,7 +102,6 @@
 
     _txtSenha.text = @"";
 }
-
 
 - (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
@@ -140,10 +140,8 @@
     
     if([email length] > 0 && [senha length] > 0){
         if([LoginStore login:email senha:senha]){
-
-            [self carregarTabBarInicial];
             
-            [self presentViewController:_tabBar animated:YES completion:nil];
+            [self presentViewController:[LocalStore iniciaAplication] animated:YES completion:NO];
             
 //            if ([LocalStore verificaSeViewJaEstaNaPilha:[[self navigationController] viewControllers] proximaTela:[[LocalStore sharedStore] TelaBusca]]) {
 //                [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaBusca] animated:YES];
@@ -172,10 +170,8 @@
 - (IBAction)btnEntrarClick:(id)sender {
     
     [LocalStore setParaUsuarioZero];
-    
-    [self carregarTabBarInicial];
 
-    [self presentViewController:_tabBar animated:YES completion:nil];
+    [self presentViewController:[LocalStore iniciaAplication] animated:YES completion:NO];
     
     
 //    if ([LocalStore verificaSeViewJaEstaNaPilha:[[self navigationController] viewControllers] proximaTela:[[LocalStore sharedStore] TelaBusca]]) {
@@ -184,35 +180,6 @@
 //    else{
 //        [[self navigationController] pushViewController:[[LocalStore sharedStore] TelaBusca] animated:YES];
 //    }
-}
-
--(void)carregarTabBarInicial{
-    
-    UINavigationController* nav3 = [[UINavigationController alloc] initWithRootViewController:[[LocalStore sharedStore] TelaGravacoes]];
-    UINavigationController* nav4 = [[UINavigationController alloc] initWithRootViewController:[[LocalStore sharedStore] TelaBusca]];
-    UINavigationController* nav5 = [[UINavigationController alloc] initWithRootViewController:[[LocalStore sharedStore] TelaPerfil]];
-    
-    [nav3.navigationBar setTintColor:[[LocalStore sharedStore] FONTECOR]];
-    [nav4.navigationBar setTintColor:[[LocalStore sharedStore] FONTECOR]];
-    [nav5.navigationBar setTintColor:[[LocalStore sharedStore] FONTECOR]];
-
-    [nav3.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [[LocalStore sharedStore] FONTECOR]}];
-    [nav4.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [[LocalStore sharedStore] FONTECOR]}];
-    [nav5.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [[LocalStore sharedStore] FONTECOR]}];
-    
-    nav3.tabBarItem.image = [[UIImage imageNamed:@"gravarIcon.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    nav4.tabBarItem.image = [[UIImage imageNamed:@"buscador.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    nav5.tabBarItem.image = [[UIImage imageNamed:@"perfilcone.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    
-    _tabBar = [[UITabBarController alloc] init];
-    
-    [_tabBar.tabBar setFrame:CGRectMake(0, 530, 320, 49)];
-    [_tabBar.tabBar setClipsToBounds:YES];
-    [_tabBar.tabBar setBarTintColor:[[LocalStore sharedStore] FONTECOR]];
-    [_tabBar.tabBar setBackgroundColor:[[LocalStore sharedStore] FONTECOR]];
-    
-    [_tabBar setViewControllers:@[nav3, nav4, nav5]];
-    [_tabBar setSelectedViewController:nav4];
 }
 
 @end

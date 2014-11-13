@@ -39,7 +39,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
+//    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
     [[self navigationItem] setTitle:@"Horários de Ensaio"];
 }
 
@@ -50,7 +50,7 @@
 -(void) carregaLayout{
     [_collectionHorario setBackgroundColor:[UIColor clearColor]];
     
-    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
+//    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
     
     _lblSegunda.textColor = [[LocalStore sharedStore] FONTECOR];
     _lblTerca.textColor = [[LocalStore sharedStore] FONTECOR];

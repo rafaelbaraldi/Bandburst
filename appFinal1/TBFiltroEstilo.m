@@ -52,7 +52,7 @@
     
     //Navigation Controller
     [[self navigationItem] setTitle:@"Filtro estilo musical"];
-    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
+//    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
 }
 
 -(void)carregaRemoverFiltro{

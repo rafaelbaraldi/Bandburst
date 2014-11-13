@@ -88,7 +88,6 @@
         UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemReply target:self action:@selector(voltarLogin)];
         
         [[self navigationItem] setLeftBarButtonItem:buttonItem animated:YES];
-        
     }
     else{
         [[self navigationItem] setLeftBarButtonItem:nil];

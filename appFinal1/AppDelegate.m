@@ -55,7 +55,6 @@
 //    [[UITextField appearance] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14]];
 //    [[UILabel appearance] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14]];
     
-    
     [self.window setRootViewController:navegacao];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
