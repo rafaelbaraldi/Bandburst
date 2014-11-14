@@ -18,7 +18,9 @@
 
 #import "UIImageView+WebCache.h"
 
-#import "Crashlytics/Crashlytics.h"
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
+
 
 @implementation AppDelegate
 
@@ -58,6 +60,10 @@
     [self.window setRootViewController:navegacao];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    //Crashlytics
+    [[Crashlytics sharedInstance] setDebugMode:YES];
+    [Fabric with:@[CrashlyticsKit, MoPubKit]];
     
     return YES;
 }

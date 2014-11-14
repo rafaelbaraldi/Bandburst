@@ -170,6 +170,9 @@
 
 - (IBAction)btnPerfilEditarClick:(id)sender {
     if(![[[LocalStore sharedStore] usuarioAtual].identificador isEqualToString:@"0"]){
+        
+        [LocalStore hideTabBar:self.tabBarController];
+        
         [[self navigationController] pushViewController:[[LocalStore sharedStore] TelaEditarPerfil] animated:YES];
     }
 }

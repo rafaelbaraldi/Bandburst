@@ -46,7 +46,9 @@
     if([LoginStore verificaSeEstaLogado]){
         
         dispatch_async(dispatch_get_main_queue(), ^(void){
-            [self presentViewController:[LocalStore iniciaAplication] animated:NO completion:NO];
+            [self presentViewController:[LocalStore iniciaAplication] animated:NO completion:^{
+                
+            }];
         });
     }
 }
@@ -141,7 +143,9 @@
     if([email length] > 0 && [senha length] > 0){
         if([LoginStore login:email senha:senha]){
             
-            [self presentViewController:[LocalStore iniciaAplication] animated:YES completion:NO];
+                [self presentViewController:[LocalStore iniciaAplication] animated:YES completion:^{
+                
+            }];
             
 //            if ([LocalStore verificaSeViewJaEstaNaPilha:[[self navigationController] viewControllers] proximaTela:[[LocalStore sharedStore] TelaBusca]]) {
 //                [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaBusca] animated:YES];
@@ -171,7 +175,9 @@
     
     [LocalStore setParaUsuarioZero];
 
-    [self presentViewController:[LocalStore iniciaAplication] animated:YES completion:NO];
+    [self presentViewController:[LocalStore iniciaAplication] animated:YES completion:^{
+        
+    }];
     
     
 //    if ([LocalStore verificaSeViewJaEstaNaPilha:[[self navigationController] viewControllers] proximaTela:[[LocalStore sharedStore] TelaBusca]]) {

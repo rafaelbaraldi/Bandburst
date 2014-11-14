@@ -1090,6 +1090,7 @@
 				1BE8E3B2192533AD00D108C0 /* Sources */,
 				1BE8E3B3192533AD00D108C0 /* Frameworks */,
 				1BE8E3B4192533AD00D108C0 /* Resources */,
+				731292E21A16429C003062B4 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1251,6 +1252,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		731292E21A16429C003062B4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run d649ec7c8a5ecc4c8f45b956843fe415ee329baa 1db4b05b9d37256876c8b3973f20d9ce4c9bf5e1df2713e97f93223d76b204f1";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1BE8E3B2192533AD00D108C0 /* Sources */ = {

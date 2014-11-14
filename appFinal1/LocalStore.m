@@ -145,7 +145,7 @@
     
     tabbarcontroller.tabBar.hidden = NO;
     
-    [UIView animateWithDuration:0.5 animations:^{
+//    [UIView animateWithDuration:0.1 animations:^{
         for (UIView *view in tabbarcontroller.view.subviews) {
             if ([view isKindOfClass:[UITabBar class]]) {
                 [view setFrame:CGRectMake(view.frame.origin.x, view.frame.origin.y-49, view.frame.size.width, view.frame.size.height)];
@@ -156,7 +156,7 @@
         }
 //    } completion:^(BOOL finished) {
 //        tabbarcontroller.tabBar.hidden = NO;
-    }];
+//    }];
 }
 
 

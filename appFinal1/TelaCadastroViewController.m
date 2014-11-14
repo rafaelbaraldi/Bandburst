@@ -62,7 +62,7 @@ const int OBSERVACOES = 2;
     [self carregaLabels];
     
     //Esconde tabbar    
-    [LocalStore hideTabBar:self.tabBarController];
+//    [LocalStore hideTabBar:self.tabBarController];
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
