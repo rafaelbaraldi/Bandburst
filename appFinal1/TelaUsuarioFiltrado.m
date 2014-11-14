@@ -79,6 +79,12 @@
     [[self navigationItem] setTitle:@"Perfil"];
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    
+    //Atribuicoes
+    [self carregaAtribuicoes];
+}
+
 -(void)carregaLayout{
 
 //    _lblNome.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:18.0f];
@@ -95,6 +101,8 @@
     //Esconde linhas da tabela
     _tbDados.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     _tbDados.separatorColor = [UIColor clearColor];
+    
+    _lblAtribuicoes.layer.cornerRadius = [[LocalStore sharedStore] RAIOBORDA];
     
     //Scroll Table
     if([_pessoa.estilos count] + [_pessoa.instrumentos count] +[_horarios count] <= 7){
@@ -121,9 +129,6 @@
     _lblCidadeBairro.numberOfLines = 2;
     _lblCidadeBairro.text = [NSString stringWithFormat:@"%@\n%@", _pessoa.cidade, _pessoa.bairro];
     
-    //Atribuicoes
-    [self carregaAtribuicoes];
-    
     //Carrega dados do usuario
     [self carregaDadosUsuarios];
     
@@ -131,15 +136,27 @@
     [self carregaImagemUsuario];
 }
 
-
 -(void)carregaAtribuicoes{
     
     if([_pessoa.atribuicoes length] == 0){
         _lblAtribuicoes.text = @" - ";
         _lblAtribuicoes.textAlignment = NSTextAlignmentCenter;
+        _lblAtribuicoes.hidden = YES;
+        
+        //Sobe TableView
+        [UIView animateWithDuration:0.3f
+                         animations:^{
+            [_tbDados setFrame:CGRectMake(0, 222, 320, 297)];
+         }];
     }
     else{
         _lblAtribuicoes.text = _pessoa.atribuicoes;
+        
+        //Posiçào original TableView
+        [UIView animateWithDuration:0.3f
+                         animations:^{
+            [_tbDados setFrame:CGRectMake(0, 278, 320, 303)];
+         }];
     }
     
     _lblAtribuicoes.layer.borderWidth = 1.0f;
