@@ -53,6 +53,7 @@
 //    [_txtInfo setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
     
     //Msg
+    _lblMsg.textColor = [[LocalStore sharedStore] FONTECOR];
 //    [_lblMsg setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
 }
 

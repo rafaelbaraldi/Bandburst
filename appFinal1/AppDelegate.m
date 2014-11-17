@@ -62,8 +62,8 @@
     [self.window makeKeyAndVisible];
     
     //Crashlytics
-    [[Crashlytics sharedInstance] setDebugMode:YES];
-    [Fabric with:@[CrashlyticsKit, MoPubKit]];
+//    [[Crashlytics sharedInstance] setDebugMode:YES];
+//    [Fabric with:@[CrashlyticsKit, MoPubKit]];
     
     return YES;
 }
