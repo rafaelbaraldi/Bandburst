@@ -73,6 +73,9 @@
     //Deixa a borda dos boteos arredondados
     [self arredondaBordaBotoes];
     
+    //Favoritos
+    [self carregaBotaoFavoritos];
+    
     [self carregaLayout];
 }
 

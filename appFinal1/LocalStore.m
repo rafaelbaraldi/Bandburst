@@ -127,18 +127,18 @@
 
 +(void)hideTabBar:(UITabBarController*)tabbarcontroller{
     
-    [UIView animateWithDuration:0.5 animations:^{
-        for (UIView *view in tabbarcontroller.view.subviews) {
-            if ([view isKindOfClass:[UITabBar class]]) {
-                [view setFrame:CGRectMake(view.frame.origin.x, view.frame.origin.y+49.f, view.frame.size.width, view.frame.size.height)];
-            }
-            else {
-                [view setFrame:CGRectMake(view.frame.origin.x, view.frame.origin.y, view.frame.size.width, view.frame.size.height+49.f)];
-            }
-        }
-    }completion:^(BOOL finished){
+//    [UIView animateWithDuration:0.5 animations:^{
+//        for (UIView *view in tabbarcontroller.view.subviews) {
+//            if ([view isKindOfClass:[UITabBar class]]) {
+//                [view setFrame:CGRectMake(view.frame.origin.x, view.frame.origin.y+49.f, view.frame.size.width, view.frame.size.height)];
+//            }
+//            else {
+//                [view setFrame:CGRectMake(view.frame.origin.x, view.frame.origin.y, view.frame.size.width, view.frame.size.height+49.f)];
+//            }
+//        }
+//    }completion:^(BOOL finished){
         tabbarcontroller.tabBar.hidden = YES;
-    }];
+//    }];
 }
 
 +(void)showTabBar:(UITabBarController *)tabbarcontroller{

@@ -29,17 +29,17 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     
-    _fbpv = [[FBProfilePictureView alloc] initWithFrame:CGRectMake(150, 200, 100, 100)];
-    [self.view addSubview:self.fbpv];
-    
-    FBLoginView* loginView = [[FBLoginView alloc] initWithReadPermissions:@[@"public_profile", @"email", @"user_friends"]];
-    CGRect frame = loginView.frame;
-    
-    loginView.delegate = self;
-    frame.origin.y = 400;
-    loginView.frame = frame;
-    //    loginView.frame = CGRectOffset(loginView.frame, (self.view.center.x - (loginView.frame.size.width / 2)), 150);
-    [self.view addSubview:loginView];
+//    _fbpv = [[FBProfilePictureView alloc] initWithFrame:CGRectMake(150, 200, 100, 100)];
+//    [self.view addSubview:self.fbpv];
+//    
+//    FBLoginView* loginView = [[FBLoginView alloc] initWithReadPermissions:@[@"public_profile", @"email", @"user_friends"]];
+//    CGRect frame = loginView.frame;
+//    
+//    loginView.delegate = self;
+//    frame.origin.y = 400;
+//    loginView.frame = frame;
+//    [self.view addSubview:loginView];
+    [self carregaLayout];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -50,6 +50,13 @@
 
 - (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
+}
+
+-(void)carregaLayout{
+    
+    [_btnSair setTitleColor:[[LocalStore sharedStore] FONTECOR] forState:UIControlStateNormal];
+    [_btnAlterarFoto setTitleColor:[[LocalStore sharedStore] FONTECOR] forState:UIControlStateNormal];
+    [_btnEncontrarAmigos setTitleColor:[[LocalStore sharedStore] FONTECOR] forState:UIControlStateNormal];
 }
 
 - (IBAction)btnAlterarFoto:(id)sender {

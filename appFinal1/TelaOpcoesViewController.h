@@ -10,6 +10,9 @@
 #import <FacebookSDK/FacebookSDK.h>
 
 @interface TelaOpcoesViewController : UIViewController <FBLoginViewDelegate>
+@property (weak, nonatomic) IBOutlet UIButton *btnAlterarFoto;
+@property (weak, nonatomic) IBOutlet UIButton *btnEncontrarAmigos;
+@property (weak, nonatomic) IBOutlet UIButton *btnSair;
 
 - (IBAction)btnAlterarFoto:(id)sender;
 - (IBAction)btnEcontrarAmigos:(id)sender;

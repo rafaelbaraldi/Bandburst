@@ -56,6 +56,10 @@ const int OBSERVACOES = 2;
     [_txtSenha setSecureTextEntry:YES];
 }
 
+- (BOOL)hidesBottomBarWhenPushed {
+    return YES;
+}
+
 -(void) viewWillAppear:(BOOL)animated{
     [[self navigationItem] setTitle:@"Cadastro"];
     

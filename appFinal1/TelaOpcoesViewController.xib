@@ -7,6 +7,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TelaOpcoesViewController">
             <connections>
+                <outlet property="btnAlterarFoto" destination="15h-cM-Uin" id="tUX-Ku-9lE"/>
+                <outlet property="btnEncontrarAmigos" destination="e2J-p1-Z0x" id="bt0-km-a20"/>
+                <outlet property="btnSair" destination="WFL-ri-fdG" id="DXh-e9-khd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

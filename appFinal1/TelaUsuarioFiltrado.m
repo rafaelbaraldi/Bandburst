@@ -103,6 +103,8 @@
     else{
          _tbDados.scrollEnabled = YES;
     }
+    
+    _lblAtribuicoes.layer.cornerRadius = [[LocalStore sharedStore] RAIOBORDA];
 }
 
 -(void)carregaUsuarioFiltrado{
@@ -135,8 +137,7 @@
 -(void)carregaAtribuicoes{
     
     if([_pessoa.atribuicoes length] == 0){
-        _lblAtribuicoes.text = @" - ";
-        _lblAtribuicoes.textAlignment = NSTextAlignmentCenter;
+        _lblAtribuicoes.text = @"Atribuições";
     }
     else{
         _lblAtribuicoes.text = _pessoa.atribuicoes;
@@ -144,6 +145,7 @@
     
     _lblAtribuicoes.layer.borderWidth = 1.0f;
     _lblAtribuicoes.layer.borderColor = [UIColor grayColor].CGColor;
+    _lblAtribuicoes.textAlignment = NSTextAlignmentCenter;
 }
 
 -(void)carregaImagemUsuario{
