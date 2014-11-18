@@ -22,6 +22,7 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        [[self navigationItem] setTitle:@"Filtro de Disponibilidade"];
     }
     return self;
 }
@@ -38,7 +39,6 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    [[self navigationItem] setTitle:@"Filtro Horários"];
 
     if([[[BuscaStore sharedStore] horario] length] > 0){
         [self carregaRemoverFiltro];
@@ -52,8 +52,6 @@
 
 -(void) carregaLayout{
     [_collectionHorario setBackgroundColor:[UIColor clearColor]];
-    
-    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
     
     _lblSegunda.textColor = [[LocalStore sharedStore] FONTECOR];
     _lblTerca.textColor = [[LocalStore sharedStore] FONTECOR];

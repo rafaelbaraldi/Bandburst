@@ -22,6 +22,8 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        //Navigation Controller
+        [[self navigationItem] setTitle:@"Nova banda"];
     }
     return self;
 }
@@ -34,14 +36,6 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [_tbMembros reloadData];
-    
-    //Navigation Controller
-    [[self navigationItem] setTitle:@"Nova banda"];
-    [[[self navigationController] navigationBar] setTintColor:[[LocalStore sharedStore] FONTECOR]];
-}
-
--(void)viewDidDisappear:(BOOL)animated{
-    //[[self navigationItem] setTitle:@""];
 }
 
 - (void)didReceiveMemoryWarning{
@@ -53,7 +47,7 @@
     //Criar banda
     [_btnCriarBanda setBackgroundColor:[[LocalStore sharedStore] FONTECOR]];
     [[_btnCriarBanda layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
-//    [[_btnCriarBanda titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14]];
+    [[_btnCriarBanda titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14]];
     
     //Nome da banda
     [[_txtNomeDaBanda layer] setBorderWidth:2.0f];

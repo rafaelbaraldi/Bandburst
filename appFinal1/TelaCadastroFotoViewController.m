@@ -26,6 +26,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         _fotoSelecionada = [[UIImageView alloc] init];
+        [[self navigationItem] setTitle:@"Foto"];
     }
     return self;
 }
@@ -43,7 +44,7 @@
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
-//    //[[self navigationItem] setTitle:@""];
+    
     [[CadastroStore sharedStore] setCadastro:NO];
     _trocouImagem = NO;
 }
@@ -81,8 +82,6 @@
     
     //Verifica se está cadastrando ao Alterando Foto
     [self verificaCadastroOuAtualizacao];
-    
-    [[self navigationItem] setTitle:@"Foto"];
 }
 
 -(void)arredondaBordaBotoes{
@@ -95,9 +94,9 @@
     
     _lblMensagem.textColor = [[LocalStore sharedStore] FONTECOR];
     
-    //    [[_btnAdicionarFoto titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
-    //    [[_btnContinuar titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
-    //    [_lblMensagem setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    [[_btnAdicionarFoto titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    [[_btnContinuar titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    [_lblMensagem setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
     
 }
 
@@ -181,19 +180,16 @@
                                          delegate:self
                                 cancelButtonTitle:@"Cancelar"
                            destructiveButtonTitle:nil
-                                otherButtonTitles:@"Importar do Facebook", @"Tirar foto", @"Escolher na biblioteca", nil];
+                                otherButtonTitles:@"Tirar foto", @"Escolher na biblioteca", nil];
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     
     switch (buttonIndex){
         case 0:
-            [self importarDoFacebook];
-            break;
-        case 1:
             [self tirarFoto];
             break;
-        case 2:
+        case 1:
             [self escolherNaBiblioteca];
             break;
     }
@@ -210,6 +206,8 @@
 
 //Troca imagem importando do face
 -(void)importarDoFacebook{
+    
+    
 }
 
 //Troca imagem escolhendo a partir da biblioteca

@@ -40,21 +40,23 @@
     //PROCURAR
     _btnProcurar.backgroundColor = [[LocalStore sharedStore] FONTECOR];
     _btnProcurar.layer.cornerRadius =[[LocalStore sharedStore] RAIOBORDA];
+    _btnProcurar.titleLabel.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:18];
     
     //TXT EMAIL
     [[_txtEmail layer]setBorderWidth:2.0f];
     [[_txtEmail layer] setCornerRadius:[[LocalStore sharedStore] RAIOTEXT]];
     [[_txtEmail layer] setBorderColor:[[LocalStore sharedStore] FONTECOR].CGColor];
-//    [_txtEmail setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    [_txtEmail setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
     
     _lblEcontrarConta.textColor = [[LocalStore sharedStore] FONTECOR];
+    [_lblEcontrarConta setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
     
     //Info
-//    [_txtInfo setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    [_txtInfo setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:18]];
     
     //Msg
     _lblMsg.textColor = [[LocalStore sharedStore] FONTECOR];
-//    [_lblMsg setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    [_lblMsg setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
 }
 
 -(void)viewWillAppear:(BOOL)animated{

@@ -24,6 +24,9 @@
         _musicas = [PerfilStore retornaListaDeMusicas];
         _categorias = [PerfilStore retornaListaDeCategorias:_musicas];
         _musicasPorCategoria = [PerfilStore retornaListaDeMusicasPorCategorias:_musicas];
+        
+        //Navigation Controller
+        [[self navigationItem] setTitle:@"Selecionar gravação"];
     }
     return self;
 }
@@ -40,16 +43,6 @@
 
 - (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
-}
-
--(void)viewDidDisappear:(BOOL)animated{
-    //[[self navigationItem] setTitle:@""];
-}
-
--(void)viewWillAppear:(BOOL)animated{
-    
-    //Navigation Controller
-    [[self navigationItem] setTitle:@"Selecionar gravação"];
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{

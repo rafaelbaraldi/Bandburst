@@ -21,6 +21,8 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        //Navigation Controller
+        [[self navigationItem] setTitle:@"Filtro de Estilo musical"];
     }
     return self;
 }
@@ -37,8 +39,6 @@
 
     //Remove lista de estilos pelo filtro de Busca 
     [[[BuscaStore sharedStore] estilosFiltrados] removeAllObjects];
-    
-    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -49,10 +49,6 @@
     else{
         [[self navigationItem] setRightBarButtonItem:nil];
     }
-    
-    //Navigation Controller
-    [[self navigationItem] setTitle:@"Filtro estilo musical"];
-//    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
 }
 
 -(void)carregaRemoverFiltro{

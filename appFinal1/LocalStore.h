@@ -100,4 +100,10 @@
 
 +(void)showTabBar:(UITabBarController*)tabbarcontroller;
 
++(void)showViewSemNet:(UILabel*)lblSemNet;
+
++(BOOL)verificaSeTemInternet;
+
++(UILabel*) viewSemInternet;
+
 @end

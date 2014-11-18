@@ -59,7 +59,8 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Quicksand_book.otf</string>
+		<string>Quicksand_Book.otf</string>
+		<string>WalkwayBold.otf</string>
 	</array>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>

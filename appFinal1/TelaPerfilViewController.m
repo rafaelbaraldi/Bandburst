@@ -28,6 +28,9 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         [[self navigationItem] setHidesBackButton:YES];
+        
+        //Titulo navigation
+        [[self navigationItem] setTitle:@"Perfil"];
     }
     return self;
 }
@@ -50,10 +53,6 @@
     //layout
     [self carregaLayout];
     
-    //Titulo navigation
-    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
-    [[self navigationItem] setTitle:@"Perfil"];
-    
     if (self.tabBarController.tabBar.hidden) {
         [LocalStore showTabBar:self.tabBarController];
     }
@@ -71,10 +70,13 @@
     
     //Nomes
     _lblPerfilNome.textColor = [[LocalStore sharedStore] FONTECOR];
+    
     _lblPerfilBairro.textColor = [[LocalStore sharedStore] FONTECOR];
     [_lblPerfilBairro sizeToFit];
+    
     _lblPerfilCidade.textColor = [[LocalStore sharedStore] FONTECOR];
     [_lblPerfilCidade  sizeToFit];
+    
     _lblInfo.textColor = [[LocalStore sharedStore] FONTECOR];
     
     _tabBarSeta.backgroundColor = [[LocalStore sharedStore] FONTECOR];
@@ -111,6 +113,9 @@
     
     //Nome, cidade, Bairro e Atribuicoes
     _lblPerfilNome.text = [[LocalStore sharedStore] usuarioAtual].nome;
+    _lblPerfilNome.adjustsFontSizeToFitWidth = YES;
+    [_lblPerfilNome sizeToFit];
+    
     _lblPerfilCidade.text = [[LocalStore sharedStore] usuarioAtual].cidade;
     _lblPerfilBairro.text = [[LocalStore sharedStore] usuarioAtual].bairro;
     

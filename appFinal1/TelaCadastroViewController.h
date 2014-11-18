@@ -6,9 +6,12 @@
 //  Copyright (c) 2014 RAFAEL BARALDI. All rights reserved.
 //
 
+#import <FacebookSDK/FacebookSDK.h>
 #import <UIKit/UIKit.h>
 
 @interface TelaCadastroViewController : UIViewController <UITextFieldDelegate>
+
+@property FBProfilePictureView* fbpv;
 
 //Views
 @property (strong, nonatomic) IBOutlet UILabel *lblCabecalho;
@@ -37,5 +40,8 @@
 - (IBAction)btnConfirmarClick:(id)sender;
 - (IBAction)btnHorariosClick:(id)sender;
 //- (IBAction)txtEmailDidEnd:(id)sender;
+
+
+
 
 @end

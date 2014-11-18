@@ -20,6 +20,8 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        //Navigation Controller
+        [[self navigationItem] setTitle:@"Gravação"];
     }
     return self;
 }
@@ -40,13 +42,6 @@
     //Carrega musica
     [self carregaMusica];
     [self btnPlayGravacaoClick:nil];
-    
-    //Navigation Controller
-    [[self navigationItem] setTitle:@"Gravação"];
-}
-
--(void)viewDidDisappear:(BOOL)animated{
-    //[[self navigationItem] setTitle:@""];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -58,8 +53,8 @@
     
     _lblNomeGravacao.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:18.0];
     _lblCategoriaGravacao.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14.0];
-//    _lblTempoTotal.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:10.0];
-//    _lblTempoCorrente.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:10.0];
+    _lblTempoTotal.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:10.0];
+    _lblTempoCorrente.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:10.0];
     
     //Slider Progresso da Gravação
     [_progressoGravacao setThumbImage:[UIImage imageNamed:@"slider.png"] forState:UIControlStateNormal];

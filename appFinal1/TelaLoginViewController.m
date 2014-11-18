@@ -39,6 +39,22 @@
     [self carregaLayout];
     
     [self verificaSeEstaLogado];
+    
+    //LOADING
+    //Fundo para o load
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 700)];
+    view.backgroundColor = [UIColor grayColor];
+    view.alpha = 0.5f;
+//    [self.view addSubview:view];
+    
+    //Bloquea o acesso do usuario na View
+    [self.view setUserInteractionEnabled:YES];
+    
+    //Load
+    UIActivityIndicatorView *load = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [load setCenter:self.view.center];
+    [load startAnimating];
+//    [self.view addSubview:load];
 }
 
 -(void) verificaSeEstaLogado{
@@ -58,34 +74,34 @@
     //Entrar
     _btnEntrar.backgroundColor = [[LocalStore sharedStore] FONTECOR];
     _btnEntrar.layer.cornerRadius = [[LocalStore sharedStore] RAIOBORDA];
-//    [[_btnEntrar titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    [[_btnEntrar titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
     
     //Cadastrar
     _btnCadastrar.backgroundColor = [[LocalStore sharedStore] FONTECOR];
     _btnCadastrar.layer.cornerRadius = [[LocalStore sharedStore] RAIOBORDA];
-//    [[_btnCadastrar titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    [[_btnCadastrar titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
     
     //Login
     _btnContinuar.backgroundColor = [[LocalStore sharedStore] FONTECOR];
     _btnContinuar.layer.cornerRadius = [[LocalStore sharedStore] RAIOBORDA];
-//    [[_btnContinuar titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    [[_btnContinuar titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
 
     //TXT Email
     [_txtSenha setSecureTextEntry:YES];
     [[_txtEmail layer]setBorderWidth:2.0f];
     [[_txtEmail layer] setCornerRadius:[[LocalStore sharedStore] RAIOTEXT]];
     [[_txtEmail layer] setBorderColor:[[LocalStore sharedStore] FONTECOR].CGColor];
-//    [_txtEmail setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    [_txtEmail setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
     
     //TXT Senha
     [[_txtSenha layer] setBorderWidth:2.0f];
     [[_txtSenha layer] setCornerRadius:[[LocalStore sharedStore] RAIOTEXT]];
     [[_txtSenha layer] setBorderColor:[[LocalStore sharedStore] FONTECOR].CGColor];
-//    [_txtSenha setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    [_txtSenha setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
     
     //Esqueceu senha
     _lblEsqueceuSenha.tintColor = [[LocalStore sharedStore] FONTECOR];
-//    [[_lblEsqueceuSenha titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
+    [[_lblEsqueceuSenha titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -109,17 +125,6 @@
     [super didReceiveMemoryWarning];
 }
 
-//    Verifica internet
-//    Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
-//    NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
-//    if (networkStatus == NotReachable) {
-//        NSLog(@"There IS NO internet connection");
-//    } else {
-//        NSLog(@"There IS internet connection");
-//        if (networkStatus == ReachableViaWiFi) { NSLog(@"wifi"); }
-//        else if (networkStatus == ReachableViaWWAN) { NSLog(@"carrier");}
-//    }
-
 //Return Text Field
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     
@@ -141,22 +146,28 @@
     NSString *senha = _txtSenha.text;
     
     if([email length] > 0 && [senha length] > 0){
-        if([LoginStore login:email senha:senha]){
+        
+        //Funcao que Vai usar a Internet
+        //Verifica se tem internet
+        if ([LocalStore verificaSeTemInternet]) {
             
-                [self presentViewController:[LocalStore iniciaAplication] animated:YES completion:^{
-                
-            }];
             
-//            if ([LocalStore verificaSeViewJaEstaNaPilha:[[self navigationController] viewControllers] proximaTela:[[LocalStore sharedStore] TelaBusca]]) {
-//                [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaBusca] animated:YES];
-//            }
-//            else{
-//                [[self navigationController] pushViewController:[[LocalStore sharedStore] TelaBusca] animated:YES];
-//            }
+            self.view.alpha = 0.5f;
+            
+            //View Carregando
+            if([LoginStore login:email senha:senha]){
+                [self presentViewController:[LocalStore iniciaAplication] animated:YES completion:^{}];
+            }
+            else{
+                UIAlertView *alertDadosIncorretos = [[UIAlertView alloc] initWithTitle:@"ERRO" message:@"E-mail ou senha inválidos" delegate:self cancelButtonTitle:@"Rejeitar" otherButtonTitles:nil];
+                [alertDadosIncorretos show];
+            }
         }
         else{
-            UIAlertView *alertDadosIncorretos = [[UIAlertView alloc] initWithTitle:@"ERRO" message:@"E-mail ou senha inválidos" delegate:self cancelButtonTitle:@"Rejeitar" otherButtonTitles:nil];
-            [alertDadosIncorretos show];
+            UILabel*lblSemNet = [LocalStore viewSemInternet];
+            
+            [self.view addSubview:lblSemNet];
+            [LocalStore showViewSemNet:lblSemNet];
         }
     }
 }

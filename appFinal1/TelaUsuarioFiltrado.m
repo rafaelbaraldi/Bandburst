@@ -81,10 +81,10 @@
 
 -(void)carregaLayout{
 
-//    _lblNome.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:18.0f];
-//    _lblSexo.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14.0f];
-//    _lblCidadeBairro.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14.0f];
-//    _lblAtribuicoes.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14.0f];
+    _lblNome.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:18.0f];
+    _lblSexo.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14.0f];
+    _lblCidadeBairro.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14.0f];
+    _lblAtribuicoes.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14.0f];
     
     //Arruma Cor
     _lblNome.textColor = [[LocalStore sharedStore] FONTECOR];
@@ -121,7 +121,7 @@
     //Cidade e Bairro
     _lblCidadeBairro.lineBreakMode = NSLineBreakByCharWrapping;
     _lblCidadeBairro.numberOfLines = 2;
-    _lblCidadeBairro.text = [NSString stringWithFormat:@"%@\n%@", _pessoa.cidade, _pessoa.bairro];
+    _lblCidadeBairro.text = [NSString stringWithFormat:@"%@\n\n%@", _pessoa.cidade, _pessoa.bairro];
     
     //Atribuicoes
     [self carregaAtribuicoes];
@@ -214,7 +214,7 @@
 
 -(void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     if([indexPath row] == ((NSIndexPath*)[[tableView indexPathsForVisibleRows] lastObject]).row){
-        tableView.contentSize = CGSizeMake(320, ([_pessoa.estilos count] + [_pessoa.instrumentos count] +[_horarios count] + 3) * 33);
+        tableView.contentSize = CGSizeMake(320, ([_pessoa.estilos count] + [_pessoa.instrumentos count] +[_horarios count] + 3) * 35);
     }
 }
 
@@ -245,7 +245,7 @@
     UITableViewHeaderFooterView *viewSection = (UITableViewHeaderFooterView *)view;
     viewSection.contentView.backgroundColor = [[LocalStore sharedStore] FONTECOR];
     viewSection.textLabel.textColor = [UIColor whiteColor];
-    viewSection.textLabel.font = [UIFont systemFontOfSize:14.0f];
+    viewSection.textLabel.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16];
 }
 
 -(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
@@ -256,10 +256,10 @@
             titulo = @"Estilo Musical";
         break;
         case 1:
-            titulo = @"Instrumentos                             Tenho / Toco";
+            titulo = @"Instrumentos                 Tenho / Toco";
         break;
         case 2:
-            titulo = @"Disponibilidade                                Horários";
+            titulo = @"Disponibilidade                     Horários";
         break;
     }
     

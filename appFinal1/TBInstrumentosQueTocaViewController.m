@@ -20,6 +20,7 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+    [[self navigationItem] setTitle:@"Meus instrumentos"];        
     }
     return self;
 }
@@ -48,10 +49,6 @@
 
 -(void) viewWillAppear:(BOOL)animated{
     [_tbInstrumentosQueToca reloadData];
-    
-//    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
-    
-    [[self navigationItem] setTitle:@"Meus Instrumentos"];
 }
 
 -(BOOL)automaticallyAdjustsScrollViewInsets{

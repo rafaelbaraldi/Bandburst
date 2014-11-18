@@ -22,18 +22,15 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         _gravando = false;
+        
+        //Navigation Controller
+        [[self navigationItem] setTitle:@"Gravar"];
     }
     return self;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
 //    [_audioPlot clear];
-    
-    //Navigation Controller
-    [[self navigationItem] setTitle:@"Gravar"];
-}
-
--(void)viewDidDisappear:(BOOL)animated{
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -55,8 +52,6 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];    
-    
-    [[[[self navigationController] navigationBar] backItem] setTitle:@""];
     
     [self linhaGravacaEZAudio];
     

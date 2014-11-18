@@ -23,6 +23,9 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        
+        //Navigation Controller
+        [[self navigationItem] setTitle:@"Filtro de Instrumento"];
     }
     return self;
 }
@@ -40,8 +43,6 @@
     
     //Remove lista de busca de instrumentos filtrados
     [[[BuscaStore sharedStore] instrumentosFiltrados] removeAllObjects];
-    
-    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -52,10 +53,6 @@
     else{
         [[self navigationItem] setRightBarButtonItem:nil];
     }
-    
-    //Navigation Controller
-    [[self navigationItem] setTitle:@"Filtro instrumento"];
-    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
 }
 
 -(void)carregaRemoverFiltro{

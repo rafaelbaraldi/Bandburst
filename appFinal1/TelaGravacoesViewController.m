@@ -23,6 +23,9 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         [[self navigationItem] setHidesBackButton:YES];
+        
+        //Navigation Controller
+        [[self navigationItem] setTitle:@"Gravações"];
     }
     return self;
 }
@@ -40,13 +43,6 @@
     
     [self carregaAudios];
     [_tbMusicas reloadData];
-    
-    //Navigation Controller
-    [[self navigationItem] setTitle:@"Gravações"];
-}
-
--(void)viewDidDisappear:(BOOL)animated{
-    //[[self navigationItem] setTitle:@""];
 }
 
 -(void)carregaTabBar{

@@ -37,6 +37,8 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         _usuarios = [[NSMutableArray alloc] init];
+        
+        [[self navigationItem] setTitle:@"Encontrar Músicos"];
     }
     return self;
 }
@@ -56,12 +58,6 @@
     [self carregaUsuarioBuscado];
 
     [self atualizaTela];
-
-    [[self navigationItem] setTitle:@"Encontrar Músico"];
-}
-
--(void)viewDidDisappear:(BOOL)animated{
-    [[self navigationItem] setTitle:@""];
 }
 
 - (void)viewDidLoad{
@@ -119,8 +115,7 @@
     _tabBarSeta.backgroundColor = [[LocalStore sharedStore] FONTECOR];
     
     _lblMsgBusca.textColor = [[LocalStore sharedStore] FONTECOR];
-    
-    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
+    _lblMsgBusca.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16];
 
     //Bag esconder Filtro
     _tbUsuarios.layer.zPosition = 3;
@@ -171,20 +166,22 @@
     
     //Botao Estilo
     [[_btnEstilo layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
-//    [[_btnEstilo titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14]];
+    [[_btnEstilo titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
     
     //Botao instrumento
     [[_btnInstumento layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
-//    [[_btnInstumento titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14]];
+    [[_btnInstumento titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
     
     //Botao de Horarios
     [[_btnHorarios layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
-//    [[_btnHorarios titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14]];
+    [[_btnHorarios titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
     
     //Text Cidade
     [[_txtCidade layer] setBorderWidth:2.0f];
     [[_txtCidade layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
     [[_txtCidade layer] setBorderColor:[[LocalStore sharedStore] FONTECOR].CGColor];
+    
+    [_txtCidade setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
 }
 
 -(void)atualizaTela{    
@@ -307,14 +304,14 @@
         
         UILabel *nome = [[UILabel alloc] initWithFrame:CGRectMake(120, 22, 170, 20)];
         nome.text = ((TPUsuario*)[_usuarios objectAtIndex:indexPath.row]).nome;
-//        nome.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16];
+        nome.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16];
         nome.textColor = [[LocalStore sharedStore] FONTECOR];
         nome.adjustsFontSizeToFitWidth = YES;
         nome.tag = 1;
         
         UILabel *cidade = [[UILabel alloc] initWithFrame:CGRectMake(120, 52, 170, 15)];
         cidade.text = ((TPUsuario*)[_usuarios objectAtIndex:indexPath.row]).cidade;
-//        cidade.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:12];
+        cidade.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:12];
         cidade.textColor = [[LocalStore sharedStore] FONTECOR];
         cidade.adjustsFontSizeToFitWidth = YES;
         cidade.tag = 2;

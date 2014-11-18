@@ -36,6 +36,9 @@ const int ALERTA_EXCLUIR_BANDA = 4;
         _visualizandoMembros = YES;
         _tbMusicas.hidden = YES;
         _alertasEdicao = [[NSMutableArray alloc] init];
+        
+        //Navigation Controller
+        [[self navigationItem] setTitle:@"Banda"];
     }
     return self;
 }
@@ -50,8 +53,6 @@ const int ALERTA_EXCLUIR_BANDA = 4;
     
     _banda = [[BandaStore sharedStore] bandaSelecionada];
     
-    [[self navigationItem] setTitle:@"Banda"];
-    
     //Alterando ADM
     [[BandaStore sharedStore] setAlterandoAdm:NO];
     
@@ -62,13 +63,9 @@ const int ALERTA_EXCLUIR_BANDA = 4;
     //Carrega nome da Banda
     _lblNome.text = _banda.nome;
     [_lblNome sizeToFit];
-    
-    //Navigation Controller
-    [[self navigationItem] setTitle:@"Banda"];
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
-    //[[self navigationItem] setTitle:@""];
     
     //Arruma edtiando
     if([[BandaStore sharedStore] editando] && _addMembro == NO){
@@ -109,6 +106,7 @@ const int ALERTA_EXCLUIR_BANDA = 4;
     //Alterar membro
     _btnAlterarAdm.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
     _btnAlterarAdm.titleLabel.textAlignment = NSTextAlignmentCenter;
+    _btnAlterarAdm.titleLabel.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:12];
     [_btnAlterarAdm setTitle: @"Trocar\nadministrador" forState: UIControlStateNormal];
     
     //Nome da banda
@@ -121,6 +119,7 @@ const int ALERTA_EXCLUIR_BANDA = 4;
     //Editar
     [_btnEditar setBackgroundColor:[[LocalStore sharedStore] FONTECOR]];
     [[_btnEditar layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
+    [[_btnEditar titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14]];
     
     //Chat
     [[_btnChat titleLabel] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
@@ -177,8 +176,9 @@ const int ALERTA_EXCLUIR_BANDA = 4;
             nome.text = ((TPUsuario*)[_banda.membros objectAtIndex:indexPath.row]).nome;
             nome.tag = 1;
             nome.numberOfLines = 2;
-            nome.lineBreakMode = YES;
-            nome.font = [nome.font fontWithSize:14];
+//            nome.lineBreakMode = YES;
+            nome.adjustsFontSizeToFitWidth = YES;
+            nome.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14];
             [nome setTextColor:[[LocalStore sharedStore] FONTECOR]];
             
             [cell addSubview:nome];
@@ -186,7 +186,7 @@ const int ALERTA_EXCLUIR_BANDA = 4;
             //Administrador
             UILabel* adm = [[UILabel alloc] initWithFrame:CGRectMake(225, 15, 80, 30)];
             adm.textColor = [UIColor colorWithRed:1 green:0.231 blue:0.188 alpha:1];
-            adm.font = [adm.font fontWithSize:11];
+            adm.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:10];
             adm.tag = 3;
             
             if([((TPUsuario*)[_banda.membros objectAtIndex:indexPath.row]).identificador isEqualToString:_banda.idAdm]){
@@ -260,7 +260,7 @@ const int ALERTA_EXCLUIR_BANDA = 4;
             
             UILabel* musica = [[UILabel alloc] initWithFrame:CGRectMake(_xLbl, 15, 200, 30)];
             [musica setText:[self carregaNomeMusica:((TPMusica*)[_banda.musicas objectAtIndex:indexPath.row]).url]];
-            [musica setFont:[musica.font fontWithSize:14]];
+            [musica setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14]];
             [musica setTextColor:[[LocalStore sharedStore] FONTECOR]];
             [musica setTag:1];
             [cell addSubview:musica];

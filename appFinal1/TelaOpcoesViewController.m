@@ -22,6 +22,8 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        //Navigation Controller
+        [[self navigationItem] setTitle:@"Opções"];
     }
     return self;
 }
@@ -39,13 +41,16 @@
 //    frame.origin.y = 400;
 //    loginView.frame = frame;
 //    [self.view addSubview:loginView];
+    
     [self carregaLayout];
 }
 
+
+//-(void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user{
+//    [self.fbpv setProfileID:[user id]];
+//}
+
 -(void)viewWillAppear:(BOOL)animated{
-    //Navigation Controller
-    [[self navigationItem] setTitle:@"Opções"];
-    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
 }
 
 - (void)didReceiveMemoryWarning{
@@ -67,22 +72,7 @@
     [[self navigationController] pushViewController:[[LocalStore sharedStore] TelaCadastroFoto] animated:YES];
 }
 
--(void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user{
-    [self.fbpv setProfileID:[user id]];
-}
-
 - (IBAction)btnEcontrarAmigos:(id)sender {
-    //    [FBRequestConnection startForMyFriendsWithCompletionHandler:
-    //     ^(FBRequestConnection *connection, id<FBGraphUser> friends, NSError *error)
-    //     {
-    //         if(!error){
-    //             NSLog(@"%@", friends);
-    //         }
-    //         else{
-    //             NSLog(@"%@", error);
-    //         }
-    //     }];
-    
     
     FBRequest* friendsRequest = [FBRequest requestForMyFriends];
     [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection,
@@ -99,8 +89,7 @@
     FBFriendPickerViewController* fbvc = [[FBFriendPickerViewController alloc] init];
     [fbvc loadData];
     
-    [fbvc presentModallyFromViewController:self animated:YES handler:^(FBViewController* innerSender, BOOL donePressed)
-     {
+    [fbvc presentModallyFromViewController:self animated:YES handler:^(FBViewController* innerSender, BOOL donePressed){
          if(!donePressed){
              return;
          }
@@ -111,13 +100,5 @@
     [LoginStore deslogar];
     
     [[self navigationController ] dismissViewControllerAnimated:YES completion:nil];
-    
-    
-//    if ([LocalStore verificaSeViewJaEstaNaPilha:[[self navigationController] viewControllers] proximaTela:[[LocalStore sharedStore] TelaLogin]]) {
-//        [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaLogin] animated:YES];
-//    }
-//    else{
-//        [[self navigationController] pushViewController:[[LocalStore sharedStore] TelaLogin] animated:YES];
-//    }
 }
 @end

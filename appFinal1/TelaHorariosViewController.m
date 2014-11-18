@@ -22,6 +22,7 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        [[self navigationItem] setTitle:@"Disponibilidade"];
     }
     return self;
 }
@@ -38,19 +39,12 @@
     [_collectionHorario reloadData];
 }
 
--(void)viewWillAppear:(BOOL)animated{
-//    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
-    [[self navigationItem] setTitle:@"Horários de Ensaio"];
-}
-
 - (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
 }
 
 -(void) carregaLayout{
     [_collectionHorario setBackgroundColor:[UIColor clearColor]];
-    
-//    [[[[self navigationController] navigationBar] topItem] setTitle:@""];
     
     _lblSegunda.textColor = [[LocalStore sharedStore] FONTECOR];
     _lblTerca.textColor = [[LocalStore sharedStore] FONTECOR];

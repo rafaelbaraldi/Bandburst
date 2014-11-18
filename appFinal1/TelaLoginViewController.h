@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FacebookSDK/FacebookSDK.h>
 
-@interface TelaLoginViewController : UIViewController <UITextFieldDelegate>
+@interface TelaLoginViewController : UIViewController <UITextFieldDelegate, FBLoginViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *txtEmail;
 @property (weak, nonatomic) IBOutlet UITextField *txtSenha;
@@ -20,6 +21,8 @@
 - (IBAction)btnContinuarClick:(id)sender;
 - (IBAction)btnCadastrarClick:(id)sender;
 - (IBAction)btnEntrarClick:(id)sender;
+
+@property (weak, nonatomic) IBOutlet FBLoginView *loginView;
 
 @property (strong, nonatomic) IBOutlet UIButton *btnContinuar;
 @property (strong, nonatomic) IBOutlet UIButton *btnCadastrar;

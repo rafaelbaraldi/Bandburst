@@ -11,6 +11,8 @@
 #import "TelaCadastroViewController.h"
 #import "TelaLoginViewController.h"
 
+#import "Reachability.h"
+
 @implementation LocalStore
 
 +(LocalStore*)sharedStore{
@@ -38,13 +40,53 @@
         
         //Configs da fonte
         _FONTECOR = [UIColor colorWithRed:0.91 green:0.427 blue:0.086 alpha:1]; /* Hexadecmial #e86d16  - r:229 g:125 b:85  */
-//        _FONTEFAMILIA = @"QuicksandBook-Regular";
-        _FONTEFAMILIA = @"System";
+        _FONTEFAMILIA = @"QuicksandBook-Regular";
         
         [self carregaTelas];
         [self carregaContexto];
     }
     return self;
+}
+
++(BOOL)verificaSeTemInternet{
+    
+        Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
+        NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
+        if (networkStatus == NotReachable) {
+            return NO;
+        } else {
+            return  YES;
+//            if (networkStatus == ReachableViaWiFi) { NSLog(@"wifi"); }
+//            else if (networkStatus == ReachableViaWWAN) { NSLog(@"carrier");}
+        }
+}
+
++(void)showViewSemNet:(UILabel*)lblSemNet{
+    
+    lblSemNet.hidden = NO;
+    [UIView animateWithDuration:2.0f animations:^{
+        lblSemNet.frame = CGRectMake(0, 64, 320, 30);
+    }completion:^(BOOL finished) {
+        
+        [UIView animateWithDuration:4.0f animations:^{
+            lblSemNet.frame = CGRectMake(0, 34, 320, 30);
+        }completion:^(BOOL finished) {
+            lblSemNet.hidden = YES;
+        }];
+    }];
+}
+
++(UILabel*) viewSemInternet{
+    
+    UILabel *lblSemNet = [[UILabel alloc] initWithFrame:CGRectMake(0, 34, 320, 30)];
+    lblSemNet.backgroundColor = [UIColor colorWithRed:1 green:0.231 blue:0.188 alpha:1];
+    lblSemNet.text = @"Nenhuma conexão com a internet disponível";
+    lblSemNet.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:13];
+    lblSemNet.textColor = [UIColor whiteColor];
+    lblSemNet.textAlignment = NSTextAlignmentCenter;
+    lblSemNet.hidden = YES;
+    
+    return lblSemNet;
 }
 
 +(UITabBarController*)iniciaAplication{
