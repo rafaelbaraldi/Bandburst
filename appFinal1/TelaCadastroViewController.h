@@ -17,6 +17,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblCabecalho;
 @property (strong, nonatomic) IBOutlet UILabel *lblInstrumentos;
 @property (strong, nonatomic) IBOutlet UILabel *lblEstilos;
+@property (weak, nonatomic) IBOutlet UIImageView *target;
 
 @property (strong, nonatomic) IBOutlet UITextField *txtNome;
 @property (strong, nonatomic) IBOutlet UITextField *txtEmail;

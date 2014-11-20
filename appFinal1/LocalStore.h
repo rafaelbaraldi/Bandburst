@@ -26,6 +26,7 @@
 #import "TelaFavoritadosViewController.h"
 #import "TelaPerfilBandaViewController.h"
 #import "TelaPlayerViewController.h"
+#import "LoadingViewController.h"
 
 #import "TBInstrumentosViewController.h"
 #import "TBInstrumentosQueTocaViewController.h"
@@ -76,6 +77,7 @@
 @property TelaFavoritadosViewController *TelaFavoritados;
 @property TelaPerfilBandaViewController *TelaPerfilBanda;
 @property TelaPlayerViewController *TelaPlayer;
+@property LoadingViewController *TelaLoading;
 
 @property TBFiltroEstilo *TBFiltroEstilo;
 @property TBFiltroHorario *TBFiltroHorario;

@@ -37,24 +37,6 @@
     
     [[[self navigationController] navigationBar] setTintColor:[[LocalStore sharedStore] FONTECOR]];
     [self carregaLayout];
-    
-    [self verificaSeEstaLogado];
-    
-    //LOADING
-    //Fundo para o load
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 700)];
-    view.backgroundColor = [UIColor grayColor];
-    view.alpha = 0.5f;
-//    [self.view addSubview:view];
-    
-    //Bloquea o acesso do usuario na View
-    [self.view setUserInteractionEnabled:YES];
-    
-    //Load
-    UIActivityIndicatorView *load = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    [load setCenter:self.view.center];
-    [load startAnimating];
-//    [self.view addSubview:load];
 }
 
 -(void) verificaSeEstaLogado{
@@ -105,14 +87,11 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-
     //Navigation Controller
     [[self navigationItem] setTitle:@"Bandburst"];
     [[self navigationItem] setHidesBackButton:YES];
-}
-
--(void)viewDidDisappear:(BOOL)animated{
-//    //[[self navigationItem] setTitle:@""];
+    
+    [self verificaSeEstaLogado];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -151,11 +130,15 @@
         //Verifica se tem internet
         if ([LocalStore verificaSeTemInternet]) {
             
-            
-            self.view.alpha = 0.5f;
+            //Add Load
+            [self.view addSubview:[[LocalStore sharedStore] TelaLoading].view];
             
             //View Carregando
             if([LoginStore login:email senha:senha]){
+                
+                //Remove Load
+                [[[LocalStore sharedStore] TelaLoading].view removeFromSuperview];
+                
                 [self presentViewController:[LocalStore iniciaAplication] animated:YES completion:^{}];
             }
             else{

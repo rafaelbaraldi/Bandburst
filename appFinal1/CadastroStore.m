@@ -90,38 +90,38 @@
     
     NSString *valida;
     
-    if([usuario.nome length] == 0){
-        valida = @"seu NOME";
-        return valida;
-    }
-    if([usuario.email length] == 0){
-        valida = @"seu EMAIL";
-        return valida;
-    }
-    if([usuario.senha length] == 0){
-        valida = @"sua SENHA";
-        return valida;
-    }
-    if([usuario.cidade length] == 0){
-        valida = @"sua CIDADE";
-        return valida;
-    }
-    if([usuario.bairro length] == 0){
-        valida = @"seu BAIRRO";
-        return valida;
-    }
-    if([usuario.instrumentos length] == 0){
-        valida = @"seus INSTRUMENTOS";
-        return valida;
-    }
-    if([usuario.estilos length] == 0){
-        valida = @"seus ESTILOS";
-        return valida;
-    }
-    if([usuario.horarios length] == 0){
-        valida = @"seus HORÁRIOS disponíveis para ensaio";
-        return valida;
-    }
+//    if([usuario.nome length] == 0){
+//        valida = @"seu NOME";
+//        return valida;
+//    }
+//    if([usuario.email length] == 0){
+//        valida = @"seu EMAIL";
+//        return valida;
+//    }
+//    if([usuario.senha length] == 0){
+//        valida = @"sua SENHA";
+//        return valida;
+//    }
+//    if([usuario.cidade length] == 0){
+//        valida = @"sua CIDADE";
+//        return valida;
+//    }
+//    if([usuario.bairro length] == 0){
+//        valida = @"seu BAIRRO";
+//        return valida;
+//    }
+//    if([usuario.instrumentos length] == 0){
+//        valida = @"seus INSTRUMENTOS";
+//        return valida;
+//    }
+//    if([usuario.estilos length] == 0){
+//        valida = @"seus ESTILOS";
+//        return valida;
+//    }
+//    if([usuario.horarios length] == 0){
+//        valida = @"seus HORÁRIOS disponíveis para ensaio";
+//        return valida;
+//    }
     
     return valida;
 }

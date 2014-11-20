@@ -44,14 +44,12 @@
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
-    
-    [[CadastroStore sharedStore] setCadastro:NO];
     _trocouImagem = NO;
 }
 
 -(void)verificaCadastroOuAtualizacao{
     
-    if([[CadastroStore sharedStore] cadastro]){
+    if([[CadastroStore sharedStore] cadastro] == YES){
         [self.navigationItem setHidesBackButton:YES];
         _lblMensagem.hidden = NO;
     }
@@ -158,9 +156,8 @@
     //Verifica para qual View deve seguir
     UIViewController *vc;
     if([[CadastroStore sharedStore] cadastro]){
-//        vc = [[LocalStore sharedStore] TelaBusca];
         
-        [self presentViewController:[LocalStore iniciaAplication] animated:YES completion:NO];
+        [[self navigationController] popToRootViewControllerAnimated:YES];
     }
     else{
         vc = [[LocalStore sharedStore] TelaPerfil];

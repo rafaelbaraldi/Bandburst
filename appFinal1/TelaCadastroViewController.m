@@ -17,6 +17,8 @@
 #import "TPHorario.h"
 #import "TBEstilosQueTocaViewController.h"
 
+#import "IHKeyboardAvoiding.h"
+
 const int OBSERVACOES = 2;
 
 @interface TelaCadastroViewController ()
@@ -40,12 +42,11 @@ const int OBSERVACOES = 2;
 - (void)viewDidLoad{
     [super viewDidLoad];
     
+    [IHKeyboardAvoiding setAvoidingView:self.view withTarget:_target];
+    
     if (_ehEdicao) {
         [self corregaCamposEdicao];
     }
-    
-    //Esta no cadastro ?
-    [[CadastroStore sharedStore] setCadastro:YES];
     
     //Usa Cadastro no singleton
     [[CadastroStore sharedStore]setViewTela:self];
@@ -55,6 +56,9 @@ const int OBSERVACOES = 2;
     
     //Senha
     [_txtSenha setSecureTextEntry:YES];
+    
+    //Esta no cadastro ?
+    [[CadastroStore sharedStore] setCadastro:YES];
 }
 
 - (BOOL)hidesBottomBarWhenPushed {
@@ -64,6 +68,9 @@ const int OBSERVACOES = 2;
 -(void) viewWillAppear:(BOOL)animated{
     
     [self carregaLabels];
+    
+    //Esta no cadastro ?
+    [[CadastroStore sharedStore] setCadastro:YES];
 }
 
 -(void)corregaCamposEdicao{
@@ -235,37 +242,45 @@ const int OBSERVACOES = 2;
         [alert show];
     }
     else{
-        NSString *cadastrou;
-        
-        cadastrou = [CadastroStore cadastrar:usuario atualizar:_ehEdicao];
-        
-        if([cadastrou rangeOfString:@"\"Duplicate entry"].location != NSNotFound){
-            valida = [NSString stringWithFormat:@"Esse e-mail já está em uso"];
+        //Funcao que Vai usar a Internet
+        //Verifica se tem internet
+        if ([LocalStore verificaSeTemInternet]) {
+            NSString *cadastrou;
             
-            [alert setMessage:valida];
-            [alert show];
-        }
-        else{
-            if(_ehEdicao){
-                [LoginStore deslogar];
+            cadastrou = [CadastroStore cadastrar:usuario atualizar:_ehEdicao];
+            
+            if([cadastrou rangeOfString:@"\"Duplicate entry"].location != NSNotFound){
                 
-                //Realiza Login
-                [LoginStore login:usuario.email senha:usuario.senha];
+                //Remove loading
+                [[[LocalStore sharedStore] TelaLoading].view removeFromSuperview];
                 
-                [alert setMessage:@"Dados atualizado com sucesso!"];
-                [alert setTitle:@"SUCESSO"];
+                valida = [NSString stringWithFormat:@"Esse e-mail já está em uso"];
+                
+                [alert setMessage:valida];
                 [alert show];
-                
-                [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaPerfil] animated:YES];
             }
             else{
-                //Limpa tela após cadastrar
-                [self limpaTela];
-                
-                //Realiza Login
-                [LoginStore login:usuario.email senha:usuario.senha];
-                
-                [[self navigationController] pushViewController:[[LocalStore sharedStore] TelaCadastroFoto] animated:YES];
+                if(_ehEdicao){
+                    [LoginStore deslogar];
+                    
+                    //Realiza Login
+                    [LoginStore login:usuario.email senha:usuario.senha];
+                    
+                    [alert setMessage:@"Dados atualizado com sucesso!"];
+                    [alert setTitle:@"SUCESSO"];
+                    [alert show];
+                    
+                    [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaPerfil] animated:YES];
+                }
+                else{
+                    //Limpa tela após cadastrar
+                    [self limpaTela];
+                    
+                    //Realiza Login
+                    [LoginStore login:usuario.email senha:usuario.senha];
+                    
+                    [[self navigationController] pushViewController:[[LocalStore sharedStore] TelaCadastroFoto] animated:YES];
+                }
             }
         }
     }
@@ -301,9 +316,6 @@ const int OBSERVACOES = 2;
 //Regular Tela para digitar as opções de Observacoes
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     
-    if(textField.tag == OBSERVACOES){
-        [self escondeTecladoObservacoes];
-    }
     
     [textField resignFirstResponder];
     return YES;
@@ -312,42 +324,7 @@ const int OBSERVACOES = 2;
 //Regular Tela para digitar as opções de Observacoes
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
     
-    if(textField.tag == OBSERVACOES){
-        [self exibiTecladoObservacoes];
-    }
     return YES;
-}
-
--(void)sobeViews:(BOOL)movedUp{
-    [UIView beginAnimations:nil context:NULL];
-    
-    CGRect rect = self.view.frame;
-    if (movedUp){
-        rect.origin.y -= 200;
-        rect.size.height += 200;
-    }
-    else{
-        rect.origin.y += 200;
-        rect.size.height -= 200;
-    }
-    
-    self.view.frame = rect;
-    [UIView commitAnimations];
-}
-
--(void)exibiTecladoObservacoes{
-    if (self.view.frame.origin.y >= 0){
-        [self sobeViews:YES];
-    }
-}
-
--(void)escondeTecladoObservacoes{
-    if (self.view.frame.origin.y >= 0){
-        [self sobeViews:YES];
-    }
-    else if (self.view.frame.origin.y < 0){
-        [self sobeViews:NO];
-    }
 }
 
 -(void)carregaLabels{
