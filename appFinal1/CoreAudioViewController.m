@@ -59,6 +59,7 @@
     
     //Carrega todas as músicas do CoreData
     _musicas = [[NSMutableArray alloc]initWithArray:[[[LocalStore sharedStore] context] executeFetchRequest:[NSFetchRequest fetchRequestWithEntityName:@"Musica"] error:nil]];
+
 }
 
 -(void)arredondaBordaBotoes{
@@ -66,6 +67,9 @@
     [[_btnGravar layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
     
     _tempo.backgroundColor = [[LocalStore sharedStore] FONTECOR];
+    
+    //Core da seta
+    _tabBarSeta.backgroundColor = [[LocalStore sharedStore] FONTECOR];
 }
 
 -(void)carregaGravador:(NSString*)nome categoria:(NSString*)categoria{
