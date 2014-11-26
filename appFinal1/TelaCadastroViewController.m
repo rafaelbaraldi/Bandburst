@@ -245,10 +245,12 @@ const int OBSERVACOES = 2;
         //Funcao que Vai usar a Internet
         //Verifica se tem internet
         if ([LocalStore verificaSeTemInternet]) {
-            NSString *cadastrou;
             
-            cadastrou = [CadastroStore cadastrar:usuario atualizar:_ehEdicao];
+            //Add Load
+            [self.view addSubview:[[LocalStore sharedStore] TelaLoading].view];
             
+            //Recebe feed do cadastro
+            NSString *cadastrou = [CadastroStore cadastrar:usuario atualizar:_ehEdicao];
             if([cadastrou rangeOfString:@"\"Duplicate entry"].location != NSNotFound){
                 
                 //Remove loading
@@ -277,11 +279,34 @@ const int OBSERVACOES = 2;
                     [self limpaTela];
                     
                     //Realiza Login
-                    [LoginStore login:usuario.email senha:usuario.senha];
+//                    [LoginStore login:usuario.email senha:usuario.senha];
                     
-                    [[self navigationController] pushViewController:[[LocalStore sharedStore] TelaCadastroFoto] animated:YES];
+                    
+                    //Add Load
+                    [self.view addSubview:[[LocalStore sharedStore] TelaLoading].view];
+                    
+                    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                        
+                        BOOL login = [LoginStore login:usuario.email senha:usuario.senha];
+                        dispatch_async(dispatch_get_main_queue(), ^(void) {
+                            
+                            //Realiza Login
+                            if(login){
+                                [[self navigationController] pushViewController:[[LocalStore sharedStore] TelaCadastroFoto] animated:YES];
+                            }
+                            
+                            //Remove Load
+                            [[[LocalStore sharedStore] TelaLoading].view removeFromSuperview];
+                        });
+                    });
                 }
             }
+        }
+        else{
+            UILabel*lblSemNet = [LocalStore viewSemInternet];
+            
+            [self.view addSubview:lblSemNet];
+            [LocalStore showViewSemNet:lblSemNet];
         }
     }
 }

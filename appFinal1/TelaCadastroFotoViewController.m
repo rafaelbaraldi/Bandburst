@@ -229,9 +229,9 @@
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     
-//    _fotoSelecionada.image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    _fotoSelecionada.image = [info objectForKey:UIImagePickerControllerOriginalImage];
     
-        _fotoSelecionada.image = [info objectForKey:UIImagePickerControllerEditedImage];
+//        _fotoSelecionada.image = [info objectForKey:UIImagePickerControllerEditedImage];
     
     //Marca que a imagem foi trocada
     _trocouImagem = YES;
