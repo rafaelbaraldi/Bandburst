@@ -42,6 +42,12 @@
     //Carrega musica
     [self carregaMusica];
     [self btnPlayGravacaoClick:nil];
+    
+    //Zera os LBL tempos
+    _lblTempoCorrente.text = @"00:00:00";
+    _lblTempoTotal.text = @"00:00:00";
+    
+    _progressoGravacao.value = 0;
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -86,6 +92,9 @@
         _lblCategoriaGravacao.text = ((Musica*)[[GravacaoStore sharedStore] gravacao]).categoria;
         
         NSURL* url = [[NSURL alloc] initFileURLWithPath:((Musica*)[[GravacaoStore sharedStore] gravacao]).url];
+        
+        NSLog(@"%@", url);
+        
         _player = [[AVAudioPlayer alloc]initWithContentsOfURL:url error:nil];
     }
     else{

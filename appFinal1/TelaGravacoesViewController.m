@@ -63,6 +63,9 @@
     
     //Galeria
     _lblGaleria.backgroundColor = [[LocalStore sharedStore] FONTECOR];
+    
+    //seta TabBar
+    _tabBarSeta.backgroundColor = [[LocalStore sharedStore] FONTECOR];
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{

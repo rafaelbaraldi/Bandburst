@@ -13,6 +13,8 @@
 
 #import "GravacaoStore.h"
 
+#define DOCUMENTS_FOLDER [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"]
+
 @interface CoreAudioViewController ()
 @end
 
@@ -67,9 +69,6 @@
     [[_btnGravar layer] setCornerRadius:[[LocalStore sharedStore] RAIOBORDA]];
     
     _tempo.backgroundColor = [[LocalStore sharedStore] FONTECOR];
-    
-    //Core da seta
-    _tabBarSeta.backgroundColor = [[LocalStore sharedStore] FONTECOR];
 }
 
 -(void)carregaGravador:(NSString*)nome categoria:(NSString*)categoria{
@@ -82,7 +81,9 @@
     [recordSetting setValue:[NSNumber numberWithInt:AVAudioQualityHigh] forKey:AVEncoderAudioQualityKey];
     
     //URL da música a gravar
-    NSURL *url = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"%d.%@.%@", 0, categoria, nome]]];
+//    NSURL *url = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"%d.%@.%@", 0, categoria, nome]]];
+    
+    NSURL* url = [NSURL fileURLWithPath: [NSString stringWithFormat:@"%@/%@%@.aac", DOCUMENTS_FOLDER, categoria, nome]];
     
     urlPlay = url;
     recorder = [[AVAudioRecorder alloc] initWithURL:url settings:recordSetting error:nil];
@@ -173,12 +174,7 @@
             [[GravacaoStore sharedStore] setGravacao:_novaGravacao];
             [[GravacaoStore sharedStore] setStreaming:NO];
             
-            if ([LocalStore verificaSeViewJaEstaNaPilha:[[self navigationController] viewControllers] proximaTela:[[LocalStore sharedStore] TelaPlayer]]) {
-                [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaPlayer] animated:NO];
-            }
-            else{
-                [[self navigationController] pushViewController:[[LocalStore sharedStore] TelaPlayer] animated:NO];
-            }
+            [[self navigationController] pushViewController:[[LocalStore sharedStore] TelaPlayer] animated:NO];
         }
         else{
             [[self navigationController] popViewControllerAnimated:YES];
