@@ -133,18 +133,24 @@
             //Add Load
             [self.view addSubview:[[LocalStore sharedStore] TelaLoading].view];
             
-            //View Carregando
-            if([LoginStore login:email senha:senha]){
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                 
-                //Remove Load
-                [[[LocalStore sharedStore] TelaLoading].view removeFromSuperview];
-                
-                [self presentViewController:[LocalStore iniciaAplication] animated:YES completion:^{}];
-            }
-            else{
-                UIAlertView *alertDadosIncorretos = [[UIAlertView alloc] initWithTitle:@"ERRO" message:@"E-mail ou senha inválidos" delegate:self cancelButtonTitle:@"Rejeitar" otherButtonTitles:nil];
-                [alertDadosIncorretos show];
-            }
+                BOOL login = [LoginStore login:email senha:senha];
+                dispatch_async(dispatch_get_main_queue(), ^(void) {
+                    
+                    //Realiza Login
+                    if(login){
+                        [self presentViewController:[LocalStore iniciaAplication] animated:YES completion:^{}];
+                    }
+                    else{
+                        UIAlertView *alertDadosIncorretos = [[UIAlertView alloc] initWithTitle:@"ERRO" message:@"E-mail ou senha inválidos" delegate:self cancelButtonTitle:@"Rejeitar" otherButtonTitles:nil];
+                        [alertDadosIncorretos show];
+                    }
+                    
+                    //Remove Load
+                    [[[LocalStore sharedStore] TelaLoading].view removeFromSuperview];
+                });
+            });
         }
         else{
             UILabel*lblSemNet = [LocalStore viewSemInternet];
@@ -157,29 +163,14 @@
 
 - (IBAction)btnCadastrarClick:(id)sender {
     
-    if ([LocalStore verificaSeViewJaEstaNaPilha:[[self navigationController] viewControllers] proximaTela:[[LocalStore sharedStore] TelaCadastro]]) {
-        [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaCadastro] animated:YES];
-    }
-    else{
-        [[self navigationController] pushViewController:[[LocalStore sharedStore] TelaCadastro] animated:YES];
-    }
+    [[self navigationController] pushViewController:[[LocalStore sharedStore] TelaCadastro] animated:YES];
 }
 
 - (IBAction)btnEntrarClick:(id)sender {
     
     [LocalStore setParaUsuarioZero];
 
-    [self presentViewController:[LocalStore iniciaAplication] animated:YES completion:^{
-        
-    }];
-    
-    
-//    if ([LocalStore verificaSeViewJaEstaNaPilha:[[self navigationController] viewControllers] proximaTela:[[LocalStore sharedStore] TelaBusca]]) {
-//        [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaGravacao] animated:YES];
-//    }
-//    else{
-//        [[self navigationController] pushViewController:[[LocalStore sharedStore] TelaBusca] animated:YES];
-//    }
+    [self presentViewController:[LocalStore iniciaAplication] animated:YES completion:^{}];
 }
 
 @end

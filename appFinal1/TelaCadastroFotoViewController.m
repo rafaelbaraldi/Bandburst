@@ -214,17 +214,24 @@
     [self presentViewController:_imagePickerController animated:YES completion:nil];
 }
 
+
 //Trocar imagem tirando nova foto
 -(void)tirarFoto{
     _imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
     _imagePickerController.cameraDevice = UIImagePickerControllerCameraDeviceFront;
+    
+    
+    //    _fotoSelecionada.image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    
 
     [self presentViewController:_imagePickerController animated:YES completion:nil];
 }
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     
-    _fotoSelecionada.image = [info objectForKey:UIImagePickerControllerOriginalImage];
+//    _fotoSelecionada.image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    
+        _fotoSelecionada.image = [info objectForKey:UIImagePickerControllerEditedImage];
     
     //Marca que a imagem foi trocada
     _trocouImagem = YES;
@@ -235,8 +242,5 @@
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
-
-
 
 @end
