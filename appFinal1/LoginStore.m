@@ -13,6 +13,8 @@
 #import "LocalStore.h"
 #import "BuscaStore.h"
 
+#import "SPService.h"
+
 @implementation LoginStore
 
 static NSString* email = @"";
@@ -149,6 +151,9 @@ static NSString* senha = @"";
 
         //Em TPUsuario
         [self armazenaLogin:json];
+        
+        //Login SPIKA
+        [SPService logIn:email senha:senha];
         
         return true;
     }

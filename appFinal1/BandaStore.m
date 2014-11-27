@@ -13,6 +13,8 @@
 #import "TPMensagem.h"
 #import "TPMusica.h"
 
+#import "SPService.h"
+
 @implementation BandaStore
 
 +(BandaStore*)sharedStore{
@@ -92,6 +94,9 @@
     //    NSLog(@"%@",newStr);
     
     NSString* cadastrou = [BandaConexao cadastraBanda:jsonCadastrar];
+    
+    //Cria grupo SPika
+    [SPService newGRoup:nome];
     
     return cadastrou;
 }

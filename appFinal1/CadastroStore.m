@@ -8,6 +8,8 @@
 
 #import "CadastroStore.h"
 
+#import "SPService.h"
+
 #import "LocalStore.h"
 
 #import "BuscaStore.h"
@@ -77,10 +79,21 @@
 
     NSString* cadastrou;
     if(!atualizar){
+        
         cadastrou =[CadastroConexao cadastrar:jsonCadastrar];
+        
+        if(cadastrou){
+            //Realiza Cadastro no SPIKA
+            [SPService signUp:usuario.email nome:usuario.nome senha:usuario.senha];
+        }
     }
     else{
+        
         cadastrou = [CadastroConexao atualizar:jsonCadastrar];
+        if(cadastrou){
+            //Realiza Atualização no SPIKA
+//            [SPService updateUser:usuario];
+        }
     }
     
     return cadastrou;
@@ -90,18 +103,18 @@
     
     NSString *valida;
     
-//    if([usuario.nome length] == 0){
-//        valida = @"seu NOME";
-//        return valida;
-//    }
-//    if([usuario.email length] == 0){
-//        valida = @"seu EMAIL";
-//        return valida;
-//    }
-//    if([usuario.senha length] == 0){
-//        valida = @"sua SENHA";
-//        return valida;
-//    }
+    if([usuario.nome length] == 0){
+        valida = @"seu NOME";
+        return valida;
+    }
+    if([usuario.email length] == 0){
+        valida = @"seu EMAIL";
+        return valida;
+    }
+    if([usuario.senha length] == 0){
+        valida = @"sua SENHA";
+        return valida;
+    }
 //    if([usuario.cidade length] == 0){
 //        valida = @"sua CIDADE";
 //        return valida;

@@ -17,6 +17,8 @@
 
 #import "Reachability.h"
 
+#import "SPService.h"
+
 @interface TelaLoginViewController ()
 
 @end
@@ -44,9 +46,7 @@
     if([LoginStore verificaSeEstaLogado]){
         
         dispatch_async(dispatch_get_main_queue(), ^(void){
-            [self presentViewController:[LocalStore iniciaAplication] animated:NO completion:^{
-                
-            }];
+            [self presentViewController:[LocalStore iniciaAplication] animated:NO completion:^{}];
         });
     }
 }

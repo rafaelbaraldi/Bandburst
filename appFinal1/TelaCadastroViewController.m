@@ -278,10 +278,6 @@ const int OBSERVACOES = 2;
                     //Limpa tela após cadastrar
                     [self limpaTela];
                     
-                    //Realiza Login
-//                    [LoginStore login:usuario.email senha:usuario.senha];
-                    
-                    
                     //Add Load
                     [self.view addSubview:[[LocalStore sharedStore] TelaLoading].view];
                     

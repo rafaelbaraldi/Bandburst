@@ -123,6 +123,7 @@
 		731FF6271A13B8C60073CF65 /* MoPub.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 731FF6241A13B8C60073CF65 /* MoPub.bundle */; };
 		731FF6281A13B8C60073CF65 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 731FF6251A13B8C60073CF65 /* Fabric.framework */; };
 		731FF62A1A13BCFF0073CF65 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 731FF6291A13BCFF0073CF65 /* Crashlytics.framework */; };
+		7347E6341A274E6B0085C9E4 /* SPService.m in Sources */ = {isa = PBXBuildFile; fileRef = 7347E6331A274E6B0085C9E4 /* SPService.m */; };
 		734C4B201A116187004E22A0 /* sair@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 734C4B1E1A116187004E22A0 /* sair@2x.png */; };
 		734C4B211A116187004E22A0 /* sair.png in Resources */ = {isa = PBXBuildFile; fileRef = 734C4B1F1A116187004E22A0 /* sair.png */; };
 		734C4B241A116817004E22A0 /* estrela@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 734C4B221A116817004E22A0 /* estrela@2x.png */; };
@@ -794,6 +795,8 @@
 		731FF6241A13B8C60073CF65 /* MoPub.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = MoPub.bundle; path = MoPub.framework/Versions/A/Resources/MoPub.bundle; sourceTree = "<group>"; };
 		731FF6251A13B8C60073CF65 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		731FF6291A13BCFF0073CF65 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		7347E6321A274E6B0085C9E4 /* SPService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPService.h; sourceTree = "<group>"; };
+		7347E6331A274E6B0085C9E4 /* SPService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPService.m; sourceTree = "<group>"; };
 		734C4B1E1A116187004E22A0 /* sair@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sair@2x.png"; sourceTree = "<group>"; };
 		734C4B1F1A116187004E22A0 /* sair.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sair.png; sourceTree = "<group>"; };
 		734C4B221A116817004E22A0 /* estrela@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "estrela@2x.png"; sourceTree = "<group>"; };
@@ -1852,6 +1855,7 @@
 			children = (
 				1BE8E3CA192533AD00D108C0 /* AppDelegate.h */,
 				1BE8E3CB192533AD00D108C0 /* AppDelegate.m */,
+				7347E6311A274E390085C9E4 /* SpikaProcess */,
 				735A3BB51A1CFA7600292A62 /* Loading */,
 				31E1ED0719CA0A6900552DBE /* fontes */,
 				1BE8E3F5192539C500D108C0 /* Banco */,
@@ -2060,6 +2064,39 @@
 			name = IHKeyBoard;
 			sourceTree = "<group>";
 		};
+		7347E62F1A274C250085C9E4 /* Imagens */ = {
+			isa = PBXGroup;
+			children = (
+				73A603041A265E30008408E9 /* Default-568h@2x.png */,
+				73A603051A265E30008408E9 /* Default.png */,
+				73A603061A265E30008408E9 /* Default@2x.png */,
+				73A603071A265E30008408E9 /* Default@2x~ipad.png */,
+				73A603081A265E30008408E9 /* Default~ipad.png */,
+			);
+			name = Imagens;
+			sourceTree = "<group>";
+		};
+		7347E6301A274C490085C9E4 /* Suporting */ = {
+			isa = PBXGroup;
+			children = (
+				73A602A81A265E30008408E9 /* InfoPlist.strings */,
+				73A602AA1A265E30008408E9 /* Localizable.strings */,
+				73A603021A265E30008408E9 /* CSCodingConventions-MUST_READ */,
+				73A604D81A265E30008408E9 /* Spika-Info.plist */,
+				73A604D91A265E30008408E9 /* Spika-Prefix.pch */,
+			);
+			name = Suporting;
+			sourceTree = "<group>";
+		};
+		7347E6311A274E390085C9E4 /* SpikaProcess */ = {
+			isa = PBXGroup;
+			children = (
+				7347E6321A274E6B0085C9E4 /* SPService.h */,
+				7347E6331A274E6B0085C9E4 /* SPService.m */,
+			);
+			name = SpikaProcess;
+			sourceTree = "<group>";
+		};
 		734C4B1D1A10EC4E004E22A0 /* sem uso */ = {
 			isa = PBXGroup;
 			children = (
@@ -2184,31 +2221,23 @@
 		73A602A51A265E30008408E9 /* Spika */ = {
 			isa = PBXGroup;
 			children = (
+				73A604B01A265E30008408E9 /* main.m */,
 				73A607B31A265E43008408E9 /* HUServerListViewController.h */,
 				73A607B41A265E43008408E9 /* HUServerListViewController.m */,
 				73A607B51A265E43008408E9 /* HUServerListViewController.xib */,
 				73A602A61A265E30008408E9 /* AppDelegateSpikaServer.h */,
 				73A602A71A265E30008408E9 /* AppDelegateSpikaServer.m */,
-				73A602A81A265E30008408E9 /* InfoPlist.strings */,
-				73A602AA1A265E30008408E9 /* Localizable.strings */,
-				73A602AC1A265E30008408E9 /* Categories */,
 				73A602FA1A265E30008408E9 /* Constants.h */,
-				73A602FB1A265E30008408E9 /* ControllerSupport */,
-				73A603021A265E30008408E9 /* CSCodingConventions-MUST_READ */,
 				73A603031A265E30008408E9 /* CSConstants.h */,
-				73A603041A265E30008408E9 /* Default-568h@2x.png */,
-				73A603051A265E30008408E9 /* Default.png */,
-				73A603061A265E30008408E9 /* Default@2x.png */,
-				73A603071A265E30008408E9 /* Default@2x~ipad.png */,
-				73A603081A265E30008408E9 /* Default~ipad.png */,
+				7347E62F1A274C250085C9E4 /* Imagens */,
+				7347E6301A274C490085C9E4 /* Suporting */,
+				73A602AC1A265E30008408E9 /* Categories */,
+				73A602FB1A265E30008408E9 /* ControllerSupport */,
 				73A6030D1A265E30008408E9 /* Extensions */,
 				73A603581A265E30008408E9 /* External */,
 				73A603AA1A265E30008408E9 /* Graphics */,
 				73A604771A265E30008408E9 /* lib */,
-				73A604B01A265E30008408E9 /* main.m */,
 				73A604B11A265E30008408E9 /* models */,
-				73A604D81A265E30008408E9 /* Spika-Info.plist */,
-				73A604D91A265E30008408E9 /* Spika-Prefix.pch */,
 				73A604DA1A265E30008408E9 /* Transition Delegate */,
 				73A604DF1A265E30008408E9 /* UserInterfaces */,
 				73A604E21A265E30008408E9 /* ViewControllers */,
@@ -4416,6 +4445,7 @@
 				73A6060B1A265E31008408E9 /* HUPushNotificationManager.m in Sources */,
 				73A606481A265E31008408E9 /* OrderedDictionary.m in Sources */,
 				73A607991A265E31008408E9 /* HUTextView.m in Sources */,
+				7347E6341A274E6B0085C9E4 /* SPService.m in Sources */,
 				73A605F51A265E31008408E9 /* NSString+NoNull.m in Sources */,
 				73A3073319746B60005551D3 /* TBInstrumentosQueTocaViewController.m in Sources */,
 				73A6077E1A265E31008408E9 /* HUCounterBalloonView.m in Sources */,
