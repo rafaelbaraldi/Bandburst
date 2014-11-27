@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "appFinal1/SPService.m"
-            timestampString = "438789172.063279"
+            filePath = "Spika/lib/UserManager.m"
+            timestampString = "438797143.83236"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "+newGRoup:"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "-setLoginedUser:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

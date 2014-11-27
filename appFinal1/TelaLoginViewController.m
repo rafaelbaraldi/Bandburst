@@ -39,6 +39,8 @@
     
     [[[self navigationController] navigationBar] setTintColor:[[LocalStore sharedStore] FONTECOR]];
     [self carregaLayout];
+    
+//    ModelUser* user = [SPService getUserLoged];
 }
 
 -(void) verificaSeEstaLogado{

@@ -34,6 +34,11 @@
     return self;
 }
 
++(ModelUser*)getUserLoged{
+    
+    return [UserManager defaultManager].getLoginedUser;
+}
+
 +(void) newGRoup:(NSString*)groupName{
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -126,10 +131,14 @@
         
     };
     
+    DMErrorBlock errorBlock = ^(NSString *errStr){
+        
+    };
+    
     [[DatabaseManager defaultManager] loginUserByEmail:email
                                               password:senha
                                                success:successBlock
-                                                 error:nil];
+                                                 error:errorBlock];
 }
 
 +(void)signUp:(NSString*)email nome:(NSString*)nome senha:(NSString*)senha{

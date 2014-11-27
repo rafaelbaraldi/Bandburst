@@ -52,6 +52,7 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     
+    //Stop
     [_player stop];
 }
 
@@ -93,7 +94,7 @@
         
         NSURL* url = [[NSURL alloc] initFileURLWithPath:((Musica*)[[GravacaoStore sharedStore] gravacao]).url];
         
-        NSLog(@"%@", url);
+//        NSLog(@"%@", url);
         
         _player = [[AVAudioPlayer alloc]initWithContentsOfURL:url error:nil];
     }
@@ -121,6 +122,7 @@
         [_btnPlayGravacao setBackgroundImage:[UIImage imageNamed:@"pause.png"] forState:UIControlStateNormal];
         
         //Inicica Player
+        [_player prepareToPlay];
         [_player play];
         
         //Carrega Tempo
@@ -137,6 +139,9 @@
 }
 
 -(void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag{
+    
+    //Stop
+    [_player stop];
     
     //Fecha Nstimer do update
     [_timerProgresso invalidate];
@@ -184,7 +189,7 @@
 
 - (IBAction)volumeGravacaoClick:(id)sender {
     
-    _player.volume = ((UISlider*)sender).value * 10;
+    _player.volume = ((UISlider*)sender).value * 5;
 }
 
 - (IBAction)progressoGravacaoClick:(id)sender {

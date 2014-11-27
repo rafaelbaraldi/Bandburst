@@ -7,6 +7,7 @@
 //
 
 #import "GravacaoStore.h"
+#import "LocalStore.h"
 
 @implementation GravacaoStore
 
@@ -28,6 +29,23 @@
         _streaming = NO;
     }
     return self;
+}
+
+
++(void)removerGravacao:(Musica *)removerMusica{
+    
+    NSFetchRequest *nsfr = [NSFetchRequest fetchRequestWithEntityName:@"Musica"];
+    NSNumber *number = [[NSNumber alloc] initWithInt:[[[LocalStore sharedStore] usuarioAtual].identificador intValue]];
+    NSPredicate *predicateID = [NSPredicate predicateWithFormat:@"idUsuario == 0 || idUsuario == %@",number];
+    [nsfr setPredicate:predicateID];
+    
+    NSMutableArray *musicas = [[NSMutableArray alloc] initWithArray:[[[LocalStore sharedStore] context] executeFetchRequest:nsfr error:nil]];
+    
+    for(NSManagedObject *m in musicas){
+        if([m isEqual:removerMusica]){
+            [[[LocalStore sharedStore] context] deleteObject:m];
+        }
+    }
 }
 
 

@@ -9,7 +9,7 @@
 #import <MoPub/MoPub.h>
 #import <UIKit/UIKit.h>
 
-@interface TelaBuscaViewController : UIViewController <UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface TelaBuscaViewController : UIViewController <UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate>
 
 
 @property (nonatomic) MPAdView *adView;

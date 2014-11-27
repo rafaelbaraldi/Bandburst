@@ -35,12 +35,90 @@
     
     //Arredonda views
     [self arredondaBordaBotoes];
+
+    //Adiciona Editar para remover gravações
+    [self addEditToRemoveRecords];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     
     [self carregaAudios];
     [_tbMusicas reloadData];
+}
+
+-(void)addEditToRemoveRecords{
+    
+    UIBarButtonItem *editItem = [[UIBarButtonItem alloc] initWithTitle:@"Editar" style:UIBarButtonItemStylePlain target:self action:@selector(editRecords)];
+    [self.navigationItem setRightBarButtonItem:editItem];
+}
+
+-(void)editRecords{
+    
+    //Começa editar
+    if([self.navigationItem.rightBarButtonItem.title isEqualToString:@"Editar"]){
+        [self.navigationItem.rightBarButtonItem setTitle:@"Concluído"];
+        
+        _tbMusicas.editing = YES;
+        [self ordenaViewDaTabela:YES];
+    }
+    else{
+        //Finaliza edição
+        [self.navigationItem.rightBarButtonItem setTitle:@"Editar"];
+        
+        _tbMusicas.editing = NO;
+        [self ordenaViewDaTabela:NO];
+    }
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    //Salvar a musica que vai remover
+    _removerMusica = ((Musica*)[[_musicasPorCategoria objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]);
+
+    //Action
+    UIActionSheet *alerta = [[UIActionSheet alloc] initWithTitle:@"Tem certeza que desja deletar essa gravação?" delegate:self cancelButtonTitle:@"Cancelar" destructiveButtonTitle:nil otherButtonTitles:@"Sim, remover gravação", nil];
+    [alerta showInView:self.view];
+
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    if(buttonIndex == 0 ){
+        [GravacaoStore removerGravacao:_removerMusica];
+        
+        [self carregaAudios];
+        [_tbMusicas reloadData];
+    }
+}
+
+-(void)ordenaViewDaTabela:(BOOL)edicao{
+
+    CGRect musicaFrame;
+    CGRect imagemFrame;
+    
+    if(edicao){
+        musicaFrame = CGRectMake(100, 10, 200, 30);
+        imagemFrame = CGRectMake(55, 10, 40, 30);
+    }
+    else{
+        musicaFrame = CGRectMake(60, 10, 200, 30);
+        imagemFrame = CGRectMake(15, 10, 40, 30);
+    }
+    
+    
+    for (int j = 0; j < [_tbMusicas numberOfSections]; j++){
+    
+        for (int i = 0; i < [_tbMusicas numberOfRowsInSection:j]; i++){
+            
+            UITableViewCell *c = [_tbMusicas cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:j]];
+            
+            UILabel* musica = (UILabel*)[c viewWithTag:3];
+            musica.frame = musicaFrame;
+            
+            UIImageView *image = (UIImageView*)[c viewWithTag:1];
+            image.frame = imagemFrame;
+        }
+    }
 }
 
 -(void)carregaAudios{
@@ -87,7 +165,7 @@
     if(celula == nil){
         celula = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MembrosCell"];
         
-        UIImageView* som = [[UIImageView alloc] initWithFrame:CGRectMake(15, 5, 40, 30)];
+        UIImageView* som = [[UIImageView alloc] initWithFrame:CGRectMake(15, 10, 40, 30)];
         [som setImage:[UIImage imageNamed:@"audio.png"]];
         [som setTag:1];
         [celula addSubview:som];
@@ -97,7 +175,7 @@
         [play setTag:2];
         [celula addSubview:play];
         
-        UILabel* musica = [[UILabel alloc] initWithFrame:CGRectMake(60, 5, 200, 30)];
+        UILabel* musica = [[UILabel alloc] initWithFrame:CGRectMake(60, 10, 200, 30)];
         [musica setText:((Musica*)[[_musicasPorCategoria objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]).nome];
         [musica setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:16]];
         [musica setTextColor:[[LocalStore sharedStore] FONTECOR]];

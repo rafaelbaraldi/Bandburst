@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #import "Usuario.h"
+#import "ModelUser.h"
 
 @interface SPService : NSObject
 
@@ -20,7 +21,8 @@
 
 +(void)updateUser:(Usuario*)usuario;
 
-+(void) newGRoup:(NSString*)groupName;
++(void)newGRoup:(NSString*)groupName;
 
++(ModelUser*)getUserLoged;
 
 @end

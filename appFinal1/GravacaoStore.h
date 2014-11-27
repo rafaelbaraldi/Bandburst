@@ -21,4 +21,6 @@
 
 @property BOOL streaming;
 
++(void)removerGravacao:(Musica*)removerMusica;
+
 @end

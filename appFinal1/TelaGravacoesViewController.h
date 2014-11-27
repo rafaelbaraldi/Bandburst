@@ -9,7 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <MediaPlayer/MediaPlayer.h>
 
-@interface TelaGravacoesViewController : UIViewController <UITabBarDelegate, UITableViewDataSource, UITableViewDelegate>
+#import "Musica.h"
+
+@interface TelaGravacoesViewController : UIViewController <UITabBarDelegate, UITableViewDataSource, UITableViewDelegate, UIActionSheetDelegate>
+
+@property Musica *removerMusica;
 
 @property NSMutableArray* categorias;
 @property NSMutableArray* musicas;
