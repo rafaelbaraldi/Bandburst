@@ -148,7 +148,7 @@
 - (void)loadMoreUsers
 {
     if (!self.isLoading) {
-        [self findUsersInGroupWithOffset:[self.usersArray count]];
+        [self findUsersInGroupWithOffset:(int)[self.usersArray count]];
     }
 }
 - (void) findUsersInGroupWithOffset:(int)index

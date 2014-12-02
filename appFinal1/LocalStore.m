@@ -134,8 +134,10 @@
     _TelaTBInstrumentos = [[TBInstrumentosViewController alloc] initWithNibName:@"TBInstrumentosViewController" bundle:nil];
     _TelaTBEstilos = [[TBEstilosViewController alloc] initWithNibName:@"TBEstilosViewController" bundle:nil];
     _TelaTBEstilosQueToco = [[TBEstilosQueTocaViewController alloc] initWithNibName:@"TBEstilosQueTocaViewController" bundle:nil];
+    
     _TelaCadastro = [[TelaCadastroViewController alloc] initWithNibName:@"TelaCadastroViewController" bundle:nil];
     _TelaCadastro.ehEdicao = NO;
+    
     _TelaLogin = [[TelaLoginViewController alloc] initWithNibName:@"TelaLoginViewController" bundle:nil];
     _TelaEsqueciSenha = [[TelaEsqueciSenhaViewController alloc] initWithNibName:@"TelaEsqueciSenhaViewController" bundle:nil];
     _TelaPerfil = [[TelaPerfilViewController alloc] initWithNibName:@"TelaPerfilViewController" bundle:nil];

@@ -154,7 +154,7 @@
     return messageBodySize.height;
     
 }
-+ (float) cellHeightForMessage:(ModelMessage *)message {
++ (CGFloat) cellHeightForMessage:(ModelMessage *)message {
     
     CGFloat height = [MessageCell calcLabelHeight:message];
     

@@ -21,6 +21,7 @@
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
 
+#import "LoadingViewController.h"
 
 @implementation AppDelegate
 
@@ -31,8 +32,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-//    [[Crashlytics sharedInstance] crash];
-    
     //Utilizamos Cache para FOTOS de perfil
     //Definir qnto as imagens ficarao salvas no CACHE
     [[SDImageCache sharedImageCache] setMaxCacheAge:5];
@@ -40,15 +39,9 @@
     //Usuario de inicio é ZERO
     [LocalStore setParaUsuarioZero];
 
-//    BOOL logado = [LoginStore verificaSeEstaLogado];
-
-    UIViewController *telaVc;
-//    if(logado){
-//        telaVc = [[LocalStore sharedStore] TelaBusca];
-//    }
-//    else{
-        telaVc = [[LocalStore sharedStore] TelaLogin];
-//    }
+    UIViewController *telaVc = [[LocalStore sharedStore] TelaLogin];
+    
+//    UIViewController *telaVc = [[LoadingViewController alloc] initWithNibName:@"LoadingViewController" bundle:nil];
     
     //Navigation Controller - Alterar Cores
     UINavigationController *navegacao = [[UINavigationController alloc] initWithRootViewController:telaVc];
@@ -56,17 +49,15 @@
     
     [[UITextField appearance] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14]];
     [[UILabel appearance] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14]];
-    
+
     [self.window setRootViewController:navegacao];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
     //Crashlytics
+//    [[Crashlytics sharedInstance] crash];
 //    [[Crashlytics sharedInstance] setDebugMode:YES];
 //    [Fabric with:@[CrashlyticsKit, MoPubKit]];
-    
-    //Custom button login Facebok
-    [FBLoginView class];
     
     return YES;
 }

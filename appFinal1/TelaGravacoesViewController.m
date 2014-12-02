@@ -23,9 +23,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         [[self navigationItem] setHidesBackButton:YES];
-        
-        //Navigation Controller
-        [[self navigationItem] setTitle:@"Gravações"];
     }
     return self;
 }
@@ -35,21 +32,26 @@
     
     //Arredonda views
     [self arredondaBordaBotoes];
-
-    //Adiciona Editar para remover gravações
-    [self addEditToRemoveRecords];
+    
+    //Navigation Controller
+    [[self navigationItem] setTitle:@"Gravações"];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     
     [self carregaAudios];
     [_tbMusicas reloadData];
+    
+    //Adiciona Editar para remover gravações
+    [self addEditToRemoveRecords];
 }
 
 -(void)addEditToRemoveRecords{
     
-    UIBarButtonItem *editItem = [[UIBarButtonItem alloc] initWithTitle:@"Editar" style:UIBarButtonItemStylePlain target:self action:@selector(editRecords)];
-    [self.navigationItem setRightBarButtonItem:editItem];
+    if([_musicas count] > 0){
+        UIBarButtonItem *editItem = [[UIBarButtonItem alloc] initWithTitle:@"Editar" style:UIBarButtonItemStylePlain target:self action:@selector(editRecords)];
+        [self.navigationItem setRightBarButtonItem:editItem];
+    }
 }
 
 -(void)editRecords{
