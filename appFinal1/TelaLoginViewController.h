@@ -22,8 +22,6 @@
 - (IBAction)btnCadastrarClick:(id)sender;
 - (IBAction)btnEntrarClick:(id)sender;
 
-@property (weak, nonatomic) IBOutlet FBLoginView *loginView;
-
 @property (strong, nonatomic) IBOutlet UIButton *btnContinuar;
 @property (strong, nonatomic) IBOutlet UIButton *btnCadastrar;
 @property (strong, nonatomic) IBOutlet UIButton *btnEntrar;

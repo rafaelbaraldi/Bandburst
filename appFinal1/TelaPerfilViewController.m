@@ -185,7 +185,10 @@
 -(void)carregaBandas{
 
     //Add Load
-    [self.view addSubview:[[LocalStore sharedStore] TelaLoading].view];
+    UIView *loading = [[LoadingViewController alloc] initWithNibName:nil bundle:nil].view;
+    [self.view addSubview:loading];
+    [self.navigationController.navigationBar setUserInteractionEnabled:NO];
+    [self.tabBarController.tabBar setUserInteractionEnabled:NO];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
@@ -231,7 +234,9 @@
                 [_scrollBanda setContentSize:CGSizeMake(320, y)];
             }
             //Remove Load
-            [[[LocalStore sharedStore] TelaLoading].view removeFromSuperview];
+            [loading removeFromSuperview];
+            [self.navigationController.navigationBar setUserInteractionEnabled:YES];
+            [self.tabBarController.tabBar setUserInteractionEnabled:YES];
         });
     });
 }

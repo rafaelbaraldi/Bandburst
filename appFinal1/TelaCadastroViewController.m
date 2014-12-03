@@ -42,7 +42,7 @@ const int OBSERVACOES = 2;
 - (void)viewDidLoad{
     [super viewDidLoad];
     
-    [IHKeyboardAvoiding setAvoidingView:self.view withTarget:_target];
+//    [IHKeyboardAvoiding setAvoidingView:self.view withTarget:_target];
     
     if (_ehEdicao) {
         [self corregaCamposEdicao];
@@ -181,14 +181,14 @@ const int OBSERVACOES = 2;
     [[self navigationController] pushViewController:[[LocalStore sharedStore] TelaTBInstruementosQueToco] animated:YES];
 }
 
--(void)habilitarTodasViewsTela:(BOOL)condicao{
-    for (UIControl* v in self.view.subviews) {
-        v.enabled = condicao;
-    }
-    for (UILabel* v in self.view.subviews) {
-        v.enabled = condicao;
-    }
-}
+//-(void)habilitarTodasViewsTela:(BOOL)condicao{
+//    for (UIControl* v in self.view.subviews) {
+//        v.enabled = condicao;
+//    }
+//    for (UILabel* v in self.view.subviews) {
+//        v.enabled = condicao;
+//    }
+//}
 
 -(IBAction)btnConfirmarClick:(id)sender {
     
@@ -247,7 +247,11 @@ const int OBSERVACOES = 2;
         if ([LocalStore verificaSeTemInternet]) {
             
             //Add Load
-            [self.view addSubview:[[LocalStore sharedStore] TelaLoading].view];
+            UIView *loading = [[LoadingViewController alloc] initWithNibName:nil bundle:nil].view;
+            [self.view addSubview:loading];
+            [self.navigationController.navigationBar setUserInteractionEnabled:NO];
+            [self.tabBarController.tabBar setUserInteractionEnabled:NO];
+            
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                 
                 //Recebe feed do cadastro
@@ -282,7 +286,10 @@ const int OBSERVACOES = 2;
                     
                     //Remove Load
                     if([cadastrou rangeOfString:@"\"Duplicate entry"].location != NSNotFound){
-                        [[[LocalStore sharedStore] TelaLoading].view removeFromSuperview];
+                        //Remove Load
+                        [loading removeFromSuperview];
+                        [self.navigationController.navigationBar setUserInteractionEnabled:YES];
+                        [self.tabBarController.tabBar setUserInteractionEnabled:YES];
                     }
                 });
             });
@@ -299,7 +306,11 @@ const int OBSERVACOES = 2;
 -(void)realizarLogin:(Usuario*)usuario{
     
     //Add Load
-    [self.view addSubview:[[LocalStore sharedStore] TelaLoading].view];
+    UIView *loading = [[LoadingViewController alloc] initWithNibName:nil bundle:nil].view;
+    [self.view addSubview:loading];
+    [self.navigationController.navigationBar setUserInteractionEnabled:NO];
+    [self.tabBarController.tabBar setUserInteractionEnabled:NO];
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
         BOOL login = [LoginStore login:usuario.email senha:usuario.senha];
@@ -314,7 +325,9 @@ const int OBSERVACOES = 2;
             }
             
             //Remove Load
-            [[[LocalStore sharedStore] TelaLoading].view removeFromSuperview];
+            [loading removeFromSuperview];
+            [self.navigationController.navigationBar setUserInteractionEnabled:YES];
+            [self.tabBarController.tabBar setUserInteractionEnabled:YES];
         });
     });
 }
@@ -349,16 +362,15 @@ const int OBSERVACOES = 2;
 //Regular Tela para digitar as opções de Observacoes
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     
-    
     [textField resignFirstResponder];
     return YES;
 }
 
 //Regular Tela para digitar as opções de Observacoes
--(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
-    
-    return YES;
-}
+//-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+//    
+//    return YES;
+//}
 
 -(void)carregaLabels{
     

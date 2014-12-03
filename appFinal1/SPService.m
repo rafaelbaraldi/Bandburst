@@ -42,30 +42,30 @@
 }
 
 +(void) newGRoup:(NSString*)groupName{
-//
-//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-//        
-//        NSString *groupPassword = @"";
-//        NSString *description = @"";
-//        NSString *selectedCategoryID = @"";
-//        NSString *category = @"";
-//        
-//        ModelUser *user = [[UserManager defaultManager] getLoginedUser];
-//        
-//        [[DatabaseManager defaultManager]
-//         
-//         createGroup:groupName
-//         description:description
-//         password:groupPassword
-//         categoryID:selectedCategoryID
-//         categoryName:category
-//         ower:user
-//         avatarImage:nil
-//         success:^(BOOL isSuccess, NSString *errStr) {}
-//         error:^(NSString *errStr) {
-//         }];
-//        
-//    });
+
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        NSString *groupPassword = @"";
+        NSString *description = @"";
+        NSString *selectedCategoryID = @"";
+        NSString *category = @"";
+        
+        ModelUser *user = [[UserManager defaultManager] getLoginedUser];
+        
+        [[DatabaseManager defaultManager]
+         
+         createGroup:groupName
+         description:description
+         password:groupPassword
+         categoryID:selectedCategoryID
+         categoryName:category
+         ower:user
+         avatarImage:nil
+         success:^(BOOL isSuccess, NSString *errStr) {}
+         error:^(NSString *errStr) {
+         }];
+        
+    });
 }
 
 +(void)updateUser:(Usuario*)usuario{
@@ -93,29 +93,29 @@
 
 +(void)logIn:(NSString *)email{
     
-//    NSDictionary *jsonUser = [self getUserSpika:email];
-//    NSString *senha = [jsonUser valueForKeyPath:@"password"];
-//    
-//    __block NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-//    
-//    DMFindOneBlock successBlock = ^(ModelUser *user){
-//        
-//        if(user){
-//            [userDefault setObject:email forKey:UserDefaultLastLoginEmail];
-//            [userDefault setObject:senha forKey:UserDefaultLastLoginPass];
-//            [userDefault synchronize];
-//        }
-//    };
-//    
-//    DMErrorBlock errorBlock = ^(NSString *errStr){};
-//    
-//    [[DatabaseManager defaultManager] loginUserByEmail:email
-//                                              password:senha
-//                                               success:successBlock
-//                                                 error:errorBlock];
-//    
-//   
-//    [self autenticaLoginEmail:email];
+    NSDictionary *jsonUser = [self getUserSpika:email];
+    NSString *senha = [jsonUser valueForKeyPath:@"password"];
+    
+    __block NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    
+    DMFindOneBlock successBlock = ^(ModelUser *user){
+        
+        if(user){
+            [userDefault setObject:email forKey:UserDefaultLastLoginEmail];
+            [userDefault setObject:senha forKey:UserDefaultLastLoginPass];
+            [userDefault synchronize];
+        }
+    };
+    
+    DMErrorBlock errorBlock = ^(NSString *errStr){};
+    
+    [[DatabaseManager defaultManager] loginUserByEmail:email
+                                              password:senha
+                                               success:successBlock
+                                                 error:errorBlock];
+    
+   
+    [self autenticaLoginEmail:email];
 }
 
 +(void)signUp:(NSString*)email nome:(NSString*)nome senha:(NSString*)senha{

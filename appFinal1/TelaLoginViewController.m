@@ -39,8 +39,6 @@
     
     [[[self navigationController] navigationBar] setTintColor:[[LocalStore sharedStore] FONTECOR]];
     [self carregaLayout];
-    
-//    ModelUser* user = [SPService getUserLoged];
 }
 
 -(void) verificaSeEstaLogado{
@@ -123,6 +121,9 @@
 
 - (IBAction)btnContinuarClick:(id)sender {
     
+    //Esconde o teclado
+    [_txtSenha resignFirstResponder];
+    
     NSString *email = _txtEmail.text;
     NSString *senha = _txtSenha.text;
     
@@ -133,11 +134,10 @@
         if ([LocalStore verificaSeTemInternet]) {
             
             //Add Load
-            [self.view addSubview:[[LocalStore sharedStore] TelaLoading].view];
+            UIView *loading = [[LoadingViewController alloc] initWithNibName:nil bundle:nil].view;
+            [self.view addSubview:loading];
             [self.navigationController.navigationBar setUserInteractionEnabled:NO];
-            [self.navigationController.navigationBar setAlpha:0.5];
             [self.tabBarController.tabBar setUserInteractionEnabled:NO];
-            [self.tabBarController.tabBar setAlpha:0.5];
             
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                 
@@ -154,11 +154,9 @@
                     }
                     
                     //Remove Load
-                    [[[LocalStore sharedStore] TelaLoading].view removeFromSuperview];
+                    [loading removeFromSuperview];
                     [self.navigationController.navigationBar setUserInteractionEnabled:YES];
-                    [self.navigationController.navigationBar setAlpha:1.0];
                     [self.tabBarController.tabBar setUserInteractionEnabled:YES];
-                    [self.tabBarController.tabBar setAlpha:1.0];
                 });
             });
         }

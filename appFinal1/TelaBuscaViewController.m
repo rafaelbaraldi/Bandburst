@@ -142,9 +142,11 @@
         
         if ([LocalStore verificaSeTemInternet]) {
          
-            
             //Add Load
-            [self.view addSubview:[[LocalStore sharedStore] TelaLoading].view];
+//            UIView *loading = [[LoadingViewController alloc] initWithNibName:nil bundle:nil].view;
+//            [self.view addSubview:loading];
+//            [self.navigationController.navigationBar setUserInteractionEnabled:NO];
+//            [self.tabBarController.tabBar setUserInteractionEnabled:NO];
             
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                 
@@ -166,7 +168,9 @@
                     [_tbUsuarios reloadData];
                     
                     //Remove Load
-                    [[[LocalStore sharedStore] TelaLoading].view removeFromSuperview];
+//                    [loading removeFromSuperview];
+//                    [self.navigationController.navigationBar setUserInteractionEnabled:YES];
+//                    [self.tabBarController.tabBar setUserInteractionEnabled:YES];
                 });
             });
 
@@ -292,7 +296,10 @@
 
 //Busca pela cidade
 -(void)textFieldDidChange{
+    
     [self carregaUsuarioBuscado];
+    
+//    [self performSelector:@selector(carregaUsuarioBuscado) withObject:nil afterDelay:1];
 }
 
 //Delegate TableView - Numero de linhas da tabela
