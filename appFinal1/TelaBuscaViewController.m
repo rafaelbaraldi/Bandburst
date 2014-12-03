@@ -140,29 +140,50 @@
     if([[[BuscaStore sharedStore] instrumento] length] > 0
        || [[[BuscaStore sharedStore] estilo] length] > 0
        || [[[BuscaStore sharedStore] horario] length] > 0
-       || _txtCidade.text > 0){
+       || ![_txtCidade.text isEqualToString:@""]){
         
-        _usuarios = [BuscaStore atualizaBusca:_usuarios cidade:_txtCidade.text];
-        
-        if([_usuarios count] == 0){
+        if ([LocalStore verificaSeTemInternet]) {
+         
             
-            //Exibi label para pedir o instrumento
-            [_lblMsgBusca setText:@"Nenhum resultado encontrado para a sua pesquisa"];
-            [_lblMsgBusca setTextAlignment:NSTextAlignmentCenter];
-            [_lblMsgBusca setNumberOfLines:2];
-            [_lblMsgBusca setTintColor:[UIColor whiteColor]];
+            //Add Load
+            [self.view addSubview:[[LocalStore sharedStore] TelaLoading].view];
+            
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                
+                _usuarios = [BuscaStore atualizaBusca:_usuarios cidade:_txtCidade.text];
+                dispatch_async(dispatch_get_main_queue(), ^(void) {
+                    
+                    if([_usuarios count] == 0){
+                        
+                        //Exibi label para pedir o instrumento
+                        [_lblMsgBusca setText:@"Nenhum resultado encontrado para a sua pesquisa"];
+                        [_lblMsgBusca setTextAlignment:NSTextAlignmentCenter];
+                        [_lblMsgBusca setNumberOfLines:2];
+                        [_lblMsgBusca setTintColor:[UIColor whiteColor]];
+                    }
+                    else{
+                        [_lblMsgBusca setText:@""];
+                    }
+                    
+                    [_tbUsuarios reloadData];
+                    
+                    //Remove Load
+                    [[[LocalStore sharedStore] TelaLoading].view removeFromSuperview];
+                });
+            });
+
         }
         else{
-            [_lblMsgBusca setText:@""];
+            UILabel*lblSemNet = [LocalStore viewSemInternet];
+            
+            [self.view addSubview:lblSemNet];
+            [LocalStore showViewSemNet:lblSemNet];
         }
     }
     else{
         [_lblMsgBusca setText:@""];
         [_usuarios removeAllObjects];
     }
-    
-    
-    [_tbUsuarios reloadData];
 }
 
 -(void)arredondaBordaBotoes{

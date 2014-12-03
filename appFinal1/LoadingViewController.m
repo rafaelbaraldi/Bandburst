@@ -22,6 +22,8 @@
     UIActivityIndicatorView *load = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     [load setCenter:CGPointMake(self.view.center.x - 140, self.view.center.y)];
     [load startAnimating];
+    
+    
     [self.view addSubview:load];
     
     //Bloquea o acesso do usuario na View

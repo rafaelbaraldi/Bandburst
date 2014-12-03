@@ -231,7 +231,7 @@ const int OBSERVACOES = 2;
 
 -(void)finalizaCadastro:(Usuario*)usuario{
     
-    NSString *valida = [CadastroStore validaCadastro:usuario];
+    __block NSString *valida = [CadastroStore validaCadastro:usuario];
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERRO" message:@"" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
     
@@ -248,55 +248,44 @@ const int OBSERVACOES = 2;
             
             //Add Load
             [self.view addSubview:[[LocalStore sharedStore] TelaLoading].view];
-            
-            //Recebe feed do cadastro
-            NSString *cadastrou = [CadastroStore cadastrar:usuario atualizar:_ehEdicao];
-            if([cadastrou rangeOfString:@"\"Duplicate entry"].location != NSNotFound){
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                 
-                //Remove loading
-                [[[LocalStore sharedStore] TelaLoading].view removeFromSuperview];
-                
-                valida = [NSString stringWithFormat:@"Esse e-mail já está em uso"];
-                
-                [alert setMessage:valida];
-                [alert show];
-            }
-            else{
-                if(_ehEdicao){
-                    [LoginStore deslogar];
+                //Recebe feed do cadastro
+                NSString *cadastrou = [CadastroStore cadastrar:usuario atualizar:_ehEdicao];
+                dispatch_async(dispatch_get_main_queue(), ^(void) {
                     
-                    //Realiza Login
-                    [LoginStore login:usuario.email senha:usuario.senha];
-                    
-                    [alert setMessage:@"Dados atualizado com sucesso!"];
-                    [alert setTitle:@"SUCESSO"];
-                    [alert show];
-                    
-                    [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaPerfil] animated:YES];
-                }
-                else{
-                    //Limpa tela após cadastrar
-                    [self limpaTela];
-                    
-                    //Add Load
-                    [self.view addSubview:[[LocalStore sharedStore] TelaLoading].view];
-                    
-                    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                    //Valida
+                    if([cadastrou rangeOfString:@"\"Duplicate entry"].location != NSNotFound){
                         
-                        BOOL login = [LoginStore login:usuario.email senha:usuario.senha];
-                        dispatch_async(dispatch_get_main_queue(), ^(void) {
+                        valida = [NSString stringWithFormat:@"Esse e-mail já está em uso"];
+                        
+                        [alert setMessage:valida];
+                        [alert show];
+                    }
+                    else{
+                        if(_ehEdicao){
+                            [LoginStore deslogar];
                             
                             //Realiza Login
-                            if(login){
-                                [[self navigationController] pushViewController:[[LocalStore sharedStore] TelaCadastroFoto] animated:YES];
-                            }
+                            [self realizarLogin:usuario];
                             
-                            //Remove Load
-                            [[[LocalStore sharedStore] TelaLoading].view removeFromSuperview];
-                        });
-                    });
-                }
-            }
+                            [alert setMessage:@"Dados atualizado com sucesso!"];
+                            [alert setTitle:@"SUCESSO"];
+                            [alert show];
+                            
+                            [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaPerfil] animated:YES];
+                        }
+                        else{
+                            [self realizarLogin:usuario];
+                        }
+                    }
+                    
+                    //Remove Load
+                    if([cadastrou rangeOfString:@"\"Duplicate entry"].location != NSNotFound){
+                        [[[LocalStore sharedStore] TelaLoading].view removeFromSuperview];
+                    }
+                });
+            });
         }
         else{
             UILabel*lblSemNet = [LocalStore viewSemInternet];
@@ -305,6 +294,29 @@ const int OBSERVACOES = 2;
             [LocalStore showViewSemNet:lblSemNet];
         }
     }
+}
+
+-(void)realizarLogin:(Usuario*)usuario{
+    
+    //Add Load
+    [self.view addSubview:[[LocalStore sharedStore] TelaLoading].view];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        BOOL login = [LoginStore login:usuario.email senha:usuario.senha];
+        dispatch_async(dispatch_get_main_queue(), ^(void) {
+            
+            //Realiza Login
+            if(login){
+                //Limpa tela após cadastrar
+                [self limpaTela];
+                
+                [[self navigationController] pushViewController:[[LocalStore sharedStore] TelaCadastroFoto] animated:YES];
+            }
+            
+            //Remove Load
+            [[[LocalStore sharedStore] TelaLoading].view removeFromSuperview];
+        });
+    });
 }
 
 -(void)limpaTela{

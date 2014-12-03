@@ -183,46 +183,57 @@
 }
 
 -(void)carregaBandas{
-    _bandas = [PerfilStore retornaListaDeBandas];
-    
-    if([_bandas count] == 0){
-        _lblInfo.hidden = NO;
-    }
-    else{
-        
-        _lblInfo.hidden = YES;
-    
-        int y = 15;
-        
-        for (TPBanda* b in _bandas) {
-            
-            //Imagem
-            UIButton* icone = [[UIButton alloc] initWithFrame:CGRectMake(20, y, 50, 50)];
-            [icone setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%lu.png", (unsigned long)[_bandas indexOfObject:b]]] forState:UIControlStateNormal];
-            [icone setTitle:b.identificador forState:UIControlStateNormal];
-            [icone addTarget:self action:@selector(banda:) forControlEvents:UIControlEventTouchUpInside];
-            
-            //Nome
-            UILabel* nome = [[UILabel alloc] initWithFrame:CGRectMake(90, y + 5, 200, 45)];
-            nome.text =  b.nome;
-            nome.textColor = [UIColor blackColor];
-            nome.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14.0];
-            nome.textColor = [[LocalStore sharedStore] FONTECOR];
-            
-            if([b.nome length] > 11){
-                [nome setNumberOfLines:2];
-            }
-            
-            [_scrollBanda addSubview:icone];
-            [_scrollBanda addSubview:nome];
-            
-            //Posicao
-            y += 70;
-        }
 
-        //Scroll
-        [_scrollBanda setContentSize:CGSizeMake(320, y)];
-    }
+    //Add Load
+    [self.view addSubview:[[LocalStore sharedStore] TelaLoading].view];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        _bandas = [PerfilStore retornaListaDeBandas];
+        dispatch_async(dispatch_get_main_queue(), ^(void) {
+            
+            if([_bandas count] == 0){
+                _lblInfo.hidden = NO;
+            }
+            else{
+                
+                _lblInfo.hidden = YES;
+                
+                int y = 15;
+                
+                for (TPBanda* b in _bandas) {
+                    
+                    //Imagem
+                    UIButton* icone = [[UIButton alloc] initWithFrame:CGRectMake(20, y, 50, 50)];
+                    [icone setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%lu.png", (unsigned long)[_bandas indexOfObject:b]]] forState:UIControlStateNormal];
+                    [icone setTitle:b.identificador forState:UIControlStateNormal];
+                    [icone addTarget:self action:@selector(banda:) forControlEvents:UIControlEventTouchUpInside];
+                    
+                    //Nome
+                    UILabel* nome = [[UILabel alloc] initWithFrame:CGRectMake(90, y + 5, 200, 45)];
+                    nome.text =  b.nome;
+                    nome.textColor = [UIColor blackColor];
+                    nome.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14.0];
+                    nome.textColor = [[LocalStore sharedStore] FONTECOR];
+                    
+                    if([b.nome length] > 11){
+                        [nome setNumberOfLines:2];
+                    }
+                    
+                    [_scrollBanda addSubview:icone];
+                    [_scrollBanda addSubview:nome];
+                    
+                    //Posicao
+                    y += 70;
+                }
+                
+                //Scroll
+                [_scrollBanda setContentSize:CGSizeMake(320, y)];
+            }
+            //Remove Load
+            [[[LocalStore sharedStore] TelaLoading].view removeFromSuperview];
+        });
+    });
 }
 
 -(void)banda:(UIButton*)bt{

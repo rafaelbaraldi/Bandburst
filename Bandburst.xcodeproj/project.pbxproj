@@ -123,6 +123,16 @@
 		731FF6271A13B8C60073CF65 /* MoPub.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 731FF6241A13B8C60073CF65 /* MoPub.bundle */; };
 		731FF6281A13B8C60073CF65 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 731FF6251A13B8C60073CF65 /* Fabric.framework */; };
 		731FF62A1A13BCFF0073CF65 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 731FF6291A13BCFF0073CF65 /* Crashlytics.framework */; };
+		7347BF0C1A2D1E0E00933BEC /* loading0001.png in Resources */ = {isa = PBXBuildFile; fileRef = 7347BF021A2D1E0E00933BEC /* loading0001.png */; };
+		7347BF0D1A2D1E0E00933BEC /* loading0002.png in Resources */ = {isa = PBXBuildFile; fileRef = 7347BF031A2D1E0E00933BEC /* loading0002.png */; };
+		7347BF0E1A2D1E0E00933BEC /* loading0003.png in Resources */ = {isa = PBXBuildFile; fileRef = 7347BF041A2D1E0E00933BEC /* loading0003.png */; };
+		7347BF0F1A2D1E0E00933BEC /* loading0004.png in Resources */ = {isa = PBXBuildFile; fileRef = 7347BF051A2D1E0E00933BEC /* loading0004.png */; };
+		7347BF101A2D1E0E00933BEC /* loading0005.png in Resources */ = {isa = PBXBuildFile; fileRef = 7347BF061A2D1E0E00933BEC /* loading0005.png */; };
+		7347BF111A2D1E0E00933BEC /* loading0006.png in Resources */ = {isa = PBXBuildFile; fileRef = 7347BF071A2D1E0E00933BEC /* loading0006.png */; };
+		7347BF121A2D1E0E00933BEC /* loading0007.png in Resources */ = {isa = PBXBuildFile; fileRef = 7347BF081A2D1E0E00933BEC /* loading0007.png */; };
+		7347BF131A2D1E0E00933BEC /* loading0008.png in Resources */ = {isa = PBXBuildFile; fileRef = 7347BF091A2D1E0E00933BEC /* loading0008.png */; };
+		7347BF141A2D1E0E00933BEC /* loading0009.png in Resources */ = {isa = PBXBuildFile; fileRef = 7347BF0A1A2D1E0E00933BEC /* loading0009.png */; };
+		7347BF151A2D1E0E00933BEC /* loading0010.png in Resources */ = {isa = PBXBuildFile; fileRef = 7347BF0B1A2D1E0E00933BEC /* loading0010.png */; };
 		7347E6341A274E6B0085C9E4 /* SPService.m in Sources */ = {isa = PBXBuildFile; fileRef = 7347E6331A274E6B0085C9E4 /* SPService.m */; };
 		734C4B201A116187004E22A0 /* sair@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 734C4B1E1A116187004E22A0 /* sair@2x.png */; };
 		734C4B211A116187004E22A0 /* sair.png in Resources */ = {isa = PBXBuildFile; fileRef = 734C4B1F1A116187004E22A0 /* sair.png */; };
@@ -795,6 +805,16 @@
 		731FF6241A13B8C60073CF65 /* MoPub.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = MoPub.bundle; path = MoPub.framework/Versions/A/Resources/MoPub.bundle; sourceTree = "<group>"; };
 		731FF6251A13B8C60073CF65 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		731FF6291A13BCFF0073CF65 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		7347BF021A2D1E0E00933BEC /* loading0001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading0001.png; sourceTree = "<group>"; };
+		7347BF031A2D1E0E00933BEC /* loading0002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading0002.png; sourceTree = "<group>"; };
+		7347BF041A2D1E0E00933BEC /* loading0003.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading0003.png; sourceTree = "<group>"; };
+		7347BF051A2D1E0E00933BEC /* loading0004.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading0004.png; sourceTree = "<group>"; };
+		7347BF061A2D1E0E00933BEC /* loading0005.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading0005.png; sourceTree = "<group>"; };
+		7347BF071A2D1E0E00933BEC /* loading0006.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading0006.png; sourceTree = "<group>"; };
+		7347BF081A2D1E0E00933BEC /* loading0007.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading0007.png; sourceTree = "<group>"; };
+		7347BF091A2D1E0E00933BEC /* loading0008.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading0008.png; sourceTree = "<group>"; };
+		7347BF0A1A2D1E0E00933BEC /* loading0009.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading0009.png; sourceTree = "<group>"; };
+		7347BF0B1A2D1E0E00933BEC /* loading0010.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading0010.png; sourceTree = "<group>"; };
 		7347E6321A274E6B0085C9E4 /* SPService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPService.h; sourceTree = "<group>"; };
 		7347E6331A274E6B0085C9E4 /* SPService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPService.m; sourceTree = "<group>"; };
 		734C4B1E1A116187004E22A0 /* sair@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sair@2x.png"; sourceTree = "<group>"; };
@@ -2064,6 +2084,23 @@
 			name = IHKeyBoard;
 			sourceTree = "<group>";
 		};
+		7347BF011A2D1DF800933BEC /* imagens */ = {
+			isa = PBXGroup;
+			children = (
+				7347BF021A2D1E0E00933BEC /* loading0001.png */,
+				7347BF031A2D1E0E00933BEC /* loading0002.png */,
+				7347BF041A2D1E0E00933BEC /* loading0003.png */,
+				7347BF051A2D1E0E00933BEC /* loading0004.png */,
+				7347BF061A2D1E0E00933BEC /* loading0005.png */,
+				7347BF071A2D1E0E00933BEC /* loading0006.png */,
+				7347BF081A2D1E0E00933BEC /* loading0007.png */,
+				7347BF091A2D1E0E00933BEC /* loading0008.png */,
+				7347BF0A1A2D1E0E00933BEC /* loading0009.png */,
+				7347BF0B1A2D1E0E00933BEC /* loading0010.png */,
+			);
+			name = imagens;
+			sourceTree = "<group>";
+		};
 		7347E62F1A274C250085C9E4 /* Imagens */ = {
 			isa = PBXGroup;
 			children = (
@@ -2113,6 +2150,7 @@
 		735A3BB51A1CFA7600292A62 /* Loading */ = {
 			isa = PBXGroup;
 			children = (
+				7347BF011A2D1DF800933BEC /* imagens */,
 				735A3BB61A1CFA8A00292A62 /* LoadingViewController.h */,
 				735A3BB71A1CFA8A00292A62 /* LoadingViewController.m */,
 				735A3BB81A1CFA8A00292A62 /* LoadingViewController.xib */,
@@ -4031,6 +4069,7 @@
 				73A606AF1A265E31008408E9 /* hu_groups_icon@2x.png in Resources */,
 				1BEA45A21992C7A100876D75 /* 6.png in Resources */,
 				73A607741A265E31008408E9 /* HUDeleteInformationViewController.xib in Resources */,
+				7347BF141A2D1E0E00933BEC /* loading0009.png in Resources */,
 				3153016E19EDBA060041127C /* config.png in Resources */,
 				73A6066A1A265E31008408E9 /* Icon-Spotlight-40@2x.png in Resources */,
 				73A6069A1A265E31008408E9 /* btn_slider_thumb.png in Resources */,
@@ -4059,6 +4098,7 @@
 				73A606E71A265E31008408E9 /* hp_wall_tableview_bottom_shadow@2x.png in Resources */,
 				73A606841A265E31008408E9 /* no_messages_icon.png in Resources */,
 				73F6F71119A63F980003B408 /* deselecionado.png in Resources */,
+				7347BF121A2D1E0E00933BEC /* loading0007.png in Resources */,
 				73A606EA1A265E31008408E9 /* albums_more_icon.png in Resources */,
 				31F83E1D192E85050070D597 /* TBFiltroInstrumento.xib in Resources */,
 				73A606F91A265E31008408E9 /* location_more_icon_active@2x.png in Resources */,
@@ -4067,6 +4107,7 @@
 				73A6060E1A265E31008408E9 /* Default.png in Resources */,
 				73A606621A265E31008408E9 /* hu_magnifying_glass@2x.png in Resources */,
 				73A606AB1A265E31008408E9 /* search_icon_black@2x.png in Resources */,
+				7347BF0E1A2D1E0E00933BEC /* loading0003.png in Resources */,
 				73A606CA1A265E31008408E9 /* table_arrow_gray@2x.png in Resources */,
 				31FB8CDB19CA25BF00ECEBDF /* WalkwayBold.otf in Resources */,
 				73A606DC1A265E31008408E9 /* comment_number_ballon@2x.png in Resources */,
@@ -4086,6 +4127,7 @@
 				31A004401993F0CA00121EF6 /* TelaBandaViewController.xib in Resources */,
 				1BEA45971992C7A100876D75 /* 10.png in Resources */,
 				73A6069D1A265E31008408E9 /* btn_slider_thumb_pressed@2x.png in Resources */,
+				7347BF101A2D1E0E00933BEC /* loading0005.png in Resources */,
 				73A606DD1A265E31008408E9 /* delete@2x.png in Resources */,
 				73A606761A265E31008408E9 /* hp_login_fields_background@2x.png in Resources */,
 				73A6064E1A265E31008408E9 /* LoadingAnimation1.png in Resources */,
@@ -4125,6 +4167,7 @@
 				73A606D71A265E31008408E9 /* cell_mic_voice_icon.png in Resources */,
 				73A606781A265E31008408E9 /* hp_server_field_background_no_arrow.png in Resources */,
 				73A606C31A265E31008408E9 /* icon_addgroup@2x.png in Resources */,
+				7347BF111A2D1E0E00933BEC /* loading0006.png in Resources */,
 				73A6067F1A265E31008408E9 /* favorites_icon@2x.png in Resources */,
 				73A606E21A265E31008408E9 /* hp_show_media_button.png in Resources */,
 				73A6065F1A265E31008408E9 /* hu_dismiss_button.png in Resources */,
@@ -4143,6 +4186,7 @@
 				73A606AE1A265E31008408E9 /* hu_background_pattern@2x.png in Resources */,
 				1BEA45A31992C7A100876D75 /* 15.png in Resources */,
 				73029BA719819A4200BFB4B3 /* TBFiltroHorario.xib in Resources */,
+				7347BF0C1A2D1E0E00933BEC /* loading0001.png in Resources */,
 				73A606F21A265E31008408E9 /* emoji_more_icon.png in Resources */,
 				73A606B21A265E31008408E9 /* hu_personalwall_icon@2x.png in Resources */,
 				73A606791A265E31008408E9 /* hp_nav_bar_background.png in Resources */,
@@ -4160,6 +4204,7 @@
 				1B3BF26319F6D19200ECE606 /* TelaPerfilBandaViewController.xib in Resources */,
 				73A605EA1A265E31008408E9 /* InfoPlist.strings in Resources */,
 				73A606E31A265E31008408E9 /* hp_show_media_button@2x.png in Resources */,
+				7347BF151A2D1E0E00933BEC /* loading0010.png in Resources */,
 				73A607001A265E31008408E9 /* video_more_icon_active.png in Resources */,
 				73A606A21A265E31008408E9 /* hu_mic_button_new.png in Resources */,
 				73A606751A265E31008408E9 /* hp_login_fields_background.png in Resources */,
@@ -4172,6 +4217,7 @@
 				31EC794519F81B94004CB4A9 /* placeholderFoto.png in Resources */,
 				318E60EC1A00095F006DD95F /* seta_tabbar.png in Resources */,
 				73A606591A265E31008408E9 /* hp_email_field.png in Resources */,
+				7347BF0D1A2D1E0E00933BEC /* loading0002.png in Resources */,
 				73A606B11A265E31008408E9 /* hu_logout_icon@2x.png in Resources */,
 				73A6066D1A265E31008408E9 /* location_bubble.png in Resources */,
 				73A606CF1A265E31008408E9 /* hu_play_button.png in Resources */,
@@ -4183,6 +4229,7 @@
 				73A607561A265E31008408E9 /* MyProflieView.xib in Resources */,
 				73A606681A265E31008408E9 /* Icon-60@2x.png in Resources */,
 				73A606C71A265E31008408E9 /* icon_users@2x.png in Resources */,
+				7347BF0F1A2D1E0E00933BEC /* loading0004.png in Resources */,
 				73A606A11A265E31008408E9 /* btn_slider_track_pressed@2x.png in Resources */,
 				31F67C75193515CC00113DA8 /* escrever.png in Resources */,
 				31EC795719F824A1004CB4A9 /* audio.png in Resources */,
@@ -4203,6 +4250,7 @@
 				73A606871A265E31008408E9 /* not_in_favorites_icon@2x.png in Resources */,
 				73A607011A265E31008408E9 /* video_more_icon_active@2x.png in Resources */,
 				73A606AD1A265E31008408E9 /* shadow_up@2x.png in Resources */,
+				7347BF131A2D1E0E00933BEC /* loading0008.png in Resources */,
 				73A606F11A265E31008408E9 /* camera_more_icon_active@2x.png in Resources */,
 				73A606C21A265E31008408E9 /* hp_signup_fields_background@2x.png in Resources */,
 				31C31744194783B700C99512 /* delete.png in Resources */,

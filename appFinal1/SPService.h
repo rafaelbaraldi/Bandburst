@@ -17,7 +17,7 @@
 
 +(void)signUp:(NSString*)email nome:(NSString*)nome senha:(NSString*)senha;
 
-+(void)logIn:(NSString*)email senha:(NSString*)senha;
++(void)logIn:(NSString*)email;
 
 +(void)updateUser:(Usuario*)usuario;
 

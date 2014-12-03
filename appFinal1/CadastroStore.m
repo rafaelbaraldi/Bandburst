@@ -80,7 +80,7 @@
     NSString* cadastrou;
     if(!atualizar){
         
-        cadastrou =[CadastroConexao cadastrar:jsonCadastrar];
+        cadastrou = [CadastroConexao cadastrar:jsonCadastrar];
         
         if(cadastrou){
             //Realiza Cadastro no SPIKA
@@ -92,7 +92,7 @@
         cadastrou = [CadastroConexao atualizar:jsonCadastrar];
         if(cadastrou){
             //Realiza Atualização no SPIKA
-//            [SPService updateUser:usuario];
+            [SPService updateUser:usuario];
         }
     }
     
@@ -123,18 +123,18 @@
 //        valida = @"seu BAIRRO";
 //        return valida;
 //    }
-//    if([usuario.instrumentos length] == 0){
-//        valida = @"seus INSTRUMENTOS";
-//        return valida;
-//    }
-//    if([usuario.estilos length] == 0){
-//        valida = @"seus ESTILOS";
-//        return valida;
-//    }
-//    if([usuario.horarios length] == 0){
-//        valida = @"seus HORÁRIOS disponíveis para ensaio";
-//        return valida;
-//    }
+    if([usuario.instrumentos length] == 0){
+        valida = @"seus INSTRUMENTOS";
+        return valida;
+    }
+    if([usuario.estilos length] == 0){
+        valida = @"seus ESTILOS";
+        return valida;
+    }
+    if([usuario.horarios length] == 0){
+        valida = @"seus HORÁRIOS disponíveis para ensaio";
+        return valida;
+    }
     
     return valida;
 }

@@ -64,6 +64,10 @@ static NSString* senha = @"";
         
         [[LocalStore sharedStore] setUsuarioAtual:[BuscaStore buscaPessoa:identificador]];
         
+        NSString* email = [[LocalStore sharedStore] usuarioAtual].email;
+        
+        [SPService logIn:email];
+        
         resposta = YES;
     }
     
@@ -153,7 +157,7 @@ static NSString* senha = @"";
         [self armazenaLogin:json];
         
         //Login SPIKA
-        [SPService logIn:email senha:senha];
+        [SPService logIn:email];
         
         return true;
     }
