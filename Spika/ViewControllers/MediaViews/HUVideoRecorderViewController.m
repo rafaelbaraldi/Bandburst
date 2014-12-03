@@ -164,7 +164,7 @@
 	do {
 		NSString *extension = (__bridge_transfer NSString *)UTTypeCopyPreferredTagWithClass((__bridge CFStringRef)exportSession.outputFileType, kUTTagClassFilenameExtension);
         NSString *fileNameNoExtension = [[_fileURL URLByDeletingPathExtension] lastPathComponent];
-		NSString *fileName = [NSString stringWithFormat:@"%@-%d",fileNameNoExtension , count];
+		NSString *fileName = [NSString stringWithFormat:@"%@-%d",fileNameNoExtension , (int)count];
 		filePath = NSTemporaryDirectory();
 		filePath = [filePath stringByAppendingPathComponent:fileName];
 		filePath = [filePath stringByAppendingPathExtension:extension];

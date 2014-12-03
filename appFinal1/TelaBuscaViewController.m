@@ -58,12 +58,10 @@
     [self carregaUsuarioBuscado];
 
     [self atualizaTela];
-    
-    
-//    self.navigationController.navigationBar.topItem.title = @"YourTitle";
 }
 
 - (void)viewDidLoad{
+    
     [super viewDidLoad];
     
     //Metodo de Busca por cidade

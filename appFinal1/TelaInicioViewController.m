@@ -21,20 +21,16 @@
     if (self) {
         
         [[self navigationItem] setTitle:@"Bandburst"];
-        [[self navigationItem] setHidesBackButton:YES];
         
     }
     return self;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
-    
-//    [[self navigationController] setNavigationBarHidden:YES];
 
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
-//    [[self navigationController] setNavigationBarHidden:NO];
 }
 
 - (void)viewDidLoad{
