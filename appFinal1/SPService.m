@@ -43,106 +43,106 @@
 
 +(void) newGRoup:(NSString*)groupName{
 
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
-        NSString *groupPassword = @"";
-        NSString *description = @"";
-        NSString *selectedCategoryID = @"";
-        NSString *category = @"";
-        
-        ModelUser *user = [[UserManager defaultManager] getLoginedUser];
-        
-        [[DatabaseManager defaultManager]
-         
-         createGroup:groupName
-         description:description
-         password:groupPassword
-         categoryID:selectedCategoryID
-         categoryName:category
-         ower:user
-         avatarImage:nil
-         success:^(BOOL isSuccess, NSString *errStr) {}
-         error:^(NSString *errStr) {
-         }];
-        
-    });
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//        
+//        NSString *groupPassword = @"";
+//        NSString *description = @"";
+//        NSString *selectedCategoryID = @"";
+//        NSString *category = @"";
+//        
+//        ModelUser *user = [[UserManager defaultManager] getLoginedUser];
+//        
+//        [[DatabaseManager defaultManager]
+//         
+//         createGroup:groupName
+//         description:description
+//         password:groupPassword
+//         categoryID:selectedCategoryID
+//         categoryName:category
+//         ower:user
+//         avatarImage:nil
+//         success:^(BOOL isSuccess, NSString *errStr) {}
+//         error:^(NSString *errStr) {
+//         }];
+//        
+//    });
 }
 
 +(void)updateUser:(Usuario*)usuario{
     
-    ModelUser *user = [UserManager defaultManager].getLoginedUser;
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        
-        user.name = usuario.nome;
-        user.email = usuario.email;
-        user.password = usuario.senha;
-        
-        [[DatabaseManager defaultManager] updateUser:user
-                                            oldEmail:usuario.email
-                                             success:^(BOOL isSuccess, NSString *errStr){
-
-                                                 
-                                             } error:^(NSString *errStr){
-                                             }];
-        
-    });
+//    ModelUser *user = [UserManager defaultManager].getLoginedUser;
+//    
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        
+//        user.name = usuario.nome;
+//        user.email = usuario.email;
+//        user.password = usuario.senha;
+//        
+//        [[DatabaseManager defaultManager] updateUser:user
+//                                            oldEmail:usuario.email
+//                                             success:^(BOOL isSuccess, NSString *errStr){
+//
+//                                                 
+//                                             } error:^(NSString *errStr){
+//                                             }];
+//        
+//    });
     
     
 }
 
 +(void)logIn:(NSString *)email{
     
-    NSDictionary *jsonUser = [self getUserSpika:email];
-    NSString *senha = [jsonUser valueForKeyPath:@"password"];
-    
-    __block NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-    
-    DMFindOneBlock successBlock = ^(ModelUser *user){
-        
-        if(user){
-            [userDefault setObject:email forKey:UserDefaultLastLoginEmail];
-            [userDefault setObject:senha forKey:UserDefaultLastLoginPass];
-            [userDefault synchronize];
-        }
-    };
-    
-    DMErrorBlock errorBlock = ^(NSString *errStr){};
-    
-    [[DatabaseManager defaultManager] loginUserByEmail:email
-                                              password:senha
-                                               success:successBlock
-                                                 error:errorBlock];
-    
-   
-    [self autenticaLoginEmail:email];
+//    NSDictionary *jsonUser = [self getUserSpika:email];
+//    NSString *senha = [jsonUser valueForKeyPath:@"password"];
+//    
+//    __block NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+//    
+//    DMFindOneBlock successBlock = ^(ModelUser *user){
+//        
+//        if(user){
+//            [userDefault setObject:email forKey:UserDefaultLastLoginEmail];
+//            [userDefault setObject:senha forKey:UserDefaultLastLoginPass];
+//            [userDefault synchronize];
+//        }
+//    };
+//    
+//    DMErrorBlock errorBlock = ^(NSString *errStr){};
+//    
+//    [[DatabaseManager defaultManager] loginUserByEmail:email
+//                                              password:senha
+//                                               success:successBlock
+//                                                 error:errorBlock];
+//    
+//   
+//    [self autenticaLoginEmail:email];
 }
 
 +(void)signUp:(NSString*)email nome:(NSString*)nome senha:(NSString*)senha{
     
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
-    [[DatabaseManager defaultManager] createUserByEmail:email
-                                                   name:nome
-                                               password:senha
-                                                success:^(BOOL isSuccess, NSString *errStr){
-                                                    
-                                                    dispatch_async(dispatch_get_main_queue(), ^{
-                                                        
-                                                        if(isSuccess == YES){
-                                                            
-                                                            NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-                                                            [userDefault setObject:email forKey:UserDefaultLastLoginEmail];
-                                                            [userDefault setObject:senha forKey:UserDefaultLastLoginPass];
-                                                            [userDefault synchronize];
-                                                            
-                                                            [self setIdUserSpikaEmail:email];
-                                                        }
-                                                    });
-                                                }
-                                                error:^(NSString *errStr){
-                                                }];
-    });
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//        
+//    [[DatabaseManager defaultManager] createUserByEmail:email
+//                                                   name:nome
+//                                               password:senha
+//                                                success:^(BOOL isSuccess, NSString *errStr){
+//                                                    
+//                                                    dispatch_async(dispatch_get_main_queue(), ^{
+//                                                        
+//                                                        if(isSuccess == YES){
+//                                                            
+//                                                            NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+//                                                            [userDefault setObject:email forKey:UserDefaultLastLoginEmail];
+//                                                            [userDefault setObject:senha forKey:UserDefaultLastLoginPass];
+//                                                            [userDefault synchronize];
+//                                                            
+//                                                            [self setIdUserSpikaEmail:email];
+//                                                        }
+//                                                    });
+//                                                }
+//                                                error:^(NSString *errStr){
+//                                                }];
+//    });
 }
 
 //Salva id no Bandburst do usuario SPIKA

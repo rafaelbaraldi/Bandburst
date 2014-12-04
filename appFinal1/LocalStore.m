@@ -163,7 +163,7 @@
     _TBFiltroHorario = [[TBFiltroHorario alloc] initWithNibName:@"TBFiltroHorario" bundle:nil];
     _TBFiltroInstrumento = [[TBFiltroInstrumento alloc] initWithNibName:@"TBFiltroInstrumento" bundle:nil];
     
-//    _TelaLoading = [[LoadingViewController alloc] initWithNibName:@"LoadingViewController" bundle:nil];
+    _TelaLoading = [[LoadingViewController alloc] initWithNibName:@"LoadingViewController" bundle:nil];
 }
 
 -(void)carregaContexto{

@@ -134,8 +134,11 @@
         if ([LocalStore verificaSeTemInternet]) {
             
             //Add Load
-            UIView *loading = [[LoadingViewController alloc] initWithNibName:nil bundle:nil].view;
-            [self.view addSubview:loading];
+            LoadingViewController *loading = [[LocalStore sharedStore] TelaLoading];
+            
+            [self addChildViewController:loading];
+            [self.view addSubview:loading.view];
+            
             [self.navigationController.navigationBar setUserInteractionEnabled:NO];
             [self.tabBarController.tabBar setUserInteractionEnabled:NO];
             
@@ -154,7 +157,7 @@
                     }
                     
                     //Remove Load
-                    [loading removeFromSuperview];
+                    [[loading view] removeFromSuperview];
                     [self.navigationController.navigationBar setUserInteractionEnabled:YES];
                     [self.tabBarController.tabBar setUserInteractionEnabled:YES];
                 });

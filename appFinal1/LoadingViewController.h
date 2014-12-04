@@ -2,7 +2,7 @@
 //  LoadingViewController.h
 //  Bandburst
 //
-//  Created by Rafael Cardoso on 19/11/14.
+//  Created by RAFAEL CARDOSO DA SILVA on 04/12/14.
 //  Copyright (c) 2014 RAFAEL BARALDI. All rights reserved.
 //
 

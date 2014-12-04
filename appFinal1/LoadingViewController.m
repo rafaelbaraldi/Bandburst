@@ -2,7 +2,7 @@
 //  LoadingViewController.m
 //  Bandburst
 //
-//  Created by Rafael Cardoso on 19/11/14.
+//  Created by RAFAEL CARDOSO DA SILVA on 04/12/14.
 //  Copyright (c) 2014 RAFAEL BARALDI. All rights reserved.
 //
 
@@ -14,7 +14,22 @@
 
 @implementation LoadingViewController
 
--(instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+}
+
+-(void)viewWillAppear:(BOOL)animated{
     
     //Bloquea o acesso do usuario na View
     [self.view setUserInteractionEnabled:YES];
@@ -40,27 +55,8 @@
     [self.view addSubview:loading];
     
     [self animacaoSprite:loading :imageArray :2 :100 :YES :YES :0];
-    
-    return self;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    
-    //Load
-//    UIActivityIndicatorView *load = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-//    [load setCenter:CGPointMake(self.view.center.x - 140, self.view.center.y)];
-//    [load startAnimating];
-//    [self.view addSubview:load];
-
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-
-}
 -(void)animacaoSprite:(UIImageView*)view :(NSArray*)imagensSprite :(float)duracao :(float)repeticao :(BOOL)autoReverso :(BOOL)voltarAoEstadoInicial :(float)tempoDelayComecar{
     
     view.animationImages = imagensSprite;
@@ -69,7 +65,7 @@
     animacao.calculationMode = kCAAnimationDiscrete;
     animacao.duration = duracao;
     animacao.repeatCount = INFINITY;
-//    animacao.autoreverses = autoReverso;
+    //    animacao.autoreverses = autoReverso;
     animacao.beginTime = CACurrentMediaTime() + tempoDelayComecar;
     animacao.fillMode = kCAFillModeForwards;
     animacao.removedOnCompletion = voltarAoEstadoInicial;
@@ -88,14 +84,10 @@
     return [NSArray arrayWithArray:array];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
-*/
 
 @end
