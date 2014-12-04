@@ -426,4 +426,28 @@ const int OBSERVACOES = 2;
             break;
     }
 }
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField{
+    if(textField.tag == 2)
+        [self animateTextField: textField up: YES];
+}
+
+
+- (void)textFieldDidEndEditing:(UITextField *)textField{
+    if(textField.tag == 2)
+        [self animateTextField: textField up: NO];
+}
+
+- (void) animateTextField: (UITextField*) textField up: (BOOL) up{
+    const int movementDistance = 160; // tweak as needed
+    const float movementDuration = 0.3f; // tweak as needed
+    
+    int movement = (up ? -movementDistance : movementDistance);
+    
+    [UIView beginAnimations: @"anim" context: nil];
+    [UIView setAnimationBeginsFromCurrentState: YES];
+    [UIView setAnimationDuration: movementDuration];
+    self.view.frame = CGRectOffset(self.view.frame, 0, movement);
+    [UIView commitAnimations];
+}
 @end
