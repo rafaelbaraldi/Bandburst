@@ -15,7 +15,7 @@
 +(NSString*)cadastrar:(NSData*)jsonCadastro;
 +(NSString*)atualizar:(NSData*)jsonCadastro;
 
-+(void)uploadFoto:(UIImage*)foto;
++(BOOL)uploadFoto:(UIImage*)foto;
 
 +(NSString*)validarEmail:(NSString*)email;
 

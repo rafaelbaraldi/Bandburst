@@ -14,7 +14,7 @@
 
 @implementation CadastroConexao
 
-+(void)uploadFoto:(UIImage*)foto{
++(BOOL)uploadFoto:(UIImage*)foto{
 
     NSString *url = @"http://54.207.112.185/appMusica/cadastroFoto.php";
 
@@ -36,8 +36,16 @@
     [body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
     [request setHTTPBody:body];
 
-    [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-//    NSString* s = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
+    NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    NSString* s = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
+    
+    if([s isEqualToString:@""]){
+        return YES;
+    }
+    else{
+        return NO;
+    }
+    
 //    NSLog(@"%@ -- %@",s, [[LocalStore sharedStore] usuarioAtual].identificador);
 }
 

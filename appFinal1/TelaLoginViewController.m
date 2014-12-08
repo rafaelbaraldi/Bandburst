@@ -135,10 +135,8 @@
             
             //Add Load
             LoadingViewController *loading = [[LocalStore sharedStore] TelaLoading];
-            
             [self addChildViewController:loading];
             [self.view addSubview:loading.view];
-            
             [self.navigationController.navigationBar setUserInteractionEnabled:NO];
             [self.tabBarController.tabBar setUserInteractionEnabled:NO];
             

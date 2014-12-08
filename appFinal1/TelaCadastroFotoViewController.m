@@ -166,20 +166,62 @@
 
 - (IBAction)btnContinuarClick:(id)sender {
     
-    //Verificar se carregou alguma foto
-    if (_fotoSelecionada.image != nil && _trocouImagem) {
-        UIImage *foto = _fotoSelecionada.image;
-        foto = [self imageWithImage:foto scaledToSize:CGSizeMake(96, 128)];
+    //Funcao que Vai usar a Internet
+    //Verifica se tem internet
+    if ([LocalStore verificaSeTemInternet]) {
         
-        //Salva imagem no servidor
-        [CadastroConexao uploadFoto:foto];
-        
-        //Altera imagem no cache
-        [[SDImageCache sharedImageCache] storeImage:foto forKey:[NSString stringWithFormat:@"http://54.207.112.185/appMusica/FotosDePerfil/%@.png", [[LocalStore sharedStore] usuarioAtual].identificador]];
-        
-        //Precisa trocar a foto na proxima vez para salvar
-        _trocouImagem = NO;
+        //Verificar se carregou alguma foto
+        if (_fotoSelecionada.image != nil && _trocouImagem) {
+            UIImage *foto = _fotoSelecionada.image;
+            foto = [self imageWithImage:foto scaledToSize:CGSizeMake(96, 128)];
+            
+            //Add Load
+            LoadingViewController *loading = [[LocalStore sharedStore] TelaLoading];
+            [self addChildViewController:loading];
+            [self.view addSubview:loading.view];
+            [self.navigationController.navigationBar setUserInteractionEnabled:NO];
+            [self.tabBarController.tabBar setUserInteractionEnabled:NO];
+            
+            
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                
+                //Salva imagem no servidor
+                BOOL cadastro = [CadastroConexao uploadFoto:foto];
+                
+                dispatch_async(dispatch_get_main_queue(), ^(void) {
+                
+                    if(cadastro){
+                        //Altera imagem no cache
+                        [[SDImageCache sharedImageCache] storeImage:foto forKey:[NSString stringWithFormat:@"http://54.207.112.185/appMusica/FotosDePerfil/%@.png", [[LocalStore sharedStore] usuarioAtual].identificador]];
+                        
+                        //Precisa trocar a foto na proxima vez para salvar
+                        _trocouImagem = NO;
+                    }
+                    
+                    //Remove Load
+                    [[loading view] removeFromSuperview];
+                    [self.navigationController.navigationBar setUserInteractionEnabled:YES];
+                    [self.tabBarController.tabBar setUserInteractionEnabled:YES];
+                    
+                    [self voltaViewController];
+                });
+            });
+        }
+        else{
+            [self voltaViewController];
+        }
     }
+    else{
+        UILabel*lblSemNet = [LocalStore viewSemInternet];
+        
+        [self.view addSubview:lblSemNet];
+        [LocalStore showViewSemNet:lblSemNet];
+        
+        [self voltaViewController];
+    }
+}
+
+-(void)voltaViewController{
     
     //Limpa Imagem
     _fotoSelecionada.image = [UIImage imageNamed:@"placeholderFoto.png"];
@@ -187,7 +229,6 @@
     //Verifica para qual View deve seguir
     UIViewController *vc;
     if([[CadastroStore sharedStore] cadastro]){
-        
         [[self navigationController] popToRootViewControllerAnimated:YES];
     }
     else{
