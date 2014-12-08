@@ -10,12 +10,13 @@
 
 #import "TPBanda.h"
 
-@interface TelaBandaViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface TelaBandaViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 
 @property TPBanda* banda;
 
 @property (strong, nonatomic) IBOutlet UITableView *tbMensagens;
 
 - (IBAction)txtMensagemSend:(id)sender;
+@property (strong, nonatomic) IBOutlet UITextField *txtMensagem;
 
 @end

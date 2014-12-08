@@ -63,6 +63,10 @@ const int ALERTA_EXCLUIR_BANDA = 4;
     //Carrega nome da Banda
     _lblNome.text = _banda.nome;
     [_lblNome sizeToFit];
+    
+    if (self.tabBarController.tabBar.hidden) {
+        [LocalStore showTabBar:self.tabBarController];
+    }
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
@@ -400,8 +404,10 @@ const int ALERTA_EXCLUIR_BANDA = 4;
 }
 
 - (IBAction)btnCharClick:(id)sender {
-    TelaBandaViewController* vc = [[LocalStore sharedStore] TelaBanda];
     
+//    [LocalStore hideTabBar:self.tabBarController];
+    
+    TelaBandaViewController* vc = [[LocalStore sharedStore] TelaBanda];
     if ([LocalStore verificaSeViewJaEstaNaPilha:[[self navigationController] viewControllers] proximaTela:vc]) {
         [[self navigationController] popToViewController:vc animated:NO];
     }

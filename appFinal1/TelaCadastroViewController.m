@@ -42,8 +42,6 @@ const int OBSERVACOES = 2;
 - (void)viewDidLoad{
     [super viewDidLoad];
     
-//    [IHKeyboardAvoiding setAvoidingView:self.view withTarget:_target];
-    
     if (_ehEdicao) {
         [self corregaCamposEdicao];
     }

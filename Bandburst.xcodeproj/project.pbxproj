@@ -87,6 +87,7 @@
 		3106DE431A30E825000B154C /* LoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3106DE411A30E825000B154C /* LoadingViewController.xib */; };
 		3153016A19EDAE2B0041127C /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3153016919EDAE2B0041127C /* logo.png */; };
 		3153016E19EDBA060041127C /* config.png in Resources */ = {isa = PBXBuildFile; fileRef = 3153016D19EDBA060041127C /* config.png */; };
+		315845281A362C2B002C1F27 /* mensagem.png in Resources */ = {isa = PBXBuildFile; fileRef = 315845271A362C2B002C1F27 /* mensagem.png */; };
 		316AAA07199E8C81001CE96B /* CellTituloMusica.xib in Resources */ = {isa = PBXBuildFile; fileRef = 316AAA06199E8C81001CE96B /* CellTituloMusica.xib */; };
 		316DECD419F5A0D900141E3D /* config@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 316DECD319F5A0D900141E3D /* config@2x.png */; };
 		3181DBB719EF0E57002CAF55 /* TelaPerfilViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3181DBB619EF0E57002CAF55 /* TelaPerfilViewController.xib */; };
@@ -309,6 +310,7 @@
 		3106DE411A30E825000B154C /* LoadingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingViewController.xib; sourceTree = "<group>"; };
 		3153016919EDAE2B0041127C /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		3153016D19EDBA060041127C /* config.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = config.png; sourceTree = "<group>"; };
+		315845271A362C2B002C1F27 /* mensagem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mensagem.png; sourceTree = "<group>"; };
 		316AAA06199E8C81001CE96B /* CellTituloMusica.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellTituloMusica.xib; sourceTree = "<group>"; };
 		316DECD319F5A0D900141E3D /* config@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "config@2x.png"; sourceTree = "<group>"; };
 		3181DBB619EF0E57002CAF55 /* TelaPerfilViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TelaPerfilViewController.xib; sourceTree = "<group>"; };
@@ -505,6 +507,9 @@
 			isa = PBXGroup;
 			children = (
 				734C4B1D1A10EC4E004E22A0 /* sem uso */,
+				31A0043C1993F0CA00121EF6 /* TelaBandaViewController.h */,
+				31A0043D1993F0CA00121EF6 /* TelaBandaViewController.m */,
+				31A0043E1993F0CA00121EF6 /* TelaBandaViewController.xib */,
 				1B1613041992A2A1009D5513 /* TelaNovaBandaViewController.h */,
 				1B1613051992A2A1009D5513 /* TelaNovaBandaViewController.m */,
 				1B1613061992A2A1009D5513 /* TelaNovaBandaViewController.xib */,
@@ -863,6 +868,7 @@
 				1B67BD8319D9F00500A663EC /* gravar.png */,
 				1B41D5E219EF10ED00D6D034 /* gravarIcon@2x.png */,
 				3153016919EDAE2B0041127C /* logo.png */,
+				315845271A362C2B002C1F27 /* mensagem.png */,
 				31BD71A219F9685200388774 /* pause.png */,
 				31EC795319F824A1004CB4A9 /* playing.png */,
 				31EC794419F81B94004CB4A9 /* placeholderFoto.png */,
@@ -930,9 +936,6 @@
 		734C4B1D1A10EC4E004E22A0 /* sem uso */ = {
 			isa = PBXGroup;
 			children = (
-				31A0043C1993F0CA00121EF6 /* TelaBandaViewController.h */,
-				31A0043D1993F0CA00121EF6 /* TelaBandaViewController.m */,
-				31A0043E1993F0CA00121EF6 /* TelaBandaViewController.xib */,
 				1B06F7A3199414C700A6338C /* TelaInfosBandaViewController.h */,
 				1B06F7A4199414C700A6338C /* TelaInfosBandaViewController.m */,
 				1B06F7A5199414C700A6338C /* TelaInfosBandaViewController.xib */,
@@ -1250,6 +1253,7 @@
 				3106DE431A30E825000B154C /* LoadingViewController.xib in Resources */,
 				73EC6E93196B121B0034CB9B /* TelaLoginViewController.xib in Resources */,
 				1BEA459E1992C7A100876D75 /* 14.png in Resources */,
+				315845281A362C2B002C1F27 /* mensagem.png in Resources */,
 				1B5239601995537800D2A640 /* TelaMusicasViewController.xib in Resources */,
 				1BEA45A11992C7A100876D75 /* 16.png in Resources */,
 				1BEA45A51992C7A100876D75 /* 7.png in Resources */,
