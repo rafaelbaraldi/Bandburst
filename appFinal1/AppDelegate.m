@@ -45,7 +45,6 @@
     
     //Navigation Controller - Alterar Cores
     UINavigationController *navegacao = [[UINavigationController alloc] initWithRootViewController:telaVc];
-    [navegacao.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [[LocalStore sharedStore] FONTECOR]}];
     
     [[UITextField appearance] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14]];
     [[UILabel appearance] setFont:[UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14]];

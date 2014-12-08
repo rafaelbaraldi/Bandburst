@@ -62,6 +62,11 @@
 
 - (void)viewDidLoad{
     
+    
+//    [UIFont fontWithName:@"QuicksandBook-Regular" size:18]
+    
+//    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"QuicksandBook-Regular" size:18], NSFontAttributeName, nil]];
+    
     [super viewDidLoad];
     
     //Metodo de Busca por cidade

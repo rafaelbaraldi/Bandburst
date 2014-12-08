@@ -39,6 +39,12 @@
     
     [[[self navigationController] navigationBar] setTintColor:[[LocalStore sharedStore] FONTECOR]];
     [self carregaLayout];
+    
+    
+    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"QuicksandBook-Regular" size:19], NSFontAttributeName,
+                                [[LocalStore sharedStore] FONTECOR], NSForegroundColorAttributeName, nil];
+    
+    [self.navigationController.navigationBar setTitleTextAttributes: attributes];
 }
 
 -(void) verificaSeEstaLogado{

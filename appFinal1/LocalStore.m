@@ -97,13 +97,16 @@
     UINavigationController* nav4 = [[UINavigationController alloc] initWithRootViewController:[[LocalStore sharedStore] TelaBusca]];
     UINavigationController* nav5 = [[UINavigationController alloc] initWithRootViewController:[[LocalStore sharedStore] TelaPerfil]];
     
+    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"QuicksandBook-Regular" size:19], NSFontAttributeName,
+                                [[LocalStore sharedStore] FONTECOR], NSForegroundColorAttributeName, nil];
+    
+    [nav3.navigationBar setTitleTextAttributes: attributes];
+    [nav4.navigationBar setTitleTextAttributes: attributes];
+    [nav5.navigationBar setTitleTextAttributes: attributes];
+    
     [nav3.navigationBar setTintColor:[[LocalStore sharedStore] FONTECOR]];
     [nav4.navigationBar setTintColor:[[LocalStore sharedStore] FONTECOR]];
     [nav5.navigationBar setTintColor:[[LocalStore sharedStore] FONTECOR]];
-    
-    [nav3.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [[LocalStore sharedStore] FONTECOR]}];
-    [nav4.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [[LocalStore sharedStore] FONTECOR]}];
-    [nav5.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName: [[LocalStore sharedStore] FONTECOR]}];
     
     nav3.tabBarItem.image = [[UIImage imageNamed:@"gravarIcon.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     nav4.tabBarItem.image = [[UIImage imageNamed:@"buscador.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
