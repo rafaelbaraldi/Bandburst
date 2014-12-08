@@ -9,8 +9,8 @@
 #import "SPService.h"
 #import "Usuario.h"
 
-#import "UserManager.h"
-#import "DatabaseManager.h"
+//#import "UserManager.h"
+//#import "DatabaseManager.h"
 
 #import "LocalStore.h"
 
@@ -36,10 +36,10 @@
     return self;
 }
 
-+(ModelUser*)getUserLoged{
-    
-    return [UserManager defaultManager].getLoginedUser;
-}
+//+(ModelUser*)getUserLoged{
+//    
+//    return [UserManager defaultManager].getLoginedUser;
+//}
 
 +(void) newGRoup:(NSString*)groupName{
 
@@ -187,32 +187,32 @@
 
 +(void)autenticaLoginEmail:(NSString*)email {
     
-    NSDictionary *jsonUser = [self getUserSpika:email];
-    
-    NSMutableArray *contacts = [[NSMutableArray alloc] initWithObjects:0, nil];
-    
-    ModelUser *user = [[ModelUser alloc] init];
-    user._id = [jsonUser valueForKeyPath:@"_id"];
-    user.name = [jsonUser valueForKeyPath:@"name"];
-    user.email = [jsonUser valueForKeyPath:@"email"];
-    user.password = [jsonUser valueForKeyPath:@"password"];
-    user.gender = @"gender";
-    user.birthday = 0;
-    user.about = @"about";
-    user.onlineStatus = @"online";
-    user.contacts = contacts;
-    user.iOSPushToken = @"";
-    user.fileId = @"";
-    user.thumbFileId = @"";
-    user.favouriteGroups = 0;
-    user.attachmentsOrig = 0;
-    user.token = [jsonUser valueForKeyPath:@"token"];
-    user.tokenTimestamp = (long)[jsonUser valueForKeyPath:@"token_timestamp"];
-    user.maxContactNum = 100;
-    user.maxFavoriteNum = 100;
-    
-    
-    [[UserManager defaultManager] setLoginedUser:user];
+//    NSDictionary *jsonUser = [self getUserSpika:email];
+//    
+//    NSMutableArray *contacts = [[NSMutableArray alloc] initWithObjects:0, nil];
+//    
+//    ModelUser *user = [[ModelUser alloc] init];
+//    user._id = [jsonUser valueForKeyPath:@"_id"];
+//    user.name = [jsonUser valueForKeyPath:@"name"];
+//    user.email = [jsonUser valueForKeyPath:@"email"];
+//    user.password = [jsonUser valueForKeyPath:@"password"];
+//    user.gender = @"gender";
+//    user.birthday = 0;
+//    user.about = @"about";
+//    user.onlineStatus = @"online";
+//    user.contacts = contacts;
+//    user.iOSPushToken = @"";
+//    user.fileId = @"";
+//    user.thumbFileId = @"";
+//    user.favouriteGroups = 0;
+//    user.attachmentsOrig = 0;
+//    user.token = [jsonUser valueForKeyPath:@"token"];
+//    user.tokenTimestamp = (long)[jsonUser valueForKeyPath:@"token_timestamp"];
+//    user.maxContactNum = 100;
+//    user.maxFavoriteNum = 100;
+//    
+//    
+//    [[UserManager defaultManager] setLoginedUser:user];
     
 }
 

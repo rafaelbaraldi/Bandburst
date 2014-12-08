@@ -78,10 +78,12 @@
         
         [BandaStore criarBanda:_txtNomeDaBanda.text membros:idDosMembros idAdm:[[[LocalStore sharedStore] usuarioAtual] identificador]];
         
-        
         //Limpa e retorna
         [[[BandaStore sharedStore] membros] removeAllObjects];
         [_tbMembros reloadData];
+        
+        //Limpa nome
+        _txtNomeDaBanda.text = @"";
         
         [[self navigationController] popToViewController:[[LocalStore sharedStore] TelaPerfil] animated:YES];
     }

@@ -77,7 +77,9 @@
                         <action selector="btnEntrarClick:" destination="-1" eventType="touchUpInside" id="xbb-gm-Iwx"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x2j-YL-uEv"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x2j-YL-uEv">
+                    <rect key="frame" x="0.0" y="424" width="320" height="37"/>
+                </imageView>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="912-fn-hzB">
                     <rect key="frame" x="16" y="305" width="288" height="30"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -89,7 +91,7 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <nil key="simulatedStatusBarMetrics"/>
-            <point key="canvasLocation" x="64" y="196"/>
+            <point key="canvasLocation" x="97" y="228"/>
         </view>
     </objects>
     <resources>

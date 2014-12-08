@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <FacebookSDK/FacebookSDK.h>
+#import "VPImageCropperViewController.h"
 
-@interface TelaCadastroFotoViewController : UIViewController <UIActionSheetDelegate, UIImagePickerControllerDelegate>
+@interface TelaCadastroFotoViewController : UIViewController <UIActionSheetDelegate, UIImagePickerControllerDelegate, VPImageCropperDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *btnAdicionarFoto;
 @property (weak, nonatomic) IBOutlet UIButton *btnContinuar;

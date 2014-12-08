@@ -84,7 +84,7 @@
         
         if(cadastrou){
             //Realiza Cadastro no SPIKA
-            [SPService signUp:usuario.email nome:usuario.nome senha:usuario.senha];
+//            [SPService signUp:usuario.email nome:usuario.nome senha:usuario.senha];
         }
     }
     else{
@@ -92,7 +92,7 @@
         cadastrou = [CadastroConexao atualizar:jsonCadastrar];
         if(cadastrou){
             //Realiza Atualização no SPIKA
-            [SPService updateUser:usuario];
+//            [SPService updateUser:usuario];
         }
     }
     

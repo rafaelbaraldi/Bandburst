@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #import "Usuario.h"
-#import "ModelUser.h"
+//#import "ModelUser.h"
 
 @interface SPService : NSObject
 
@@ -23,6 +23,6 @@
 
 +(void)newGRoup:(NSString*)groupName;
 
-+(ModelUser*)getUserLoged;
+//+(ModelUser*)getUserLoged;
 
 @end
