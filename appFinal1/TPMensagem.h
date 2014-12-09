@@ -14,5 +14,6 @@
 @property NSString* identificador;
 @property NSString* idUsuario;
 @property NSString* nomeUsuario;
+@property NSString* data;
 
 @end

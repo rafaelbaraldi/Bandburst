@@ -16,7 +16,10 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *tbMensagens;
 
+- (IBAction)btnEnviarClick:(id)sender;
 - (IBAction)txtMensagemSend:(id)sender;
+
 @property (strong, nonatomic) IBOutlet UITextField *txtMensagem;
+@property (strong, nonatomic) IBOutlet UIButton *btnEnviar;
 
 @end

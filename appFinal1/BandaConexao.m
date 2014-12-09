@@ -150,7 +150,15 @@
 +(NSString*)enviaMensagem:(NSString*)mensagem idBanda:(NSString*)idBanda idUsuario:(NSString*)idUsuario{
     NSString *url = @"http://54.207.112.185/appMusica/enviaMensagem.php";
     
-    NSString *post = [NSString stringWithFormat:@"idBanda=%@&idUsuario=%@&mensagem=%@", idBanda, idUsuario, mensagem];
+    //Data de agora
+    NSDate *now = [NSDate date];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateStyle:NSDateFormatterShortStyle];
+    [formatter setTimeStyle:NSDateFormatterShortStyle];
+    [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"Brazil/SaoPaulo"]];
+    NSString *data = [formatter stringFromDate:now];
+    
+    NSString *post = [NSString stringWithFormat:@"idBanda=%@&idUsuario=%@&mensagem=%@&data=%@", idBanda, idUsuario, mensagem, data];
     
     NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     

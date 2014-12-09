@@ -155,6 +155,7 @@
         m.mensagem = [s valueForKey:@"mensagem"];
         m.idUsuario = [s valueForKey:@"usuario_id"];
         m.nomeUsuario = [s valueForKeyPath:@"usuario_nome"];
+        m.data = [s valueForKey:@"data"];
         
         [lista addObject:m];
     }

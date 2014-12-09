@@ -30,7 +30,9 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     
-
+    [self carregaLayout];
+    
+    self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
 - (void)didReceiveMemoryWarning{
@@ -51,28 +53,13 @@
     
     //Navigation Controller
     [[self navigationItem] setTitle:_banda.nome];
-    
-//    [self carregaTituloNavigationBarCustom];
 }
 
-//-(void)carregaTituloNavigationBarCustom{
-//    
-//    UIButton* button = [[UIButton alloc] initWithFrame:CGRectZero];
-//    [button setTitle:_banda.nome forState:UIControlStateNormal];
-//    [button setTitleColor:[[LocalStore sharedStore] FONTECOR] forState:UIControlStateNormal];
-//    [button addTarget:self action:@selector(dadosBanda) forControlEvents:UIControlEventTouchUpInside];
-//    [button sizeToFit];
-//    
-//    [[self navigationItem] setTitleView:button];
-//}
-//
-//-(void)dadosBanda{
-//    [[self navigationController] pushViewController:[[TelaInfosBandaViewController alloc] initWithNibName:@"TelaInfosBandaViewController" bundle:nil] animated:YES];
-//}
-
-//- (void) hideKeyboard {
-//    [_txtMensagem resignFirstResponder];
-//}
+-(void)carregaLayout{
+    [_btnEnviar setTintColor:[[LocalStore sharedStore] FONTECOR]];
+    
+    _txtMensagem.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Escreva algo" attributes:@{NSForegroundColorAttributeName: [UIColor blackColor]}];
+}
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
     
@@ -87,15 +74,26 @@
     return 1;
 }
 
-- (IBAction)txtMensagemSend:(id)sender {
-    [sender resignFirstResponder];
+-(void)enviarMensagem{
+    
+    [_txtMensagem resignFirstResponder];
     
     //Send msg
-    [BandaStore enviaMensagem:[sender text] idBanda:_banda.identificador idUsuario:[[LocalStore sharedStore] usuarioAtual].identificador];
+    if(![_txtMensagem.text isEqualToString:@""]){
+        [BandaStore enviaMensagem:_txtMensagem.text idBanda:_banda.identificador idUsuario:[[LocalStore sharedStore] usuarioAtual].identificador];
+    }
     
-    [sender setText:@""];
+    [_txtMensagem setText:@""];
     
     [self recarregaMensagens];
+}
+
+- (IBAction)btnEnviarClick:(id)sender {
+    [self enviarMensagem];
+}
+
+- (IBAction)txtMensagemSend:(id)sender {
+    [self enviarMensagem];
 }
 
 -(void)recarregaMensagens{
@@ -117,12 +115,15 @@
     else {
         UIView *texto = (UIView *)[cell viewWithTag:1];
         UIImageView *bubble = (UIImageView *)[cell viewWithTag:2];
+        UILabel *data = (UILabel *)[cell viewWithTag:3];
         if ([texto superview]) {
             [texto removeFromSuperview];
         }
-        
         if ([bubble superview]) {
             [bubble removeFromSuperview];
+        }
+        if ([data superview]) {
+            [data removeFromSuperview];
         }
     }
     
@@ -141,22 +142,30 @@
     else{
         bubble = [UIImage imageNamed:@"mensagem.png"];
     }
-    
+
     UIImageView *bubbleImageView = [[UIImageView alloc] initWithImage:[bubble stretchableImageWithLeftCapWidth:20 topCapHeight:14]];
     bubbleImageView.backgroundColor = [UIColor whiteColor];
     bubbleImageView.tag = 2;
     
+    UILabel *data = [[UILabel alloc] initWithFrame:CGRectZero];
+    data.text = msg.data;
+    data.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:11];
+    data.tag = 3;
+    
     if(msgSelf){
-        returnView.frame = CGRectMake(287 - returnView.frame.size.width, 12, returnView.frame.size.width, returnView.frame.size.height);
-        bubbleImageView.frame = CGRectMake(275 - returnView.frame.size.width, 0, returnView.frame.size.width + 24, returnView.frame.size.height + 24);
+        returnView.frame = CGRectMake(290 - returnView.frame.size.width, 12, returnView.frame.size.width, returnView.frame.size.height);
+        bubbleImageView.frame = CGRectMake(285 - returnView.frame.size.width, 0, returnView.frame.size.width + 15, returnView.frame.size.height + 24);
+        data.frame = CGRectMake(20 + 290 - bubbleImageView.frame.size.width - 102, bubbleImageView.frame.size.height - 20, 93, 20);
     }
     else{
         returnView.frame = CGRectMake(32, 12, returnView.frame.size.width, returnView.frame.size.height);
-        bubbleImageView.frame = CGRectMake(20, 0, returnView.frame.size.width + 24, returnView.frame.size.height + 24);
+        bubbleImageView.frame = CGRectMake(20, 0, returnView.frame.size.width + 15, returnView.frame.size.height + 24);
+        data.frame = CGRectMake(bubbleImageView.frame.size.width + 22, bubbleImageView.frame.size.height - 20, 93, 20);
     }
     
     [cell addSubview:bubbleImageView];
     [cell addSubview:returnView];
+    [cell addSubview:data];
 
     
     return cell;
@@ -170,6 +179,9 @@
     return returnView.frame.size.height + 15 + 24;
 }
 
+#define TAMANHO_MAXIMO_BALAO 180
+#define TAMANHO_FONTE 14
+
 -(UIView*)viewText:(TPMensagem*)msg{
     
     //Texto
@@ -177,12 +189,12 @@
     label.text = msg.mensagem;
     label.lineBreakMode = NSLineBreakByWordWrapping;
     label.numberOfLines = 0;
-    label.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:13];
+    label.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:TAMANHO_FONTE];
     
     //Tamanho do texto
-    NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:msg.mensagem attributes:@{NSFontAttributeName: [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:13]}];
+    NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:msg.mensagem attributes:@{NSFontAttributeName: [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:TAMANHO_FONTE]}];
 
-    CGRect rect = [attributedText boundingRectWithSize:(CGSize){250, CGFLOAT_MAX}
+    CGRect rect = [attributedText boundingRectWithSize:(CGSize){TAMANHO_MAXIMO_BALAO, CGFLOAT_MAX}
                                                options:NSStringDrawingUsesLineFragmentOrigin
                                                context:nil];
 
@@ -190,9 +202,9 @@
     
     
     //Tamanho do nome
-    NSAttributedString *attributedNome = [[NSAttributedString alloc] initWithString:msg.nomeUsuario attributes:@{NSFontAttributeName: [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:13]}];
+    NSAttributedString *attributedNome = [[NSAttributedString alloc] initWithString:msg.nomeUsuario attributes:@{NSFontAttributeName: [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:TAMANHO_FONTE]}];
     
-    CGRect rectNome = [attributedNome boundingRectWithSize:(CGSize){250, CGFLOAT_MAX}
+    CGRect rectNome = [attributedNome boundingRectWithSize:(CGSize){TAMANHO_MAXIMO_BALAO, CGFLOAT_MAX}
                                                options:NSStringDrawingUsesLineFragmentOrigin
                                                context:nil];
     
@@ -201,7 +213,7 @@
     UILabel *nome = [[UILabel alloc] initWithFrame:CGRectZero];
     nome.text = msg.nomeUsuario;
     nome.textColor = [[LocalStore sharedStore] FONTECOR];
-    nome.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:13];
+    nome.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:TAMANHO_FONTE];
     nome.frame = CGRectMake(0, 2, ceil(rectNome.size.width), ceil(rectNome.size.height));
     
     CGRect rectView;

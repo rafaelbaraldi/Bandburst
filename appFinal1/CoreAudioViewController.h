@@ -11,16 +11,19 @@
 #import <AVFoundation/AVFoundation.h>
 //#import "EZAudio/EZAudioPlotGL.h"
 //#import "EZAudio/EZMicrophone.h"
-
+#import "POVoiceHUD.h"
 #import "Musica.h"
 
+
 //@interface CoreAudioViewController : UIViewController <UITabBarDelegate, EZMicrophoneDelegate, UIAlertViewDelegate> {
-@interface CoreAudioViewController : UIViewController <UIAlertViewDelegate> {
+@interface CoreAudioViewController : UIViewController <UIAlertViewDelegate, POVoiceHUDDelegate> {
     
     AVAudioRecorder *recorder;
     NSURL *urlPlay;
     AVAudioPlayer *player;
 }
+
+@property (nonatomic, retain) POVoiceHUD *voiceHud;
 
 @property BOOL gravando;
 @property NSMutableArray* musicas;

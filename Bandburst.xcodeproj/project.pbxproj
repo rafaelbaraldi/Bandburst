@@ -98,6 +98,7 @@
 		31A0043F1993F0CA00121EF6 /* TelaBandaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31A0043D1993F0CA00121EF6 /* TelaBandaViewController.m */; };
 		31A004401993F0CA00121EF6 /* TelaBandaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31A0043E1993F0CA00121EF6 /* TelaBandaViewController.xib */; };
 		31BD71A319F9685200388774 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 31BD71A219F9685200388774 /* pause.png */; };
+		31BFED741A377B8F00A00008 /* POVoiceHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BFED731A377B8F00A00008 /* POVoiceHUD.m */; };
 		31C31744194783B700C99512 /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 31C31743194783B700C99512 /* delete.png */; };
 		31CEDC9E19EEE93F00450C1D /* favoritado.png in Resources */ = {isa = PBXBuildFile; fileRef = 31CEDC9C19EEE93F00450C1D /* favoritado.png */; };
 		31CEDC9F19EEE93F00450C1D /* favoritar.png in Resources */ = {isa = PBXBuildFile; fileRef = 31CEDC9D19EEE93F00450C1D /* favoritar.png */; };
@@ -322,6 +323,9 @@
 		31A0043D1993F0CA00121EF6 /* TelaBandaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TelaBandaViewController.m; sourceTree = "<group>"; };
 		31A0043E1993F0CA00121EF6 /* TelaBandaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TelaBandaViewController.xib; sourceTree = "<group>"; };
 		31BD71A219F9685200388774 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
+		31BFED721A377B8F00A00008 /* POVoiceHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POVoiceHUD.h; sourceTree = "<group>"; };
+		31BFED731A377B8F00A00008 /* POVoiceHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POVoiceHUD.m; sourceTree = "<group>"; };
+		31BFED751A377C1D00A00008 /* POVoiceHUDDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = POVoiceHUDDelegate.h; sourceTree = "<group>"; };
 		31C31743194783B700C99512 /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
 		31CEDC9C19EEE93F00450C1D /* favoritado.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favoritado.png; sourceTree = "<group>"; };
 		31CEDC9D19EEE93F00450C1D /* favoritar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favoritar.png; sourceTree = "<group>"; };
@@ -647,6 +651,7 @@
 		1BE8E3AD192533AD00D108C0 = {
 			isa = PBXGroup;
 			children = (
+				31BFED711A377B7E00A00008 /* POVoiceHUD */,
 				73EA7F521A35DA2000ABDC9C /* VPImageCropper */,
 				731FF6211A1183690073CF65 /* IHKeyBoard */,
 				736BF92A19A8C24B0010C356 /* SDWebImage */,
@@ -875,6 +880,16 @@
 				1B337AA219D603D700BAC433 /* uncheck.png */,
 			);
 			name = "Imagens Layout";
+			sourceTree = "<group>";
+		};
+		31BFED711A377B7E00A00008 /* POVoiceHUD */ = {
+			isa = PBXGroup;
+			children = (
+				31BFED721A377B8F00A00008 /* POVoiceHUD.h */,
+				31BFED731A377B8F00A00008 /* POVoiceHUD.m */,
+				31BFED751A377C1D00A00008 /* POVoiceHUDDelegate.h */,
+			);
+			name = POVoiceHUD;
 			sourceTree = "<group>";
 		};
 		31E1ED0719CA0A6900552DBE /* fontes */ = {
@@ -1171,7 +1186,6 @@
 				1BE8E3B2192533AD00D108C0 /* Sources */,
 				1BE8E3B3192533AD00D108C0 /* Frameworks */,
 				1BE8E3B4192533AD00D108C0 /* Resources */,
-				731292E21A16429C003062B4 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1350,22 +1364,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		731292E21A16429C003062B4 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "./Fabric.framework/run d649ec7c8a5ecc4c8f45b956843fe415ee329baa 1db4b05b9d37256876c8b3973f20d9ce4c9bf5e1df2713e97f93223d76b204f1";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		1BE8E3B2192533AD00D108C0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -1406,6 +1404,7 @@
 				31F83E14192E84C70070D597 /* TBFiltroEstilo.m in Sources */,
 				736BF95A19A8C24B0010C356 /* UIImageView+WebCache.m in Sources */,
 				73E0B14219893EFC00107711 /* TPHorario.m in Sources */,
+				31BFED741A377B8F00A00008 /* POVoiceHUD.m in Sources */,
 				31A0043F1993F0CA00121EF6 /* TelaBandaViewController.m in Sources */,
 				7347E6341A274E6B0085C9E4 /* SPService.m in Sources */,
 				73A3073319746B60005551D3 /* TBInstrumentosQueTocaViewController.m in Sources */,

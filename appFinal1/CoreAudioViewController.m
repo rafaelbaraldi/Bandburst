@@ -31,6 +31,20 @@
     return self;
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    
+    self.voiceHud = [[POVoiceHUD alloc] initWithParentView:self.view];
+    
+    [self.voiceHud setDelegate:self];
+    [self.view addSubview:self.voiceHud];
+    
+    CGRect newFrame = self.voiceHud.frame;
+    newFrame.origin.y = -100;
+    newFrame.size.height = 300;
+    
+    self.voiceHud.frame = newFrame;
+}
+
 -(void)viewWillAppear:(BOOL)animated{
 //    [_audioPlot clear];
 }
@@ -128,6 +142,8 @@
                     
 //                    [_audioPlot clear];
                     
+                    [self.voiceHud startForFilePath:[NSString stringWithFormat:@"%@/Documents/MySound.caf", NSHomeDirectory()]];
+                    
                     //Preparava gravador
                     [self carregaGravador:txtNome categoria:txtCategoria];
                     [recorder prepareToRecord];
@@ -184,9 +200,12 @@
 
 //Vamos gravar um som galera!
 - (IBAction)gravar:(id)sender {
+    
     if(_gravando){
         //Para gravação
         [recorder stop];
+        
+        [self.voiceHud commitRecording];
         
         //Altera botao da gravação
         [_btnGravar setTitle:@"Gravar" forState:UIControlStateNormal];
@@ -243,5 +262,6 @@
 //        [self.audioPlot updateBuffer:buffer[0] withBufferSize:bufferSize];
 //    });
 //}
+
 
 @end
