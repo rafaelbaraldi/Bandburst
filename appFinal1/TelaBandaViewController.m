@@ -108,61 +108,83 @@
     
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"mensagemCell"];
     
-    if(cell == nil){
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"mensagemCell"];
-    }
-    
     NSString *msg = ((TPMensagem*)[_banda.mensagens objectAtIndex:indexPath.row]).mensagem;
     
-//    cell.textLabel.text = msg;
-//    cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
-//    cell.textLabel.numberOfLines = 0;
-//    cell.textLabel.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:11];
+    if(cell == nil){
+        
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"mensagemCell"];
+    }
+    else {
+        UILabel *texto = (UILabel *)[cell viewWithTag:1];
+        UIImageView *bubble = (UIImageView *)[cell viewWithTag:2];
+        if ([texto superview]) {
+            [texto removeFromSuperview];
+        }
+        
+        if ([bubble superview]) {
+            [bubble removeFromSuperview];
+        }
+    }
     
     //Texto
-    UIView *returnView =  [self viewText:msg];
-//    returnView.backgroundColor = [UIColor clearColor];
-//    returnView.frame = CGRectMake(0, 0, 300, 60);
-
+    UILabel *returnView =  [self viewText:msg];
+    returnView.backgroundColor = [UIColor clearColor];
+    returnView.tag = 1;
+    
     //Balao
-//    UIImage *bubble = [UIImage imageNamed:@"mensagem"];
-//    UIImageView *bubbleImageView = [[UIImageView alloc] initWithImage:[bubble stretchableImageWithLeftCapWidth:20 topCapHeight:14]];
+    UIImage *bubble;
+    BOOL msgSelf = NO;
+    if([((TPMensagem*)[_banda.mensagens objectAtIndex:indexPath.row]).idUsuario isEqualToString:[[LocalStore sharedStore] usuarioAtual].identificador]){
+        bubble = [UIImage imageNamed:@"mensagem_self.png"];
+        msgSelf = YES;
+    }
+    else{
+        bubble = [UIImage imageNamed:@"mensagem.png"];
+    }
     
-//    returnView.frame= CGRectMake(9.0f, 15.0f, returnView.frame.size.width, returnView.frame.size.height);
-//    bubbleImageView.frame = CGRectMake(0.0f, 14.0f, returnView.frame.size.width+24.0f, returnView.frame.size.height+24.0f );
+    UIImageView *bubbleImageView = [[UIImageView alloc] initWithImage:[bubble stretchableImageWithLeftCapWidth:20 topCapHeight:14]];
+    bubbleImageView.backgroundColor = [UIColor whiteColor];
+    bubbleImageView.tag = 2;
     
-//    [cell addSubview:bubbleImageView];
+    if(msgSelf){
+        returnView.frame = CGRectMake(287 - returnView.frame.size.width, 12, returnView.frame.size.width, returnView.frame.size.height);
+        bubbleImageView.frame = CGRectMake(275 - returnView.frame.size.width, 0, returnView.frame.size.width + 24, returnView.frame.size.height + 24);
+    }
+    else{
+        returnView.frame = CGRectMake(32, 12, returnView.frame.size.width, returnView.frame.size.height);
+        bubbleImageView.frame = CGRectMake(20, 0, returnView.frame.size.width + 24, returnView.frame.size.height + 24);
+    }
+    
+    [cell addSubview:bubbleImageView];
     [cell addSubview:returnView];
+
     
     return cell;
 }
 
--(UIView*)viewText:(NSString*)text{
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    NSString *msg = ((TPMensagem*)[_banda.mensagens objectAtIndex:indexPath.row]).mensagem;
+    UIView *returnView =  [self viewText:msg];
+    
+    return returnView.frame.size.height + 15 + 24;
+}
+
+-(UILabel*)viewText:(NSString*)text{
     
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
     label.text = text;
     label.lineBreakMode = NSLineBreakByWordWrapping;
     label.numberOfLines = 0;
-    label.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:11];
+    label.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:12];
     
-    NSAttributedString *attributedText =
-    [[NSAttributedString alloc]
-     initWithString:text
-     attributes:@
-     {
-         NSFontAttributeName: [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:11]
-     }];
+    NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName: [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:12]}];
 
-    CGRect rect = [attributedText boundingRectWithSize:(CGSize){320, CGFLOAT_MAX}
+    CGRect rect = [attributedText boundingRectWithSize:(CGSize){250, CGFLOAT_MAX}
                                                options:NSStringDrawingUsesLineFragmentOrigin
                                                context:nil];
-    
-    CGSize size = rect.size;
 
-    label.frame = CGRectMake(0, 0, size.width, size.height);
-    
-    label.layer.borderWidth = 2;
-    label.layer.borderColor = [UIColor redColor].CGColor;
+    label.frame = CGRectMake(0, 0, ceil(rect.size.width), ceil(rect.size.height));
     
     return label;
 }

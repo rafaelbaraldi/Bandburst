@@ -87,7 +87,6 @@
 		3106DE431A30E825000B154C /* LoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3106DE411A30E825000B154C /* LoadingViewController.xib */; };
 		3153016A19EDAE2B0041127C /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3153016919EDAE2B0041127C /* logo.png */; };
 		3153016E19EDBA060041127C /* config.png in Resources */ = {isa = PBXBuildFile; fileRef = 3153016D19EDBA060041127C /* config.png */; };
-		315845281A362C2B002C1F27 /* mensagem.png in Resources */ = {isa = PBXBuildFile; fileRef = 315845271A362C2B002C1F27 /* mensagem.png */; };
 		316AAA07199E8C81001CE96B /* CellTituloMusica.xib in Resources */ = {isa = PBXBuildFile; fileRef = 316AAA06199E8C81001CE96B /* CellTituloMusica.xib */; };
 		316DECD419F5A0D900141E3D /* config@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 316DECD319F5A0D900141E3D /* config@2x.png */; };
 		3181DBB719EF0E57002CAF55 /* TelaPerfilViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3181DBB619EF0E57002CAF55 /* TelaPerfilViewController.xib */; };
@@ -183,6 +182,8 @@
 		73DF446D197053EB000EE360 /* TelaEsqueciSenhaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73DF446B197053EB000EE360 /* TelaEsqueciSenhaViewController.xib */; };
 		73E0B14219893EFC00107711 /* TPHorario.m in Sources */ = {isa = PBXBuildFile; fileRef = 73E0B14119893EFC00107711 /* TPHorario.m */; };
 		73EA7F551A35DA3300ABDC9C /* VPImageCropperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73EA7F541A35DA3300ABDC9C /* VPImageCropperViewController.m */; };
+		73EA7F591A36862600ABDC9C /* mensagem.png in Resources */ = {isa = PBXBuildFile; fileRef = 73EA7F581A36862600ABDC9C /* mensagem.png */; };
+		73EA7F5D1A368C9200ABDC9C /* mensagem_self.png in Resources */ = {isa = PBXBuildFile; fileRef = 73EA7F5C1A368C9200ABDC9C /* mensagem_self.png */; };
 		73EC6E92196B121B0034CB9B /* TelaLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73EC6E90196B121B0034CB9B /* TelaLoginViewController.m */; };
 		73EC6E93196B121B0034CB9B /* TelaLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73EC6E91196B121B0034CB9B /* TelaLoginViewController.xib */; };
 		73EC6E97196B18430034CB9B /* LoginConexao.m in Sources */ = {isa = PBXBuildFile; fileRef = 73EC6E96196B18430034CB9B /* LoginConexao.m */; };
@@ -310,7 +311,6 @@
 		3106DE411A30E825000B154C /* LoadingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingViewController.xib; sourceTree = "<group>"; };
 		3153016919EDAE2B0041127C /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		3153016D19EDBA060041127C /* config.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = config.png; sourceTree = "<group>"; };
-		315845271A362C2B002C1F27 /* mensagem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mensagem.png; sourceTree = "<group>"; };
 		316AAA06199E8C81001CE96B /* CellTituloMusica.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellTituloMusica.xib; sourceTree = "<group>"; };
 		316DECD319F5A0D900141E3D /* config@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "config@2x.png"; sourceTree = "<group>"; };
 		3181DBB619EF0E57002CAF55 /* TelaPerfilViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TelaPerfilViewController.xib; sourceTree = "<group>"; };
@@ -448,6 +448,8 @@
 		73E0B14119893EFC00107711 /* TPHorario.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPHorario.m; sourceTree = "<group>"; };
 		73EA7F531A35DA3300ABDC9C /* VPImageCropperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VPImageCropperViewController.h; sourceTree = "<group>"; };
 		73EA7F541A35DA3300ABDC9C /* VPImageCropperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VPImageCropperViewController.m; sourceTree = "<group>"; };
+		73EA7F581A36862600ABDC9C /* mensagem.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mensagem.png; sourceTree = "<group>"; };
+		73EA7F5C1A368C9200ABDC9C /* mensagem_self.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mensagem_self.png; sourceTree = "<group>"; };
 		73EC6E8F196B121B0034CB9B /* TelaLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TelaLoginViewController.h; sourceTree = "<group>"; };
 		73EC6E90196B121B0034CB9B /* TelaLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TelaLoginViewController.m; sourceTree = "<group>"; };
 		73EC6E91196B121B0034CB9B /* TelaLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TelaLoginViewController.xib; sourceTree = "<group>"; };
@@ -653,7 +655,7 @@
 				73EA7F521A35DA2000ABDC9C /* VPImageCropper */,
 				731FF6211A1183690073CF65 /* IHKeyBoard */,
 				736BF92A19A8C24B0010C356 /* SDWebImage */,
-				1BE8E3C1192533AD00D108C0 /* appFinal1 */,
+				1BE8E3C1192533AD00D108C0 /* Bandburst */,
 				1BE8E3D0192533AD00D108C0 /* Images.xcassets */,
 				2F270FC91981936C00EFBEB4 /* Reachability.h */,
 				2F270FCA1981936C00EFBEB4 /* Reachability.m */,
@@ -692,7 +694,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		1BE8E3C1192533AD00D108C0 /* appFinal1 */ = {
+		1BE8E3C1192533AD00D108C0 /* Bandburst */ = {
 			isa = PBXGroup;
 			children = (
 				1BE8E3CA192533AD00D108C0 /* AppDelegate.h */,
@@ -711,6 +713,7 @@
 				1B1613021992A275009D5513 /* Banda */,
 				316AAA08199E9D75001CE96B /* Imagens Layout */,
 			);
+			name = Bandburst;
 			path = appFinal1;
 			sourceTree = "<group>";
 		};
@@ -868,7 +871,8 @@
 				1B67BD8319D9F00500A663EC /* gravar.png */,
 				1B41D5E219EF10ED00D6D034 /* gravarIcon@2x.png */,
 				3153016919EDAE2B0041127C /* logo.png */,
-				315845271A362C2B002C1F27 /* mensagem.png */,
+				73EA7F581A36862600ABDC9C /* mensagem.png */,
+				73EA7F5C1A368C9200ABDC9C /* mensagem_self.png */,
 				31BD71A219F9685200388774 /* pause.png */,
 				31EC795319F824A1004CB4A9 /* playing.png */,
 				31EC794419F81B94004CB4A9 /* placeholderFoto.png */,
@@ -1253,7 +1257,7 @@
 				3106DE431A30E825000B154C /* LoadingViewController.xib in Resources */,
 				73EC6E93196B121B0034CB9B /* TelaLoginViewController.xib in Resources */,
 				1BEA459E1992C7A100876D75 /* 14.png in Resources */,
-				315845281A362C2B002C1F27 /* mensagem.png in Resources */,
+				73EA7F591A36862600ABDC9C /* mensagem.png in Resources */,
 				1B5239601995537800D2A640 /* TelaMusicasViewController.xib in Resources */,
 				1BEA45A11992C7A100876D75 /* 16.png in Resources */,
 				1BEA45A51992C7A100876D75 /* 7.png in Resources */,
@@ -1275,6 +1279,7 @@
 				73A3072419744C09005551D3 /* TBEstilosQueTocaViewController.xib in Resources */,
 				1BDA118A199BEEB9005F7262 /* CellMusica.xib in Resources */,
 				73A3072919744CBC005551D3 /* TBEstilosViewController.xib in Resources */,
+				73EA7F5D1A368C9200ABDC9C /* mensagem_self.png in Resources */,
 				1B67BD8119D9E66000A663EC /* gravador.png in Resources */,
 				31F67C7A193523D400113DA8 /* TelaUsuarioFiltrado.xib in Resources */,
 				73F6F71119A63F980003B408 /* deselecionado.png in Resources */,
