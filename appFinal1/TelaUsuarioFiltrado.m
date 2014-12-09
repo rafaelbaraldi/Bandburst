@@ -82,15 +82,16 @@
 -(void)carregaLayout{
 
     _lblNome.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:18.0f];
-    _lblSexo.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14.0f];
-    _lblCidadeBairro.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14.0f];
+    _lblCidade.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14.0f];
+    _lblBairro.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14.0f];
     _lblAtribuicoes.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14.0f];
+    _lblEmail.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:14.0f];
     
     //Arruma Cor
     _lblNome.textColor = [[LocalStore sharedStore] FONTECOR];
-    _lblCidadeBairro.textColor = [[LocalStore sharedStore] FONTECOR];
-    
-    [_lblNome adjustsFontSizeToFitWidth];
+    _lblCidade.textColor = [[LocalStore sharedStore] FONTECOR];
+    _lblBairro.textColor = [[LocalStore sharedStore] FONTECOR];
+    _lblEmail.textColor = [[LocalStore sharedStore] FONTECOR];
 
     //Esconde linhas da tabela
     _tbDados.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
@@ -110,18 +111,20 @@
 -(void)carregaUsuarioFiltrado{
     _pessoa = [BuscaStore buscaPessoa:_identificador];
     
-    //Nome e Sexo e email
+    //Nome e email, Cidade e bairro
     _lblNome.text = _pessoa.nome;
-    _lblSexo.text = _pessoa.sexo;
-//    _lblEmail.text = _pessoa.email;
+    _lblEmail.text = _pessoa.email;
+    _lblCidade.text = _pessoa.cidade;
+    _lblBairro.text = _pessoa.bairro;
+    
+    [_lblNome adjustsFontSizeToFitWidth];
+    [_lblEmail adjustsFontSizeToFitWidth];
+    [_lblCidade adjustsFontSizeToFitWidth];
+    [_lblBairro adjustsFontSizeToFitWidth];
     
     //Carrega Horarios
     _horarios = [TPHorario getHorarios:_pessoa.horarios];
-    
-    //Cidade e Bairro
-    _lblCidadeBairro.lineBreakMode = NSLineBreakByCharWrapping;
-    _lblCidadeBairro.numberOfLines = 2;
-    _lblCidadeBairro.text = [NSString stringWithFormat:@"%@\n\n%@", _pessoa.cidade, _pessoa.bairro];
+
     
     //Atribuicoes
     [self carregaAtribuicoes];

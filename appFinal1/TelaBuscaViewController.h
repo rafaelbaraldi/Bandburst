@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 RAFAEL BARALDI. All rights reserved.
 //
 
-#import <MoPub/MoPub.h>
+//#import <MoPub/MoPub.h>
 #import <UIKit/UIKit.h>
 
 @interface TelaBuscaViewController : UIViewController <UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate>
 
 
-@property (nonatomic) MPAdView *adView;
+//@property (nonatomic) MPAdView *adView;
 
 @property NSMutableArray *usuarios;
 

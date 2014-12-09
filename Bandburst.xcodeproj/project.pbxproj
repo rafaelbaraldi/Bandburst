@@ -121,9 +121,6 @@
 		73029BA619819A4200BFB4B3 /* TBFiltroHorario.m in Sources */ = {isa = PBXBuildFile; fileRef = 73029BA419819A4200BFB4B3 /* TBFiltroHorario.m */; };
 		73029BA719819A4200BFB4B3 /* TBFiltroHorario.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73029BA519819A4200BFB4B3 /* TBFiltroHorario.xib */; };
 		731FF6201A11835A0073CF65 /* IHKeyboardAvoiding.m in Sources */ = {isa = PBXBuildFile; fileRef = 731FF61F1A11835A0073CF65 /* IHKeyboardAvoiding.m */; };
-		731FF6261A13B8C60073CF65 /* MoPub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 731FF6231A13B8C60073CF65 /* MoPub.framework */; };
-		731FF6271A13B8C60073CF65 /* MoPub.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 731FF6241A13B8C60073CF65 /* MoPub.bundle */; };
-		731FF6281A13B8C60073CF65 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 731FF6251A13B8C60073CF65 /* Fabric.framework */; };
 		731FF62A1A13BCFF0073CF65 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 731FF6291A13BCFF0073CF65 /* Crashlytics.framework */; };
 		7347BF0C1A2D1E0E00933BEC /* loading0001.png in Resources */ = {isa = PBXBuildFile; fileRef = 7347BF021A2D1E0E00933BEC /* loading0001.png */; };
 		7347BF0D1A2D1E0E00933BEC /* loading0002.png in Resources */ = {isa = PBXBuildFile; fileRef = 7347BF031A2D1E0E00933BEC /* loading0002.png */; };
@@ -165,6 +162,7 @@
 		737F34A11976F9CC00AAF796 /* cellHorario.xib in Resources */ = {isa = PBXBuildFile; fileRef = 737F34A01976F9CC00AAF796 /* cellHorario.xib */; };
 		737F34A519785C3F00AAF796 /* TelaCadastroFotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 737F34A319785C3F00AAF796 /* TelaCadastroFotoViewController.m */; };
 		737F34A619785C3F00AAF796 /* TelaCadastroFotoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 737F34A419785C3F00AAF796 /* TelaCadastroFotoViewController.xib */; };
+		739B53831A371740009F20DA /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 739B53821A371740009F20DA /* Fabric.framework */; };
 		739DA1E4198C0E7D005053DB /* TelaOpcoesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 739DA1E2198C0E7D005053DB /* TelaOpcoesViewController.m */; };
 		739DA1E5198C0E7D005053DB /* TelaOpcoesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 739DA1E3198C0E7D005053DB /* TelaOpcoesViewController.xib */; };
 		73A3072319744C09005551D3 /* TBEstilosQueTocaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A3072119744C09005551D3 /* TBEstilosQueTocaViewController.m */; };
@@ -355,9 +353,6 @@
 		73029BA519819A4200BFB4B3 /* TBFiltroHorario.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TBFiltroHorario.xib; sourceTree = "<group>"; };
 		731FF61E1A11835A0073CF65 /* IHKeyboardAvoiding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IHKeyboardAvoiding.h; sourceTree = "<group>"; };
 		731FF61F1A11835A0073CF65 /* IHKeyboardAvoiding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IHKeyboardAvoiding.m; sourceTree = "<group>"; };
-		731FF6231A13B8C60073CF65 /* MoPub.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MoPub.framework; sourceTree = "<group>"; };
-		731FF6241A13B8C60073CF65 /* MoPub.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = MoPub.bundle; path = MoPub.framework/Versions/A/Resources/MoPub.bundle; sourceTree = "<group>"; };
-		731FF6251A13B8C60073CF65 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		731FF6291A13BCFF0073CF65 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		7347BF021A2D1E0E00933BEC /* loading0001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading0001.png; sourceTree = "<group>"; };
 		7347BF031A2D1E0E00933BEC /* loading0002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading0002.png; sourceTree = "<group>"; };
@@ -421,6 +416,7 @@
 		737F34A219785C3F00AAF796 /* TelaCadastroFotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TelaCadastroFotoViewController.h; sourceTree = "<group>"; };
 		737F34A319785C3F00AAF796 /* TelaCadastroFotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TelaCadastroFotoViewController.m; sourceTree = "<group>"; };
 		737F34A419785C3F00AAF796 /* TelaCadastroFotoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TelaCadastroFotoViewController.xib; sourceTree = "<group>"; };
+		739B53821A371740009F20DA /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		739DA1E1198C0E7D005053DB /* TelaOpcoesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TelaOpcoesViewController.h; sourceTree = "<group>"; };
 		739DA1E2198C0E7D005053DB /* TelaOpcoesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TelaOpcoesViewController.m; sourceTree = "<group>"; };
 		739DA1E3198C0E7D005053DB /* TelaOpcoesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TelaOpcoesViewController.xib; sourceTree = "<group>"; };
@@ -472,10 +468,9 @@
 				1BE8E3BC192533AD00D108C0 /* CoreGraphics.framework in Frameworks */,
 				1BE8E3C0192533AD00D108C0 /* CoreData.framework in Frameworks */,
 				1BE8E3BE192533AD00D108C0 /* UIKit.framework in Frameworks */,
-				731FF6281A13B8C60073CF65 /* Fabric.framework in Frameworks */,
+				739B53831A371740009F20DA /* Fabric.framework in Frameworks */,
 				731FF62A1A13BCFF0073CF65 /* Crashlytics.framework in Frameworks */,
 				1BE8E3BA192533AD00D108C0 /* Foundation.framework in Frameworks */,
-				731FF6261A13B8C60073CF65 /* MoPub.framework in Frameworks */,
 				1B9A0F4A19CB5964009AA3EB /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -678,10 +673,8 @@
 		1BE8E3B8192533AD00D108C0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				739B53821A371740009F20DA /* Fabric.framework */,
 				731FF6291A13BCFF0073CF65 /* Crashlytics.framework */,
-				731FF6231A13B8C60073CF65 /* MoPub.framework */,
-				731FF6241A13B8C60073CF65 /* MoPub.bundle */,
-				731FF6251A13B8C60073CF65 /* Fabric.framework */,
 				1B9A0F4919CB5964009AA3EB /* FacebookSDK.framework */,
 				736BF95C19A8C2790010C356 /* ImageIO.framework */,
 				73C84969196F11BD003D9371 /* Security.framework */,
@@ -1265,7 +1258,6 @@
 				1BEA45961992C7A100876D75 /* 9.png in Resources */,
 				1B41D5E519EF10ED00D6D034 /* gravarIcon@2x.png in Resources */,
 				31EC796019F83757004CB4A9 /* slider.png in Resources */,
-				731FF6271A13B8C60073CF65 /* MoPub.bundle in Resources */,
 				737D09E91975C5D1000975F6 /* TelaInicioViewController.xib in Resources */,
 				1BEA45A01992C7A100876D75 /* 4.png in Resources */,
 				734C4B251A116817004E22A0 /* estrela.png in Resources */,
@@ -1370,7 +1362,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "";
+			shellScript = "./Fabric.framework/run d649ec7c8a5ecc4c8f45b956843fe415ee329baa 1db4b05b9d37256876c8b3973f20d9ce4c9bf5e1df2713e97f93223d76b204f1";
 		};
 /* End PBXShellScriptBuildPhase section */
 

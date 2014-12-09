@@ -81,10 +81,10 @@
     [self carregaLayout];
 }
 
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    [self.adView setKeywords:searchBar.text];
-    [self.adView refreshAd];
-}
+//- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+//    [self.adView setKeywords:searchBar.text];
+//    [self.adView refreshAd];
+//}
 
 -(void)escondeBotaoDeBoltarSeUsuarioLogado{
 

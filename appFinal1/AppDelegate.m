@@ -56,6 +56,8 @@
     //Crashlytics
 //    [[Crashlytics sharedInstance] crash];
 //    [[Crashlytics sharedInstance] setDebugMode:YES];
+    [Fabric with:@[CrashlyticsKit]];
+
 //    [Fabric with:@[CrashlyticsKit, MoPubKit]];
     
     return YES;

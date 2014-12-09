@@ -108,14 +108,14 @@
     
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"mensagemCell"];
     
-    NSString *msg = ((TPMensagem*)[_banda.mensagens objectAtIndex:indexPath.row]).mensagem;
+    TPMensagem *msg = ((TPMensagem*)[_banda.mensagens objectAtIndex:indexPath.row]);
     
     if(cell == nil){
         
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"mensagemCell"];
     }
     else {
-        UILabel *texto = (UILabel *)[cell viewWithTag:1];
+        UIView *texto = (UIView *)[cell viewWithTag:1];
         UIImageView *bubble = (UIImageView *)[cell viewWithTag:2];
         if ([texto superview]) {
             [texto removeFromSuperview];
@@ -127,7 +127,7 @@
     }
     
     //Texto
-    UILabel *returnView =  [self viewText:msg];
+    UIView *returnView = [self viewText:msg];
     returnView.backgroundColor = [UIColor clearColor];
     returnView.tag = 1;
     
@@ -164,29 +164,64 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    NSString *msg = ((TPMensagem*)[_banda.mensagens objectAtIndex:indexPath.row]).mensagem;
+    TPMensagem *msg = ((TPMensagem*)[_banda.mensagens objectAtIndex:indexPath.row]);
     UIView *returnView =  [self viewText:msg];
     
     return returnView.frame.size.height + 15 + 24;
 }
 
--(UILabel*)viewText:(NSString*)text{
+-(UIView*)viewText:(TPMensagem*)msg{
     
+    //Texto
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
-    label.text = text;
+    label.text = msg.mensagem;
     label.lineBreakMode = NSLineBreakByWordWrapping;
     label.numberOfLines = 0;
-    label.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:12];
+    label.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:13];
     
-    NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName: [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:12]}];
+    //Tamanho do texto
+    NSAttributedString *attributedText = [[NSAttributedString alloc] initWithString:msg.mensagem attributes:@{NSFontAttributeName: [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:13]}];
 
     CGRect rect = [attributedText boundingRectWithSize:(CGSize){250, CGFLOAT_MAX}
                                                options:NSStringDrawingUsesLineFragmentOrigin
                                                context:nil];
 
-    label.frame = CGRectMake(0, 0, ceil(rect.size.width), ceil(rect.size.height));
+    label.frame = CGRectMake(0, 2, ceil(rect.size.width), ceil(rect.size.height));
     
-    return label;
+    
+    //Tamanho do nome
+    NSAttributedString *attributedNome = [[NSAttributedString alloc] initWithString:msg.nomeUsuario attributes:@{NSFontAttributeName: [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:13]}];
+    
+    CGRect rectNome = [attributedNome boundingRectWithSize:(CGSize){250, CGFLOAT_MAX}
+                                               options:NSStringDrawingUsesLineFragmentOrigin
+                                               context:nil];
+    
+    
+    //Nome de qm enviou a mensagem
+    UILabel *nome = [[UILabel alloc] initWithFrame:CGRectZero];
+    nome.text = msg.nomeUsuario;
+    nome.textColor = [[LocalStore sharedStore] FONTECOR];
+    nome.font = [UIFont fontWithName:[[LocalStore sharedStore] FONTEFAMILIA] size:13];
+    nome.frame = CGRectMake(0, 2, ceil(rectNome.size.width), ceil(rectNome.size.height));
+    
+    CGRect rectView;
+    //View com texto e nome
+    if (rect.size.width > rectNome.size.width)
+        rectView = rect;
+    else
+        rectView = rectNome;
+        
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ceil(rect.size.width), ceil(rect.size.height))];
+    
+    [view addSubview:label];
+    
+    if(![msg.idUsuario isEqualToString:[[LocalStore sharedStore] usuarioAtual].identificador]){
+        [view addSubview:nome];
+        view.frame = CGRectMake(0, 0, ceil(rectView.size.width), ceil(rect.size.height) + 22);
+        label.frame = CGRectMake(0, 22, ceil(rect.size.width), ceil(rect.size.height));
+    }
+    
+    return view;
 }
 
 

@@ -15,8 +15,11 @@
 @property TPUsuario *pessoa;
 
 @property (strong, nonatomic) IBOutlet UILabel *lblNome;
-@property (strong, nonatomic) IBOutlet UILabel *lblSexo;
-@property (strong, nonatomic) IBOutlet UILabel *lblCidadeBairro;
+@property (weak, nonatomic) IBOutlet UILabel *lblEmail;
+@property (weak, nonatomic) IBOutlet UILabel *lblCidade;
+@property (weak, nonatomic) IBOutlet UILabel *lblBairro;
+
+
 @property (weak, nonatomic) IBOutlet UITextView *lblAtribuicoes;
 
 @property NSMutableArray *dadosUsuarios;
