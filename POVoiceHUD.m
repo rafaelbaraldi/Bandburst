@@ -106,7 +106,7 @@
 	[recorder setDelegate:self];
 	[recorder prepareToRecord];
 	recorder.meteringEnabled = YES;
-	[recorder recordForDuration:(NSTimeInterval) 200];
+	[recorder recordForDuration:(NSTimeInterval) 90];
 	
 	timer = [NSTimer scheduledTimerWithTimeInterval:WAVE_UPDATE_FREQUENCY target:self selector:@selector(updateMeters) userInfo:nil repeats:YES];
 }

@@ -110,7 +110,7 @@
         _player = [[AVAudioPlayer alloc]initWithData:data error:nil];
     }
     
-    _player.volume = 0.9;
+    _player.volume = 2.9;
     _player.delegate = self;
 }
 
